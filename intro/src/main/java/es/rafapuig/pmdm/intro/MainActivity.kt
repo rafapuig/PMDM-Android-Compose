@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,8 +40,11 @@ class MainActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.SpaceEvenly,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        LevanteUDLogo()
-                        Greeting(stringResource(R.string.levante_ud))
+                        LevanteUDLogo(Modifier/*.weight(1f)*/.fillMaxWidth())
+                        Greeting(
+                            name = stringResource(R.string.levante_ud),
+                            //modifier = Modifier.weight(0.2f)
+                        )
                     }
                 }
             }
@@ -54,7 +58,7 @@ fun LevanteUDLogo(modifier: Modifier = Modifier) {
     Image(
         painter,
         contentDescription = null,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         contentScale = ContentScale.FillWidth
     )
 }
