@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,27 +31,41 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            PMDMComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .padding(innerPadding)
-                            .fillMaxSize(),
-                        verticalArrangement = Arrangement.SpaceEvenly,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        LevanteUDLogo(Modifier/*.weight(1f)*/.fillMaxWidth())
-                        Greeting(
-                            name = stringResource(R.string.levante_ud),
-                            //modifier = Modifier.weight(0.2f)
-                        )
-                    }
-                }
+
+        /**
+         * Función de extension de receptor tipo ComponentActivity
+         */
+        setContent { MainActivityScreen() }
+        /**
+         * Equivale a lo anterior pero creando la vista
+         */
+        val view = ComposeView(this)
+        view.setContent { MainActivityScreen() }
+        setContentView(view)
+    }
+}
+
+@Composable
+fun MainActivityScreen() {
+    PMDMComposeTheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            Column(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                verticalArrangement = Arrangement.SpaceEvenly,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                LevanteUDLogo(Modifier/*.weight(1f)*/.fillMaxWidth())
+                Greeting(
+                    name = stringResource(R.string.levante_ud),
+                    //modifier = Modifier.weight(0.2f)
+                )
             }
         }
     }
 }
+
 
 @Composable
 fun LevanteUDLogo(modifier: Modifier = Modifier) {
