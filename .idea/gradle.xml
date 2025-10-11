@@ -12,7 +12,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/intro" />
+            <option value="$PROJECT_DIR$/learningcompose" />
             <option value="$PROJECT_DIR$/myfirstcomposeapp" />
+            <option value="$PROJECT_DIR$/previewsdemo" />
           </set>
         </option>
       </GradleProjectSettings>

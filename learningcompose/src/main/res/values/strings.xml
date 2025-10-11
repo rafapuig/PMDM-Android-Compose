@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Learning Compose</string>
+    <string name="title_activity_configuration_changes_demo">ConfigurationChangesDemoActivity
+    </string>
+</resources>
