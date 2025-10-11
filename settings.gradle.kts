@@ -23,3 +23,4 @@ rootProject.name = "PMDM-Compose"
 include(":app")
 include(":myfirstcomposeapp")
 include(":intro")
+include(":previewsdemo")
