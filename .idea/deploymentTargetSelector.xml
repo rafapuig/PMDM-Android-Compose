@@ -17,9 +17,6 @@
       <SelectionState runConfigName="learningcompose">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PersonListScreen">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="PersonListScreen2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -30,6 +27,9 @@
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="TextFieldStateHoistingDemoScreenPreview">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="ConfigurationChangesDemoActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning
+package es.rafapuig.pmdm.compose.learning.concepts
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import es.rafapuig.pmdm.compose.learning.configuration.ConfigurationChangesDemoScreen
+import es.rafapuig.pmdm.compose.learning.concepts.configuration.ConfigurationChangesDemoScreen
 import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
 
 class ConfigurationChangesDemoActivity : ComponentActivity() {

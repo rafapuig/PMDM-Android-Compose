@@ -8,11 +8,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
-        <activity
-            android:name=".ConfigurationChangesDemoActivity"
-            android:exported="true"
-            android:label="@string/title_activity_configuration_changes_demo"
-            android:theme="@style/Theme.PMDMCompose"/>
 
         <activity
             android:name=".MainActivity"
@@ -24,6 +19,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".concepts.ConfigurationChangesDemoActivity"
+            android:exported="true"
+            android:label="@string/title_activity_configuration_changes_demo"
+            android:theme="@style/Theme.PMDMCompose" />
+
+        <activity
+            android:name=".modifiers.ModifiersDemoActivity"
+            android:exported="true"
+            android:label="@string/title_activity_modifiers_demo"
+            android:theme="@style/Theme.PMDMCompose" />
     </application>
 
 </manifest>

@@ -1,11 +1,11 @@
-package es.rafapuig.pmdm.compose.learning.configuration
+package es.rafapuig.pmdm.compose.learning.concepts.configuration
+
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning
+package es.rafapuig.pmdm.compose.learning.concepts
 
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
