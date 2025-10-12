@@ -67,7 +67,7 @@ fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
      *
      * Si es así, este parámetro será el primer parámetro con valor por defecto
      * de la lista de parámetros de la función composable
-     * (lo cual permite pasar el argumento por posición o por nombre)
+     * (lo que permite pasar el argumento por posición o por nombre)
      */
     Text(
         "Hola Modifiers",
