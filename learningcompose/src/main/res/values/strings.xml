@@ -3,4 +3,5 @@
     <string name="title_activity_configuration_changes_demo">ConfigurationChangesDemoActivity
     </string>
     <string name="title_activity_modifiers_demo">ModifiersDemoActivity</string>
+    <string name="title_activity_gestures">GesturesActivity</string>
 </resources>
