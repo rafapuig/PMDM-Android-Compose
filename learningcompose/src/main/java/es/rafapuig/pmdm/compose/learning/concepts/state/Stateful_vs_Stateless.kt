@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.concepts
+package es.rafapuig.pmdm.compose.learning.concepts.state
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
