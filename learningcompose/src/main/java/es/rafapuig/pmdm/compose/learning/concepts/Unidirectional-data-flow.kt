@@ -23,7 +23,7 @@ fun UnidirectionaldataflowDemoScreen() {
 @Composable
 fun ParentFunctionWithState() {
     /**
-     * El la funcion donde declaramos el estado
+     * Es la funcion donde declaramos el estado
      */
     var switchState by remember { mutableStateOf(false) }
 

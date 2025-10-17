@@ -21,6 +21,11 @@ fun ColorBoxDemoScreen(modifier: Modifier = Modifier) {
     ColorBox()
 }
 
+/**
+ * Funcion de extension para generar un color aleatorio
+ * La función se usa como si fuera un miembro estatico de la clase Color
+ * ya que estamos usando como receptor el objeto companion de la clase Color
+ */
 fun Color.Companion.random() = with(Random.Default) {
     Color(
         red = nextFloat(),

@@ -15,6 +15,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
+/**
+ * En este ejemplo el estado color lo subimos (hoisting) al padre
+ *
+ * Creamos un objeto función que modifique el valor de estado color
+ * y pasamos al composable hijo ColorBox
+ * tanto el valor actual del estado del color
+ * como el manejador de eventos que se debe llamar cuando cambie el color
+ * (el objeto función)
+ */
 @Preview(showBackground = true)
 @Composable
 fun ColorBoxHoistingDemoScreen(modifier: Modifier = Modifier) {
@@ -33,6 +42,11 @@ fun ColorBoxHoistingDemoScreen(modifier: Modifier = Modifier) {
         color = it
     }
 
+    /**
+     * Pasamos al composable hijo el valor actual del estado color
+     * y el manejador de eventos onColorChange (que tiene acceso al estado color
+     * y puede modificarlo)
+     */
     ColorBox(color, onColorChange)
 }
 

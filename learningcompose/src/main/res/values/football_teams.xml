@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="football_teams_badges">
+        <item>@drawable/real_madrid</item>
+        <item>@drawable/barcelona</item>
+        <item>@drawable/atletico</item>
+        <item>@drawable/sevilla</item>
+        <item>@drawable/levante_ud</item>
+        <item>@drawable/valencia</item>
+        <item>@drawable/real_sociedad</item>
+        <item>@drawable/bilbao</item>
+        <item>@drawable/alaves</item>
+        <item>@drawable/elche</item>
+        <item>@drawable/getafe</item>
+        <item>@drawable/osasuna</item>
+        <item>@drawable/oviedo</item>
+        <item>@drawable/villarreal</item>
+    </array>
+
+    <string-array name="football_teams_names">
+        <item>Real Madrid</item>
+        <item>Barcelona</item>
+        <item>Atletico Madrid</item>
+        <item>Sevilla</item>
+        <item>Levante U.D.</item>
+        <item>Valencia</item>
+        <item>Real Sociedad</item>
+        <item>Athletic Bilbao</item>
+        <item>Deportivo Alavés</item>
+        <item>Elche C.F.</item>
+        <item>Getafe</item>
+        <item>Osasuna</item>
+        <item>Real Oviedo</item>
+        <item>Villarreal C.F.</item>
+    </string-array>
+</resources>
