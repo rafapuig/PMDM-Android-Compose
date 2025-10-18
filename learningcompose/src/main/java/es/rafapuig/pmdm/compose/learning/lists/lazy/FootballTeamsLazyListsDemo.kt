@@ -23,7 +23,11 @@ import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
 import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
 import kotlinx.coroutines.delay
 
-
+/**
+ * Función para cargar los equipos de fútbol desde los recursos de la aplicación.
+ * En el archivo football_teams.xml se definen dos arrays con
+ * los nombres y los identificadores de las imágenes de los equipos.
+ */
 private fun loadFootballTeams(resources: Resources): List<FootballTeam> {
     val names = resources.getStringArray(R.array.football_teams_names).toList()
 
@@ -41,6 +45,11 @@ private fun loadFootballTeams(resources: Resources): List<FootballTeam> {
 }
 
 
+/**
+ * Función para cargar los equipos de fútbol desde los recursos de la aplicación
+ * utilizando una corrutina.
+ * Simulando que tarda unos segundos como si fuera una llamada a una API.
+ */
 private suspend fun loadFootballTeamsAsync(resources: Resources): List<FootballTeam> {
     delay(2000)
     return loadFootballTeams(resources)
@@ -58,10 +67,11 @@ private suspend fun loadFootballTeamsAsync(resources: Resources): List<FootballT
  *
  */
 @Composable
-fun rememberFootballTeamsReadonly() : State<List<FootballTeam>> {
+fun rememberFootballTeamsReadonly(): State<List<FootballTeam>> {
 
     val resources = LocalResources.current
 
+    // Dentro de la lambda de produceState se puede llamar a funciones suspendidas
     val teams = produceState(emptyList()) {
         value = loadFootballTeamsAsync(resources)
     }
@@ -70,14 +80,14 @@ fun rememberFootballTeamsReadonly() : State<List<FootballTeam>> {
 
 /**
  * Este remember recuerda un objeto de tipo MutableState<List<FootballTeam>>.
- * Es decir, un estado, el cual cuando se modifica desencando un recomposición
+ * Es decir, un estado, el cual cuando se modifica desencadenando un recomposición
  * de los composables afectados por el valor del estado.
  */
 @Composable
-fun rememberFootballTeams(): MutableState<List<FootballTeam>?>  {
+fun rememberFootballTeams(): MutableState<List<FootballTeam>?> {
 
-    // Estado para guardar los equipos de fútbol
-    val teams : MutableState<List<FootballTeam>?> = remember { mutableStateOf(null) }
+    // Estado para guardar los equipos de fútbol (o null)
+    val teams: MutableState<List<FootballTeam>?> = remember { mutableStateOf(null) }
 
     val resources = LocalResources.current
 
@@ -93,10 +103,11 @@ fun rememberFootballTeams(): MutableState<List<FootballTeam>?>  {
     return teams
 }
 
+
 @Preview(showSystemUi = true)
 @Composable
 fun FootballTeamsScreenPreview() {
-    
+
     var teams by rememberFootballTeams()
 
     PMDMComposeTheme {
@@ -121,11 +132,11 @@ fun FootballTeamsScreenPreview() {
 }
 
 
-@Preview(showSystemUi = true)
 @Composable
 fun FootballTeamsScreen(
-    teams: List<FootballTeam> = loadFootballTeams(LocalResources.current),
-    modifier: Modifier = Modifier) {
+    teams: List<FootballTeam>,
+    modifier: Modifier = Modifier
+) {
     FootballTeamLazyList(teams, modifier = modifier)
 }
 
@@ -141,4 +152,19 @@ fun FootballTeamLazyList(
             FootballTeamItem(team = team, onItemClick = onItemClick)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun FootballTeamLazyListPreview() {
+    val resources = LocalResources.current
+
+    /**
+     * El remember recuerda y cachea el valor de objeto
+     * mientras el valor de la clave resources no cambie
+     */
+    val teams = remember(resources) {
+        loadFootballTeams(resources)
+    }
+    FootballTeamLazyList(teams)
 }
