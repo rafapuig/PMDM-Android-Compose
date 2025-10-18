@@ -1,0 +1,144 @@
+package es.rafapuig.pmdm.compose.learning.lists.lazy
+
+import android.content.res.Resources
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalResources
+import androidx.compose.ui.tooling.preview.Preview
+import es.rafapuig.pmdm.compose.learning.R
+import es.rafapuig.pmdm.compose.learning.lists.FootballTeam
+import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
+import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import kotlinx.coroutines.delay
+
+
+private fun loadFootballTeams(resources: Resources): List<FootballTeam> {
+    val names = resources.getStringArray(R.array.football_teams_names).toList()
+
+    val badgesArray = resources.obtainTypedArray(R.array.football_teams_badges)
+
+    val badges = List(badgesArray.length()) { index ->
+        badgesArray.getResourceId(index, 0)
+    }
+    badgesArray.recycle()
+
+    val teams = names.zip(badges).map { (name, badge) ->
+        FootballTeam(name, badge)
+    }
+    return teams
+}
+
+
+private suspend fun loadFootballTeamsAsync(resources: Resources): List<FootballTeam> {
+    delay(2000)
+    return loadFootballTeams(resources)
+}
+
+/**
+ * Este remember recuerda un objeto de tipo MutableState<List<FootballTeam>>.
+ * Es decir, un estado, el cual cuando se modifica desencando un recomposición
+ * de los composables afectados por el valor del estado.
+ *
+ * Al utilizar la función produceState el estado creado es State
+ * es decir, un estado de sólo lectura que no puede ser modificado.
+ * y por eso si delegaramos en una propiedad
+ * esta propiedad tambien seria  val (de sólo lectura).
+ *
+ */
+@Composable
+fun rememberFootballTeamsReadonly() : State<List<FootballTeam>> {
+
+    val resources = LocalResources.current
+
+    val teams = produceState(emptyList()) {
+        value = loadFootballTeamsAsync(resources)
+    }
+    return teams
+}
+
+/**
+ * Este remember recuerda un objeto de tipo MutableState<List<FootballTeam>>.
+ * Es decir, un estado, el cual cuando se modifica desencando un recomposición
+ * de los composables afectados por el valor del estado.
+ */
+@Composable
+fun rememberFootballTeams(): MutableState<List<FootballTeam>?>  {
+
+    // Estado para guardar los equipos de fútbol
+    val teams : MutableState<List<FootballTeam>?> = remember { mutableStateOf(null) }
+
+    val resources = LocalResources.current
+
+    // Efecto que se ejecuta al componer el composable o si cambia el contexto
+    /**
+     * Aprovechamos que la lambda argumento de LaunchedEffect
+     * tiene un receptor implícito de tipo CoroutineScope, que será donde se
+     * ejecute la lambda y por tanto, puede llamar a funciones suspendidas
+     */
+    LaunchedEffect(resources) {
+        teams.value = loadFootballTeamsAsync(resources)
+    }
+    return teams
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun FootballTeamsScreenPreview() {
+    
+    var teams by rememberFootballTeams()
+
+    PMDMComposeTheme {
+        Scaffold { paddingValues ->
+            val modifier = Modifier.padding(paddingValues)
+
+            /**
+             * Si teams contiene una referencia a un lista (operador ?.)
+             * se ejecuta el bloque de let (donde it es la lista)
+             * si no ?. devuelve null y no se ejecuta el bloque let
+             * ese null lo comprobamos con el operador Elvis ?: para
+             * es ese caso ejecutar el bloque run
+             */
+            teams?.let {
+                FootballTeamsScreen(it, modifier)
+            } ?: run {
+                LoadingScreen(modifier)
+            }
+
+        }
+    }
+}
+
+
+@Preview(showSystemUi = true)
+@Composable
+fun FootballTeamsScreen(
+    teams: List<FootballTeam> = loadFootballTeams(LocalResources.current),
+    modifier: Modifier = Modifier) {
+    FootballTeamLazyList(teams, modifier = modifier)
+}
+
+@Composable
+fun FootballTeamLazyList(
+    teams: List<FootballTeam>,
+    modifier: Modifier = Modifier,
+    onItemClick: (FootballTeam) -> Unit = {}
+) {
+
+    LazyColumn(modifier = modifier) {
+        items(teams) { team ->
+            FootballTeamItem(team = team, onItemClick = onItemClick)
+        }
+    }
+}

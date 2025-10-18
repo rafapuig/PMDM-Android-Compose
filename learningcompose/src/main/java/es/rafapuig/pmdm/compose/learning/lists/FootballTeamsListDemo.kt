@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.lists.lazy
+package es.rafapuig.pmdm.compose.learning.lists
 
 import android.annotation.SuppressLint
 import android.widget.Toast
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,19 +38,26 @@ data class FootballTeam(
     @DrawableRes val badge: Int
 )
 
-@SuppressLint("LocalContextResourcesRead", "Recycle")
+/**
+ * Al hacer un remember de un objeto "normal" (no un State)
+ * Compose recuerda el objeto entre recomposiciones
+ * (Pero si cambia el estado del objeto no se genera ninguna recomposición)
+ *
+ * Si cambiara la lista de equipos de futbol no se recompondría la UI
+ */
 @Composable
 fun rememberFootballTeams(): List<FootballTeam> {
 
-    val context = LocalContext.current
+    val resources = LocalResources.current
 
     return remember {
-        val names = context.resources.getStringArray( R.array.football_teams_names).toList()
-        val badgesArray = context.resources.obtainTypedArray(R.array.football_teams_badges)
+        val names = resources.getStringArray( R.array.football_teams_names).toList()
+        val badgesArray = resources.obtainTypedArray(R.array.football_teams_badges)
 
         val badges = List(badgesArray.length()) { index ->
             badgesArray.getResourceId(index, 0)
         }
+        badgesArray.recycle()
 
         val teams = names.zip(badges).map { (name, badge) ->
             FootballTeam(name, badge)
@@ -70,6 +77,11 @@ fun FootballTeamsScreen() {
             .show()
     }
 
+    /**
+     * Al hacer un remember de un objeto "normal" (no un State)
+     * Compose recuerda el objeto entre recomposiciones
+     * Los equipos de futbol no se vuelven a cargar entre recomposiciones
+     */
     val teams = rememberFootballTeams()
 
     Scaffold { paddingValues ->

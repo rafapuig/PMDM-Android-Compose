@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Learning Compose</string>
-    <string name="title_activity_configuration_changes_demo">ConfigurationChangesDemoActivity
+    <string name="title_activity_configuration_changes_demo" translatable="false">ConfigurationChangesDemoActivity
     </string>
-    <string name="title_activity_modifiers_demo">ModifiersDemoActivity</string>
-    <string name="title_activity_gestures">GesturesActivity</string>
+    <string name="title_activity_modifiers_demo" translatable="false">ModifiersDemoActivity</string>
+    <string name="title_activity_gestures" translatable="false">GesturesActivity</string>
+    <string name="loading_football_teams">Loading football teams…</string>
 </resources>
