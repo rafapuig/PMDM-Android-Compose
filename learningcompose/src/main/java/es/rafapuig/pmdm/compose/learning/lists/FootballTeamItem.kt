@@ -54,28 +54,28 @@ fun FootballTeamItem(
 
     ) {
         Row(
-            modifier = Modifier.Companion
+            modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
-            verticalAlignment = Alignment.Companion.CenterVertically,
+            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
         ) {
             Image(
                 painter = painterResource(id = team.badge),
                 contentDescription = null,
-                modifier = Modifier.Companion
+                modifier = Modifier
                     .weight(.15f)
                     .height(70.dp),
-                contentScale = ContentScale.Companion.Fit
+                contentScale = ContentScale.Fit
             )
-            Spacer(modifier = Modifier.Companion.weight(.05f))
+            Spacer(modifier = Modifier.weight(.05f))
             Text(
-                modifier = Modifier.Companion
+                text = team.name,
+                modifier = Modifier
                     .weight(.8f)
                     .padding(16.dp),
-                text = team.name,
                 fontSize = 32.sp,
-                color = Color.Companion.White
+                color = Color.White
             )
         }
     }
@@ -84,6 +84,7 @@ fun FootballTeamItem(
 @Preview(showBackground = true)
 @Composable
 fun FootballTeamItemPreview() {
+    val levante = FootballTeam("Levante U.D", R.drawable.levante_ud_logo)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -91,7 +92,7 @@ fun FootballTeamItemPreview() {
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        FootballTeamItem()
-        FootballTeamItem()
+        FootballTeamItem(levante)
+        FootballTeamItem(levante)
     }
 }
