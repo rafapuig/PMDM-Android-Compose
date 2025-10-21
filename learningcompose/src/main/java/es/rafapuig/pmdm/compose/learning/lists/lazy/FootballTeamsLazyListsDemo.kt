@@ -1,6 +1,7 @@
 package es.rafapuig.pmdm.compose.learning.lists.lazy
 
 import android.content.res.Resources
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -23,26 +24,33 @@ import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
 import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
 import kotlinx.coroutines.delay
 
+fun Resources.loadFootballTeamNames(): List<String> =
+    getStringArray(R.array.football_teams_names).toList()
+
+fun Resources.loadFootballTeamsBadges(): List<Int> =
+    with(obtainTypedArray(R.array.football_teams_badges)) {
+        val badges = List(length()) { index ->
+            getResourceId(index, 0)
+        }
+        recycle()
+        badges
+    }
+
+
 /**
  * Función para cargar los equipos de fútbol desde los recursos de la aplicación.
  * En el archivo football_teams.xml se definen dos arrays con
  * los nombres y los identificadores de las imágenes de los equipos.
  */
-private fun loadFootballTeams(resources: Resources): List<FootballTeam> {
-    val names = resources.getStringArray(R.array.football_teams_names).toList()
+private fun Resources.loadFootballTeams(): List<FootballTeam> =
+    run {
+        val names = loadFootballTeamNames()
+        val badges = loadFootballTeamsBadges()
 
-    val badgesArray = resources.obtainTypedArray(R.array.football_teams_badges)
-
-    val badges = List(badgesArray.length()) { index ->
-        badgesArray.getResourceId(index, 0)
+        names.zip(badges).map { (name, badge) ->
+            FootballTeam(name, badge)
+        }
     }
-    badgesArray.recycle()
-
-    val teams = names.zip(badges).map { (name, badge) ->
-        FootballTeam(name, badge)
-    }
-    return teams
-}
 
 
 /**
@@ -52,7 +60,7 @@ private fun loadFootballTeams(resources: Resources): List<FootballTeam> {
  */
 private suspend fun loadFootballTeamsAsync(resources: Resources): List<FootballTeam> {
     delay(2000)
-    return loadFootballTeams(resources)
+    return resources.loadFootballTeams()
 }
 
 /**
@@ -97,7 +105,7 @@ fun rememberFootballTeams(): MutableState<List<FootballTeam>?> {
      * tiene un receptor implícito de tipo CoroutineScope, que será donde se
      * ejecute la lambda y por tanto, puede llamar a funciones suspendidas
      */
-    LaunchedEffect(resources) {
+    LaunchedEffect(resources.configuration) {
         teams.value = loadFootballTeamsAsync(resources)
     }
     return teams
@@ -156,8 +164,8 @@ fun FootballTeamLazyListPreview() {
      * El remember recuerda y cachea el valor del objeto
      * mientras el valor de la clave resources no cambie
      */
-    val teams = remember(resources) {
-        loadFootballTeams(resources) // Utilizamos la carga síncrona por simplicidad
+    val teams = remember(resources.configuration) {
+        resources.loadFootballTeams() // Utilizamos la carga síncrona por simplicidad
     }
     FootballTeamLazyList(teams)
 }

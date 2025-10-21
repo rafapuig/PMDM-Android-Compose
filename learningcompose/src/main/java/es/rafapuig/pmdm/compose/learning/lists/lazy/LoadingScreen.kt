@@ -29,21 +29,21 @@ import es.rafapuig.pmdm.compose.learning.R
 fun LoadingScreen(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.Companion.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Box(
-            Modifier.Companion.fillMaxWidth(.5f).aspectRatio(1f)
+            Modifier.fillMaxWidth(.5f).aspectRatio(1f)
         ) {
             CircularProgressIndicator(
-                Modifier.Companion.fillMaxSize(),
+                Modifier.fillMaxSize(),
                 strokeWidth = 20.dp
             )
         }
-        Spacer(Modifier.Companion.size(32.dp))
+        Spacer(Modifier.size(32.dp))
         Text(
             stringResource(R.string.loading_football_teams),
-            Modifier.Companion.wrapContentHeight(align = Alignment.Companion.CenterVertically),
+            Modifier.wrapContentHeight(align = Alignment.CenterVertically),
             fontSize = 32.sp
         )
     }

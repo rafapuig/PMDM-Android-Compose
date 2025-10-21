@@ -33,7 +33,7 @@ fun rememberFootballTeams(): List<FootballTeam> {
 
     val resources = LocalResources.current
 
-    return remember(resources) {
+    return remember(resources.configuration) {
         val names = resources.getStringArray( R.array.football_teams_names).toList()
         val badgesArray = resources.obtainTypedArray(R.array.football_teams_badges)
 
