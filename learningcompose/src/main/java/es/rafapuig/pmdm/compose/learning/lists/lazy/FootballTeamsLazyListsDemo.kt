@@ -80,7 +80,7 @@ fun rememberFootballTeamsReadonly(): State<List<FootballTeam>> {
 
 /**
  * Este remember recuerda un objeto de tipo MutableState<List<FootballTeam>>.
- * Es decir, un estado, el cual cuando se modifica desencadenando un recomposición
+ * Es decir, un estado, que cuando se modifica desencadena un recomposición
  * de los composables afectados por el valor del estado.
  */
 @Composable
@@ -133,14 +133,6 @@ fun FootballTeamsScreenPreview() {
 
 
 @Composable
-fun FootballTeamsScreen(
-    teams: List<FootballTeam>,
-    modifier: Modifier = Modifier
-) {
-    FootballTeamLazyList(teams, modifier = modifier)
-}
-
-@Composable
 fun FootballTeamLazyList(
     teams: List<FootballTeam>,
     modifier: Modifier = Modifier,
@@ -154,17 +146,27 @@ fun FootballTeamLazyList(
     }
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun FootballTeamLazyListPreview() {
     val resources = LocalResources.current
 
     /**
-     * El remember recuerda y cachea el valor de objeto
+     * El remember recuerda y cachea el valor del objeto
      * mientras el valor de la clave resources no cambie
      */
     val teams = remember(resources) {
-        loadFootballTeams(resources)
+        loadFootballTeams(resources) // Utilizamos la carga síncrona por simplicidad
     }
     FootballTeamLazyList(teams)
+}
+
+
+@Composable
+fun FootballTeamsScreen(
+    teams: List<FootballTeam>,
+    modifier: Modifier = Modifier
+) {
+    FootballTeamLazyList(teams, modifier = modifier)
 }

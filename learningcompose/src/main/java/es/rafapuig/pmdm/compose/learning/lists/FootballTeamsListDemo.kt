@@ -33,7 +33,7 @@ fun rememberFootballTeams(): List<FootballTeam> {
 
     val resources = LocalResources.current
 
-    return remember {
+    return remember(resources) {
         val names = resources.getStringArray( R.array.football_teams_names).toList()
         val badgesArray = resources.obtainTypedArray(R.array.football_teams_badges)
 
@@ -46,6 +46,24 @@ fun rememberFootballTeams(): List<FootballTeam> {
             FootballTeam(name, badge)
         }
         teams
+    }
+}
+
+
+
+@Composable
+fun FootballTeamList(
+    teams: List<FootballTeam>,
+    modifier: Modifier = Modifier,
+    onItemClick: (FootballTeam) -> Unit = {}
+) {
+
+    val scrollState = rememberScrollState()
+
+    Column(modifier = modifier.verticalScroll(scrollState)) {
+        repeat(teams.size) { index ->
+            FootballTeamItem(team = teams[index], onItemClick = onItemClick)
+        }
     }
 }
 
@@ -71,23 +89,6 @@ fun FootballTeamsScreen() {
     Scaffold { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             FootballTeamList(teams = teams, onItemClick = onItemClick)
-        }
-    }
-}
-
-
-@Composable
-fun FootballTeamList(
-    teams: List<FootballTeam>,
-    modifier: Modifier = Modifier,
-    onItemClick: (FootballTeam) -> Unit = {}
-) {
-
-    val scrollState = rememberScrollState()
-
-    Column(modifier = modifier.verticalScroll(scrollState)) {
-        repeat(teams.size) { index ->
-            FootballTeamItem(team = teams[index], onItemClick = onItemClick)
         }
     }
 }
