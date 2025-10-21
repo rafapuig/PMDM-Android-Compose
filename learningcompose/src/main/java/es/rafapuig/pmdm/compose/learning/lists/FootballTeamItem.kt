@@ -47,9 +47,7 @@ fun FootballTeamItem(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 10.dp
         ),
-        modifier = Modifier
-            .padding(3.dp)
-            .fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth(),
         onClick = { onItemClick(team) }
 
     ) {
@@ -84,15 +82,19 @@ fun FootballTeamItem(
 @Preview(showBackground = true)
 @Composable
 fun FootballTeamItemPreview() {
-    val levante = FootballTeam("Levante U.D", R.drawable.levante_ud_logo)
+    val levante = FootballTeam("Levante U.D.", R.drawable.levante_ud_logo)
+    val madrid = FootballTeam("Real Madrid", R.drawable.real_madrid)
+
+    val teams = listOf(levante, madrid)
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(32.dp),
-        verticalArrangement = Arrangement.SpaceEvenly,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
     ) {
-        FootballTeamItem(levante)
-        FootballTeamItem(levante)
+        teams.forEach { team ->
+            FootballTeamItem(team)
+        }
     }
 }

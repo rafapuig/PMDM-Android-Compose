@@ -2,6 +2,7 @@ package es.rafapuig.pmdm.compose.learning.lists
 
 import android.widget.Toast
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.learning.R
 
 data class FootballTeam(
@@ -60,7 +62,10 @@ fun FootballTeamList(
 
     val scrollState = rememberScrollState()
 
-    Column(modifier = modifier.verticalScroll(scrollState)) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+        modifier = modifier.verticalScroll(scrollState)
+    ) {
         repeat(teams.size) { index ->
             FootballTeamItem(team = teams[index], onItemClick = onItemClick)
         }

@@ -2,6 +2,7 @@ package es.rafapuig.pmdm.compose.learning.lists.lazy
 
 import android.content.res.Resources
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.learning.R
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeam
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
@@ -148,7 +150,9 @@ fun FootballTeamLazyList(
     onItemClick: (FootballTeam) -> Unit = {}
 ) {
 
-    LazyColumn(modifier = modifier) {
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+        modifier = modifier) {
         items(teams) { team ->
             FootballTeamItem(team = team, onItemClick = onItemClick)
         }
