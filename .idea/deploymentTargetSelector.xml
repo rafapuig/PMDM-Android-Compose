@@ -17,7 +17,19 @@
       <SelectionState runConfigName="previewsdemo">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="FootballTeamsScreen">
+      <SelectionState runConfigName="TopAppBarDemo">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="AlertDialogDemoScreen">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="CustomDialogPreview">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="MainScreenPreview">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DataPickerDocked">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
