@@ -41,22 +41,6 @@ import java.time.Instant
 import java.util.Calendar
 
 
-private val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-
-fun LocalDate.toMillis(zone: ZoneId = ZoneId.systemDefault()): Long =
-    this.atStartOfDay(zone).toInstant().toEpochMilli()
-
-fun Long.millisToLocalDate(): LocalDate =
-    Instant.ofEpochMilli(this)
-        .atZone(ZoneId.systemDefault())
-        .toLocalDate()
-
-@Composable
-fun LocalDate.toString(formatter: DateTimeFormatter): String =
-    LocalConfiguration.current.locales[0].let { locale ->
-        format(formatter.withLocale(locale))
-    }
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
@@ -71,17 +55,7 @@ fun DataPickerDocked() {
         initialSelectedDateMillis = LocalDate.now().toMillis(),
         initialDisplayMode = DisplayMode.Picker,
         yearRange = 2025..2026,
-        selectableDates = object : SelectableDates {
-            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
-                return utcTimeMillis >= LocalDate.now().toMillis() &&
-                        utcTimeMillis.millisToLocalDate()
-                            .dayOfWeek !in setOf(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY)
-            }
-
-            override fun isSelectableYear(year: Int): Boolean {
-                return super.isSelectableYear(year)
-            }
-        }
+        selectableDates = selectableDates
     )
 
     val selectedDate = datePickerState.getSelectedDate()
@@ -93,7 +67,7 @@ fun DataPickerDocked() {
     ) {
 
         OutlinedTextField(
-            value = selectedDate?.toString(formatter) ?: "",
+            value = selectedDate?.toString(Formatter) ?: "",
             onValueChange = {},
             label = { Text("Fecha de nacimiento") },
             readOnly = true,
