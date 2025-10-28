@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
 
 data class Person(val name: String, val age: Int)
 
@@ -124,7 +124,7 @@ fun CustomDialog(
 fun CustomDialogPreview() {
     var person by remember { mutableStateOf(Person("Armando Bronca Segura", 23)) }
     var showDialog by remember { mutableStateOf(false) }
-    PMDMComposeTheme {
+    PastelComposeTheme {
         Scaffold(
             topBar = {
                 TopAppBar(

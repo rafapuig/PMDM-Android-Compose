@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
 
 
 @Composable
@@ -57,7 +57,7 @@ fun LazyColumnListDemo(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 fun LazyColumnListDemoPreview() {
-    PMDMComposeTheme {
+    PastelComposeTheme {
         Scaffold(modifier = Modifier.fillMaxSize()) {
             LazyColumnListDemo(Modifier.padding(it))
         }

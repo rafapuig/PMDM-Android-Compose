@@ -32,7 +32,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
 import kotlinx.coroutines.launch
 
 data class Credentials(val username: String, val password: String)
@@ -120,7 +120,7 @@ fun LoginPreview() {
     // 2️⃣ Scope para lanzar corutinas (mostrar snackbar es suspend)
     val coroutineScope = rememberCoroutineScope()
 
-    PMDMComposeTheme {
+    PastelComposeTheme {
         Scaffold(
             snackbarHost = {
                 SnackbarHost(hostState = snackbarHostState)

@@ -12,7 +12,7 @@ import androidx.navigation3.ui.NavDisplay
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Home
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Profile
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Welcome
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
 import kotlinx.serialization.Serializable
 
 /**
@@ -66,7 +66,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 fun MainScreenPreview() {
-    PMDMComposeTheme {
+    PastelComposeTheme {
         Scaffold { innerPadding ->
             MainScreen(modifier = Modifier.padding(innerPadding))
         }
