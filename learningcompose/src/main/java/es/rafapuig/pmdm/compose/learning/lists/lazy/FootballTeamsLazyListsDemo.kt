@@ -1,7 +1,6 @@
 package es.rafapuig.pmdm.compose.learning.lists.lazy
 
 import android.content.res.Resources
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,13 +17,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalResources
-import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.learning.R
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeam
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
-import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
 import kotlinx.coroutines.delay
 
 fun Resources.loadFootballTeamNames(): List<String> =

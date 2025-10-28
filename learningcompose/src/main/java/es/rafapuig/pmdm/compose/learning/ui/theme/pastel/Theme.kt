@@ -1,6 +1,5 @@
-package es.rafapuig.pmdm.compose.learning.ui.theme
+package es.rafapuig.pmdm.compose.learning.ui.theme.pastel
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -9,34 +8,18 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
-)
-
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
+import es.rafapuig.pmdm.compose.learning.ui.theme.Pink40
+import es.rafapuig.pmdm.compose.learning.ui.theme.Pink80
+import es.rafapuig.pmdm.compose.learning.ui.theme.Purple40
+import es.rafapuig.pmdm.compose.learning.ui.theme.Purple80
+import es.rafapuig.pmdm.compose.learning.ui.theme.PurpleGrey40
+import es.rafapuig.pmdm.compose.learning.ui.theme.PurpleGrey80
+import es.rafapuig.pmdm.compose.learning.ui.theme.Typography
 
 
 @Composable
-fun PMDMComposeTheme(
+fun PastelComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false, // Puesto a false
@@ -48,8 +31,8 @@ fun PMDMComposeTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> DarkColors //DarkColorScheme
+        else -> LightColors //LightColorScheme
     }
 
     /**

@@ -16,7 +16,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
@@ -33,7 +32,7 @@ fun DialTimePickerDialog(
         initialMinute = initialMinute,
         is24Hour = false
     )
-    TemplateDialog(
+    TimePickerTemplateDialog(
         onDismiss = onDismiss,
         onConfirm = {
             LocalTime.of(

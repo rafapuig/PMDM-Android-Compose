@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
-import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
 
 class ModifiersDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

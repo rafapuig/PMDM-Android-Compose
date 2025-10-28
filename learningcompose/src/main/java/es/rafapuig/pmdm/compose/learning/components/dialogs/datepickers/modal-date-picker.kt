@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
-import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
 import java.time.LocalDate
 
 @Preview

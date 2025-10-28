@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
-import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(

@@ -12,7 +12,7 @@ import androidx.navigation3.ui.NavDisplay
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Home
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Profile
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Welcome
-import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PMDMComposeTheme
 import kotlinx.serialization.Serializable
 
 /**

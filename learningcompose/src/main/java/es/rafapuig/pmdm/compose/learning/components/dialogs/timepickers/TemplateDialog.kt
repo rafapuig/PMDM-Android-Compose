@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun TemplateDialog(
+fun TimePickerTemplateDialog(
     onDismiss: () -> Unit,
     onConfirm: () -> Unit,
     content: @Composable () -> Unit
@@ -33,7 +33,10 @@ fun TemplateDialog(
 @Preview
 @Composable
 fun TemplateDialogPreview() {
-    TemplateDialog({},{}){
+    TimePickerTemplateDialog(
+        onDismiss = {},
+        onConfirm = {}
+    ) {
         Text("Contenido de prueba para la preview")
     }
 }

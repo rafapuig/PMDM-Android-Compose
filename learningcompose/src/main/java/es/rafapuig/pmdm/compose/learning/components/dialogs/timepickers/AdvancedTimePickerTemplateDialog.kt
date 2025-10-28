@@ -36,7 +36,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import es.rafapuig.pmdm.compose.learning.modifiers.ModifiersDemoScreenPreview
 import java.util.Calendar
 
 @Composable
@@ -97,65 +96,5 @@ fun AdvancedTimePickerDialogTemplatePreview() {
     Box(modifier = Modifier.fillMaxSize())
     AdvancedTimePickerDialogTemplate()
 }
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun AdvancedTimePicker(
-    onConfirm: (TimePickerState) -> Unit = {},
-    onDismiss: () -> Unit = {},
-) {
-
-    val currentTime = Calendar.getInstance()
-
-    val timePickerState = rememberTimePickerState(
-        initialHour = currentTime.get(Calendar.HOUR_OF_DAY),
-        initialMinute = currentTime.get(Calendar.MINUTE),
-        is24Hour = true,
-    )
-
-    /** Determines whether the time picker is dial or input */
-    var showDial by remember { mutableStateOf(true) }
-
-    /** The icon used for the icon button that switches from dial to input */
-    val toggleIcon = if (showDial) {
-        Icons.Filled.EditCalendar
-    } else {
-        Icons.Filled.AccessTime
-    }
-
-    AdvancedTimePickerDialogTemplate (
-        onDismiss = { onDismiss() },
-        onConfirm = { onConfirm(timePickerState) },
-        toggle = {
-            IconButton(onClick = { showDial = !showDial }) {
-                Icon(
-                    imageVector = toggleIcon,
-                    contentDescription = "Time picker type toggle",
-                )
-            }
-        },
-    ) {
-        if (showDial) {
-            TimePicker(
-                state = timePickerState,
-            )
-        } else {
-            TimeInput(
-                state = timePickerState,
-            )
-        }
-    }
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview(showSystemUi = true)
-@Composable
-fun AdvancedTimePickerPreview() {
-    Box(modifier = Modifier.fillMaxSize())
-    AdvancedTimePicker()
-}
-
 
 
