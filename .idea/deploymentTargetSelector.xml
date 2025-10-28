@@ -17,19 +17,13 @@
       <SelectionState runConfigName="previewsdemo">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainScreenPreview">
+      <SelectionState runConfigName="LoginPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DataPickerDocked">
+      <SelectionState runConfigName="LazyColumnListDemoPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DatePickerFieldToModal">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="DatePickerFieldToModalPreview">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="DatePickerFieldToModalPreview (1)">
+      <SelectionState runConfigName="DialTimePickerDialogShowPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

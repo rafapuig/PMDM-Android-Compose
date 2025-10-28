@@ -14,9 +14,15 @@ import androidx.compose.ui.unit.sp
 /**
  * Un composable es una función anotada con @Composable
  * El nombre de la función debe empezar con mayúscula por convención
+ * (Si la funcion devuelve un valor entonces si empieza en minúscula)
  */
 @Composable
 fun MyComposableFunction() {
+}
+
+@Composable
+fun myComposableFunctionWithReturnValue(): Int {
+    return 0
 }
 
 
@@ -51,7 +57,7 @@ fun CustomTextPreview() {
 @Composable
 fun CustomSwitch() {
     // Declarar un estado mutable de tipo Boolean "checked" inicializado a false
-    val checked = remember { mutableStateOf(false)  }
+    val checked = remember { mutableStateOf(false) }
     Column {
         // El Switch usa el valor del estado checked para determinar como tiene que renderizarse
         // si apagado o encendido
@@ -80,6 +86,6 @@ fun CustomList(items: List<String>) {
 @Preview(showBackground = true)
 @Composable
 fun CustomListPreview() {
-    val numberNames = listOf("Uno", "Dos", "Tres","Cuatro","Cinco")
+    val numberNames = listOf("Uno", "Dos", "Tres", "Cuatro", "Cinco")
     CustomList(items = numberNames)
 }

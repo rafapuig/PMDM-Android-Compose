@@ -36,6 +36,10 @@
             android:exported="true"
             android:label="@string/title_activity_modifiers_demo"
             android:theme="@style/Theme.PMDMCompose" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
