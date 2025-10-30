@@ -43,6 +43,11 @@ android {
 }
 
 dependencies {
+    //Coil
+    implementation("io.coil-kt.coil3:coil-compose:3.3.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
+    implementation("io.coil-kt.coil3:coil-svg:3.3.0") // Cargar SVGs como los escudos
+
 
     // Navegación con Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:1.0.0-beta01")

@@ -1,5 +1,6 @@
 package es.rafapuig.pmdm.compose.exercises.navigation.exercise1.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
