@@ -11,7 +11,7 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.Typography
 
 
 @Composable
-fun PastelComposeTheme(
+fun PastelTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false, // Puesto a false

@@ -12,7 +12,7 @@ import androidx.navigation3.ui.NavDisplay
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Home
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Profile
 import es.rafapuig.pmdm.compose.learning.navigation.screens.Welcome
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 import kotlinx.serialization.Serializable
 
 /**
@@ -53,20 +53,24 @@ fun MainScreen(modifier: Modifier = Modifier) {
             entry<HomeScreen> {
                 Home(onNavigation = onNavigation)
             }
-            entry<WelcomeScreen>(metadata = mapOf("extraDataKey" to "extraDataValue")) { key ->
+            entry<WelcomeScreen> { key ->
                 Welcome(name = key.name, onNavigation = onNavigation)
             }
-            entry<ProfileScreen> {
+            entry<ProfileScreen>(metadata = mapOf("extraDataKey" to "extraDataValue")) {
                 Profile(onClearBackStack = onClearBackStack)
             }
         }
     )
 }
 
+/**
+ * Esta preview como utiliza navegación debe usarse
+ * el emulador o un dispositivo real para ver el resultado
+ */
 @Preview(showSystemUi = true)
 @Composable
 fun MainScreenPreview() {
-    PastelComposeTheme {
+    PastelTheme {
         Scaffold { innerPadding ->
             MainScreen(modifier = Modifier.padding(innerPadding))
         }

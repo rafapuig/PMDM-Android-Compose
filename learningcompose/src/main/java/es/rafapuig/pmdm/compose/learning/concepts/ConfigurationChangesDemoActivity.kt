@@ -9,14 +9,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import es.rafapuig.pmdm.compose.learning.concepts.configuration.ConfigurationChangesDemoScreen
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 
 class ConfigurationChangesDemoActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PastelComposeTheme {
+            PastelTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     ConfigurationChangesDemoScreen(
                         modifier = Modifier.padding(innerPadding)

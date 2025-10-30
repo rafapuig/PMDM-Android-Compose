@@ -27,13 +27,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.tooling.preview.Preview
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 import java.time.LocalDate
 
 @Preview
 @Composable
 fun DatePickerFieldToModalPreview() {
-    PastelComposeTheme {
+    PastelTheme {
         Scaffold {
             DatePickerFieldToModal(Modifier.padding(it))
         }

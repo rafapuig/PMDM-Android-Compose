@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.tooling.preview.Preview
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(
@@ -65,7 +65,7 @@ fun ScaffoldWithTopAppBarDemo() {
         )
     }
 
-    PastelComposeTheme {
+    PastelTheme {
         Scaffold(
             modifier = Modifier
                 .nestedScroll(scrollBehavior.nestedScrollConnection), //para que la topAppBar detecte el scroll

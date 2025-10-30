@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.learning.R
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeam
 import es.rafapuig.pmdm.compose.learning.lists.FootballTeamItem
-import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelComposeTheme
+import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 import kotlinx.coroutines.delay
 
 fun Resources.loadFootballTeamNames(): List<String> =
@@ -119,7 +119,7 @@ fun FootballTeamsScreenPreview() {
 
     var teams by rememberFootballTeams()
 
-    PastelComposeTheme {
+    PastelTheme {
         Scaffold { paddingValues ->
             val modifier = Modifier.padding(paddingValues)
 
