@@ -3,6 +3,7 @@ package es.rafapuig.pmdm.compose.multimedia.youtube
 import android.app.Activity
 import android.content.res.Configuration
 import android.view.Window
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
@@ -46,7 +47,7 @@ fun YoutubeVideoPlayerScreen(modifier: Modifier = Modifier) {
     val isLandscape =
         configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
 
-    val activity = LocalContext.current as Activity
+    val activity = LocalActivity.current as Activity
 
     LaunchedEffect(isLandscape) {
         setImmersiveMode(activity.window, isLandscape)
