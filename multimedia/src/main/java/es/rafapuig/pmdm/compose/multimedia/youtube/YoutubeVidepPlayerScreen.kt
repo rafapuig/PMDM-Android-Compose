@@ -91,6 +91,7 @@ fun PortraitUI(
     onVideoIdChange: (String) -> Unit = {}
 ) {
     Column(modifier = modifier) {
+
         YoutubePlayerHost(
             youTubePlayerView,
             modifier = Modifier
@@ -104,6 +105,9 @@ fun PortraitUI(
         }
         Button({ onVideoIdChange("RclS0zqexxM") }) {
             Text("Himno de Rusia")
+        }
+        Button({ onVideoIdChange("-upuF7pfpEA") }) {
+            Text("Himno de la Comunidad Valenciana")
         }
     }
 }
