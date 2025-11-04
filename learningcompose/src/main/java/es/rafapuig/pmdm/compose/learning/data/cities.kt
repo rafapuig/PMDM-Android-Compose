@@ -3,8 +3,7 @@ package es.rafapuig.pmdm.compose.learning.data
 
 data class City(val id: Int, val name: String)
 
-
-val SampleData.Companion.Cities get() = listOf(
+private val cities = listOf(
     City(1, "Madrid"),
     City(2, "Barcelona"),
     City(3, "Valencia"),
@@ -37,3 +36,5 @@ val SampleData.Companion.Cities get() = listOf(
     City(30, "Huelva"),
     City(31, "Jaén")
 )
+
+val SampleData.Companion.Cities get() = cities

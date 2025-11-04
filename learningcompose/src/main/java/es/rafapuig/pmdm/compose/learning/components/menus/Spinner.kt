@@ -13,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -29,21 +30,29 @@ fun <T> Spinner(
     items: List<T>,
     modifier: Modifier = Modifier,
     label: String = "Selecciona una opción",
-    itemLabel: (T) -> String = { it.toString() },
-    initialSelectedIndex: Int = 0,
-    onItemSelectedChange: (T) -> Unit = {}
+    itemToLabel: (T) -> String = { it.toString() },
+    initialSelectedIndex: Int = -1,
+    onItemSelected: (T) -> Unit = {}
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var selectedIndex by remember { mutableStateOf(initialSelectedIndex) }
+    var selectedIndex by remember { mutableIntStateOf(initialSelectedIndex) }
 
-    onItemSelectedChange(items[selectedIndex])
+    if (selectedIndex in 0 until items.size) {
+        onItemSelected(items[selectedIndex])
+    }
 
     ExposedDropdownMenuBox(
+        modifier = modifier,
         expanded = expanded,
         onExpandedChange = { expanded = !expanded }
     ) {
+        val text =
+            if (selectedIndex in items.indices)
+                itemToLabel(items[selectedIndex])
+            else ""
+
         OutlinedTextField(
-            value = if (items.isNotEmpty()) itemLabel(items[selectedIndex]) else "",
+            value = text,
             onValueChange = { },
             readOnly = true,
             label = { Text(label) },
@@ -64,11 +73,11 @@ fun <T> Spinner(
         ) {
             items.forEachIndexed { index, item ->
                 DropdownMenuItem(
-                    text = { Text(itemLabel(item)) },
+                    text = { Text(itemToLabel(item)) },
                     onClick = {
                         selectedIndex = index
                         expanded = false
-                        onItemSelectedChange(item)
+                        onItemSelected(item)
                     }
                 )
             }
@@ -87,8 +96,8 @@ fun SpinnerM3ExamplePreview() {
             Spinner(
                 items = SampleData.Cities.sortedBy { city -> city.name },
                 label = "Selecciona una ciudad",
-                itemLabel = { it.name },
-                onItemSelectedChange = { city -> selectedCity = city}
+                itemToLabel = { it.name },
+                onItemSelected = { city -> selectedCity = city }
             )
             Text(text = selectedCity?.name ?: "No se ha seleccionado ninguna ciudad")
         }

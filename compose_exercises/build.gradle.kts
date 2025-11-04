@@ -43,6 +43,9 @@ android {
 }
 
 dependencies {
+    // Libreria de iconos extendida de Material 3
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
     //Coil
     implementation("io.coil-kt.coil3:coil-compose:3.3.0")
     implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
