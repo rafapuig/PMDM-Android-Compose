@@ -23,19 +23,19 @@
       <SelectionState runConfigName="multimedia">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="SpinnerM3ExamplePreview">
+      <SelectionState runConfigName="LoremPicsumPreview (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="WelcomeScreenPreview">
+      <SelectionState runConfigName="LoremPicsumFixedHeightPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="NavigationRootPreview (1)">
+      <SelectionState runConfigName="LoremPicsumFixedWidthPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="HomeScreenPreview">
+      <SelectionState runConfigName="LoremPicsumMaxSizePreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainScreenPreview">
+      <SelectionState runConfigName="LoremPicsumImagePreview2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
