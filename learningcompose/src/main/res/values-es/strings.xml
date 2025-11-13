@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Learning Compose</string>
     <string name="loading_football_teams">Cargando equipos…</string>
+    <string name="hello_world">Hola mundo!</string>
 </resources>
