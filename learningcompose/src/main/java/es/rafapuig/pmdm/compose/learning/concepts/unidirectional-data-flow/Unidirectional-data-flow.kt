@@ -42,8 +42,8 @@ fun ParentFunctionWithState() {
 
     /**
      * A las funciones composables hijas les pasamos
-     * el estado
-     * y la función para cambiar el estado
+     * el valor del estado
+     * y la función que deben invocar para producir un cambio del estado
      */
     ChildFunctionReceivesState(switchState, onSwitchChange)
 }

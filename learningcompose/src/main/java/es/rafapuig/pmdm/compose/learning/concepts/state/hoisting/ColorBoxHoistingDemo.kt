@@ -62,10 +62,13 @@ fun Color.Companion.random() = with(Random.Default) {
 /**
  * El composable ColorBox ahora es stateless
  * Recibe un color desde el llamador
- * y un manejador de eventos que se debe llamar cuando cambie el color  *
+ * y un manejador de eventos que se debe llamar cuando cambie el color
  */
 @Composable
-fun ColorBox(color: Color, onColorChange: (Color) -> Unit) {
+fun ColorBox(
+    color: Color,
+    onColorChange: (Color) -> Unit
+) {
     Box(
         modifier = Modifier
             .background(color)

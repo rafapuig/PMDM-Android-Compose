@@ -1,5 +1,6 @@
 package es.rafapuig.pmdm.compose.learning.components.images.lorempicsum.data
 
+import es.rafapuig.pmdm.compose.learning.components.images.lorempicsum.data.remote.dto.ImageInfoDto
 import es.rafapuig.pmdm.compose.learning.components.images.lorempicsum.model.ImageInfo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -7,7 +8,10 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URL
 
+import kotlinx.serialization.json.Json
+
 object LoremPicsumApi {
+
 
     suspend fun fetchImageInfo(id: Int): ImageInfo {
         return withContext(Dispatchers.IO) {
@@ -35,15 +39,23 @@ object LoremPicsumApi {
         return ImageInfo(id, width, height, url, author)
     }
 
-
     suspend fun fetchImageListInfo(page: Int = 1, limit: Int = 100) =
         withContext(Dispatchers.IO) {
 
             val spec = "https://picsum.photos/v2/list?page=$page&limit=$limit"
             val json = URL(spec).readText()
 
+
+
+
             JSONArray(json).parseList { it.parseImageInfo() }
         }
+
+    suspend fun parseToImageInfoList(json: String) =
+        Json.decodeFromString<List<ImageInfoDto>>(json)
+
+    suspend fun parserToImageInfo(json: String) =
+        Json.decodeFromString<ImageInfoDto>(json)
 
 }
 

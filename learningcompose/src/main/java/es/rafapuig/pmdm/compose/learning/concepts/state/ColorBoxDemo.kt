@@ -15,12 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
-@Preview(showBackground = true)
-@Composable
-fun ColorBoxDemoScreen(modifier: Modifier = Modifier) {
-    ColorBox()
-}
-
 /**
  * Funcion de extension para generar un color aleatorio
  * La función se usa como si fuera un miembro estatico de la clase Color
@@ -46,4 +40,11 @@ fun ColorBox() {
             .background(color)
             .size(300.dp)
             .clickable { color = Color.random() })
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun ColorBoxDemoScreen(modifier: Modifier = Modifier) {
+    ColorBox()
 }

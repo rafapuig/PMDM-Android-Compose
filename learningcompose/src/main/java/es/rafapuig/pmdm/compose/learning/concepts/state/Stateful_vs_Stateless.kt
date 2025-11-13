@@ -35,11 +35,13 @@ enum class PersonSortOrder { None, ByName, ByAge }
  * Se usa la función remember para mantener el estado
  * y la función factoría mutableStateOf para crear el estado inicial
  */
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PersonListScreen() {
 
-    var sortOrder by remember { mutableStateOf(PersonSortOrder.None) }
+    var sortOrder by remember {
+        mutableStateOf(PersonSortOrder.None)
+    }
 
     Column {
         Row {
@@ -98,7 +100,7 @@ fun PersonList(persons: List<Person>, sortOrder: PersonSortOrder) {
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PersonListScreenPreview() {
     PersonListScreen()
@@ -128,7 +130,7 @@ fun RowScope.ColumnLabel(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PersonListScreen2() {
 

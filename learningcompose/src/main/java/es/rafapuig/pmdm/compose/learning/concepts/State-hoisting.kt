@@ -12,7 +12,10 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 /**
  * STATE HOISTING
  *
- * Implica mover el estado desde una funcion composable hija hacia arriba
+ * En UI complejas, mas de un Composable podría necesitar acceder al mismo estado.
+ * En lugar de duplicar estados en cada Composable se usa el state hoisting.
+ *
+ * Implica mover el estado desde una función omposable hija hacia arriba
  * a una de las funciones llamadoras (padre o ancestros superiores)
  *
  * Cuando la función a la que hemos movido el estado llame esa funcion hija
@@ -24,12 +27,20 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
  * del valor del estado se llama al objeto función manejador de eventos ("la lambda")
  * pasándole como argumento el nuevo valor.
  *
- * Con ello conseguimos que  * el composable hijo sea STATELESS
- * (y con ello mas facil de reusar)
- * y poder pasar el mismo estado desde el ancestro a otras composables hijas
+ * Con ello conseguimos que:
+ * - el composable hijo sea STATELESS (y con ello más facil de reusar)
+ * - poder pasar el mismo estado desde el ancestro a otras composables hijas
+ *   (compartir el estado entre composables)
  *
  * Se debe subir el estado hasta el ancestro común a dos composables descendentes
  * que requieran usar dicho estado
+ *
+ * Beneficios:
+ * - Single Source of Truth: Solo hay una copia del estado (un solo objeto)
+ *   (lo que evita inconsistencias)
+ * - Mejor comunicación: Los composables hijos se comuninan entre ellos provocando
+ *   eventos para modificar el estado que comparten
+ * - Testing simplificado: Al centralizar el estado, es más facil probar cada Composable por separado
  */
 
 @Composable

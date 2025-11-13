@@ -35,6 +35,13 @@ fun ComposeFunction() {
     Text("Hola Compose")
 }
 
+// Esta función es normal, (no esta anotada con @Composable) no es un Composable
+fun noComposableFunction() {
+    // Errores de compilación no se puede llamar a una funcion Composable
+    //val value = myComposableFunctionWithReturnValue()
+    // Text("Hola Compose")
+}
+
 /**
  * Pueden declarar parámetros
  */
@@ -43,6 +50,7 @@ fun CustomText(text: String, fontSize: Int, color: Color) {
     Text(text = text, fontSize = fontSize.sp, color = color)
 }
 
+// Una función anotada con @Preview se puede visualizar en el IDE
 @Preview
 @Composable
 fun CustomTextPreview() {
@@ -51,7 +59,7 @@ fun CustomTextPreview() {
 
 /**
  * Se puede incluir cualquier lógica de programación dentro de un composable
- * Condicionales, bucles, etc
+ * condicionales, bucles, etc
  */
 @Preview    // Probar el modo interactivo
 @Composable
@@ -73,9 +81,13 @@ fun CustomSwitch() {
     }
 }
 
+
 @Composable
 fun CustomList(items: List<String>) {
     Column {
+        /**
+         * Una estructura de bucle for dentro de un composable
+         */
         for (item in items) {
             Text(text = item, fontSize = 32.sp)
             HorizontalDivider(color = Color.Blue)

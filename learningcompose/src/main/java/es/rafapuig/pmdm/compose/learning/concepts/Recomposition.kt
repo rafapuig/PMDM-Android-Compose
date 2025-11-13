@@ -43,7 +43,7 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
  *
  * Una recomposicion se lleva a caba cada vez que el valor de un estado
  * cambia dentro de una jerarquia de llamadas de funciones composables.
- * No es mas que volver a llamar a las funciones afectas pasandoles como
+ * No es mas que volver a llamar a las funciones afectadas pasándoles como
  * argumento el nuevo valor del estado.
  *
  * Solamente se "recomponen" las funciones afectadas por el estado que ha cambiado.
@@ -61,7 +61,7 @@ fun RecompositionDemoScreen(modifier: Modifier = Modifier) {
 /**
  * MyTextField es un composable stateful
  * declara una variable que contiene un State
- * y un manejador de eventos para actualizar el State a partird de la entrada
+ * y un manejador de eventos para actualizar el State a partir de la entrada
  * por teclado del usuario.
  */
 @Composable
