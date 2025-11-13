@@ -55,7 +55,7 @@ dependencies {
     // Navegación con Navigation 3
     implementation("androidx.navigation3:navigation3-runtime:1.0.0-beta01")
     implementation("androidx.navigation3:navigation3-ui:1.0.0-beta01")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
+    //implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
 
     // Material 3 en Compose
     implementation(libs.androidx.compose.material3)

@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -24,20 +25,25 @@ fun NavigationRoot(modifier: Modifier = Modifier) {
     // Create la back stack con la pantalla inicial
     val backStack = rememberNavBackStack(FootballTeamsListScreenKey)
 
+    val onback = { if (backStack.size > 1) backStack.removeLastOrNull() }
+
     NavDisplay(
         modifier = modifier,
         backStack = backStack,
-        onBack = { if (backStack.size > 1) backStack.removeLastOrNull() },
+        onBack = onback,
         entryProvider = entryProvider {
             entry<FootballTeamsListScreenKey> { screen ->
-                FootballTeamsListScreen { teamId ->
-                    backStack.add(FootballTeamDetailsScreenKey(teamId))
-                }
+                FootballTeamsListScreen(
+                    onTeamSelected = { teamId ->
+                        backStack.add(FootballTeamDetailsScreenKey(teamId))
+                    }
+                )
             }
-            entry<FootballTeamDetailsScreenKey> { screen ->
-                FootballTeamDetailsScreen(screen.teamId) {
-                    backStack.removeLastOrNull()
-                }
+            entry<FootballTeamDetailsScreenKey> { key ->
+                FootballTeamDetailsScreen(
+                    teamId = key.teamId,
+                    onBack = onback
+                )
             }
         }
     )
