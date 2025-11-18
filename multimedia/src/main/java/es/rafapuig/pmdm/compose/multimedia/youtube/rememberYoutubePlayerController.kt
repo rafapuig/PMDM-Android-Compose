@@ -9,6 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -39,7 +40,7 @@ fun rememberYoutubePlayerController(
     val videoPositions = remember { mutableStateMapOf<String, Float>() }
 
     // 👇 Determinar desde dónde arrancar este video
-    val startTime =videoPositions[videoId] ?: 0f
+    val startTime = videoPositions[videoId] ?: 0f
 
 
     playerView.enableAutomaticInitialization = true
@@ -47,8 +48,11 @@ fun rememberYoutubePlayerController(
     // 🧠 Guardar el reproductor
     var player by remember { mutableStateOf<YouTubePlayer?>(null) }
 
+    val videoIdState by rememberUpdatedState(videoId)
+
+
     // ⏱️ Guardar tiempo periódicamente
-    DisposableEffect(videoId) {
+    /*DisposableEffect(Unit) {
 
         val listener =
             object : AbstractYouTubePlayerListener() {
@@ -64,24 +68,48 @@ fun rememberYoutubePlayerController(
         onDispose {
             player?.removeListener( listener) // Desregistrar el antiguo
         }
-    }
+    }*/
 
     // Solamente se ejecuta la primera vez
     LaunchedEffect(Unit) {
 
-        val callback = object : YouTubePlayerCallback {
+        val listener = object : AbstractYouTubePlayerListener() {
+
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                player = youTubePlayer
+                // más rápido que esperar a que se ejecute el LaunchedEffect(player)
+                youTubePlayer.loadVideo(videoIdState, startTime)
+            }
+
+            // ⏱️ Guardar tiempo periódicamente
+            override fun onCurrentSecond(youTubePlayer: YouTubePlayer, second: Float) {
+                videoPositions[videoIdState] = second
+            }
+        }
+
+        playerView.addYouTubePlayerListener(listener)
+
+        /*val callback = object : YouTubePlayerCallback {
             override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {
                 Log.i("YoutubePlayerController", "Player is ready")
                 player = youTubePlayer
                 // mas rapido que esperar a que se ejecute el LaunchEffect
                 youTubePlayer.loadVideo(videoId, startTime)
 
+                youTubePlayer.addListener(
+                    object : AbstractYouTubePlayerListener() {
+                        override fun onCurrentSecond(youTubePlayer: YouTubePlayer, second: Float) {
+                            videoPositions[videoIdState] = second
+                        }
+                    }
+                )
+
                 //val default = DefaultPlayerUiController(youTubePlayer)
                 //playerView.setCustomPlayerUi()
             }
         }
 
-        playerView.getYouTubePlayerWhenReady(callback)
+        playerView.getYouTubePlayerWhenReady(callback)*/
     }
 
     /*LaunchedEffect(player) {
@@ -100,7 +128,7 @@ fun rememberYoutubePlayerController(
      */
 
 
-    LaunchedEffect( videoId) {
+    LaunchedEffect(videoId) {
         //Log.i("YoutubePlayerController", "Loading video $videoId in player $player")
         player?.cueVideo(videoId = videoId, startSeconds = startTime)
         player?.seekTo(startTime)
