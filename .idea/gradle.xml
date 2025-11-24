@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/multimedia" />
             <option value="$PROJECT_DIR$/myfirstcomposeapp" />
             <option value="$PROJECT_DIR$/previewsdemo" />
+            <option value="$PROJECT_DIR$/sensormotion" />
+            <option value="$PROJECT_DIR$/sensors" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -47,9 +47,11 @@ fun DerivedStateDemo() {
      * No es correcto usar derivedStateOf aquí,
      * cuando cambiar un valor siempre cambia el otro
      */
-    val square by derivedStateOf {
-        Log.i("PMDM", "Cacheando el cuadrado...")
-        (numberText.toDoubleOrNull() ?: 0.0).pow(2.0).toInt()
+    val square by remember {
+        derivedStateOf {
+            Log.i("PMDM", "Cacheando el cuadrado...")
+            (numberText.toDoubleOrNull() ?: 0.0).pow(2.0).toInt()
+        }
     }
 
     val nonCachedSquare = run {

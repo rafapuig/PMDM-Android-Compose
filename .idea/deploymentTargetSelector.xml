@@ -23,19 +23,25 @@
       <SelectionState runConfigName="learningcompose">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="SideEffectDemo">
+      <SelectionState runConfigName="sensormotion">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CircleColored">
+      <SelectionState runConfigName="DashBoardChartActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ProduceStateDemo">
+      <SelectionState runConfigName="sensors">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ProduceStateDemoPreview">
+      <SelectionState runConfigName="DashBoardChartActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DerivedStateDemo">
+      <SelectionState runConfigName="SensorsActivity (1)">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DashBoardActivity (1)">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DashBoardAnimatedChartActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

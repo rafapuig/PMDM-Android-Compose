@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SensorMotion</string>
+    <string name="title_activity_sensors">SensorsActivity</string>
+    <string name="title_activity_sensors_dash_boardctivity">SensorsDashBoardctivity</string>
+    <string name="title_activity_dash_board_chart">DashBoardChartActivity</string>
+    <string name="title_activity_dash_board_animated_chart">DashBoardAnimatedChartActivity</string>
+</resources>
