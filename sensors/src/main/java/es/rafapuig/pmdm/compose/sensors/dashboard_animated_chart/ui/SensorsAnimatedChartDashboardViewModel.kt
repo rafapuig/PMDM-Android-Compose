@@ -40,7 +40,7 @@ class SensorsAnimatedChartDashboardViewModel(context: Context) : ViewModel() {
 
     val accelHistory: StateFlow<List<AccelerometerData>> =
         accelerometerFlow(appContext)
-            .smooth(AccelerometerData.Companion.Zero) { prev, cur ->
+            .smooth(AccelerometerData.Zero) { prev, cur ->
                 alpha * cur + (1 - alpha) * prev
             }
             .toHistory(List(HISTORY_SIZE) { AccelerometerData.Companion.Zero })
@@ -48,10 +48,10 @@ class SensorsAnimatedChartDashboardViewModel(context: Context) : ViewModel() {
 
     val gyroHistory: StateFlow<List<GyroscopeData>> =
         gyroscopeFlow(appContext)
-            .smooth(GyroscopeData.Companion.Zero) { prev, cur ->
+            .smooth(GyroscopeData.Zero) { prev, cur ->
                 alpha * cur + (1 - alpha) * prev
             }
-            .toHistory(List(HISTORY_SIZE) { GyroscopeData.Companion.Zero })
+            .toHistory(List(HISTORY_SIZE) { GyroscopeData.Zero })
 
 
     val lightHistory: StateFlow<List<LightData>> =

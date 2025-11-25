@@ -3,6 +3,7 @@ package es.rafapuig.pmdm.compose.sensors.dashboard.domain
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.runningFold
 import kotlinx.coroutines.flow.stateIn
 
@@ -18,3 +19,7 @@ fun <T : Any> Flow<T>.smooth(
             SharingStarted.WhileSubscribed(stopTimeout),
             initial
         )
+
+
+
+
