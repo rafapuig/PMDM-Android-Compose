@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.sensors.core.ui.theme.PMDMComposeTheme
 import es.rafapuig.pmdm.compose.sensors.core.domain.repositories.SensorsRepositoryImpl
-import es.rafapuig.pmdm.compose.sensors.ui.navigation.routes.SensorsScreenRoute
+import es.rafapuig.pmdm.compose.sensors.sensors_data.ui.navigation.routes.SensorsScreenRoute
 
 class SensorsActivity : ComponentActivity() {
 
