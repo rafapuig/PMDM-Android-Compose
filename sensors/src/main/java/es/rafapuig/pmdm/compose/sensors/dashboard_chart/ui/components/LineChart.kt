@@ -11,10 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.sensors.core.HISTORY_SIZE
 import es.rafapuig.pmdm.compose.sensors.core.domain.SensorsSampleData
-import kotlin.math.PI
-import kotlin.math.cos
 import kotlin.math.max
-import kotlin.math.sin
 
 
 @Composable
@@ -49,7 +46,12 @@ fun LineChart(
                 Offset(x, y)
             }
             for (i in 0 until points.size - 1) {
-                drawLine(color, points[i], points[i + 1], strokeWidth = 3f)
+                drawLine(
+                    color,
+                    points[i],
+                    points[i + 1],
+                    strokeWidth = 3f
+                )
             }
         }
 

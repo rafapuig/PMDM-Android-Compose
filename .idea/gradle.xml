@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/previewsdemo" />
             <option value="$PROJECT_DIR$/sensormotion" />
             <option value="$PROJECT_DIR$/sensors" />
+            <option value="$PROJECT_DIR$/viewmodel" />
           </set>
         </option>
       </GradleProjectSettings>
