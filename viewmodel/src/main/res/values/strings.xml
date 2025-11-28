@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">viewmodel</string>
+    <string name="title_activity_counter_mviactivity">CounterMVIActivity</string>
+    <string name="title_activity_subscribers_history">SubscribersHistoryActivity</string>
 </resources>

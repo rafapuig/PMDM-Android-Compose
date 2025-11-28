@@ -44,6 +44,9 @@ android {
 dependencies {
     // ViewModel en Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    // Data Store
+    implementation("androidx.datastore:datastore-preferences-core:1.2.0")
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

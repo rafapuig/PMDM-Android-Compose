@@ -32,19 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainScreenPreview3">
+      <SelectionState runConfigName="SubscribersActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ChartScreenPreview">
+      <SelectionState runConfigName="SubscribersActivity (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ChartScreenPreview2">
+      <SelectionState runConfigName="SubscribersActivity (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ChartScreenPreview3">
+      <SelectionState runConfigName="SubscribersActivity (4)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ChartScreenPreview4">
+      <SelectionState runConfigName="CounterMVIActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

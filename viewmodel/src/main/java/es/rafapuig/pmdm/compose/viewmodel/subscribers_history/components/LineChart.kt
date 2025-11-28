@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.ui.components
+package es.rafapuig.pmdm.compose.viewmodel.subscribers_history.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,16 +12,10 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.viewmodel.domain.SampleData
 import es.rafapuig.pmdm.compose.viewmodel.domain.SampleData.Companion.series1
 import es.rafapuig.pmdm.compose.viewmodel.domain.SampleData.Companion.series2
 import es.rafapuig.pmdm.compose.viewmodel.domain.SampleData.Companion.series3
-import es.rafapuig.pmdm.compose.viewmodel.ui.model.Series
-import kotlin.math.PI
-import kotlin.math.cos
-import kotlin.math.sin
-
-
+import es.rafapuig.pmdm.compose.viewmodel.subscribers_history.ui.model.Series
 
 
 private fun DrawScope.drawChartBorders(

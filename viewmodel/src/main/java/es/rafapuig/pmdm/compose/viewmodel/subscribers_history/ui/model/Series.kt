@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.ui.model
+package es.rafapuig.pmdm.compose.viewmodel.subscribers_history.ui.model
 
 import androidx.compose.ui.graphics.Color
 

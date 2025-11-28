@@ -9,7 +9,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
-            android:name=".MainActivity"
+            android:name=".subscribers_history.SubscribersHistoryActivity"
+            android:exported="true"
+            android:label="@string/title_activity_subscribers_history"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".counters.CounterMVIActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter_mviactivity"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".subscribers.SubscribersActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PMDMCompose">
