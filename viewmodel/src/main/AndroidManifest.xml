@@ -9,6 +9,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
+            android:name=".lifecycle.DiceActivity"
+            android:exported="true"
+            android:label="@string/title_activity_dice"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".subscribers_history.SubscribersHistoryActivity"
             android:exported="true"
             android:label="@string/title_activity_subscribers_history"
