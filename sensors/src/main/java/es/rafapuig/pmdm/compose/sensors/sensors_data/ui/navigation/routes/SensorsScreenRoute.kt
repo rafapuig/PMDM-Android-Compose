@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.sensors.sensors_data.ui.SensorsViewModel
@@ -24,5 +25,14 @@ fun SensorsScreenRoute(
         )
         .collectAsState(initial = viewModel.uiState.value)
 
-    SensorsScreen(state)
+    /**
+     * Euivale a
+     */
+
+    val state2 by viewModel.uiState.collectAsStateWithLifecycle(
+        minActiveState = Lifecycle.State.STARTED
+    )
+
+
+    SensorsScreen(state2)
 }
