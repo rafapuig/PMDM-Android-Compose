@@ -11,7 +11,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.sensors.core.ui.theme.PMDMComposeTheme
 import es.rafapuig.pmdm.compose.sensors.ui.SensorsChartDashboardViewModel
-import es.rafapuig.pmdm.compose.sensors.ui.navigation.routes.DashboardChartScreenRoute
+import es.rafapuig.pmdm.compose.sensors.dashboard_chart.ui.navigation.routes.DashboardChartScreenRoute
 import kotlin.reflect.KClass
 
 class DashBoardChartActivity : ComponentActivity() {

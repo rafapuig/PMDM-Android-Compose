@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.sensors.ui.navigation.routes
+package es.rafapuig.pmdm.compose.sensors.dashboard_chart.ui.navigation.routes
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
