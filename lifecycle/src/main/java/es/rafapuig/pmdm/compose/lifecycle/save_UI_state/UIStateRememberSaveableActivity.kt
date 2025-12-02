@@ -28,8 +28,7 @@ import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
  */
 class UIStateRememberSaveableActivity : ComponentActivity() {
 
-    private val TAG = "StateChangeActivity"
-
+    private val TAG = "UIStateRememberSaveableActivity"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,12 @@ class UIStateRememberSaveableActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PMDMComposeTheme {
-
+                /**
+                 * Si usamos la función rememberSaveable
+                 * el valor del estado se persiste cuando
+                 * se produce un cambio de configuración
+                 * y al system-initiated process death
+                 */
                 var counterState by rememberSaveable { mutableStateOf(0) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

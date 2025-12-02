@@ -9,6 +9,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
+            android:name=".save_UI_state.viewmodel.parcels.person_upsert.PersonUpsertActivity"
+            android:exported="true"
+            android:label="@string/title_activity_person_upsert"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".save_UI_state.viewmodel.parcels.person_edit.PersonEditActivity"
+            android:exported="true"
+            android:label="@string/title_activity_person_details"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".SensorActivity"
             android:exported="true"
             android:label="@string/title_activity_sensor"
@@ -64,7 +86,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".save_UI_state.UIStateViewModelActivity"
+            android:name=".save_UI_state.viewmodel.UIStateViewModelActivity"
             android:exported="true"
             android:label="@string/title_activity_state_change"
             android:theme="@style/Theme.PMDMCompose">

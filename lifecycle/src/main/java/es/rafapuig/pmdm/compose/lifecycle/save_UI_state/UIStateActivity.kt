@@ -13,6 +13,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -40,14 +41,19 @@ import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
  *
  *  adb shell am kill es.rafapuig.pmdm.compose.lifecycle
  *
- *  Se destruye la actividad pero no se ejecuta el callback onDestroy *
+ *  Se destruye la actividad pero no se ejecuta el callback onDestroy
  *
  */
 class UIStateActivity : ComponentActivity() {
 
-    private val TAG = "StateChangeActivity"
+    companion object {
+        private const val COUNTER_KEY = "counter"
 
-    var counterState by mutableStateOf(0)
+        private const val TAG = "UIStateActivity"
+    }
+
+    var counterState by mutableIntStateOf(0)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,17 +115,31 @@ class UIStateActivity : ComponentActivity() {
 
     /**
      * Es lo mismo que conseguimos con rememberSaveable
+     *
+     * Se ejecuta despues del onStop
+     * Porque la actividad ha quedado en segundo plano
+     * y está en peligro de ser destruida por el SO si se necesita memoria
+     * para otros procesos
+     * Por tanto, es el momento de guardar todas la información
+     * que queramos que persista en caso de que ocurra system-initiated process death
+     * que destruirá la instancia de actividad
      */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Log.i(TAG, "onSaveInstanceState")
-        outState.putInt("counter", counterState)
+        Log.i(TAG, "Guardar $counterState")
+        outState.putInt(COUNTER_KEY, counterState)
     }
 
+    /**
+     * Lo que hayamos guardado en onSaveInstanceState
+     * se recupera en onRestoreInstanceState
+     */
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         Log.i(TAG, "onRestoreInstanceState")
-        counterState = savedInstanceState.getInt("counter")
+        Log.i(TAG, "Recuperar ${savedInstanceState.getInt(COUNTER_KEY)}")
+        counterState = savedInstanceState.getInt(COUNTER_KEY)
     }
 
 }

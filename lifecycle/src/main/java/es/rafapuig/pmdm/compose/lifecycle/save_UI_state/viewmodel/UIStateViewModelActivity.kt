@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.save_UI_state
+package es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel
 
 import android.os.Bundle
 import android.util.Log
@@ -15,11 +15,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.lifecycle.UiStateViewModel
+import es.rafapuig.pmdm.compose.lifecycle.save_UI_state.UIStateScreenRoot
 import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
 
 /** https://developer.android.com/guide/components/activities/activity-lifecycle */
@@ -43,31 +42,7 @@ class UIStateViewModelActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PMDMComposeTheme {
-
-                val counterState by viewModel.counterSavedFlow.collectAsState()
-
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(innerPadding),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
-                    ) {
-                        val style = MaterialTheme.typography.headlineMedium
-                        Text(text = "Normal counter: ${viewModel.counterNormalState}", style = style)
-                        Text(text = "Saved  counter: $counterState", style = style)
-                        Text(text = "State counter: ${viewModel.counterSavedState}", style = style)
-                        Button(onClick = {
-                            viewModel.onCounterNormalStateChange(viewModel.counterNormalState + 1)
-                            viewModel.onCounterSavedFlowChange(counterState + 1)
-                            viewModel.onCounterSavedStateChange(viewModel.counterSavedState + 1)
-                            Log.i(TAG, "Incrementar $counterState")
-                        }) {
-                            Text(text = "Incrementar")
-                        }
-                    }
-                }
+                UIStateScreenRoot(viewModel)
             }
         }
         Log.i(TAG, "onCreate")
@@ -104,9 +79,6 @@ class UIStateViewModelActivity : ComponentActivity() {
     }
 
 
-    /**
-     * Es lo mismo que conseguimos con rememberSaveable
-     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         Log.i(TAG, "onSaveInstanceState")
