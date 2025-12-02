@@ -18,10 +18,23 @@ import androidx.lifecycle.viewmodel.compose.saveable
  * Por tanto, si queremos conservar estado de la UI que sobreviva al system-initiated process death
  * debemos usar el SavedStateHandle y guardad el estado de la instancia
  */
-class UiStateViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
+class UiStateViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+
+    var counterNormal = 0
+    private set
 
     var counterNormalState by mutableStateOf(0)
         private set
+
+
+    var counterSaved = savedStateHandle.get<Int>("counter") ?: 0
+        private set
+
+
+    var counterStateSaved by savedStateHandle.saveable { mutableStateOf(0) }
+        private set
+
+
 
     // Mantiene el valor del contador incluso si el proceso muere
     val counterSavedFlow = savedStateHandle.getStateFlow("counter", 0)
@@ -32,12 +45,17 @@ class UiStateViewModel(private val savedStateHandle: SavedStateHandle): ViewMode
      *
      * Permite guardar el estado como si fuera rememberSaveable en el Composable
      */
-    var counterSavedState by savedStateHandle.saveable{ mutableStateOf(0) }
+    var counterSavedState by savedStateHandle.saveable { mutableStateOf(0) }
         private set
 
     /**
      * Metodos para cambiar el estado de la UI mediante el ViewModel
      */
+
+    fun onCounterNormalStateChange(newValue: Int) {
+        counterNormalState = newValue
+    }
+
     fun onCounterSavedFlowChange(newValue: Int) {
         savedStateHandle["counter"] = newValue  // // Se guarda automáticamente
     }
@@ -46,8 +64,5 @@ class UiStateViewModel(private val savedStateHandle: SavedStateHandle): ViewMode
         counterSavedState = newValue
     }
 
-    fun onCounterNormalStateChange(newValue: Int) {
-        counterNormalState = newValue
-    }
 
 }
