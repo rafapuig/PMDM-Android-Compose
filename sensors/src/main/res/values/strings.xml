@@ -4,4 +4,5 @@
     <string name="title_activity_dashboard">Sensors Dashboard Activity</string>
     <string name="title_activity_dashboard_chart">Dashboard Chart Activity</string>
     <string name="title_activity_dashboard_animated_chart">DashBoard Animated Chart Activity</string>
+    <string name="title_activity_level">LevelActivity</string>
 </resources>

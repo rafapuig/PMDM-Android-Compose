@@ -9,11 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
+            android:name=".level.LevelActivity"
+            android:exported="true"
+            android:label="@string/title_activity_level"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".dashboard_animated_chart.DashBoardAnimatedChartActivity"
             android:exported="true"
             android:label="@string/title_activity_dashboard_animated_chart"
-            android:theme="@style/Theme.PMDMCompose">
-        </activity>
+            android:theme="@style/Theme.PMDMCompose"></activity>
         <activity
             android:name=".dashboard_chart.ui.DashBoardChartActivity"
             android:exported="true"
@@ -21,22 +31,20 @@
             android:theme="@style/Theme.PMDMCompose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".dashboard.ui.DashBoardActivity"
             android:exported="true"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/Theme.PMDMCompose">
-        </activity>
+            android:theme="@style/Theme.PMDMCompose"></activity>
         <activity
             android:name=".sensors_data.ui.SensorsActivity"
             android:exported="true"
             android:label="@string/title_activity_sensors"
-            android:theme="@style/Theme.PMDMCompose">
-        </activity>
+            android:theme="@style/Theme.PMDMCompose"></activity>
     </application>
 
 </manifest>

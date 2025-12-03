@@ -14,7 +14,7 @@ uiGraphics = "1.9.3"
 ui = "1.9.3"
 media3Exoplayer = "1.8.0"
 media3Ui = "1.8.0"
-material3 = "1.4.0"
+material3 = "1.5.0-alpha09"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
