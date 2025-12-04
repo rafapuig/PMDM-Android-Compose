@@ -3,7 +3,6 @@
 package es.rafapuig.pmdm.compose.sensors.level.ui.screens
 
 import android.content.res.Configuration
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,14 +14,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -31,7 +27,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -151,6 +146,81 @@ fun LevelScreen(
 }
 
 
+@Preview
+@Composable
+fun LevelPanel(
+    color: Color = Color.Red,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(10))
+            .background(color)
+    )
+}
+
+
+
+
+@Composable
+fun LevelScreenContent(
+    yAxis: Float = 0.39f,
+    xAxis: Float = 0.75f,
+    color: Color = Color.Red
+) {
+    val columnWeight = .1f
+    val rowWeight = .1f
+
+    Column() {
+        Row(
+            modifier = Modifier
+                .weight(1 - rowWeight)
+                .fillMaxWidth()
+        ) {
+            Box(
+                modifier = Modifier
+                    .weight(columnWeight)
+                    .fillMaxSize()
+                    .background(Color.Cyan)
+            )
+            Box(
+                modifier = Modifier
+                    .weight(1 - columnWeight)
+                    .fillMaxSize()
+                    .background(Color.Magenta)
+            ) {
+                LevelPanel(color = color,
+                    modifier = Modifier.padding(
+                        top = 36.dp,
+                        bottom = 24.dp,
+                        start = 4.dp,
+                        end = 24.dp
+                    ))
+            }
+        }
+        Row(
+            modifier = Modifier
+                .weight(rowWeight)
+                .fillMaxWidth()
+        ) {
+            Box(
+                modifier = Modifier
+                    .weight(columnWeight)
+                    .fillMaxSize()
+                    .background(Color.Red)
+            )
+            Box(
+                modifier = Modifier
+                    .weight(1 - columnWeight)
+                    .fillMaxSize()
+                    .background(Color.Blue)
+            )
+        }
+    }
+}
+
+
 @Preview(
     showSystemUi = true,
     uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
@@ -158,7 +228,7 @@ fun LevelScreen(
 @Composable
 fun LevelScreenPreview() {
     PMDMComposeTheme {
-        LevelScreen(
+        LevelScreenContent(
             xAxis = 0.5f,
             yAxis = 0.5f,
             color = Color.Green
