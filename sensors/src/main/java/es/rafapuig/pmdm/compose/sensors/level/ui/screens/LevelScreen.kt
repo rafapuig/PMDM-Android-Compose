@@ -32,6 +32,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.sensors.core.ui.theme.PMDMComposeTheme
 import es.rafapuig.pmdm.compose.sensors.level.ui.LevelViewModel
+import es.rafapuig.pmdm.compose.sensors.level.ui.components.AxisXPanel
+import es.rafapuig.pmdm.compose.sensors.level.ui.components.AxisYPanel
+import es.rafapuig.pmdm.compose.sensors.level.ui.components.LevelPanel
 import es.rafapuig.pmdm.compose.sensors.level.ui.components.RectangularProgressIndicator
 
 @Composable
@@ -62,7 +65,13 @@ fun LevelScreen(
         }
     )
     { innerPadding ->
-        Column(
+        LevelScreenContent(
+            yAxis = yAxis,
+            xAxis = xAxis,
+            color = color,
+            modifier = Modifier.padding(innerPadding)
+        )
+        /*Column(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
@@ -141,81 +150,72 @@ fun LevelScreen(
                     Text(text = "Eje X: ${"%.2f".format(xAxis)}")
                 }
             }
-        }
+        }*/
     }
 }
-
-
-@Preview
-@Composable
-fun LevelPanel(
-    color: Color = Color.Red,
-    modifier: Modifier = Modifier
-) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(10))
-            .background(color)
-    )
-}
-
-
 
 
 @Composable
 fun LevelScreenContent(
     yAxis: Float = 0.39f,
     xAxis: Float = 0.75f,
-    color: Color = Color.Red
+    color: Color = Color.Red,
+    modifier: Modifier = Modifier
 ) {
-    val columnWeight = .1f
-    val rowWeight = .1f
+    val panelColumnWeight = .87f
+    val panelRowWeight = .87f
 
-    Column() {
+    Column(modifier = modifier) {
         Row(
             modifier = Modifier
-                .weight(1 - rowWeight)
+                .weight(panelRowWeight)
                 .fillMaxWidth()
         ) {
             Box(
                 modifier = Modifier
-                    .weight(columnWeight)
+                    .weight(1f - panelColumnWeight)
                     .fillMaxSize()
-                    .background(Color.Cyan)
-            )
+                    //.background(Color.Cyan)
+            ) {
+                AxisYPanel(
+                    yAxis = yAxis,
+                    fraction = 0.5f
+                )
+            }
+
             Box(
                 modifier = Modifier
-                    .weight(1 - columnWeight)
+                    .weight(panelColumnWeight)
                     .fillMaxSize()
-                    .background(Color.Magenta)
+                    //.background(Color.Magenta)
             ) {
-                LevelPanel(color = color,
-                    modifier = Modifier.padding(
-                        top = 36.dp,
-                        bottom = 24.dp,
-                        start = 4.dp,
-                        end = 24.dp
-                    ))
+                LevelPanel(
+                    color = color,
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(24.dp)
+                )
             }
         }
         Row(
             modifier = Modifier
-                .weight(rowWeight)
+                .weight(1 - panelRowWeight)
                 .fillMaxWidth()
         ) {
             Box(
                 modifier = Modifier
-                    .weight(columnWeight)
+                    .weight(1f - panelColumnWeight)
                     .fillMaxSize()
-                    .background(Color.Red)
+                    //.background(Color.Red)
             )
             Box(
                 modifier = Modifier
-                    .weight(1 - columnWeight)
+                    .weight(panelColumnWeight)
                     .fillMaxSize()
-                    .background(Color.Blue)
-            )
+                    //.background(Color.Blue)
+            ) {
+                AxisXPanel(xAxis = xAxis)
+            }
         }
     }
 }
@@ -228,7 +228,7 @@ fun LevelScreenContent(
 @Composable
 fun LevelScreenPreview() {
     PMDMComposeTheme {
-        LevelScreenContent(
+        LevelScreen(
             xAxis = 0.5f,
             yAxis = 0.5f,
             color = Color.Green

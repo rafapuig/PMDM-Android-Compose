@@ -21,6 +21,7 @@
         </activity>
         <activity
             android:name=".dashboard_animated_chart.DashBoardAnimatedChartActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/title_activity_dashboard_animated_chart"
             android:theme="@style/Theme.PMDMCompose"></activity>
