@@ -1,42 +1,60 @@
 package es.rafapuig.pmdm.compose.sensors.level.ui
 
 import android.app.Application
+import android.content.Context
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.SensorManager
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.rafapuig.pmdm.compose.sensors.core.domain.accelerometerFlow
+import es.rafapuig.pmdm.compose.sensors.core.domain.model.AccelerometerData
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlin.math.abs
 
-class LevelViewModel(application: Application) : AndroidViewModel(application) {
+private const val DELTA: Float = 0.05f
+private const val GRAVITY_EARTH: Float = 9.80665f
 
-    val DELTA: Float = 0.05f
-    val OFFSET: Float = 0.5f
-    val SCALE_FACTOR: Float = 0.05f
+const val minValue = -GRAVITY_EARTH
+const val maxValue = GRAVITY_EARTH
 
-    private fun computeAxisValue(accelerometerAxisReadingValue: Float): Float {
-        return (accelerometerAxisReadingValue * SCALE_FACTOR + OFFSET)
-    }
+const val range = maxValue - minValue
 
-    fun isAxisCentered(value: Float, delta: Float): Boolean {
-        return abs(value - 0.5f) < delta
-    }
+private fun Float.normalize(): Float {
+    return (this - minValue) / range
+}
 
-    fun isCentered(xAxis: Float, yAxis: Float): Boolean {
-        return isAxisCentered(xAxis, DELTA) && isAxisCentered(yAxis, DELTA)
-    }
+private fun isAxisCentered(normalizedValue: Float): Boolean {
+    return abs(normalizedValue - 0.5f) < DELTA
+}
 
-    val sensorManager = application.getSystemService(SENSOR_SERVICE) as SensorManager
+private fun isCentered(xAxis: Float, yAxis: Float): Boolean {
+    return isAxisCentered(xAxis) && isAxisCentered(yAxis)
+}
+
+
+class LevelViewModel(context: Context) : ViewModel() {
+
+    val sensorManager =
+        context.applicationContext.getSystemService(SENSOR_SERVICE) as SensorManager
 
     val accelerometer = sensorManager.accelerometerFlow()
 
-    val levelUiState = accelerometer.map { accelerometerData ->
-        val xAxis = computeAxisValue(accelerometerData.x)
-        val yAxis = computeAxisValue(accelerometerData.y)
+    val normalizedAccelerometerData = accelerometer.map { accelerometerData ->
+        with(accelerometerData) {
+            AccelerometerData(
+                x = x.normalize(),
+                y = y.normalize(),
+                z = z.normalize()
+            )
+        }
+    }
+
+    val levelUiState = normalizedAccelerometerData.map { normalizedData ->
+        val (xAxis, yAxis) = normalizedData
         val color = if (isCentered(xAxis, yAxis)) Color.Green else Color.Red
         LevelUiState(
             xAxis = xAxis,

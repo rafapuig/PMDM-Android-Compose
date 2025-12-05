@@ -32,16 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="UIStateViewModelActivity (1)">
+      <SelectionState runConfigName="DiceActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="LevelActivity">
+      <SelectionState runConfigName="DiceActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="LevelActivity (1)">
+      <SelectionState runConfigName="DiceActivity (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="LevelActivity (2)">
+      <SelectionState runConfigName="DiceScreenRoot">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DiceActivity (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
