@@ -72,18 +72,27 @@ class DiceViewModel(
     }
 
     companion object {
+
+        // Definir una clave personalizada para referirse al repositorio
+        val DICE_REPOSITORY_KEY =
+            object : CreationExtras.Key<DiceRepository> {}
+
         val Factory = viewModelFactory {
             initializer {
+
+                val repository = this[DICE_REPOSITORY_KEY] as DiceRepository
+
                 val savedStateHandle = createSavedStateHandle()
+
                 DiceViewModel(
-                    repository = DiceRepositoryImpl(),
+                    repository = repository,
                     savedStateHandle = savedStateHandle
                 )
             }
         }
     }
 
-    object FactoryAlt : ViewModelProvider.Factory {
+    object FactoryNotGood : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(
             modelClass: Class<T>,
             extras: CreationExtras

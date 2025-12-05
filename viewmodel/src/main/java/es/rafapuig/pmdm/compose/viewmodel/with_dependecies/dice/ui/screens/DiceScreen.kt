@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.createSavedStateHandle
+import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.data.DiceRepositoryImpl
@@ -51,6 +52,13 @@ fun DiceScreenRoot() {
             val savedStateHandle = createSavedStateHandle()
             DiceViewModel(repository, savedStateHandle)
         }
+
+        val viewModel2 = viewModel<DiceViewModel> (
+            factory = DiceViewModel.Factory,
+            extras = MutableCreationExtras().apply {
+                set(DiceViewModel.DICE_REPOSITORY_KEY, DiceRepositoryImpl())
+            }
+        )
 
         val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
