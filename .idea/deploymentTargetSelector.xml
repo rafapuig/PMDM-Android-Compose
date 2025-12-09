@@ -32,22 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="lifecycle">
+      <SelectionState runConfigName="ColoredWithDelayPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterStartedScreen">
+      <SelectionState runConfigName="ColoredWithDelay2Preview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterAutostartScreen">
+      <SelectionState runConfigName="ColoredWithDelay3Preview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ComputeIMCScreen">
+      <SelectionState runConfigName="CounterDownDisposableDemoPreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ComputeIMCDebounceScreen">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="ComputeIMCDebounceScreen2">
+      <SelectionState runConfigName="ColoredWithDelay4Preview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

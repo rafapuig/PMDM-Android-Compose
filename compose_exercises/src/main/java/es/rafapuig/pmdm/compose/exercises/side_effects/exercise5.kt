@@ -1,17 +1,20 @@
+@file:OptIn(ExperimentalMaterial3Api::class, FlowPreview::class)
+
 package es.rafapuig.pmdm.compose.exercises.side_effects
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.Switch
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,103 +22,74 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
 import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.debounce
-import kotlin.math.pow
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.onEach
+import kotlin.time.Duration.Companion.seconds
 
 /**
- * Crea una pantalla donde el usuario introduce
- * el peso en kilos y la altura en centimetros
- * y calcula el IMC mediante la formula
- * IMC = peso / altura^2
+ * Crea una pantalla que tenga un Texfield donde el usuario escribe
+ * y debajo de este un Text que indique si el usuario está escribiendo...
  *
- * No se debe calcular el IMC salvo que sea estrictamente
- * necesario
- *
- * Como el usuario tiene que pulsar los cifras una por una
- * haz que tenga que pasar un tiempo sin escribir en una TextField
- * para que se proceda al cálculo del IMC
- *
- * Pon un switch que genere recomposiciones para probar
- * que solo se realiza el cálculo cuando es necesario
- * y no en cada recomposición
+ * (Se considera que está escribiendo si ha pasado menos de 1 segundo desde que
+ * se introdujo el último carácter)
  */
 
-@OptIn(FlowPreview::class)
-@Preview
 @Composable
-fun ComputeIMCDebounceScreen() {
-    var weight by remember { mutableStateOf("") }
-    var height by remember { mutableStateOf("") }
+fun IsTypingDemo(modifier: Modifier = Modifier) {
 
-    val debouncedWeight by snapshotFlow { weight }
-        .debounce(1000)
-        .collectAsState(initial = weight)
+    var text by remember { mutableStateOf("") }
+    var isTyping by remember { mutableStateOf(false) }
 
-    val debouncedHeight by snapshotFlow { height }
-        .debounce(1000)
-        .collectAsState(initial = height)
-
-
-    val imc by remember {
-        derivedStateOf {
-            println("Calculando el IMC...")
-            if (debouncedWeight.isNotEmpty() && debouncedHeight.isNotEmpty()) {
-                debouncedWeight.toFloat() / (debouncedHeight.toFloat() / 100).pow(2)
-            } else {
-                0f
+    LaunchedEffect(Unit) {
+        snapshotFlow { text }
+            .drop(1) // Quitamos el primero que el valor inicial del text
+            .onEach {
+                println("Escribió $it")
+                isTyping = true
             }
-        }
+            .debounce(1.seconds)
+            .onEach {
+                println("Ya ha pasado un segundo desde que escribió $it !!!")
+                isTyping = false
+            }
+            .collect()
     }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxWidth().fillMaxHeight(.5f),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
+        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.Top)
     ) {
-        Text("Calculadora de IMC")
+        Text("Saber si el usuario está escribiendo")
 
         TextField(
-            value = weight,
-            onValueChange = {
-                weight = it
-            },
-            label = {
-                Text("Peso en kilogramos")
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Next
-            )
+            value = text,
+            onValueChange = { text = it },
+            label = { Text("Escribe algo...") }
         )
-        TextField(
-            value = height,
-            onValueChange = {
-                height = it
-            },
-            label = {
-                Text("Altura en centimetros")
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number,
-                imeAction = ImeAction.Next
-            )
-        )
-
-        Text("IMC: ${"%.2f".format(imc)}")
-
-        var toggle by remember { mutableStateOf(false) }
-        Switch(
-            checked = toggle,
-            onCheckedChange = {
-                toggle = it
-            }
-        )
+        if (isTyping) {
+            Text("El usuario está escribiendo...")
+        }
     }
+}
 
 
+
+@Preview
+@Composable
+fun IsTypingDemoPreview() {
+    PMDMComposeTheme {
+        Scaffold(
+            topBar = { TopAppBar({ Text("IsTyping Demo") }) }
+        )
+        { innerPadding ->
+            IsTypingDemo(Modifier.padding(innerPadding))
+        }
+    }
 }

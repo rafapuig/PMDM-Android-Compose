@@ -37,6 +37,10 @@ import kotlin.math.pow
  * y no en cada recomposición
  */
 
+private fun calculateIMC(weight: Float, height: Float): Float {
+    return weight / (height / 100).pow(2)
+}
+
 @Preview
 @Composable
 fun ComputeIMCScreen() {
@@ -45,9 +49,10 @@ fun ComputeIMCScreen() {
 
     val imc by remember {
         derivedStateOf {
-            println("Calculando el IMC...")
+            println("Actualizando el IMC...")
             if (weight.isNotEmpty() && height.isNotEmpty()) {
-                weight.toFloat() / (height.toFloat() / 100).pow(2)
+                println("Calculando el IMC...")
+                calculateIMC(weight.toFloat(), height.toFloat())
             } else {
                 0f
             }

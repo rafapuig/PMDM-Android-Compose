@@ -23,7 +23,7 @@ import kotlin.time.Duration.Companion.seconds
 /**
  * Crea una pantalla que muestre el valor de un contador
  * que se incrementa automaticamente cada segundo
- * y que se inicia al pulsar un boton
+ * y que se inicia al pulsar un botón
  */
 
 @Preview

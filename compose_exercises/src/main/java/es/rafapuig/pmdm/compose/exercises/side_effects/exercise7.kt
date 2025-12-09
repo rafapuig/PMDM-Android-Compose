@@ -13,11 +13,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
@@ -29,12 +29,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
 import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.drop
-import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapNotNull
-import kotlinx.coroutines.flow.onEach
 import kotlin.math.pow
 import kotlin.time.Duration.Companion.seconds
 
@@ -48,74 +47,60 @@ import kotlin.time.Duration.Companion.seconds
  * necesario
  *
  * Como el usuario tiene que pulsar los cifras una por una
- * haz que tenga que pasar un tiempo sin escribir en un TextField
+ * haz que tenga que pasar un tiempo sin escribir en una TextField
  * para que se proceda al cálculo del IMC
+ *
+ * Simula que el IMC tarda 1 segundo en calcularse y
+ * Haz que se muestre el texto "Calculando el IMC..." mientras se calcula
+ * el resultado
  *
  * Pon un switch que genere recomposiciones para probar
  * que solo se realiza el cálculo cuando es necesario
  * y no en cada recomposición
  */
 
-private fun computeIMC(weight: Float, height: Float): Float {
-    if (weight == 0f || height == 0f) return 0f
+private suspend fun computeIMC(weight: Float, height: Float): Float {
+    delay(2.seconds)
     return weight / (height / 100).pow(2)
 }
 
 @OptIn(FlowPreview::class)
 @Composable
-fun ComputeIMCDebounceScreen(
+fun ComputeIMCDebounceScreenWithLaunchedEffect(
     modifier: Modifier = Modifier
 ) {
-
-    /** Lo que escribe el usuario en el TextField para el peso */
     var weight by remember { mutableStateOf("") }
-
-    /** Lo que escribe el usuario en el TextField para la altura */
     var height by remember { mutableStateOf("") }
 
-    /**
-     *  Convertimos el estado en un flow,
-     *  cada cambio en el estado hará que el flow emita
-     *  el nuevo valor
-     *  Pero como aplicamos el operador debounce,
-     *  antes de emitir esperará el timeout y si llega otro
-     *  valor emitido no lo emitirá y esperara al timeout con el nuevo
-     *  Si no llega ningún valor nuevo pasado el timeout entonces si lo emite
-     */
-    val debouncedWeightFlow = remember {
-        println("Creando debouncedWeightFlow...")
-        snapshotFlow { weight }
+    var isCalculating by remember { mutableStateOf(false) }
+
+    var imc by remember { mutableStateOf(0f) }
+
+    println("Recomposición")
+
+    LaunchedEffect(Unit) {
+
+        val debouncedWeightFlow = snapshotFlow { weight }
             .drop(1)
             .mapNotNull { it.toFloatOrNull() }
             .debounce(1.seconds)
-    }
 
-    val debouncedHeightFlow = remember {
-        println("Creando debouncedHeightFlow...")
-        snapshotFlow { height }
+
+        val debouncedHeightFlow = snapshotFlow { height }
             .drop(1)
             .mapNotNull { it.toFloatOrNull() }
             .debounce(1.seconds)
-    }
 
-    val debouncedWeight by produceState(0f) {
-        debouncedWeightFlow
-            .onEach { println("Debounced weight: $it") }
-            .collect { value = it }
-    }
+        val combinedFlow =
+            combine(debouncedWeightFlow, debouncedHeightFlow) { weight, height ->
+                weight to height
+            }
 
-    val debouncedHeight by produceState(0f) {
-        debouncedHeightFlow
-            .onEach { println("Debounced height: $it") }
-            .onEach { value = it }
-            .launchIn(this)
-    }
-
-
-    val imc by remember {
-        derivedStateOf {
-            println("Calculando el valor del IMC... con debouncedWeight: $debouncedWeight y debouncedHeight: $debouncedHeight")
-            computeIMC(debouncedWeight, debouncedHeight)
+        combinedFlow.collect { (weight, height) ->
+            println("Calculando el IMC... de $weight y $height")
+            isCalculating = true
+            imc = computeIMC(weight, height)
+            isCalculating = false
         }
     }
 
@@ -155,7 +140,11 @@ fun ComputeIMCDebounceScreen(
             )
         )
 
-        Text("IMC: ${"%.2f".format(imc)}")
+        if (isCalculating) {
+            Text("Calculando el IMC...")
+        } else {
+            Text("IMC: ${"%.2f".format(imc)}")
+        }
 
         var toggle by remember { mutableStateOf(false) }
         Switch(
@@ -173,10 +162,10 @@ fun ComputeIMCDebounceScreen(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-fun ComputeIMCDebounceScreenPreview() {
+fun ComputeIMCDebounceScreenWithLaunchedEffectPreview() {
     PMDMComposeTheme {
         Scaffold { innerPadding ->
-            ComputeIMCDebounceScreen(
+            ComputeIMCDebounceScreenWithLaunchedEffect(
                 modifier = Modifier.padding(innerPadding)
             )
         }
