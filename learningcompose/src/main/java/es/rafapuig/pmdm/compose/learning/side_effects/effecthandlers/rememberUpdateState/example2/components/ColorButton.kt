@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers.components
+package es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers.rememberUpdateState.example2.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -51,12 +52,15 @@ fun ColorButton(
     )
 }
 
-@Preview(showBackground = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES or Configuration.UI_MODE_TYPE_NORMAL
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 fun ColorButtonPreview() {
     PMDMComposeTheme {
-        ColorButton(Color.Red, true)
+        Surface {
+            ColorButton(Color.Red, true)
+        }
     }
 }

@@ -14,7 +14,6 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -42,23 +41,8 @@ val cities = listOf(
 fun LaunchedEffectDebounceDemo(
     onSearch: (String) -> Unit = {}
 ) {
-    var query by remember { mutableStateOf("") }
 
-    var filteredCities by remember { mutableStateOf(emptyList<String>()) }
-
-    var isSearching by remember { mutableStateOf(false) }
-
-    LaunchedEffect(query) {
-        //onSearch(query)
-        delay(1000.milliseconds)
-        isSearching = true
-        delay(1000.milliseconds)
-        isSearching = false
-        filteredCities = cities.filter { it.contains(query, ignoreCase = true) }
-        Log.d("PMDM", "filteredCities: $filteredCities")
-    }
-
-    PMDMComposeTheme() {
+    PMDMComposeTheme {
         Scaffold(
             topBar = {
                 TopAppBar(
@@ -66,6 +50,36 @@ fun LaunchedEffectDebounceDemo(
                 )
             }
         ) {
+
+            var query by remember { mutableStateOf("") }
+
+            var filteredCities by remember { mutableStateOf(emptyList<String>()) }
+
+            var isSearching by remember { mutableStateOf(false) }
+
+            /**
+             * Cuando cambia query se cancela la corrutina anterior y se lanza de nuevo.                 *
+             */
+            LaunchedEffect(query) {
+                isSearching = false
+                /** Esperamos un segundo */
+                /** Si mientras tanto cambia query se relanzará la corrutina */
+                delay(1000.milliseconds)
+
+                /** Si han pasado un segudo se inicia la busqueda indicandolo con isSearching a true */
+                isSearching = true
+
+                /** Ahora se simula una latencia de un segundo en la red */
+                delay(1000.milliseconds)
+                isSearching = false
+
+                /** Se actualiza filteredCities */
+                filteredCities = cities.filter {
+                    it.contains(query, ignoreCase = true)
+                }
+            }
+
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -83,7 +97,7 @@ fun LaunchedEffectDebounceDemo(
                 if (isSearching) {
                     Text(text = "Buscando...")
                 } else {
-                    LazyColumn() {
+                    LazyColumn {
                         items(filteredCities) { city ->
                             Text(text = city)
                         }

@@ -32,19 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DiceActivity">
+      <SelectionState runConfigName="ExoVideoPlayerActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DiceActivity (1)">
+      <SelectionState runConfigName="ExoVideoPlayerActivity (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DiceActivity (2)">
+      <SelectionState runConfigName="ExoVideoPlayerActivity (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DiceScreenRoot">
+      <SelectionState runConfigName="ExoVideoPlayerActivity (4)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DiceActivity (3)">
+      <SelectionState runConfigName="ExoVideoPlayer">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

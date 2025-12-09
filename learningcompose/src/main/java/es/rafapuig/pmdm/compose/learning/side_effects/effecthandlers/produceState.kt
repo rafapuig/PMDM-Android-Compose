@@ -18,9 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers.components.CircleColoredWithNumber
-import es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers.components.ColorSelectorRow
-import es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers.components.buttonColors
+import es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers.rememberUpdateState.example2.components.CircleColoredWithNumber
+import es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers.rememberUpdateState.example2.components.ColorSelectorRow
+import es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers.rememberUpdateState.example2.components.buttonColors
 import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.seconds

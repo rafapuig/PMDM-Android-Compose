@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers.components
+package es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers.rememberUpdateState.example2.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

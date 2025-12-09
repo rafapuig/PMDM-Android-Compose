@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.lauchedeffects.coroutines.effecthandlers
+package es.rafapuig.pmdm.compose.learning.side_effects.effecthandlers
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,12 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 @Preview(showBackground = true)
 @Composable
 fun SideEffectDemo() {
-    SideEffect {
-        Log.i("PMDM","Llamada cada ve que hay recomposición con éxito")
-    }
 
     var checked by remember { mutableStateOf(false) }
-
 
     Switch(
         modifier = Modifier.fillMaxSize(),
@@ -36,5 +32,9 @@ fun SideEffectDemo() {
             checked = it
         }
     )
+
+    SideEffect {
+        println("Llamada cada vez que hay recomposición con éxito")
+    }
 
 }
