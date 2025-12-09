@@ -32,19 +32,22 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExoVideoPlayerActivity (1)">
+      <SelectionState runConfigName="lifecycle">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExoVideoPlayerActivity (2)">
+      <SelectionState runConfigName="CounterStartedScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExoVideoPlayerActivity (3)">
+      <SelectionState runConfigName="CounterAutostartScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExoVideoPlayerActivity (4)">
+      <SelectionState runConfigName="ComputeIMCScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ExoVideoPlayer">
+      <SelectionState runConfigName="ComputeIMCDebounceScreen">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="ComputeIMCDebounceScreen2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
