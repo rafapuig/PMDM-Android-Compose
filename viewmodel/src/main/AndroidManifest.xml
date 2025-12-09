@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
-            android:name=".lifecycle.DiceActivity"
+            android:name=".with_dependecies.dice.DiceActivity"
             android:exported="true"
             android:label="@string/title_activity_dice"
             android:theme="@style/Theme.PMDMCompose">

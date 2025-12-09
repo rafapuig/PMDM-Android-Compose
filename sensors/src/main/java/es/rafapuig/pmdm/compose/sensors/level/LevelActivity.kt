@@ -16,6 +16,7 @@ class LevelActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
         setContent {
             PMDMComposeTheme {
                 LevelScreenRoot()

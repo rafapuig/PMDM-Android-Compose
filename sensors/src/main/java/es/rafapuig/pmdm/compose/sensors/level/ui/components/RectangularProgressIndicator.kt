@@ -2,21 +2,26 @@ package es.rafapuig.pmdm.compose.sensors.level.ui.components
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+private const val roundedPercent = 33
 
 @Composable
 fun RectangularProgressIndicator(
@@ -35,32 +40,39 @@ fun RectangularProgressIndicator(
 
     if (!vertical) {
         // ▬▬▬▬ HORIZONTAL ▬▬▬▬
-        HorizontalProgressIndicator(modifier, height, trackColor, animatedProgress, color)
+        HorizontalProgressIndicator(animatedProgress, modifier, height, color, trackColor)
     } else {
         // ▮ VERTICAL ▮
-        VerticalProgressIndicator(modifier, width, trackColor, animatedProgress, color)
+        VerticalProgressIndicator(animatedProgress, modifier, width, color, trackColor)
     }
 }
 
 @Composable
 private fun VerticalProgressIndicator(
+    animatedProgress: Float,
     modifier: Modifier,
     width: Dp,
-    trackColor: Color,
-    animatedProgress: Float,
-    color: Color
+    color: Color,
+    trackColor: Color
 ) {
     Box(
         modifier = modifier
             .width(width)
             .fillMaxHeight()
+            .clip(RoundedCornerShape(roundedPercent))
             .background(trackColor)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(animatedProgress)
-                .align(Alignment.BottomStart) // crece de abajo hacia arriba
+                .align(Alignment.BottomCenter) // aumenta de abajo a arriba
+                .clip(
+                    RoundedCornerShape(
+                        topStartPercent = roundedPercent,
+                        topEndPercent = roundedPercent
+                    )
+                )
                 .background(color)
         )
     }
@@ -68,22 +80,27 @@ private fun VerticalProgressIndicator(
 
 @Composable
 private fun HorizontalProgressIndicator(
+    animatedProgress: Float,
     modifier: Modifier,
     height: Dp,
-    trackColor: Color,
-    animatedProgress: Float,
-    color: Color
+    color: Color,
+    trackColor: Color
 ) {
     Box(
         modifier = modifier
             .height(height)
             .fillMaxWidth()
+            .clip(RoundedCornerShape(roundedPercent))
             .background(trackColor)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxHeight()
                 .fillMaxWidth(animatedProgress)
+                .clip(RoundedCornerShape(
+                    topEndPercent = roundedPercent,
+                    bottomEndPercent = roundedPercent)
+                )
                 .background(color)
         )
     }
