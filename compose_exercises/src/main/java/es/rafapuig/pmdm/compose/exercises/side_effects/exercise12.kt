@@ -30,7 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.FlowPreview
@@ -161,7 +161,7 @@ fun CounterDownDisposableDemo(
 )
 @Composable
 fun CounterDownDisposableDemoPreview() {
-    PMDMComposeTheme {
+    ComposeExercisesTheme() {
         Scaffold { innerPadding ->
             CounterDownDisposableDemo(
                 modifier = Modifier.padding(innerPadding)

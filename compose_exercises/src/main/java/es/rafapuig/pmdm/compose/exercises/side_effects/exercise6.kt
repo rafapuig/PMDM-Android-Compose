@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.debounce
@@ -174,7 +174,7 @@ fun ComputeIMCDebounceScreen(
 )
 @Composable
 fun ComputeIMCDebounceScreenPreview() {
-    PMDMComposeTheme {
+    ComposeExercisesTheme {
         Scaffold { innerPadding ->
             ComputeIMCDebounceScreen(
                 modifier = Modifier.padding(innerPadding)

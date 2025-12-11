@@ -34,7 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.asFlow
@@ -169,7 +169,7 @@ fun ColoredWithDelay4(
 )
 @Composable
 fun ColoredWithDelay4Preview() {
-    PMDMComposeTheme {
+    ComposeExercisesTheme {
         Scaffold { innerPadding ->
             ColoredWithDelay4(
                 modifier = Modifier.padding(innerPadding)

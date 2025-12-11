@@ -41,7 +41,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -182,7 +182,7 @@ fun ColoredWithDelay3(
 )
 @Composable
 fun ColoredWithDelay3Preview() {
-    PMDMComposeTheme {
+    ComposeExercisesTheme {
         Scaffold { innerPadding ->
             ColoredWithDelay3(
                 modifier = Modifier.padding(innerPadding)

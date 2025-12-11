@@ -24,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.exercises.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.debounce
@@ -84,7 +84,7 @@ fun IsTypingDemo(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 fun IsTypingDemoPreview() {
-    PMDMComposeTheme {
+    ComposeExercisesTheme {
         Scaffold(
             topBar = { TopAppBar({ Text("IsTyping Demo") }) }
         )

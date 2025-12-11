@@ -32,19 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ColoredWithDelayPreview">
+      <SelectionState runConfigName="TemperatureConverterRoot (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ColoredWithDelay2Preview">
+      <SelectionState runConfigName="TemperatureConverterRoot (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ColoredWithDelay3Preview">
+      <SelectionState runConfigName="TemperatureConverterRoot (4)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterDownDisposableDemoPreview">
+      <SelectionState runConfigName="TemperatureConverterRoot (5)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ColoredWithDelay4Preview">
+      <SelectionState runConfigName="TemperatureConverterRoot">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

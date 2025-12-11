@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
  * una repomposición que sea provocada por un composable Switch
  * Asegurate de que se recompone colocando println's
  * y mirando el LogCat o
- * mirando el LayerI Inspector de Android Studio
+ * mirando el Layer Inspector de Android Studio
  */
 
 @Preview

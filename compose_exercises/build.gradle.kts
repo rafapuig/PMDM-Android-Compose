@@ -60,6 +60,9 @@ dependencies {
     // Material 3 en Compose
     implementation(libs.androidx.compose.material3)
 
+    // ViewModel en Compose
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+
     //implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
