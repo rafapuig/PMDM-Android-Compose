@@ -107,6 +107,9 @@ class TemperatureConverterViewModel : ViewModel() {
     }
 
 
+
+
+
     private suspend fun celsiusToFahrenheit(celsius: String) =
         with(Celsius(celsius.toDoubleOrNull())) {
             withContext(Dispatchers.Default) {
