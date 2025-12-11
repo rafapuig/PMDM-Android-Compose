@@ -6,8 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.rafapuig.pmdm.compose.exercises.viewmodel.exercise3.Celsius
-import es.rafapuig.pmdm.compose.exercises.viewmodel.exercise3d.TemperatureConverterViewModel
-import es.rafapuig.pmdm.compose.exercises.viewmodel.exercise3d.TemperatureConverterViewModel.Companion.decimalFormatter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
