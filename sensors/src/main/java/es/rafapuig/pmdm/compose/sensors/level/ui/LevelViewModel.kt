@@ -1,11 +1,9 @@
 package es.rafapuig.pmdm.compose.sensors.level.ui
 
-import android.app.Application
 import android.content.Context
 import android.content.Context.SENSOR_SERVICE
 import android.hardware.SensorManager
 import androidx.compose.ui.graphics.Color
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.rafapuig.pmdm.compose.sensors.core.domain.accelerometerFlow
