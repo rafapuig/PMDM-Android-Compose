@@ -5,4 +5,9 @@
     <string name="title_activity_sensor">SensorActivity</string>
     <string name="title_activity_person_details">PersonDetailsActivity</string>
     <string name="title_activity_person_upsert">PersonUpsertActivity</string>
+    <string name="title_activity_initial">InitialActivity</string>
+    <string name="title_activity_destination">DestinationActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_logged">LoggedActivity</string>
+    <string name="title_activity_locationctivity">Locationctivity</string>
 </resources>

@@ -2,6 +2,7 @@
 
 package es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.screens
 
+import DiceUi
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -37,36 +38,10 @@ import androidx.lifecycle.viewmodel.MutableCreationExtras
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.data.DiceRepositoryImpl
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceAction
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceUi
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceUiState
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceViewModel
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.mvi.DiceUiState
 import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.components.DiceFace
-
-@Composable
-fun DiceScreenRoot() {
-    PMDMComposeTheme {
-
-        val viewModel = viewModel<DiceViewModel> {
-            val repository = DiceRepositoryImpl()
-            val savedStateHandle = createSavedStateHandle()
-            DiceViewModel(repository, savedStateHandle)
-        }
-
-        val viewModel2 = viewModel<DiceViewModel> (
-            factory = DiceViewModel.Factory,
-            extras = MutableCreationExtras().apply {
-                set(DiceViewModel.DICE_REPOSITORY_KEY, DiceRepositoryImpl())
-            }
-        )
-
-        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
-        DiceScreen(uiState = uiState) { action ->
-            viewModel.onAction(action)
-        }
-    }
-}
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.mvi.DiceAction
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.DiceViewModel
 
 
 @Composable

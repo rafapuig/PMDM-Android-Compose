@@ -9,6 +9,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
+            android:name=".LevelActivity"
+            android:exported="true"
+            android:label="@string/title_activity_level"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lifecycle.LifecycleMenuActivity"
+            android:exported="true"
+            android:label="@string/title_activity_lifecycle_menu"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lifecycle.counter.ui.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".lifecycle.LifecycleActivity"
+            android:exported="true"
+            android:label="@string/title_activity_lifecycle"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".with_dependecies.dice.DiceActivity"
             android:exported="true"
             android:label="@string/title_activity_dice"

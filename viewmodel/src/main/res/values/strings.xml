@@ -3,4 +3,8 @@
     <string name="title_activity_counter_mviactivity">CounterMVIActivity</string>
     <string name="title_activity_subscribers_history">SubscribersHistoryActivity</string>
     <string name="title_activity_dice">DiceActivity</string>
+    <string name="title_activity_lifecycle">LifecycleActivity</string>
+    <string name="title_activity_counter">CounterActivity</string>
+    <string name="title_activity_lifecycle_menu">LifecycleMenuActivity</string>
+    <string name="title_activity_level">LevelActivity</string>
 </resources>

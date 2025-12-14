@@ -98,7 +98,7 @@ fun CounterScreenPreview_NoViewModel() {
 
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun CounterScreenPreview_NoViewModelRememverSaveable() {
+fun CounterScreenPreview_NoViewModelRememberSaveable() {
 
     var counter by rememberSaveable() { mutableStateOf(0) }
 

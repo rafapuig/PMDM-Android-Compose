@@ -38,7 +38,6 @@ class ObserverActivity : ComponentActivity() {
         owner.startOwner()
 
 
-
         enableEdgeToEdge()
         setContent {
             PMDMComposeTheme {

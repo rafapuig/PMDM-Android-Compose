@@ -4,27 +4,57 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.createSavedStateHandle
-import androidx.lifecycle.viewmodel.MutableCreationExtras
-import androidx.lifecycle.viewmodel.compose.viewModel
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.data.DiceRepositoryImpl
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceViewModel
-import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.DiceViewModelFactory
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.data.DiceRepositoryImpl
 import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.screens.DiceScreen
 import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.screens.DiceScreenRoot
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.DiceViewModel
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.DiceViewModelProvider
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.providers.DirectlyConstructionViewModelProvider
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.providers.FromFactoryNotGoodViewModelProvider
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.providers.FromFactoryWithDependencyViewModelProvider
+import es.rafapuig.pmdm.compose.viewmodel.with_dependecies.dice.ui.viewmodel.providers.FromFactoryWithExtrasKeyViewModelProvider
 
 class DiceActivity : ComponentActivity() {
+
+    val repository = DiceRepositoryImpl()
+
+    val directlyConstructionViewModelProvider: DiceViewModelProvider =
+        DirectlyConstructionViewModelProvider(repository)
+
+    val fromFactoryWithDependencyViewModelProvider: DiceViewModelProvider =
+        FromFactoryWithDependencyViewModelProvider(repository)
+
+    val fromFactoryNotGoodViewModelProvider : DiceViewModelProvider =
+        FromFactoryNotGoodViewModelProvider(repository)
+
+    val fromFactoryWithExtrasKeyViewModelProvider: DiceViewModelProvider =
+        FromFactoryWithExtrasKeyViewModelProvider(repository)
+
+
+    /**
+     * Cambiar la asignación de esta linea por otra referencia
+     * a otro implementador de DiceViewModelProvider
+     * */
+    val viewModelProvider: DiceViewModelProvider = fromFactoryWithExtrasKeyViewModelProvider
+
+    //val viewModel: DiceViewModel by viewModels()
+    val viewModel: DiceViewModel by with(viewModelProvider) { provideViewModelLazy() }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             PMDMComposeTheme {
 
-                val viewModel = provideViewModel()
+                // Para usar el ViewModel de la Activity
+                val viewModel = viewModel
+
+                // Pasar usar un ViewModel de Compose
+                //val viewModel = viewModelProvider.provideViewModel()
 
                 val uiState by viewModel.uiState.collectAsStateWithLifecycle()
                 val onAction = viewModel::onAction
@@ -35,50 +65,8 @@ class DiceActivity : ComponentActivity() {
                 )
 
                 /** Tambien podemos llamar directamente a DiceScreenRoot */
-                //DiceScreenRoot()
+                DiceScreenRoot(viewModel = viewModel)
             }
         }
     }
-}
-
-
-@Composable
-fun provideViewModel(): DiceViewModel {
-
-    val factory1 = DiceViewModel.Factory
-    val factory2 = DiceViewModelFactory(DiceRepositoryImpl())
-    val factory3 = DiceViewModel.FactoryNotGood
-
-
-    val viewModel1 = viewModel {
-        DiceViewModel(
-            DiceRepositoryImpl(),
-            createSavedStateHandle()
-        )
-    }
-
-    /** Mediante factorias */
-
-    val viewModel2 = viewModel<DiceViewModel>(
-        factory = DiceViewModelFactory(
-            DiceRepositoryImpl()
-        )
-    )
-
-    val viewModel3 = viewModel<DiceViewModel>(
-        factory = DiceViewModel.FactoryNotGood
-    )
-
-
-    val extras = MutableCreationExtras().apply {
-        set(DiceViewModel.DICE_REPOSITORY_KEY, DiceRepositoryImpl())
-    }
-
-    val viewModel4 = viewModel<DiceViewModel>(
-        factory = DiceViewModel.Factory,
-        extras = extras
-    )
-
-
-    return viewModel4
 }
