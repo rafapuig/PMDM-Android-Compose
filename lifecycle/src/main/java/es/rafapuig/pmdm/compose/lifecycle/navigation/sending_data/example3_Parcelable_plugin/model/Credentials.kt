@@ -16,4 +16,8 @@ import es.rafapuig.pmdm.compose.lifecycle.navigation.sending_data.ui.models.Cred
 data class Credentials(
     override val username: String,
     override val password: String
-) : CredentialsInterface, Parcelable
+) : CredentialsInterface, Parcelable {
+    companion object {
+        val EMPTY = Credentials("", "")
+    }
+}

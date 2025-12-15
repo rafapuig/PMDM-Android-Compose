@@ -54,6 +54,10 @@ class UIStateActivity : ComponentActivity() {
 
     var counterState by mutableIntStateOf(0)
 
+    val onClick: () -> Unit = {
+        counterState++
+        Log.i(TAG, "Incrementar $counterState")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,10 +73,7 @@ class UIStateActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(text = "$counterState")
-                        Button(onClick = {
-                            counterState++
-                            Log.i(TAG, "Incrementar $counterState")
-                        }) {
+                        Button(onClick = onClick) {
                             Text(text = "Incrementar")
                         }
                     }

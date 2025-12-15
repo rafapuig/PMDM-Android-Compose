@@ -13,6 +13,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -42,7 +43,12 @@ class UIStateRememberSaveableActivity : ComponentActivity() {
                  * se produce un cambio de configuración
                  * y al system-initiated process death
                  */
-                var counterState by rememberSaveable { mutableStateOf(0) }
+                var counterState by rememberSaveable { mutableIntStateOf(0) }
+
+                val onClick: () -> Unit = {
+                    counterState++
+                    Log.i(TAG, "Incrementar $counterState")
+                }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(
@@ -53,10 +59,7 @@ class UIStateRememberSaveableActivity : ComponentActivity() {
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(text = "$counterState")
-                        Button(onClick = {
-                            counterState++
-                            Log.i(TAG, "Incrementar $counterState")
-                        }) {
+                        Button(onClick = onClick) {
                             Text(text = "Incrementar")
                         }
                     }

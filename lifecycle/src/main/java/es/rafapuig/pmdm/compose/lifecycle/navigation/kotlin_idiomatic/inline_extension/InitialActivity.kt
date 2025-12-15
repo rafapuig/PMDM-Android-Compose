@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.navigation.factory_functions
+package es.rafapuig.pmdm.compose.lifecycle.navigation.kotlin_idiomatic.inline_extension
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,12 +29,15 @@ class InitialActivity : ComponentActivity() {
         setContent {
             PMDMComposeTheme {
                 Scaffold(modifier = Modifier.Companion.fillMaxSize()) { innerPadding ->
-                    Column (
+                    Column(
                         modifier = Modifier.Companion
                             .fillMaxSize()
                             .padding(innerPadding),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
+                        verticalArrangement = Arrangement.spacedBy(
+                            16.dp,
+                            Alignment.CenterVertically
+                        )
                     ) {
                         var text by remember { mutableStateOf("") }
                         Text("Actividad inicial")
@@ -54,13 +57,14 @@ class InitialActivity : ComponentActivity() {
     }
 
     /**
-     * Usamos un Intent explicito para navegar a la actividad destino
-     * ese intent se pasa al metodo startActivity() de la clase Activity
-     * El intent nos lo proporciona el factory function de la actividad destino
+     * Usamos la función de extension de Context creada para iniciar la actividad DestinationActivity
+     * La llamamos usando como objeto Context receptor la instancia de la actividad InitialActivity
+     * y pasamos los argumentos de llamada, en este caso el name
      */
     fun onNavigate(name: String) {
-        val intent = DestinationActivity.createIntent(this, name = name)
-        startActivity(intent)
+        startActivity<DestinationActivity>("name" to name)
+        // equivale a
+        //this.startActivity<DestinationActivity>("name" to name) // ya que this es el contexto receptor
     }
-
 }
+

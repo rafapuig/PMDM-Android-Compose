@@ -16,8 +16,7 @@ import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
 class LoginActivity : ComponentActivity() {
 
     companion object {
-        const val CREDENTIALS_USERNAME_KEY = "username"
-        const val CREDENTIALS_PASSWORD_KEY = "password"
+        const val CREDENTIALS_KEY = "credentials"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,9 +38,11 @@ class LoginActivity : ComponentActivity() {
     }
 
     fun onNavigate(credentials: Credentials) {
-        val intent = Intent(this, LoggedActivity::class.java)
-        intent.putExtra(CREDENTIALS_USERNAME_KEY, credentials.username)
-        intent.putExtra(CREDENTIALS_PASSWORD_KEY, credentials.password)
-        startActivity(intent)
+        Intent(this, LoggedActivity::class.java)
+            .apply {
+                putExtra(CREDENTIALS_KEY, credentials)
+            }.also { intent ->
+                startActivity(intent)
+            }
     }
 }

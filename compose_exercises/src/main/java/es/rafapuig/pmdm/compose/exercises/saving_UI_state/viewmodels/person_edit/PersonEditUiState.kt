@@ -1,6 +1,7 @@
-package es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_edit
+package es.rafapuig.pmdm.compose.exercises.saving_UI_state.viewmodels.person_edit
 
 import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 /** https://developer.android.com/reference/android/os/Parcelable */
@@ -9,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class PersonEditUiState(
     val person: Person? = null,
-    val isLoading: Boolean = false
+    @IgnoredOnParcel val isLoading: Boolean = false
 ) : Parcelable {
 
     companion object {

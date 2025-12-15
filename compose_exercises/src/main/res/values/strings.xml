@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Compose Exercises</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_person_edit">Edit Person</string>
 </resources>

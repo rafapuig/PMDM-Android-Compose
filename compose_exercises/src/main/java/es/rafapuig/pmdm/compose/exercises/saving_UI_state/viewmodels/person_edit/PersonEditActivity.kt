@@ -1,11 +1,11 @@
-package es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_edit
+package es.rafapuig.pmdm.compose.exercises.saving_UI_state.viewmodels.person_edit
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
+import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
 
 class PersonEditActivity : ComponentActivity() {
 
@@ -15,7 +15,7 @@ class PersonEditActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PMDMComposeTheme {
+            ComposeExercisesTheme {
                 PersonEditScreenRoot(viewModel)
             }
         }

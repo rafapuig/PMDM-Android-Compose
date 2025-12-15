@@ -1,9 +1,8 @@
-package es.rafapuig.pmdm.compose.lifecycle.navigation.example2
+package es.rafapuig.pmdm.compose.lifecycle.navigation.example2_on_back
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge

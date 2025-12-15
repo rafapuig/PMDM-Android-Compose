@@ -12,29 +12,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_upsert.uiState.PersonUpsertUiState
 import es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_upsert.uiState.PersonUpsertUiStateBoilerPlateImpl
 import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
 
-@Composable
-fun PersonUpsertScreenRoot(viewModel: PersonUpsertViewModel = viewModel()) {
-
-    val uiState by viewModel.uiState.collectAsState()
-
-    PersonUpsertScreen(
-        uiState = uiState,
-        onAction = viewModel::onAction
-    )
-}
 
 @Composable
 fun PersonUpsertScreen(

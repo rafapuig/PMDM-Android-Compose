@@ -17,8 +17,8 @@ import es.rafapuig.pmdm.compose.lifecycle.navigation.sending_data.ui.models.Cred
  */
 
 data class Credentials(
-    override val username: String,
-    override val password: String
+    override val username: String = "",
+    override val password: String = ""
 ) : CredentialsInterface, Parcelable {
 
     private constructor(parcel: Parcel) : this(
@@ -42,5 +42,4 @@ data class Credentials(
             return arrayOfNulls(size)
         }
     }
-
 }

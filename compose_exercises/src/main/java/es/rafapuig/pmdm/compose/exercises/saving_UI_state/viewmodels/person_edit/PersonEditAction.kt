@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_edit
+package es.rafapuig.pmdm.compose.exercises.saving_UI_state.viewmodels.person_edit
 
 sealed interface PersonEditAction {
     object OnClearPerson : PersonEditAction

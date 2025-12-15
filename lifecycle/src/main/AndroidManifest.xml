@@ -22,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".navigation.sending_data.example1_bundle.LoggedActivity"
             android:exported="false"
@@ -38,6 +39,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".navigation.sending_data.example2_Parcelable_implementation.LoggedActivity"
+            android:exported="false"
+            android:label="@string/title_activity_logged"
+            android:theme="@style/Theme.PMDMCompose" />
+        <activity
+            android:name=".navigation.sending_data.example2_Parcelable_implementation.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".navigation.sending_data.example3_Parcelable_plugin.LoggedActivity"
+            android:exported="false"
+            android:label="@string/title_activity_logged"
+            android:theme="@style/Theme.PMDMCompose" />
+        <activity
+            android:name=".navigation.sending_data.example3_Parcelable_plugin.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
         <activity
             android:name=".navigation.example1.DestinationActivity"
             android:exported="false"
@@ -55,12 +93,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".navigation.example2.DestinationActivity"
+            android:name=".navigation.example2_on_back.DestinationActivity"
             android:exported="false"
             android:label="@string/title_activity_destination"
             android:theme="@style/Theme.PMDMCompose" />
         <activity
-            android:name=".navigation.example2.InitialActivity"
+            android:name=".navigation.example2_on_back.InitialActivity"
             android:exported="true"
             android:label="@string/title_activity_initial"
             android:theme="@style/Theme.PMDMCompose">
@@ -71,12 +109,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".navigation.factory_functions.DestinationActivity"
+            android:name=".navigation.kotlin_idiomatic.factory_functions.DestinationActivity"
             android:exported="false"
             android:label="@string/title_activity_destination"
             android:theme="@style/Theme.PMDMCompose" />
         <activity
-            android:name=".navigation.factory_functions.InitialActivity"
+            android:name=".navigation.kotlin_idiomatic.factory_functions.InitialActivity"
             android:exported="true"
             android:label="@string/title_activity_initial"
             android:theme="@style/Theme.PMDMCompose">
@@ -87,12 +125,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".navigation.bundle_DSL.DestinationActivity"
+            android:name=".navigation.kotlin_idiomatic.bundle_DSL.DestinationActivity"
             android:exported="false"
             android:label="@string/title_activity_destination"
             android:theme="@style/Theme.PMDMCompose" />
         <activity
-            android:name=".navigation.bundle_DSL.InitialActivity"
+            android:name=".navigation.kotlin_idiomatic.bundle_DSL.InitialActivity"
             android:exported="true"
             android:label="@string/title_activity_initial"
             android:theme="@style/Theme.PMDMCompose">
@@ -103,12 +141,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".navigation.inline_extension.DestinationActivity"
+            android:name=".navigation.kotlin_idiomatic.inline_extension.DestinationActivity"
             android:exported="false"
             android:label="@string/title_activity_destination"
             android:theme="@style/Theme.PMDMCompose" />
         <activity
-            android:name=".navigation.inline_extension.InitialActivity"
+            android:name=".navigation.kotlin_idiomatic.inline_extension.InitialActivity"
             android:exported="true"
             android:label="@string/title_activity_initial"
             android:theme="@style/Theme.PMDMCompose">
@@ -129,17 +167,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".save_UI_state.viewmodel.parcels.person_edit.PersonEditActivity"
-            android:exported="true"
-            android:label="@string/title_activity_person_details"
-            android:theme="@style/Theme.PMDMCompose">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".awareness.examples.sensors.SensorActivity"
             android:exported="true"

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person_edit
+package es.rafapuig.pmdm.compose.exercises.saving_UI_state.viewmodels.person_edit
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.seconds
 
 class PersonEditViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 

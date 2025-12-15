@@ -32,19 +32,19 @@
       <SelectionState runConfigName="viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterActivity">
+      <SelectionState runConfigName="InitialActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterActivity (1)">
+      <SelectionState runConfigName="InitialActivity (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterActivity (5)">
+      <SelectionState runConfigName="InitialActivity (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="UIStateViewModelActivity">
+      <SelectionState runConfigName="SensorActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="CounterActivity (2)">
+      <SelectionState runConfigName="LocationActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

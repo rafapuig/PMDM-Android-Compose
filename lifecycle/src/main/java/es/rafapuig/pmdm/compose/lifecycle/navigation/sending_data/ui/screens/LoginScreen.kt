@@ -1,5 +1,6 @@
 package es.rafapuig.pmdm.compose.lifecycle.navigation.sending_data.ui.screens
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -9,17 +10,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
 
 @Composable
 fun LoginScreen(
@@ -32,8 +37,8 @@ fun LoginScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
 
-        var username by remember { mutableStateOf("") }
-        var password by remember { mutableStateOf("") }
+        var username by rememberSaveable { mutableStateOf("") }
+        var password by rememberSaveable { mutableStateOf("") }
 
         Text("Login")
 
@@ -60,6 +65,19 @@ fun LoginScreen(
 
         Button(onClick = { onNavigate(username, password) }) {
             Text(text = "Navegar a Actividad Destino")
+        }
+    }
+}
+
+@Preview(showSystemUi = true, uiMode = UI_MODE_NIGHT_YES)
+@Composable
+fun LoginScreenPreview() {
+    PMDMComposeTheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            LoginScreen(
+                modifier = Modifier.padding(innerPadding),
+                onNavigate = { _, _ -> }
+            )
         }
     }
 }

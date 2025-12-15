@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.navigation.factory_functions
+package es.rafapuig.pmdm.compose.lifecycle.navigation.kotlin_idiomatic.inline_extension
 
 import android.content.Context
 import android.content.Intent

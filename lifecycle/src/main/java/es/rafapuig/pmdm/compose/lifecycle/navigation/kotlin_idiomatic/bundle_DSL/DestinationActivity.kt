@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.lifecycle.navigation.bundle_DSL
+package es.rafapuig.pmdm.compose.lifecycle.navigation.kotlin_idiomatic.bundle_DSL
 
 import android.content.Context
 import android.content.Intent

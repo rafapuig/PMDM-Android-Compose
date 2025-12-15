@@ -6,7 +6,7 @@ import es.rafapuig.pmdm.compose.lifecycle.save_UI_state.viewmodel.parcels.person
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 
-class PersonUpsertViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
+class PersonUpsertViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
     val initialValue = PersonUpsertUiStateImpl()
 

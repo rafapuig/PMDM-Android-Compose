@@ -1,6 +1,8 @@
-package es.rafapuig.pmdm.compose.lifecycle.navigation.bundle_DSL
+package es.rafapuig.pmdm.compose.lifecycle.navigation.example2_on_back
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -9,19 +11,16 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
 
 class InitialActivity : ComponentActivity() {
+
+    val TAG = "example1.InitialActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,35 +33,52 @@ class InitialActivity : ComponentActivity() {
                             .fillMaxSize()
                             .padding(innerPadding),
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
-                    ) {
-                        var text by remember { mutableStateOf("") }
-                        Text("Actividad inicial")
-                        OutlinedTextField(
-                            value = text,
-                            onValueChange = { text = it },
-                            label = { Text("Nombre") },
-                            singleLine = true
+                        verticalArrangement = Arrangement.spacedBy(
+                            16.dp,
+                            Alignment.CenterVertically
                         )
-                        Button(onClick = { onNavigate(text) }) {
+                    ) {
+                        Button(onClick = { onNavigate() }) {
                             Text(text = "Navegar a Actividad Destino")
                         }
                     }
                 }
             }
         }
+        Log.i(TAG, "onCreate")
     }
 
     /**
-     * Usamos la función de extension de Context creada para iniciar la actividad DestinationActivity
-     * La llamamos usando como objeto Context receptor la instancia de la actividad InitialActivity
-     * y pasamos los argumentos de llamada, en este caso el name
+     * Usamos un Intent explicito para navegar a la actividad destino
+     * ese intent se pasa al metodo startActivity() de la clase Activity
      */
-    fun onNavigate(name: String) {
-        startDestinationActivity(name = name)
-        // equivale a
-        //this.startDestinationActivity(name = name) // ya que this es el contexto receptor
+    fun onNavigate() {
+        val intent = Intent(this, DestinationActivity::class.java)
+        startActivity(intent)
     }
 
-}
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart")
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, "onRestart")
+    }
+}
