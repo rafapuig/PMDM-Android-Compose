@@ -58,6 +58,18 @@
         </activity>
 
         <activity
+            android:name=".saving_ui_state.counter.states_manual_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".counter.stateFlows_viewmodel.CounterActivity"
             android:exported="true"
             android:label="@string/title_activity_counter"
@@ -71,6 +83,18 @@
 
         <activity
             android:name=".saving_ui_state.counter.stateFlows_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.stateFlows_manual_viewmodel.CounterActivity"
             android:exported="true"
             android:label="@string/title_activity_counter"
             android:theme="@style/Theme.PMDMCompose">

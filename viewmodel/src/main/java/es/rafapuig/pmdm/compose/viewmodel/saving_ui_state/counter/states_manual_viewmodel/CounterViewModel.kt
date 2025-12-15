@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.saving_ui_state.counter.states_viewmodel
+package es.rafapuig.pmdm.compose.viewmodel.saving_ui_state.counter.states_manual_viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -7,27 +7,38 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.SavedStateHandleSaveableApi
-import androidx.lifecycle.viewmodel.compose.saveable
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class CounterViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+class CounterViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
     /**
      * https://developer.android.com/topic/libraries/architecture/viewmodel/viewmodel-savedstate#savedstate-compose-state
      */
 
+    object Keys {
+        const val COUNTER_KEY = "counter"
+    }
+
     /**
-     * El state que queramos salvar lo hacemos a traves de la función de extensión
+     * El state que queramos salvar lo hacemos sin usar la función de extensión
      * saveable() del objeto SavedStateHandle
-     * esta función se encuentra el la librería
-     * "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
-     * la misma que define la función que usamos para obtener el viewmodel en Compose
+     *
+     * No usamos delegacion de propiedad mediante by
      */
-    @OptIn(SavedStateHandleSaveableApi::class)
-    var counter by savedStateHandle.saveable { mutableIntStateOf(0) }
-        private set
+    private var counterDelegate = mutableIntStateOf(
+        savedStateHandle.get<Int>(Keys.COUNTER_KEY) ?: 0
+    )
+
+    /**
+     * Para poder definer getter u setter personalizado
+     */
+    var counter: Int
+        get() = counterDelegate.value
+        private set(value) {
+            counterDelegate.value = value
+            savedStateHandle[Keys.COUNTER_KEY] = value
+        }
 
     /**
      * Este estado nos da igual perderlo si el SO mata la app
