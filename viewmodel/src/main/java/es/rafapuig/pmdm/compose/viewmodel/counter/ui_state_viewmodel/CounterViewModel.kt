@@ -39,7 +39,7 @@ class CounterViewModel() : ViewModel() {
     }
 
     /**
-     * Para que se actulice el estado como tal tenemos que asignarle
+     * Para que se actualice el estado como tal tenemos que asignarle
      * otro objeto nuevo con las propiedades que tenia el actual pero
      * con las que queremos que cambien modificadas en el nuevo objeto
      * Para ello es util el metodo copy de los data class de kotlin

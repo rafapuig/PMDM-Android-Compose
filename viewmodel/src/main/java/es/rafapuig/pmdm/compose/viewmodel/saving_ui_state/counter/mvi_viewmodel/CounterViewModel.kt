@@ -13,28 +13,6 @@ class CounterViewModel(private val savedStateHandle: SavedStateHandle) : ViewMod
 
     object Keys {
         const val UI_STATE_KEY = "ui_state"
-        //const val STARTED_KEY = "started"
-    }
-
-    /**
-     * Declamos una propiedad que no forma parte del estado de la UI
-     * sino del estado del viewmodel
-     */
-
-    //val started = savedStateHandle.get<Boolean>(STARTED_KEY) ?: false
-
-
-    init {
-        /**
-         * Las propiedades standard hay que actualizarlas manualmente cuando cambian
-         * tenemos que usar el savedStateHandle para modificar el valor que se guardará
-         */
-        //savedStateHandle[STARTED_KEY] = true
-    }
-
-    override fun onCleared() {
-        println("CounterViewModel cleared")
-        //savedStateHandle[STARTED_KEY] = true
     }
 
     /**
