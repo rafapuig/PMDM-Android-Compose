@@ -8,8 +8,202 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
+
         <activity
-            android:name=".LevelActivity"
+            android:name=".counter.no_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.no_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.states_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.states_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.stateFlows_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.stateFlows_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.combined_stateFlows_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.combined_stateFlows_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.ui_state_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.ui_state_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.mvi_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.mvi_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.mvi_one_off_events_as_state_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.mvi_one_off_events_as_state_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".counter.mvi_one_off_events_as_channel_flow_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".saving_ui_state.counter.mvi_one_off_events_as_channel_flow_viewmodel.CounterActivity"
+            android:exported="true"
+            android:label="@string/title_activity_counter"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".lifecycle.level.ui.LevelActivity"
             android:exported="true"
             android:label="@string/title_activity_level"
             android:theme="@style/Theme.PMDMCompose">
@@ -19,6 +213,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".lifecycle.LifecycleMenuActivity"
             android:exported="true"

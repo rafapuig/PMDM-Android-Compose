@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.mvi.withEvents
+package es.rafapuig.pmdm.compose.viewmodel.saving_ui_state.counter.mvi_one_off_events_as_channel_flow_viewmodel
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -21,4 +21,5 @@ fun <T> Flow<T>.ObserveAsEvents(onEvent: suspend (T) -> Unit) {
             }
         }
     }
+
 }

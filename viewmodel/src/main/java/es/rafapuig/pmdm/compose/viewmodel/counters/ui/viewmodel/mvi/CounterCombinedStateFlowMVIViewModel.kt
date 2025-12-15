@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel
+package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

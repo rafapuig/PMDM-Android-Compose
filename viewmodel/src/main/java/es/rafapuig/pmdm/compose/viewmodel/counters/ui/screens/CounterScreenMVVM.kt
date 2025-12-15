@@ -31,7 +31,7 @@ private val formatter = DecimalFormat("#,###")
 
 
 @Composable
-fun CounterScreen2(
+fun CounterScreenMVVM(
     counter: Int,
     onIncrement: () -> Unit = {},
     onDecrement: () -> Unit = {},
@@ -81,14 +81,15 @@ fun CounterScreen2(
     }
 }
 
+
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun CounterScreen2Preview_StateViewModel() {
+fun CounterScreenMVVMPreview_StateViewModel() {
 
     val viewModel = viewModel<CounterStateViewModel>()
 
     PMDMComposeTheme {
-        CounterScreen2(
+        CounterScreenMVVM(
             title = "Contador con State ViewModel",
             counter = viewModel.counter,
             onIncrement = viewModel::increment,
@@ -100,14 +101,14 @@ fun CounterScreen2Preview_StateViewModel() {
 
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun CounterScreen2Preview_StateFlowViewModel() {
+fun CounterScreenMVVMPreview_StateFlowViewModel() {
 
     val viewModel = viewModel<CounterStateFlowViewModel>()
 
     val counter by viewModel.counter.collectAsState()
 
     PMDMComposeTheme {
-        CounterScreen2(
+        CounterScreenMVVM(
             title = "Contador con StateFlow ViewModel",
             counter = counter,
             onIncrement = viewModel::increment,

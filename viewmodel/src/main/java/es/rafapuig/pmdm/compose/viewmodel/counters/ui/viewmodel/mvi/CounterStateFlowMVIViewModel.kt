@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel
+package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,17 +8,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
-
-sealed interface Action {
-    object Increment : Action
-    object Decrement : Action
-    object Reset : Action
-}
-
-data class CounterUiState(
-    val isLoading: Boolean = false,
-    val counter: Int = 0
-)
 
 class CounterStateFlowMVIViewModel : ViewModel() {
 

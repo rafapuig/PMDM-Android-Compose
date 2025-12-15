@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.CounterStateFlowViewModel
 import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.CounterStateViewModel
@@ -134,7 +135,7 @@ fun CounterScreenPreview_StateViewModel() {
 
 /**
  * Podemos usar un ViewModel que mantiene el estado mediante StateFlow
- * y para usarlo en un Composable usamos collectAsState() para convertirlo
+ * y para usarlo en un Composable usamos collectAsStateWithLifecycle() para convertirlo
  * en un State observable de Compose
  */
 
@@ -144,9 +145,12 @@ fun CounterScreenPreview_StateFlowViewModel() {
 
     val viewModel = viewModel<CounterStateFlowViewModel>()
 
+    val counter by viewModel.counter.collectAsStateWithLifecycle()
+
+
     PMDMComposeTheme {
         CounterScreen(
-            counter = viewModel.counter.collectAsState().value,
+            counter = counter,
             onIncrement = viewModel::increment,
             title = "Contador con StateFlow ViewModel"
         )

@@ -1,8 +1,7 @@
-package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel
+package es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.rafapuig.pmdm.compose.viewmodel.counters.data.CounterRepository
 import kotlinx.coroutines.delay

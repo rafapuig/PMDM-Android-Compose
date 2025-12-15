@@ -6,14 +6,16 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.CounterCombinedStateFlowMVIViewModel
-import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.CounterDataStoreMVIViewModel
-import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.CounterStateFlowMVIViewModel
+import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi.CounterCombinedStateFlowMVIViewModel
+import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi.CounterDataStoreMVIViewModel
+import es.rafapuig.pmdm.compose.viewmodel.counters.ui.viewmodel.mvi.CounterStateFlowMVIViewModel
 import es.rafapuig.pmdm.compose.viewmodel.ui.screens.CounterMVIScreen
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 
 class CounterMVIActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,7 +32,7 @@ class CounterMVIActivity : ComponentActivity() {
                 else -> "Contador"
             }
 
-            val state by viewModel.uiState.collectAsState()
+            val state by viewModel.uiState.collectAsStateWithLifecycle()
 
             PMDMComposeTheme {
                 CounterMVIScreen(
