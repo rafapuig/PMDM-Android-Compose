@@ -5,11 +5,13 @@ plugins {
 }
 
 android {
-    namespace = "es.rafapuig.pmdm.myfirstcomposeapp"
-    compileSdk = 36
+    namespace = "es.rafapuig.pmdm.previewsdemo"
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
-        applicationId = "es.rafapuig.pmdm.myfirstcomposeapp"
+        applicationId = "es.rafapuig.pmdm.previewsdemo"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -31,16 +33,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
 }
 
-dependencies {
+kotlin {
+    jvmToolchain(11)
+}
 
+dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

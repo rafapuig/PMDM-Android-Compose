@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose) // Para compose
-    kotlin("plugin.serialization") version "2.2.21" // Para serialización (Navigation)
+    //kotlin("plugin.serialization") version "2.2.21" // Para serialización (Navigation)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
 }
 
@@ -35,9 +36,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -54,8 +53,8 @@ dependencies {
 
 
     // Navegación con Navigation 3
-    implementation("androidx.navigation3:navigation3-runtime:1.0.0-beta01")
-    implementation("androidx.navigation3:navigation3-ui:1.0.0-beta01")
+    implementation("androidx.navigation3:navigation3-runtime:1.0.0")
+    implementation("androidx.navigation3:navigation3-ui:1.0.0")
     //implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
 
     // Material 3 en Compose
