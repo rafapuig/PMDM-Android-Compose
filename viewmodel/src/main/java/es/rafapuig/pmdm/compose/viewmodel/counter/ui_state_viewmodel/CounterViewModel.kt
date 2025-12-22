@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class CounterViewModel() : ViewModel() {
 
     /**
-     * No declaramos ningun mutableStateFlow independiente para cada elemento
+     * No declaramos ningún mutableStateFlow independiente para cada elemento
      * del estado de la UI
      */
     /*private val _counter = MutableStateFlow(0)

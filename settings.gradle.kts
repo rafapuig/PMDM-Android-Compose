@@ -21,13 +21,23 @@ dependencyResolutionManagement {
 
 rootProject.name = "PMDM-Compose"
 include(":app")
+
 include(":myfirstcomposeapp")
 include(":intro")
 include(":previewsdemo")
 include(":learningcompose")
-include(":compose_exercises")
-include(":multimedia")
-include(":sensormotion")
-include(":sensors")
-include(":viewmodel")
+include(":exercises:compose_exercises")
+
+include(":hardware:sensormotion")
+include(":hardware:sensors")
+
 include(":lifecycle")
+include(":viewmodel")
+
+include(":multimedia")
+include(":persistence:states_todolist")
+include(":persistence:room_todolist")
+include(":persistence:room_todolist_repository")
+include(":DI:di_todolist")
+include(":DI:room_todolist_repository_di")
+include(":hardware:level")

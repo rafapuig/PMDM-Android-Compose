@@ -43,6 +43,9 @@ import es.rafapuig.pmdm.compose.lifecycle.ui.theme.PMDMComposeTheme
  *
  *  Se destruye la actividad pero no se ejecuta el callback onDestroy
  *
+ *  También puedes hacerlo desde el LogCat con Click Derecho + Kill en
+ *  el menú emergente
+ *
  */
 class UIStateActivity : ComponentActivity() {
 

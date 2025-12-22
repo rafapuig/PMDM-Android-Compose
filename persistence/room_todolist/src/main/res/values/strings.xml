@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Persistence_Room_ToDoList</string>
+    <string name="title_activity_todo_list">TodoListActivity</string>
+    <string name="title_activity_custom_database_factory">CustomDatabaseFactoryActivity</string>
+    <string name="title_activity_custom_database_factory_view_model">
+        CustomDatabaseFactoryViewModelActivity
+    </string>
+    <string name="title_activity_compose_main">ComposeMainActivity</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Level</string>
+    <string name="title_activity_level">LevelActivity</string>
+</resources>

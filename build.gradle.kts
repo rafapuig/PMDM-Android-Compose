@@ -4,4 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
+    /** Kotlin Symbol Processor para usar Room */
+    alias(libs.plugins.google.devtools.ksp) apply false
 }
