@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Comprar leche",
-      "done": false
+      "done": true
     },
     {
       "id": 2,
@@ -23,7 +23,7 @@
     {
       "id": 5,
       "title": "Estudiar para el examen",
-      "done": false
+      "done": true
     },
     {
       "id": 6,
