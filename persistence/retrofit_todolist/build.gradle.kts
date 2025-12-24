@@ -54,10 +54,20 @@ dependencies {
     // ViewModel en Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
-    // Retrofit
+    /** Retrofit */
+    // https://central.sonatype.com/artifact/com.squareup.retrofit2/retrofit/overview
+    // https://square.github.io/retrofit/
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
+
+    // https://github.com/square/retrofit/tree/trunk/retrofit-converters/kotlinx-serialization
+    // https://central.sonatype.com/artifact/com.squareup.retrofit2/converter-kotlinx-serialization/3.0.0/overview
     implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
+
+    /** Serializacion JSON */
+    // https://central.sonatype.com/artifact/org.jetbrains.kotlinx/kotlinx-serialization-json/overview
+    // https://github.com/Kotlin/kotlinx.serialization
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.10.0-RC")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -2,53 +2,53 @@
   "todos" : [
     {
       "id": 1,
-      "title": "Comprar leche",
-      "done": true
+      "task": "Comprar leche",
+      "completed": true
     },
     {
       "id": 2,
-      "title": "Hacer ejercicio",
-      "done": true
+      "task": "Hacer ejercicio",
+      "completed": true
     },
     {
       "id": 3,
-      "title": "Limpiar el coche",
-      "done": false
+      "task": "Limpiar el coche",
+      "completed": false
     },
     {
       "id": 4,
-      "title": "Ir al supermercado",
-      "done": false
+      "task": "Ir al supermercado",
+      "completed": false
     },
     {
       "id": 5,
-      "title": "Estudiar para el examen",
-      "done": true
+      "task": "Estudiar para el examen",
+      "completed": true
     },
     {
       "id": 6,
-      "title": "Limpiar la casa",
-      "done": false
+      "task": "Limpiar la casa",
+      "completed": false
     },
     {
       "id": 7,
-      "title": "Hacer la compra",
-      "done": false
+      "task": "Hacer la compra",
+      "completed": false
     },
     {
       "id": 8,
-      "title": "Limpiar el baño",
-      "done": false
+      "task": "Limpiar el baño",
+      "completed": false
     },
     {
       "id": 9,
-      "title": "Limpiar el piso",
-      "done": false
+      "task": "Limpiar el piso",
+      "completed": false
     },
     {
       "id": 10,
-      "title": "Hacer el trabajo",
-      "done": false
+      "task": "Hacer el trabajo",
+      "completed": false
     }
   ]
 }

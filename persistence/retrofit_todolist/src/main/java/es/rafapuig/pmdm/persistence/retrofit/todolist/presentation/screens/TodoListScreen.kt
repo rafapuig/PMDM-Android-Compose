@@ -17,7 +17,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -43,6 +45,16 @@ fun TodoListScreen(
     val listState = rememberLazyListState()
     val scope = rememberCoroutineScope()
 
+    var shouldScrollToBottom by remember { mutableStateOf(false) }
+
+    LaunchedEffect(todos, shouldScrollToBottom) {
+
+        if (shouldScrollToBottom && todos.isNotEmpty()) {
+            listState.animateScrollToItem(todos.lastIndex)
+        }
+    }
+
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -65,10 +77,8 @@ fun TodoListScreen(
                 onConfirm = { taskName ->
                     onTodoAdd(taskName)
 
-                    /** Scroll hasta el último elemento de la lista */
-                    scope.launch {
-                        listState.animateScrollToItem(todos.size - 1)
-                    }
+                    /** Evento a controlar en el viewModel */
+                    shouldScrollToBottom = true
 
                     showDialog = false
                 }

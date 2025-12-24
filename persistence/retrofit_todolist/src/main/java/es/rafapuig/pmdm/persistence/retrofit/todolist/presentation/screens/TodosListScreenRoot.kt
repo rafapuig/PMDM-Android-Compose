@@ -12,12 +12,12 @@ import es.rafapuig.pmdm.persistence.retrofit.todolist.presentation.TodoListViewM
 fun TodosListScreenRoot(
     viewModel: TodoListViewModel = viewModel(factory = TodoListViewModel.Factory)
 ) {
-    val todos = viewModel.todos //.collectAsStateWithLifecycle()
+    val todos by viewModel.todos.collectAsStateWithLifecycle()
 
     TodoListScreen(
         todos = todos,
-        //onTodoIsDoneChange = viewModel::onTodoIsDoneChange,
-        //onTodoDelete = viewModel::onTodoDelete,
-        //onTodoAdd = viewModel::onTodoAdd
+        onTodoIsDoneChange = viewModel::onTodoIsDoneChange,
+        onTodoDelete = viewModel::onTodoDelete,
+        onTodoAdd = viewModel::onTodoAdd
     )
 }

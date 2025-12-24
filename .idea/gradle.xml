@@ -29,6 +29,7 @@
             <option value="$PROJECT_DIR$/multimedia" />
             <option value="$PROJECT_DIR$/persistence" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist" />
+            <option value="$PROJECT_DIR$/persistence/retrofit_todolist_repository" />
             <option value="$PROJECT_DIR$/persistence/room_todolist" />
             <option value="$PROJECT_DIR$/persistence/room_todolist_repository" />
             <option value="$PROJECT_DIR$/persistence/states_todolist" />

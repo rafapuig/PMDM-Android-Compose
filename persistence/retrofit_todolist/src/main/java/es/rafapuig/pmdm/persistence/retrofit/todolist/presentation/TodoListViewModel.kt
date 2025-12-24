@@ -8,46 +8,54 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.NetworkModule
 import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.TodosApiService
+import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.dto.CreateTodoRequest
+import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.dto.TodoCompletedPatch
 import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.mappers.toDomain
+import es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote.mappers.toDto
 import es.rafapuig.pmdm.persistence.retrofit.todolist.domain.model.Todo
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class TodoListViewModel(private val api: TodosApiService) : ViewModel() {
+
+    val _todos = MutableStateFlow<List<Todo>>(emptyList())
+    val todos = _todos.asStateFlow()
 
     init {
         loadTodos()
     }
 
-    val todos = mutableStateListOf<Todo>()
-
     private fun loadTodos() {
         viewModelScope.launch {
-            todos.addAll(
-                api.fetchAllTodos().map { dto -> dto.toDomain() })
+            _todos.update { api.fetchAllTodos().map { dto -> dto.toDomain() } }
         }
     }
 
-
-    /*fun onTodoIsDoneChange(todo: Todo, isDone: Boolean) {
+    fun onTodoIsDoneChange(todo: Todo, isDone: Boolean) {
         viewModelScope.launch {
-            dao.upsert(todo.toDatabase().copy(isDone = isDone))
+            api.setTodoDone(todo.id, patch = TodoCompletedPatch(isCompleted = isDone))
+            //loadTodos()
         }
     }
 
     fun onTodoDelete(todo: Todo) {
         viewModelScope.launch {
-            dao.delete(todo.toDatabase())
+            api.deleteTodo(todo.id)
+            //loadTodos()
         }
     }
 
     fun onTodoAdd(taskName: String) {
         viewModelScope.launch {
-            dao.upsert(Todo(task = taskName).toDatabase())
+            api.addTodo(CreateTodoRequest(task = taskName))
+            //loadTodos()
         }
-    }*/
+    }
 
     companion object {
         val Factory: ViewModelProvider.Factory =

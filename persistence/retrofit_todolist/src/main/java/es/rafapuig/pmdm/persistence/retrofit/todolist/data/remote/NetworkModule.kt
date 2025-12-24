@@ -7,17 +7,19 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object NetworkModule {
 
+    const val BASE_URL = "https://ktor-todos.fly.dev/" //  "http://192.168.1.8:8080/" //"https://my-json-server.typicode.com/rafapuig/PMDM-Android-Compose/"
+
     private val json = Json {
         ignoreUnknownKeys = true
         explicitNulls = false
         isLenient = true
     }
 
-    private val contentType = "application/json".toMediaType()
+    private val contentType = "application/json;charset=UTF-8".toMediaType()
 
 
     val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://my-json-server.typicode.com/rafapuig/PMDM-Android-Compose/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
 
