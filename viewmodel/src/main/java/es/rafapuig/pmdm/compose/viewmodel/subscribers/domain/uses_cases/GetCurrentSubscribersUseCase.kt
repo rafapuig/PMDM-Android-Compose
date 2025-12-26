@@ -27,7 +27,7 @@ object GetCurrentSubscribersUseCase {
             emit(it.toInt())
             delay(500.milliseconds)
         }
-        delayedFlow.onStart { println("🔥 Flow frio flowId arrancado...") }
+        delayedFlow.onStart { println("🔥 Flow frio iniciado...") }
     }
 
 }

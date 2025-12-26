@@ -7,7 +7,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object NetworkModule {
 
-    const val BASE_URL ="http://192.168.1.8:8080/" // "https://ktor-todos.fly.dev/" //  "http://192.168.1.8:8080/" //"https://my-json-server.typicode.com/rafapuig/PMDM-Android-Compose/"
+    const val BASE_URL = "https://ktor-todos.fly.dev/" //  "http://192.168.1.8:8080/" //"https://my-json-server.typicode.com/rafapuig/PMDM-Android-Compose/"
 
     private val json = Json {
         ignoreUnknownKeys = true

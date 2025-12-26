@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Subscribers</string>
+    <string name="title_activity_subscribers">SubscribersActivity</string>
+    <string name="title_activity_subcribers_use_case">SubcribersUseCaseActivity</string>
+    <string name="title_activity_subscribers_repository">SubscribersRepositoryActivity</string>
+</resources>

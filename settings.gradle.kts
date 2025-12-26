@@ -37,12 +37,20 @@ include(":hardware:sensors")
 
 include(":lifecycle")
 include(":viewmodel")
+include(":viewmodels:ui_state_holder")
+include(":viewmodels:ui_state_holder_uiState_class")
+include(":viewmodels:vm_scope_APIs")
+
+include(":clean_architecture:subscribers")
+include(":clean_architecture:todolist_repository_flows_impl")
 
 include(":persistence:states_todolist")
 include(":persistence:room_todolist")
 include(":persistence:room_todolist_repository")
+
+include(":persistence:retrofit_todolist")
+include(":persistence:retrofit_todolist_repository")
+
 include(":DI:di_todolist")
 include(":DI:room_todolist_repository_di")
 include(":multimedia")
-include(":persistence:retrofit_todolist")
-include(":persistence:retrofit_todolist_repository")

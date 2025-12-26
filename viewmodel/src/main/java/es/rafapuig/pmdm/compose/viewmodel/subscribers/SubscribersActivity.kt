@@ -14,7 +14,7 @@ import es.rafapuig.pmdm.compose.viewmodel.subscribers.ui.screens.SubscribersScre
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 
 /**
- * Revisar siempre el Manifest para ver si esta crrectamente registada la Activity
+ * Revisar siempre el Manifest para ver si esta correctamente registada la Activity
  */
 class SubscribersActivity : ComponentActivity() {
 

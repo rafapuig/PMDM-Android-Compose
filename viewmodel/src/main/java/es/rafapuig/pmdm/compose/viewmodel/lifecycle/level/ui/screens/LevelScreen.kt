@@ -37,33 +37,7 @@ import es.rafapuig.pmdm.compose.viewmodel.lifecycle.level.ui.model.isDeviceLevel
 import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 import kotlin.math.abs
 
-@Composable
-fun LevelScreenRoot() {
 
-    val activity = LocalActivity.current as ComponentActivity
-
-    activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-
-    val viewModel = viewModel {
-        LevelViewModel(activity.application as Application)
-    }
-
-    val accelerometerData by viewModel.acceleration.collectAsStateWithLifecycle()
-
-
-    val color by remember {
-        derivedStateOf {
-            if (isDeviceLeveled(accelerometerData))
-                Color.Green
-            else
-                Color.Red
-        }
-    }
-
-    with(accelerometerData) {
-        LevelScreen(xAxis = x, yAxis = y, color = color)
-    }
-}
 
 
 @Composable

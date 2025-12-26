@@ -26,7 +26,6 @@ class SampleData {
             amplitude = 1.5f,
             period = 100,
             phase = PI
-
         )
 
         val series3 = generateSeries(

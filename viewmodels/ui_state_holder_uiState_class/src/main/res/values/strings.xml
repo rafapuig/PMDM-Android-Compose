@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UIStateHolder</string>
+    <string name="title_activity_core_view_model_apiactivity">CoreViewModelAPIActivity</string>
+    <string name="title_activity_in_view_model">InActivityViewModelActivity</string>
+    <string name="title_activity_compose_view_model">ComposeViewModelActivity</string>
+    <string name="title_activity_compose">ComposeActivity</string>
+    <string name="title_activity_compose_states">ComposeStatesActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>
