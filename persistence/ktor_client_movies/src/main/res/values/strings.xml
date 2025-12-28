@@ -2,4 +2,5 @@
     <string name="app_name">Ktor_client_popular_movies</string>
     <string name="title_activity_popular_movies">PopularMoviesActivity</string>
     <string name="title_activity_top_rated">TopRatedActivity</string>
+    <string name="title_activity_search_movies">SearchMoviesActivity</string>
 </resources>

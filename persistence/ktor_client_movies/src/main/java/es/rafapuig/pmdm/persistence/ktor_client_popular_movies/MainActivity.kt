@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val movies = produceState(emptyList()) {
-                value = api.getTopRatedMovies().map {
+                value = api.getTopRatedMovies().results.map {
                     it.toDomain()
                 }
             }

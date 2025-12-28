@@ -7,6 +7,6 @@ fun MovieDto.toDomain() = Movie(
     id = id,
     title = title,
     overview = overview,
-    posterPath = posterPath,
+    posterPath = posterPath ?: "/",
     voteAverage = voteAverage
 )

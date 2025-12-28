@@ -17,7 +17,7 @@ fun TopRatedMoviesScreenComposeRoot() {
     val apiService = remember { TMDBApiServiceImpl.create() }
 
     val popularMovies by produceState(emptyList()) {
-        value = apiService.getTopRatedMovies().map {
+        value = apiService.getTopRatedMovies().results.map {
             it.toDomain()
         }
     }

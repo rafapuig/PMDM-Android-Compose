@@ -4,6 +4,7 @@ import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.BuildConfig
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.TMDBApiServiceImpl.HttpRoutes.API_HOST
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.TMDBApiServiceImpl.HttpRoutes.API_VERSION_PATH
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.TMDBApiServiceImpl.HttpRoutes.POPULAR_MOVIES_ENDPOINT
+import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.TMDBApiServiceImpl.HttpRoutes.SEARCH_MOVIES_ENDPOINT
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.TMDBApiServiceImpl.HttpRoutes.TOP_RATED_MOVIES_ENDPOINT
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.dto.MovieDto
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.data.remote.dto.MoviesApiResponse
@@ -32,37 +33,40 @@ class TMDBApiServiceImpl(
         const val BASE_URL = "https://api.themoviedb.org/3/"
         const val POPULAR_MOVIES_ENDPOINT = "movie/popular"
         const val TOP_RATED_MOVIES_ENDPOINT = "movie/top_rated"
+        const val SEARCH_MOVIES_ENDPOINT = "search/movie"
     }
 
     override suspend fun getPopularMovies(
         page: Int,
         region: String?
-    ): List<MovieDto> {
-        val response: MoviesApiResponse = client
-            .get(POPULAR_MOVIES_ENDPOINT) {
-                //parameter("api_key", BuildConfig.API_KEY)
-                //parameter("language", "es-ES")
-                parameter("page", page)
-                if (region != null) {
-                    parameter("region", region)
-                }
-            }.body()
+    ): MoviesApiResponse = client
+        .get(POPULAR_MOVIES_ENDPOINT) {
+            //parameter("api_key", BuildConfig.API_KEY)
+            //parameter("language", "es-ES")
+            parameter("page", page)
+            if (region != null) {
+                parameter("region", region)
+            }
+        }.body()
 
-        return response.results
-
-    }
 
     override suspend fun getTopRatedMovies(
         page: Int,
         region: String?
-    ): List<MovieDto> {
-        val response: MoviesApiResponse = client
-            .get(TOP_RATED_MOVIES_ENDPOINT) {
-                parameter("page", page)
-                region?.let { parameter("region", it) }
-            }.body()
+    ): MoviesApiResponse = client
+        .get(TOP_RATED_MOVIES_ENDPOINT) {
+            parameter("page", page)
+            region?.let { parameter("region", it) }
+        }.body()
 
-        return response.results
+    override suspend fun searchMovies(
+        query: String,
+        page: Int
+    ): MoviesApiResponse {
+        return client.get(SEARCH_MOVIES_ENDPOINT) {
+            parameter("query", query)
+            parameter("page", page)
+        }.body()
     }
 
     companion object {

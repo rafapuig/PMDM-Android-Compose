@@ -12,6 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
+            android:name=".search.SearchMoviesActivity"
+            android:exported="true"
+            android:label="@string/title_activity_search_movies"
+            android:theme="@style/Theme.PMDMCompose">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".top_rated.TopRatedActivity"
             android:exported="true"
             android:label="@string/title_activity_top_rated"

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.persistence.ktor_client_popular_movies.popular.presentation.screens
+package es.rafapuig.pmdm.persistence.ktor_client_popular_movies.search.presentation.screens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -12,17 +12,17 @@ import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.ui.theme.PMDMComp
 
 @Preview
 @Composable
-fun PopularMoviesScreenComposeRoot() {
+fun SearchMoviesScreenComposeRoot() {
 
     val apiService = remember { TMDBApiServiceImpl.create() }
 
-    val popularMovies by produceState(emptyList()) {
-        value = apiService.getPopularMovies().results.map {
+    val movies by produceState(emptyList()) {
+        value = apiService.searchMovies("titanic").results.map {
             it.toDomain()
         }
     }
 
     PMDMComposeTheme {
-        MoviesListScreen(popularMovies)
+        MoviesListScreen(movies)
     }
 }

@@ -92,19 +92,19 @@
       <SelectionState runConfigName="client_api_services.ktor_the_meal_db">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TopRatedActivity">
+      <SelectionState runConfigName="TopRatedActivity (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TopRatedActivity (1)">
+      <SelectionState runConfigName="TopRatedMoviesScreenComposeRoot">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PopularMoviesActivity">
+      <SelectionState runConfigName="SearchMoviesScreenComposeRoot">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PopularMoviesActivity (1)">
+      <SelectionState runConfigName="SearchMoviesScreenRoot">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TopRatedActivity (2)">
+      <SelectionState runConfigName="SearchMoviesActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
