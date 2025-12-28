@@ -32,7 +32,7 @@ fun MoviesListScreen(
     isLoading: Boolean = false,
     title: String = "Peliculas",
     onLoadMoreMovies: () -> Unit = {},
-    topPlaceholder: @Composable () -> Unit = {},
+    topBar: (@Composable () -> Unit)? = null,
 ) {
     val gridState = rememberLazyGridState()
 
@@ -50,11 +50,15 @@ fun MoviesListScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = title)
-                }
-            )
+            if (topBar != null) {
+                topBar()
+            } else {
+                TopAppBar(
+                    title = {
+                        Text(text = title)
+                    }
+                )
+            }
         },
         floatingActionButtonPosition = FabPosition.Center,
         floatingActionButton = {
@@ -67,7 +71,7 @@ fun MoviesListScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            topPlaceholder()
+            //topPlaceholder()
             MoviesGrid(
                 movies = movies,
                 isLoading = isLoading,
