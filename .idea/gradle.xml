@@ -17,6 +17,8 @@
             <option value="$PROJECT_DIR$/clean_architecture" />
             <option value="$PROJECT_DIR$/clean_architecture/subscribers" />
             <option value="$PROJECT_DIR$/clean_architecture/todolist_repository_flows_impl" />
+            <option value="$PROJECT_DIR$/client_api_services" />
+            <option value="$PROJECT_DIR$/client_api_services/ktor_the_meal_db" />
             <option value="$PROJECT_DIR$/compose" />
             <option value="$PROJECT_DIR$/compose/intro" />
             <option value="$PROJECT_DIR$/compose/learningcompose" />
@@ -31,6 +33,7 @@
             <option value="$PROJECT_DIR$/lifecycle" />
             <option value="$PROJECT_DIR$/multimedia" />
             <option value="$PROJECT_DIR$/persistence" />
+            <option value="$PROJECT_DIR$/persistence/ktor_client_movies" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist_repository" />
             <option value="$PROJECT_DIR$/persistence/room_todolist" />

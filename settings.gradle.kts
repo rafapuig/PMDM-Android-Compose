@@ -22,6 +22,14 @@ dependencyResolutionManagement {
     }
 }
 
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("ktorLibs") {
+            from("io.ktor:ktor-version-catalog:3.3.3")
+        }
+    }
+}
+
 rootProject.name = "PMDM-Compose"
 include(":app")
 
@@ -54,3 +62,5 @@ include(":persistence:retrofit_todolist_repository")
 include(":DI:di_todolist")
 include(":DI:room_todolist_repository_di")
 include(":multimedia")
+include(":persistence:ktor_client_movies")
+include(":client_api_services:ktor_the_meal_db")

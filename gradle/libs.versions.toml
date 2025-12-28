@@ -18,6 +18,7 @@ media3Ui = "1.9.0"
 material3 = "1.5.0-alpha11"
 navigationCompose = "2.9.6"
 room = "2.8.4"
+ktorBom = "3.3.3"
 
 [libraries]
 androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
@@ -60,7 +61,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
-# Para la navegacion con Navigation 3
+# Kotlin Serialization Plugin (Para la navegacion con Navigation 3, Retrofit, Ktor)
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 kotlin-parcelize = {id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin"}
