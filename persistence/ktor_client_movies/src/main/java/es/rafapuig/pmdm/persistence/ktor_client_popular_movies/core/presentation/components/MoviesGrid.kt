@@ -1,17 +1,25 @@
 package es.rafapuig.pmdm.persistence.ktor_client_popular_movies.core.presentation.components
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -27,7 +35,6 @@ import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.ui.theme.PMDMComp
 fun MoviesGrid(
     movies: List<Movie> = emptyList(),
     isLoading: Boolean = false,
-    onLoadMoreMovies: () -> Unit = {},
     gridState: LazyGridState = rememberLazyGridState(),
     modifier: Modifier = Modifier
 ) {
@@ -35,7 +42,9 @@ fun MoviesGrid(
         state = gridState,
         modifier = modifier,
         columns = GridCells.Fixed(2),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(horizontal = 24.dp, vertical = 0.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(
             items = movies,
@@ -43,17 +52,18 @@ fun MoviesGrid(
         ) { movie ->
             MovieCard(
                 movie = movie,
-                modifier = Modifier.padding(8.dp)
+                //modifier = Modifier.padding(horizontal = 8.dp)
             )
         }
 
         // Añade un ítem al final para mostrar el indicador de carga
-        if (isLoading) {
-            item {
+        // Loader al final (NO fullscreen)
+        if (isLoading && movies.isNotEmpty()) {
+            item(span = { GridItemSpan(2) }) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentHeight(),
+                        .padding(16.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     CircularProgressIndicator()
@@ -62,27 +72,19 @@ fun MoviesGrid(
         }
     }
 
-    // Efecto que detecta el final del scroll
-    LaunchedEffect(gridState) {
-        // 'snapshotFlow' convierte el estado del scroll en un Flow de Kotlin
-        snapshotFlow { gridState.layoutInfo }
-            .collect { layoutInfo ->
-                // Obtenemos el índice del último elemento visible
-                val lastVisibleItemIndex = layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0
-
-                // Definimos un umbral, por ejemplo, 5.
-                // Cuando el usuario vea el 5º último elemento, empezamos a cargar más.
-                val threshold = 5
-                val totalItems = layoutInfo.totalItemsCount
-
-                // Si no estamos ya cargando y el usuario ha alcanzado el umbral...
-                if (isLoading && lastVisibleItemIndex >= totalItems - 1 - threshold) {
-                    // ¡Llama a la función del ViewModel para cargar más!
-                    onLoadMoreMovies()
-                }
-            }
-
+    // 🔥 Loader FULL SCREEN
+    if (isLoading && movies.isEmpty()) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                //.background(MaterialTheme.colorScheme.background)
+            ,
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator()
+        }
     }
+
 }
 
 @Preview(

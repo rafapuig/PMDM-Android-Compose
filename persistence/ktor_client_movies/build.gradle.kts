@@ -43,7 +43,8 @@ android {
             buildConfigField(
                 "String",
                 "API_KEY",
-                localProperties.getProperty("TMDB_API_KEY")
+                project.properties["TMDB_API_KEY"].toString()
+                //localProperties.getProperty("TMDB_API_KEY")
             )
             buildConfigField(
                 "String",

@@ -5,10 +5,13 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import coil3.compose.rememberAsyncImagePainter
+import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.R
 
 
 enum class PosterSize(val value: String) {
@@ -34,7 +37,13 @@ fun MoviePoster(
 
     println("url: $url")
 
-    val painter = rememberAsyncImagePainter(model = url)
+    val isPreview = LocalInspectionMode.current
+
+    val painter =
+        if (isPreview) {
+            painterResource(R.drawable.ratatouille)
+        } else
+            rememberAsyncImagePainter(model = url)
 
     Image(
         painter = painter,

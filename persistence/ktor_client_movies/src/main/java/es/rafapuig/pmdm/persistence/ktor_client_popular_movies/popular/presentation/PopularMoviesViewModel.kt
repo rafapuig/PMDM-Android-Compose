@@ -8,11 +8,13 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.MoviesApplication
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.domain.model.Movie
 import es.rafapuig.pmdm.persistence.ktor_client_popular_movies.domain.repository.MoviesRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlin.collections.plus
+import kotlin.time.Duration.Companion.seconds
 
 class PopularMoviesViewModel(
     private val repository: MoviesRepository
@@ -39,6 +41,7 @@ class PopularMoviesViewModel(
 
         viewModelScope.launch {
             _isLoading.value = true
+            delay(2.seconds)
             try {
                 // Pedimos la página actual
                 val newMovies = repository.fetchPopularMovies(currentPage)

@@ -2,6 +2,7 @@
 
 package es.rafapuig.pmdm.compose.viewmodel.lifecycle.ui.screens
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -16,6 +17,7 @@ import androidx.compose.material.icons.filled.SwapHoriz
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.viewmodel.lifecycle.ui.MenuDestination
 import es.rafapuig.pmdm.compose.viewmodel.lifecycle.ui.screens.components.GridMenuCard
+import es.rafapuig.pmdm.compose.viewmodel.ui.theme.PMDMComposeTheme
 
 @Composable
 fun MenuScreenGrid(
@@ -64,9 +67,19 @@ fun MenuScreenGrid(
     }
 }
 
+@Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+fun MenuScreenGridPreviewDark() {
+    PMDMComposeTheme {
+        Surface {
+            MenuScreenGrid()
+        }
+    }
+}
+
 @Preview(showSystemUi = true)
 @Composable
-fun MenuScreenGridPreview() {
+fun MenuScreenGridPreviewLight() {
     MenuScreenGrid()
 }
 

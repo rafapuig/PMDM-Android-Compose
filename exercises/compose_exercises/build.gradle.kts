@@ -43,8 +43,8 @@ android {
 }
 
 dependencies {
-    // Libreria de iconos extendida de Material 3
-    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+    // Libreria de iconos extendida de Material 3 (version del Compose BOM)
+    implementation("androidx.compose.material:material-icons-extended")
 
     //Coil
     implementation("io.coil-kt.coil3:coil-compose:3.3.0")
@@ -57,11 +57,13 @@ dependencies {
     implementation("androidx.navigation3:navigation3-ui:1.0.0")
     //implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.9.0")
 
+
     // Material 3 en Compose
     implementation(libs.androidx.compose.material3)
 
-    // ViewModel en Compose
+    // ViewModel en Compose + Navegation 3
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
 
     //implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))

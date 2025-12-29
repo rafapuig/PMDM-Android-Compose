@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/compose/previewsdemo" />
             <option value="$PROJECT_DIR$/exercises" />
             <option value="$PROJECT_DIR$/exercises/compose_exercises" />
+            <option value="$PROJECT_DIR$/exercises/viewmodel_exercises" />
             <option value="$PROJECT_DIR$/hardware" />
             <option value="$PROJECT_DIR$/hardware/level" />
             <option value="$PROJECT_DIR$/hardware/sensormotion" />

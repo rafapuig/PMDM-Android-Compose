@@ -1,12 +1,17 @@
 package es.rafapuig.pmdm.compose.exercises.images.exercise2
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import coil3.compose.rememberAsyncImagePainter
+import es.rafapuig.pmdm.compose.exercises.R
 
 enum class PosterSize(val value: String) {
     W92("w92"),
@@ -27,13 +32,24 @@ fun MoviePoster(
     contentDescription: String? = null,
     modifier: Modifier = Modifier
 ) {
+    val isPreview = LocalInspectionMode.current
+
     val url = "$BASE_URL${size.value}$posterPath"
 
-    println("url: $url")
+    println("url: $posterPath")
 
-    val painter = rememberAsyncImagePainter(model = url)
+    val painter =
+        if (isPreview) {
+            painterResource(R.drawable.ratatouille)
+        } else
+            rememberAsyncImagePainter(model = url)
 
-    Image(painter = painter, contentDescription = contentDescription, modifier = modifier)
+    Image(
+        painter = painter,
+        contentDescription = contentDescription,
+        contentScale = ContentScale.FillBounds,
+        modifier = modifier.aspectRatio(500f / 750f)
+    )
 }
 
 
