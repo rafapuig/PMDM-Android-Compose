@@ -102,8 +102,8 @@ class CounterViewModel() : ViewModel() {
         }
     }
 
-    private fun increment() = slowAction { decrementCounter() }
-    private fun decrement() = slowAction { incrementCounter() }
+    private fun increment() = slowAction { incrementCounter() }
+    private fun decrement() = slowAction { decrementCounter() }
     private fun reset() = slowAction { resetCounter() }
 
 }

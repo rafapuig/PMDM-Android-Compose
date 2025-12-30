@@ -15,6 +15,16 @@
             <option value="$PROJECT_DIR$/DI/room_todolist_repository_di" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/clean_architecture" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/app_mvi_one_off_events_as_channel_flow_with_data_store" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/app_mvvm_with_data_store" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/data" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/data/data_store" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/domain" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/presentation" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/presentation/core" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/presentation/mvi" />
+            <option value="$PROJECT_DIR$/clean_architecture/counter/presentation/mvvm" />
             <option value="$PROJECT_DIR$/clean_architecture/subscribers" />
             <option value="$PROJECT_DIR$/clean_architecture/todolist_repository_flows_impl" />
             <option value="$PROJECT_DIR$/client_api_services" />
@@ -34,6 +44,7 @@
             <option value="$PROJECT_DIR$/lifecycle" />
             <option value="$PROJECT_DIR$/multimedia" />
             <option value="$PROJECT_DIR$/persistence" />
+            <option value="$PROJECT_DIR$/persistence/datastore_counter" />
             <option value="$PROJECT_DIR$/persistence/ktor_client_movies" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist_repository" />

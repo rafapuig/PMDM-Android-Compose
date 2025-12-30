@@ -23,9 +23,6 @@ fun CounterScreenRoot(
     onBack: () -> Unit = {},
     viewModel: CounterViewModel = viewModel()
 ) {
-
-    val activity = LocalContext.current as ComponentActivity
-
     Scaffold(
         topBar = {
             TopAppBar(
