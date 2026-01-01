@@ -51,8 +51,8 @@ dependencies {
     implementation(project(":clean_architecture:counter:domain"))
     implementation(project(":clean_architecture:counter:data:data_store"))
 
-    // Data Store
-    implementation("androidx.datastore:datastore-preferences:1.2.0")
+    // Data Store (preferences)
+    implementation(libs.androidx.datastore.preferences)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
