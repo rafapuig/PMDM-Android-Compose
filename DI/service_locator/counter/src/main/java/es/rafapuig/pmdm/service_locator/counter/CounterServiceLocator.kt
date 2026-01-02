@@ -1,0 +1,22 @@
+package es.rafapuig.pmdm.service_locator.counter
+
+import android.content.Context
+import es.rafapuig.pmdm.service_locator.counter.data.CounterDataStore
+import es.rafapuig.pmdm.service_locator.counter.data.CounterRepositoryImpl
+import es.rafapuig.pmdm.service_locator.counter.data.counterDataStore
+import es.rafapuig.pmdm.service_locator.counter.domain.repositories.CounterRepository
+
+object CounterServiceLocator {
+
+    lateinit var context: Context
+
+    fun configure(context: Context) {
+        CounterServiceLocator.context = context
+    }
+
+    val counterRepository: CounterRepository by lazy {
+        check(::context.isInitialized) { "CounterRepository not..... initialized" }
+        val dataStore = CounterDataStore(context.applicationContext.counterDataStore)
+        CounterRepositoryImpl(dataStore) as CounterRepository
+    }
+}

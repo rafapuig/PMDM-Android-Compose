@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Counter</string>
+    <string name="title_activity_counter">CounterActivity</string>
+    <string name="title_activity_counter_compose">CounterComposeActivity</string>
+</resources>
