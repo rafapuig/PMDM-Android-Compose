@@ -36,6 +36,11 @@ public class CounterDataStore(
     }
 
     suspend fun setCounter(value: Int) {
+        /*counterDataStore.updateData {
+            it.toMutablePreferences().apply {
+                set(Keys.COUNTER, value)
+            }
+        }*/
         counterDataStore.edit { preferences ->
             preferences[Keys.COUNTER] = value
         }

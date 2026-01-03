@@ -31,6 +31,12 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PMDM-Compose"
+
+/**
+ * Sirve para poder acceder a los modulos del proyecto desde el build.gradle.kts
+ * sin strings, como las libreias definidas el el catalogo de versiones
+ */
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 
 include(":compose:myfirstcomposeapp")
@@ -82,3 +88,4 @@ include(":DI:counter:common")
 include(":DI:counter:di_dagger_hilt_counter")
 include(":DI:counter:di_dagger_hilt_no_annotated_viewmodel_counter")
 include(":DI:di_dagger_hilt:counter")
+include(":clean_architecture:dictionary:app")

@@ -44,10 +44,18 @@ kotlin {
 }
 
 dependencies {
+    // Dependencias de otros modulos del proyecto
+    implementation(projects.cleanArchitecture.counter.presentation.core)
+    implementation(projects.cleanArchitecture.counter.presentation.mvvm)
+    implementation(projects.cleanArchitecture.counter.data.dataStore)
+    implementation(projects.cleanArchitecture.counter.domain)
+
+    /*
     implementation(project(":clean_architecture:counter:presentation:mvvm"))
     implementation(project(":clean_architecture:counter:presentation:core"))
     implementation(project(":clean_architecture:counter:data:data_store"))
     implementation(project(":clean_architecture:counter:domain"))
+     */
 
     // Data Store
     implementation(libs.androidx.datastore.preferences)

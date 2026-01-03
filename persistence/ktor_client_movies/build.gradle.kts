@@ -18,13 +18,13 @@ if (localPropertiesFile.exists()) {
 
 
 android {
-    namespace = "es.rafapuig.pmdm.persistence.ktor_client_popular_movies"
+    namespace = "es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "es.rafapuig.pmdm.persistence.ktor_client_popular_movies"
+        applicationId = "es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -49,7 +49,8 @@ android {
             buildConfigField(
                 "String",
                 "API_ACCESS_TOKEN",
-                localProperties.getProperty("TMDB_API_ACCESS_TOKEN")
+                project.properties["TMDB_API_ACCESS_TOKEN"].toString()
+                //localProperties.getProperty("TMDB_API_ACCESS_TOKEN")
             )
         }
         debug {
