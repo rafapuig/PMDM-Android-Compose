@@ -5,16 +5,16 @@ import kotlinx.serialization.json.Json
 
 class StringListConverter {
 
-    private val json = Json { ignoreUnknownKeys = true }
+    private val jsonSerializer = Json { ignoreUnknownKeys = true }
 
     @TypeConverter
     fun fromStringList(list: List<String>): String {
-        return json.encodeToString(list)
+        return jsonSerializer.encodeToString(list)
     }
 
     @TypeConverter
-    fun toStringList(jsonString: String): List<String> {
-        return if (jsonString.isBlank()) emptyList()
-        else json.decodeFromString(jsonString)
+    fun toStringList(json: String): List<String> {
+        return if (json.isBlank()) emptyList()
+        else jsonSerializer.decodeFromString(json)
     }
 }

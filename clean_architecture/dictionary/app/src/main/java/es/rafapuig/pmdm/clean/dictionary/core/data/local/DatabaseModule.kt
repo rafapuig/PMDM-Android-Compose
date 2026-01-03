@@ -30,5 +30,11 @@ object DatabaseModule {
         ).addTypeConverter(Converters(json))
             .build()
     }
-
+/*
+    @Provides
+    @Singleton
+    fun provideWordInfoDao(db: WordInfoDatabase): WordInfoDao {
+        return db.dao
+    }
+    */
 }

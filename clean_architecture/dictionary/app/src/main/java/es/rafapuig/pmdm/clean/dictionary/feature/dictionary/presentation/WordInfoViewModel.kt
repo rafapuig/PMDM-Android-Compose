@@ -42,12 +42,13 @@ class WordInfoViewModel @Inject constructor(
         private set
 
 
-    val _query = MutableStateFlow("")
+    val _query = MutableStateFlow(savedStateHandle.get<String>("word") ?: "")
     val query = _query.asStateFlow()
 
     init {
         savedStateHandle.get<String>("word")?.let { word ->
             _query.value = word
+            state = state.copy(query = word)
         }
         observeQueryChanges()
     }
@@ -56,6 +57,7 @@ class WordInfoViewModel @Inject constructor(
     private fun observeQueryChanges() {
         viewModelScope.launch {
             query
+                //.onEach { state = state.copy(query = it) }
                 .map { it.trim() } // ✂️ Normaliza el input en el ViewModel, no en la UI
                 .onEach { query ->
                     if (query.isBlank()) {

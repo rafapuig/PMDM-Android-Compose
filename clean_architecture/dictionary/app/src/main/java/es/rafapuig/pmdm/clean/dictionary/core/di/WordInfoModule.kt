@@ -21,13 +21,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object WordInfoModule {
 
-
-    @Provides
-    @Singleton
-    fun provideGetWordInfoUseCase(repository: WordInfoRepository): GetWordInfo {
-        return GetWordInfo(repository)
-    }
-
     @Provides
     @Singleton
     fun provideWordInfoRepository(
@@ -37,4 +30,11 @@ object WordInfoModule {
         return WordInfoRepositoryImpl(api, db.dao)
     }
 
+/*
+    @Provides
+    @Singleton
+    fun provideGetWordInfoUseCase(repository: WordInfoRepository): GetWordInfo {
+        return GetWordInfo(repository)
+    }
+*/
 }
