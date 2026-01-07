@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.rafapuig.pmdm.clean.dictionary.core.data.util.Resource
-import es.rafapuig.pmdm.clean.dictionary.feature.dictionary.domain.use_case.GetWordInfo
+import es.rafapuig.pmdm.clean.dictionary.feature.dictionary.domain.use_case.GetWordInfoUseCase
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,7 +27,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class WordInfoViewModel @Inject constructor(
-    private val getWordInfo: GetWordInfo,
+    private val getWordInfo: GetWordInfoUseCase,
     private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 

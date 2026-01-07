@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
  * Y además sabemos que un estado debe ser declarado en el nodo más alto necesario del arbol
  * de nodos de funciones composables
  * (definido por las llamadas a las funciones composables durante la composición)
- * Al hecho de subir la declaracion del estado a un nodo superior (funcion llamadora)
+ * Al hecho de subir la declaración del estado a un nodo superior (funcion llamadora)
  * le denominamos STATE HOISTING
  *
  * Esto conduce a tener que pasar hacia abajo como argumento de llamada a las funciones composables

@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 import javax.inject.Inject
 
-class GetWordInfo @Inject constructor(
+class GetWordInfoUseCase @Inject constructor(
     private val repository: WordInfoRepository
 ) {
-    /** La validación va aquí en el caso de de uso */
+    /** La validación va aquí en el caso de uso */
     operator fun invoke(word: String): Flow<Resource<List<WordInfo>>> {
 
         if (word.isBlank()) return emptyFlow()

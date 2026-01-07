@@ -43,6 +43,9 @@ android {
 }
 
 dependencies {
+    // Constraint Layout en Compose
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+
     // Libreria de iconos extendida de Material 3 (version del Compose BOM)
     implementation("androidx.compose.material:material-icons-extended")
 
