@@ -2,4 +2,8 @@
     <string name="app_name">BookApp</string>
     <string name="search_hint">Search...</string>
     <string name="clear_search_hint">Clear search</string>
+    <string name="search_results">Search Results</string>
+    <string name="favorites">Favorites</string>
+    <string name="no_search_results">Oops, there aren\'t any books for your search query</string>
+    <string name="no_favorites">You haven\'t save any favorite books yet</string>
 </resources>
