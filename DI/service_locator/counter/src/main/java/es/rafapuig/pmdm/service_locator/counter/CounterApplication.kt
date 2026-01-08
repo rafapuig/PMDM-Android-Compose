@@ -6,7 +6,7 @@ class CounterApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        CounterServiceLocator.configure(applicationContext)
+        CounterServiceLocator.configure(this)
     }
 
 }
