@@ -1,9 +1,24 @@
 <resources>
     <string name="app_name">BookApp</string>
-    <string name="search_hint">Search...</string>
+    <string name="search_hint">Search…</string>
     <string name="clear_search_hint">Clear search</string>
     <string name="search_results">Search Results</string>
     <string name="favorites">Favorites</string>
     <string name="no_search_results">Oops, there aren\'t any books for your search query</string>
     <string name="no_favorites">You haven\'t save any favorite books yet</string>
+    <string name="book_cover">Book cover</string>
+    <string name="rating">Rating</string>
+    <string name="pages">Pages</string>
+    <string name="languages">Languages</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="go_back">Go back</string>
+    <string name="mark_as_favorite">Mark as favorite</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+    <string name="description_unavailable">Description not available.</string>
+    <string name="error_disk_full">Oops, it seems like your disk is full.</string>
+    <string name="error_unknown">Oops, something went wrong.</string>
+    <string name="error_request_timeout">The request timed out.</string>
+    <string name="error_no_internet">Couldn\'t reach server, please check your internet connection.</string>
+    <string name="error_too_many_requests">Your quota seems to be exceeded.</string>
+    <string name="error_serialization">Couldn\'t parse data.</string>
 </resources>
