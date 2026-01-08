@@ -1,6 +1,6 @@
 package es.rafapuig.pmdm.service_locator.counter
 
-import android.content.Context
+import android.app.Application
 import es.rafapuig.pmdm.service_locator.counter.data.CounterDataStore
 import es.rafapuig.pmdm.service_locator.counter.data.CounterRepositoryImpl
 import es.rafapuig.pmdm.service_locator.counter.data.counterDataStore
@@ -8,9 +8,9 @@ import es.rafapuig.pmdm.service_locator.counter.domain.repositories.CounterRepos
 
 object CounterServiceLocator {
 
-    lateinit var context: Context
+    lateinit var context: Application
 
-    fun configure(context: Context) {
+    fun configure(context: Application) {
         CounterServiceLocator.context = context
     }
 

@@ -21,11 +21,11 @@ Se le puede proporcionar directamente un objeto CounterViewModel
 y que para contruirlo hemos tenido que proporcionarle el repositorio
 
 ## MainActivity
-En MainActivity llamamos al Composition Root sin porporcionarle
+En MainActivity llamamos al Composition Root sin proporcionarle
 el viewModel, para que use el viewModel que se obtiene del valor por defecto
 del parámetro viewModel de la función MVICounterScreenRoot. 
 Para ello creamos una factoría en el companion object del CounterViewModel.
-Esta factoria se usa con la función viewModel del API para obtener el viewModel
+Esta factoría se usa con la función viewModel del API para obtener el viewModel
 por defecto del parametro viewModel de la función MVICounterScreenRoot.
 
 
