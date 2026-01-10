@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -46,8 +47,24 @@ dependencies {
     implementation(libs.androidx.compose.material.icons.extended)
 
     //Coil
-    implementation("io.coil-kt.coil3:coil-compose:3.3.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
+    implementation(platform(libs.coil.bom))
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+
+    implementation(platform(libs.ktor.bom))
+    // Ktor client https://ktor.io/docs/client-dependencies.html#client-dependency
+    implementation(libs.ktor.client.core)
+    // Ktor engine https://ktor.io/docs/client-engines.html#jvm-android
+    implementation(libs.ktor.client.android)
+    // Logging
+    implementation(libs.ktor.client.logging)
+    // https://ktor.io/docs/client-serialization.html
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    // Kotlin serialization https://github.com/Kotlin/kotlinx.serialization
+    implementation(libs.kotlinx.serialization.json)
+
 
 
 
