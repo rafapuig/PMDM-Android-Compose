@@ -42,6 +42,19 @@ android {
 }
 
 dependencies {
+
+    //Libreria de iconos extendida de Material 3
+    implementation(libs.androidx.compose.material.icons.extended)
+
+    // Coil (Libreria de carga de imagenes)
+    implementation(platform(libs.coil.bom))
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+
+    // ViewModels en Compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
