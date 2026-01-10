@@ -39,6 +39,7 @@ kotlin {
 
 dependencies {
     implementation(project(":clean_architecture:counter:domain"))
+    implementation(projects.cleanArchitecture.counter.domain)
 
     // Data Store
     implementation("androidx.datastore:datastore-preferences:1.2.0")
