@@ -40,7 +40,7 @@ fun MoviesGrid(
     ) {
         items(
             items = movies,
-            //key = { movie -> movie.id }
+            //key = { movie -> movie.id } // Comentado porque en el API se repiten ID's
         ) { movie ->
             MovieCard(
                 movie = movie,

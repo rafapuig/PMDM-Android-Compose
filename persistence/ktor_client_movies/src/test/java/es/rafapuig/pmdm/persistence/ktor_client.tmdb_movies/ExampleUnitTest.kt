@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.persistence.ktor_client_popular_movies
+package es.rafapuig.pmdm.persistence.ktor_client.tmdb_movies
 
 import org.junit.Test
 

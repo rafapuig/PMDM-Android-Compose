@@ -48,7 +48,7 @@ fun MoviePoster(
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = modifier.aspectRatio(500f/750f),
+        modifier = modifier.aspectRatio(500f / 750f),
         contentScale = ContentScale.FillBounds
     )
 }

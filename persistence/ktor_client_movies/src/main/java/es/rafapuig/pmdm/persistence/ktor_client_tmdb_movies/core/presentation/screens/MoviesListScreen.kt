@@ -92,14 +92,14 @@ fun MoviesListScreen(
 
     /** https://developer.android.com/develop/ui/compose/lists#react-to-scroll-position */
 
-    // Efecto que detecta el final del scroll
+    // Efecto que detecta el final del scroll (hemos llegado hasta la ultima fila de películas)
     LaunchedEffect(gridState) {
 
         // Definimos un umbral, por ejemplo, 3.
         // (numero impar pq cuando se esta cargando se añade
-        // momentaneamente el item de indicador progreso)
+        // momentaneamente el item de indicador progreso, que cuenta como un item más)
         // Cuando el usuario vea el 3º último elemento,
-        // tenemos que cargar más.
+        // tenemos que cargar más peliculas desde la API.
         val threshold = 3
 
         // 'snapshotFlow' convierte el estado del scroll en un Flow de Kotlin
@@ -114,13 +114,14 @@ fun MoviesListScreen(
                 val totalItems = layoutInfo.totalItemsCount
                 val lastItemIndex = totalItems - 1
 
+                // Si esta condición se cumple entonces estamos viendo el 3º último elemento
                 lastItemIndex - lastVisibleItemIndex <= threshold
             }
-            .distinctUntilChanged() // Mientras no cambie el valor emitido, filtrar
+            .distinctUntilChanged() // Mientras no cambie el valor emitido, filtrar (solo cuando pase de false a true o viceversa)
             .filter { shouldLoadMore -> shouldLoadMore } // Solo valores true
             .onEach { shouldLoadMore ->
                 println("Cargando más...")
-                // ¡Llama a la función para cargar más!
+                // ¡Llama a la función para cargar más películas!
                 if(shouldLoadMore) onLoadMoreMovies()
             }
             .launchIn(this)
