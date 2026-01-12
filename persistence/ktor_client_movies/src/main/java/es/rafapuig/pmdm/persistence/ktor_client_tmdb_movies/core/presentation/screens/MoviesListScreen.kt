@@ -23,7 +23,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.presentation.components.MoviesGrid
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.presentation.components.ScrollToTopFAB
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.domain.model.Movie
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.model.Movie
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
