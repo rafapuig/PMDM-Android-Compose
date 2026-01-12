@@ -2,6 +2,7 @@ package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies
 
 import android.app.Application
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.KtorClientFactory
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.KtorClientProvider
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiServiceImpl
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.repositories.MoviesRepositoryRemoteImpl
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.repository.MoviesRepository
@@ -17,6 +18,15 @@ class MoviesApplication : Application() {
         val client = KtorClientFactory.create(apiKey, apiToken, language)
         val apiService = TMDBApiServiceImpl(client)
         MoviesRepositoryRemoteImpl(apiService)
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        KtorClientProvider.configure(
+            apiKey = BuildConfig.API_KEY,
+            apiToken = BuildConfig.API_ACCESS_TOKEN,
+            language = "es-ES"
+        )
     }
 
 }

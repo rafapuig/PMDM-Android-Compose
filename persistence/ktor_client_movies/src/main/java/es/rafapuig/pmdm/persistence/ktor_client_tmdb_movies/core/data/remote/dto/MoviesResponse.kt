@@ -5,7 +5,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MoviesApiResponse(
+data class MoviesResponse(
     @SerialName("page")
     val page: Int = 0,
     @SerialName("results")

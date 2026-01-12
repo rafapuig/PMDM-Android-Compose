@@ -1,6 +1,6 @@
 package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote
 
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dto.MoviesApiResponse
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dto.MoviesResponse
 
 interface TMDBApiService {
 
@@ -13,11 +13,11 @@ interface TMDBApiService {
         const val SEARCH_MOVIES_ENDPOINT = "search/movie"
     }
 
-    suspend fun fetchPopularMovies(page: Int = 1, region: String? = "ES"): MoviesApiResponse
+    suspend fun fetchPopularMovies(page: Int = 1, region: String? = "ES"): MoviesResponse
 
-    suspend fun fetchTopRatedMovies(page: Int = 1, region: String? = "ES"): MoviesApiResponse
+    suspend fun fetchTopRatedMovies(page: Int = 1, region: String? = "ES"): MoviesResponse
 
-    suspend fun searchMovies(query: String, page: Int = 1): MoviesApiResponse
+    suspend fun searchMovies(query: String, page: Int = 1): MoviesResponse
 
 
 }

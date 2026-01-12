@@ -3,7 +3,7 @@ package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.HttpRoutes.POPULAR_MOVIES_ENDPOINT
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.HttpRoutes.SEARCH_MOVIES_ENDPOINT
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.HttpRoutes.TOP_RATED_MOVIES_ENDPOINT
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dto.MoviesApiResponse
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dto.MoviesResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -16,7 +16,7 @@ class TMDBApiServiceImpl(
     override suspend fun fetchPopularMovies(
         page: Int,
         region: String?
-    ): MoviesApiResponse = client
+    ): MoviesResponse = client
         .get(POPULAR_MOVIES_ENDPOINT) {
             //parameter("api_key", BuildConfig.API_KEY)
             //parameter("language", "es-ES")
@@ -28,7 +28,7 @@ class TMDBApiServiceImpl(
     override suspend fun fetchTopRatedMovies(
         page: Int,
         region: String?
-    ): MoviesApiResponse = client
+    ): MoviesResponse = client
         .get(TOP_RATED_MOVIES_ENDPOINT) {
             parameter("page", page)
             region?.let { parameter("region", it) }
@@ -37,7 +37,7 @@ class TMDBApiServiceImpl(
     override suspend fun searchMovies(
         query: String,
         page: Int
-    ): MoviesApiResponse {
+    ): MoviesResponse {
         return client.get(SEARCH_MOVIES_ENDPOINT) {
             parameter("query", query)
             parameter("page", page)

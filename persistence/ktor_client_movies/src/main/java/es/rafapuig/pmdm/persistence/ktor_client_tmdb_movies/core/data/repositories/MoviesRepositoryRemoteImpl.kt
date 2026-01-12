@@ -10,21 +10,19 @@ class MoviesRepositoryRemoteImpl(
 ) : MoviesRepository {
 
     override suspend fun fetchPopularMovies(page: Int): List<Movie> {
-        return api.fetchPopularMovies(page).results.map {
-            it.toDomain()
-        }
+        return api.fetchPopularMovies(page).results
+            .map { movieDto -> movieDto.toDomain() }
     }
 
-    override suspend fun fetchTopRatedMovies(page: Int): List<Movie> {
-        return api.fetchTopRatedMovies(page).results.map {
+    override suspend fun fetchTopRatedMovies(page: Int) =
+        api.fetchTopRatedMovies(page).results.map {
             it.toDomain()
         }
-    }
 
     override suspend fun searchMovies(
         query: String,
         page: Int
-    ): List<Movie> = api.searchMovies(query, page).results.map {
+    ) = api.searchMovies(query, page).results.map {
         it.toDomain()
     }
 

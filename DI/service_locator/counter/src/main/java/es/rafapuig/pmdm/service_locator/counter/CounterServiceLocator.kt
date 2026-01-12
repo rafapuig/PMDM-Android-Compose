@@ -15,7 +15,7 @@ object CounterServiceLocator {
     }
 
     val counterRepository: CounterRepository by lazy {
-        check(::context.isInitialized) { "CounterRepository not..... initialized" }
+        check(::context.isInitialized) { "Application context not..... initialized" }
         val dataStore = CounterDataStore(context.applicationContext.counterDataStore)
         CounterRepositoryImpl(dataStore) as CounterRepository
     }
