@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.domain.model.Movie
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.model.Movie
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.ui.theme.PMDMComposeTheme
 
 @Composable

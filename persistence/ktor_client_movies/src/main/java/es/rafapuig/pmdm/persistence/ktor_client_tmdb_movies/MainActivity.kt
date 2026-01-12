@@ -9,13 +9,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.produceState
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.data.remote.TMDBApiServiceImpl
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.data.remote.toDomain
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiServiceImpl
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.mappers.toDomain
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.ui.theme.PMDMComposeTheme
 
 class MainActivity : ComponentActivity() {
 
-    val api = TMDBApiServiceImpl.create()
+    val api = TMDBApiServiceImpl.Factory.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

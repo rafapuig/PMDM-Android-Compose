@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PMDMCompose">
         <activity
-            android:name=".search.SearchMoviesActivity"
+            android:name=".feature.search.SearchMoviesActivity"
             android:exported="true"
             android:label="@string/title_activity_search_movies"
             android:theme="@style/Theme.PMDMCompose">
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".top_rated.TopRatedActivity"
+            android:name=".feature.top_rated.TopRatedActivity"
             android:exported="true"
             android:label="@string/title_activity_top_rated"
             android:theme="@style/Theme.PMDMCompose">
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".popular.PopularMoviesActivity"
+            android:name=".feature.popular.PopularMoviesActivity"
             android:exported="true"
             android:label="@string/title_activity_popular_movies"
             android:theme="@style/Theme.PMDMCompose">
