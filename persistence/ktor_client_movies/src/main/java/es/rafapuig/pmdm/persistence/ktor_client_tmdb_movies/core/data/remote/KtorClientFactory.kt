@@ -15,7 +15,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 /**
- * Factoria de objetos HttpClient de Ktor para la realización de solicitudes HTTP
+ * Factoría de objetos HttpClient de Ktor para la realización de solicitudes HTTP
  * al API de The Movie Database
  */
 object KtorClientFactory {
