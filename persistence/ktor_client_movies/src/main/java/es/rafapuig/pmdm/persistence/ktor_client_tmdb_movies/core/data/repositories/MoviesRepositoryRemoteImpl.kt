@@ -5,6 +5,12 @@ import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.map
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.model.Movie
 import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.repository.MoviesRepository
 
+/**
+ * Implementación de la interface MoviesRepository definida en la capa de dominio
+ *
+ * Para realizar su labor depende de una instancia que cuya clase
+ * implemente la interface TMDBApiService
+ */
 class MoviesRepositoryRemoteImpl(
     private val api: TMDBApiService
 ) : MoviesRepository {

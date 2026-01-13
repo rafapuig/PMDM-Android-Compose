@@ -1,7 +1,7 @@
 package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote
 
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.HttpRoutes.API_HOST
-import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.HttpRoutes.API_VERSION_PATH
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.Companion.API_HOST
+import es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.TMDBApiService.Companion.API_VERSION_PATH
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -21,8 +21,8 @@ import kotlinx.serialization.json.Json
 object KtorClientFactory {
 
     fun create(
-        apiKey: String = "",
-        apiToken: String = "",
+        apiKey: String? = null,
+        apiToken: String? = null,
         language: String = "",
     ): HttpClient = HttpClient(Android) {
 
@@ -63,8 +63,8 @@ object KtorClientFactory {
                      * Usamos el API Key si se nos ha proporcionado esta
                      * y no se ha proporcionado el access token de la API.
                      */
-                    if (apiKey.isNotEmpty() && apiToken.isEmpty()) {
-                        append("api_key", apiKey)
+                    if (!apiKey.isNullOrBlank() && apiToken.isNullOrEmpty()) {
+                        append("api_key", apiKey) // Smart cast a String
                     }
 
                 }
@@ -74,11 +74,11 @@ object KtorClientFactory {
                  * lo añadimos una cabecera de autorización con el token
                  * por defecto en cada solicitud
                  */
-                if (apiToken.isNotEmpty()) {
+                if (!apiToken.isNullOrBlank()) {
                     /** Añadir el Access Token a las cabeceras de cada solicitud */
                     headers.append(
                         "Authorization",
-                        "Bearer ${apiToken}"
+                        "Bearer $apiToken"
                     )
                 }
             }

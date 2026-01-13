@@ -4,6 +4,10 @@ package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dt
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * DTO para recuperar la respuesta de la API
+ */
+
 @Serializable
 data class MoviesResponse(
     @SerialName("page")

@@ -4,6 +4,10 @@ package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.data.remote.dt
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * El DTO (Data Transfer Object)
+ * Clase que se utiliza para deserializar los datos recibidos de la API
+ */
 @Serializable
 data class MovieDto(
     @SerialName("adult")

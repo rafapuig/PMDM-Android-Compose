@@ -1,5 +1,6 @@
 package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.model
 
+/** Clase modelo del dominio */
 data class Movie(
     val id: Int,
     val title: String,
