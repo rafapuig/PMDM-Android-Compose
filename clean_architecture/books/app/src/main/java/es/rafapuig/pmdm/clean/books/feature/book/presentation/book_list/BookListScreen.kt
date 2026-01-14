@@ -16,40 +16,35 @@ import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import es.rafapuig.pmdm.clean.books.R
-import es.rafapuig.pmdm.clean.books.core.presentation.UIText
-import es.rafapuig.pmdm.clean.books.feature.book.data.books
+import es.rafapuig.pmdm.clean.books.feature.book.data.dummyBooks
 import es.rafapuig.pmdm.clean.books.feature.book.domain.model.Book
 import es.rafapuig.pmdm.clean.books.feature.book.presentation.book_list.components.BookList
 import es.rafapuig.pmdm.clean.books.feature.book.presentation.book_list.components.BookSearchBar
 import es.rafapuig.pmdm.clean.books.ui.theme.DarkBlue
 import es.rafapuig.pmdm.clean.books.ui.theme.DesertWhite
 import es.rafapuig.pmdm.clean.books.ui.theme.SandYellow
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun BookListScreenRoot(
-    viewModel: BookListViewModel, //= koinViewModel()
+    viewModel: BookListViewModel = koinViewModel(),
     onNavigateToBookDetails: (Book) -> Unit = {}
 ) {
     val state by viewModel.state
@@ -257,7 +252,7 @@ fun BookListScreenPreview() {
     BookListScreen(
         state = BookListState(
             //errorMessage = UIText.DynamicString("Error message"),
-            searchResults = books
+            searchResults = dummyBooks
         ),
         onAction = {}
     )

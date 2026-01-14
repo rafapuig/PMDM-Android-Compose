@@ -10,11 +10,13 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 
 
-private const val BASE_URL = "https://openlibrary.org"
-
 class KtorRemoteBookDataSource(
     private val httpClient: HttpClient
 ) : RemoteBookDataSource {
+
+    companion object {
+        private const val BASE_URL = "https://openlibrary.org"
+    }
 
     override suspend fun searchBooks(
         query: String,

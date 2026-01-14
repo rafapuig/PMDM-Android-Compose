@@ -34,12 +34,14 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+
     buildFeatures {
         compose = true
     }
+}
+
+kotlin {
+    jvmToolchain(11)
 }
 
 dependencies {
@@ -51,7 +53,7 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 
-
+    // Ktor
     implementation(platform(libs.ktor.bom))
     // Ktor client https://ktor.io/docs/client-dependencies.html#client-dependency
     implementation(libs.ktor.client.core)
@@ -65,6 +67,12 @@ dependencies {
     // Kotlin serialization https://github.com/Kotlin/kotlinx.serialization
     implementation(libs.kotlinx.serialization.json)
 
+
+    // Koin
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation(libs.koin.android) // Para declarar viewmodel e inyectar en Activity
+    implementation(libs.koin.androidx.compose) // Para usar koinViewModel() en Composables
 
 
 
