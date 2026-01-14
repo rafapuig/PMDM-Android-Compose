@@ -21,6 +21,10 @@ import es.rafapuig.pmdm.navigation.navigation3.basic.presentation.sampleItems
 
 data object Home
 
+/**
+ * Ruta simple (sin parámetros) que representa a la pantalla Lista de items
+ * (Como no necesita parámetros se utiliza un data object)
+ */
 data object List
 
 
