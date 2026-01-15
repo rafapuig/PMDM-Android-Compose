@@ -31,6 +31,7 @@ material3 = "1.4.0"
 uiToolingPreview = "1.10.0"
 uiTooling = "1.10.0"
 koin-bom = "4.1.1"
+koin-annotations = "2.3.1"  # Stable version
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -119,6 +120,9 @@ koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
 koin-ktor = { module = "io.insert-koin:koin-ktor" }
 koin-test = { module = "io.insert-koin:koin-test" }
+# Koin annotations (Para anotaciones de Koin)
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-annotations" }
 
 
 [plugins]

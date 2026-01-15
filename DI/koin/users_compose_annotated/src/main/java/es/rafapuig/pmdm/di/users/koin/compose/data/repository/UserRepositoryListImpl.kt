@@ -2,7 +2,13 @@ package es.rafapuig.pmdm.di.users.koin.compose.data.repository
 
 import es.rafapuig.pmdm.di.users.koin.compose.domain.model.User
 import es.rafapuig.pmdm.di.users.koin.compose.domain.repository.UserRepository
+import org.koin.core.annotation.Single
 
+/**
+ * The @Single annotation declares classes as singletons in Koin
+ */
+
+@Single
 class UserRepositoryListImpl() : UserRepository {
 
     private val users = mutableListOf<User>()

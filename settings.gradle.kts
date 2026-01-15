@@ -96,4 +96,6 @@ include(":navigation:navigation3:basic")
 include(":navigation:navigation3:basic_saveable")
 include(":navigation:navigation3:basic_saveable_DSL")
 include(":navigation:navigation3:viewmodel_basic")
+
 include(":DI:koin:users_compose")
+include(":DI:koin:users_compose_annotated")
