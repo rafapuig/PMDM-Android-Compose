@@ -33,7 +33,7 @@ import es.rafapuig.pmdm.di.manual.counter.ui.theme.PMDMComposeTheme
  * y el evento de acción para actualizarlo
  * Es más escalable porque si añadimos nuevos elementos al estado
  * y nuevas acciones, no hace falta modificar los
- * parametros de entrada de la función composable
+ * parámetros de entrada de la función composable
  */
 @Composable
 fun MVICounterScreen(
