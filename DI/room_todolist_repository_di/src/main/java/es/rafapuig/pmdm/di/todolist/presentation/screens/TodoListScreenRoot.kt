@@ -13,7 +13,8 @@ import es.rafapuig.pmdm.di.todolist.ui.theme.PMDMComposeTheme
 fun TodoListScreenRoot(viewModel: TodoListViewModel = viewModel()) {
 
     /** No necesita valor inicial porque todos es un StateFlow */
-    val todos by viewModel.todos.collectAsStateWithLifecycle()
+    val todos by viewModel.todos
+        .collectAsStateWithLifecycle()
 
     PMDMComposeTheme {
         TodoListScreen(

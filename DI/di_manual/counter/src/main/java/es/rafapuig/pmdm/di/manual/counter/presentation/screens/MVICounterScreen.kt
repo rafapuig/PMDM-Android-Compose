@@ -31,7 +31,7 @@ import es.rafapuig.pmdm.di.manual.counter.ui.theme.PMDMComposeTheme
 /**
  * El composable de la pantalla solamente recibe el estado
  * y el evento de acción para actualizarlo
- * Es mas escalable porque si añadimos nuevos elementos al estado
+ * Es más escalable porque si añadimos nuevos elementos al estado
  * y nuevas acciones, no hace falta modificar los
  * parametros de entrada de la función composable
  */

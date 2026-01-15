@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlin.collections.map
 
-class TodosRepositoryLocalImpl(private val dao: TodoDao) : TodosRepository {
+class TodosRepositoryLocalImpl(
+    private val dao: TodoDao
+) : TodosRepository {
 
     override val todos: Flow<List<Todo>>
         get() = dao.getAllTodos().map { entities ->
@@ -28,4 +30,5 @@ class TodosRepositoryLocalImpl(private val dao: TodoDao) : TodosRepository {
     override suspend fun addTodo(task: String) {
         dao.upsert(TodoEntity(task = task))
     }
+
 }

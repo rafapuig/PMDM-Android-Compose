@@ -14,11 +14,11 @@ import es.rafapuig.pmdm.persistence.room.todolist.data.local.providers.TodosData
 abstract class TodosDatabase : RoomDatabase() {
     abstract fun todoDao(): TodoDao
 
-    companion object {
+    companion object Factory {
 
         const val DB_NAME = "todos_database.db"
 
-        operator fun invoke(factory: TodosDatabaseFactory) : Companion {
+        operator fun invoke(factory: TodosDatabaseFactory) : Factory {
             TodosDatabaseProvider.initialize(factory)
             return this
         }

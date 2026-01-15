@@ -10,12 +10,23 @@ import es.rafapuig.pmdm.di.manual.counter.presentation.CounterEvent
 import es.rafapuig.pmdm.di.manual.counter.presentation.CounterViewModel
 import es.rafapuig.pmdm.di.manual.counter.presentation.ObserveAsEvents
 
-
+/**
+ * El parámetro viewModel tiene definido un valor por defecto,
+ * es decir, el valor que se usará si en la llamada a la función MVICounterScreenRoot
+ * no se proporciona ningún argumento para dicho parámetro.
+ * En ese caso se usa la función viewModel() del ViewModel Scoping API.
+ * Esta versión de la función viewModel() recibe una factoría de ViewModels
+ * (es decir, una instacia de un objeto cuya clase implementa la interface ViewModelProvider.Factory)
+ * Dentro de la clase CounterViewModel, en el companion object, se ha definido una propiedad Factory
+ * que devuelve una instancia de un objeto que es una factoría de ViewModels.
+ * Dicha factoría fabrica objetos de tipo CounterViewModel.
+ */
 @Composable
 fun MVICounterScreenRoot(
     viewModel: CounterViewModel = viewModel(factory = CounterViewModel.Factory)
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState
+        .collectAsStateWithLifecycle()
 
     val snackbarHostState = remember { SnackbarHostState() }
 
