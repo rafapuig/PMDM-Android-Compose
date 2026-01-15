@@ -38,7 +38,7 @@ class WordInfoViewModel @Inject constructor(
     private val _eventFlow = MutableSharedFlow<UIEvent>()
     val eventFlow = _eventFlow.asSharedFlow()
 
-    var state by mutableStateOf(WordInfoState())
+    var state by mutableStateOf(WordInfoUiState())
         private set
 
 

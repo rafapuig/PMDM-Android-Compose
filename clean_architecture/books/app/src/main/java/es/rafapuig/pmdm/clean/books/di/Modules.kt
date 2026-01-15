@@ -8,6 +8,7 @@ import es.rafapuig.pmdm.clean.books.feature.book.domain.BookRepository
 import es.rafapuig.pmdm.clean.books.feature.book.presentation.book_detail.BookDetailViewModel
 import es.rafapuig.pmdm.clean.books.feature.book.presentation.book_list.BookListViewModel
 import es.rafapuig.pmdm.clean.books.feature.book.presentation.book_list.SelectedBookViewModel
+import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.android.Android
 import org.koin.core.module.dsl.viewModelOf
@@ -17,7 +18,7 @@ val appModule = module {
 
     single<HttpClientEngine> { Android.create() }
 
-    single { HttpClientFactory().create(get()) }
+    single<HttpClient> { HttpClientFactory().create(get()) }
 
     //singleOf(::KtorRemoteBookDataSource).bind<RemoteBookDataSource>()
 
