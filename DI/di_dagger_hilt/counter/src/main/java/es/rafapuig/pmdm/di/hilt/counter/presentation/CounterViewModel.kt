@@ -13,6 +13,12 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * Al anotar un clase ViewModel con @HiltViewModel
+ * La HiltViewModelFactory será capaz de crear instancias de este clase ViewModel
+ * y podrán ser obtenidos mediante la función viewModels() del ViewModel Scoping API
+ * dentro de una clase Activity si esta actividad ha sido anotada con @AndroidEntryPoint *
+ */
 @HiltViewModel
 class CounterViewModel @Inject constructor(
     private val repository: CounterRepository

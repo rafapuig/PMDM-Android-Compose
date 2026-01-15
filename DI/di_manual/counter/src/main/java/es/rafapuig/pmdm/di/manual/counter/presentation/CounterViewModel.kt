@@ -118,10 +118,23 @@ class CounterViewModel(
 
 
     companion object {
+
+        /**
+         * La propiedad Factory contiene la referencia a una factoría de ViewModels
+         * que fabrica objetos de tipo CounterViewModel.
+         */
+
         val Factory = viewModelFactory {
             initializer {
                 val application = this[APPLICATION_KEY] as Application
 
+                /**
+                 * application es una referencia a la aplicación
+                 * la clase Application implementa la interface Context
+                 * y por tanto, podemos usar application directamente
+                 * como el contexto de la aplicación (applicationContext)
+                 * para obtener el DataStore de preferencias                 *
+                 */
                 val counterDataStore = CounterDataStore(application.counterDataStore)
                 val repository = CounterRepositoryImpl(counterDataStore)
                 CounterViewModel(repository)
