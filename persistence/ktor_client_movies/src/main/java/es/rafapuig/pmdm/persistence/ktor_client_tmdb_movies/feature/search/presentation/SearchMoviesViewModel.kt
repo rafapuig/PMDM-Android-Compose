@@ -34,11 +34,12 @@ class SearchMoviesViewModel(
     val isLoading = _isLoading.asStateFlow()
 
 
-    private val _query = MutableStateFlow("")
-    val searchQuery = _query.asStateFlow()
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery = _searchQuery.asStateFlow()
 
 
     private var currentPage = 1
+    private var currentQuery: String = searchQuery.value
 
     init {
         //onLoadMoreMovies()
@@ -58,7 +59,7 @@ class SearchMoviesViewModel(
                 .map { it.trim() } // ✂️ Normaliza el input en el ViewModel, no en la UI
                 .onEach { query ->
                     if (query.isBlank()) {
-                        _movies.value = emptyList()
+                        _movies.update { emptyList() }
                     }
                 }
                 .debounce(1.seconds)
@@ -67,16 +68,19 @@ class SearchMoviesViewModel(
                 .collectLatest { query ->
                     currentPage = 1
                     _movies.value = emptyList()
+                    currentQuery = query
                     loadMoreMovies()
                 }
         }
     }
 
+
+
     suspend fun loadMoreMovies() {
         _isLoading.value = true
         try {
             // Pedimos la página actual
-            val newMovies = repository.searchMovies(searchQuery.value, currentPage)
+            val newMovies = repository.searchMovies(currentQuery, currentPage)
             // Añadimos las nuevas películas a la lista existente
             _movies.update { it + newMovies }
             // Incrementamos el número de página para la próxima vez
@@ -101,7 +105,7 @@ class SearchMoviesViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        _query.value = query
+        _searchQuery.value = query
     }
 
 

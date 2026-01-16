@@ -17,17 +17,17 @@ val appModule = module {
     // Alternativamente
     //singleOf(::UserRepositoryListImpl) { bind<UserRepository>() }
 
-    single { GreetUserUseCase(get()) }
+    //single { GreetUserUseCase(get()) }
 
     // Aternativamente
-    //singleOf(::GreetUserUseCase)
+    singleOf(::GreetUserUseCase)
 
-    single { LoadUsersUseCase(get()) }
+    //single { LoadUsersUseCase(get()) }
     // Alternativamente
     singleOf(::LoadUsersUseCase)
 
     viewModelOf(::GreetingUserViewModel)
     // Alternativamente
-    viewModel { GreetingUserViewModel(get(), get()) }
+    //viewModel { GreetingUserViewModel(get(), get()) }
 
 }

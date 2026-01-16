@@ -7,7 +7,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun DetailScreenRoot(
     id: Int,
     onBack: () -> Unit,
-    viewModel: DetailViewModel = viewModel(factory = DetailViewModel.Factory(id))
+    viewModel: DetailViewModel = viewModel { DetailViewModel(id) } //viewModel(factory = DetailViewModel.Factory(id))
 ) {
     DetailScreen(
         item = viewModel.item,

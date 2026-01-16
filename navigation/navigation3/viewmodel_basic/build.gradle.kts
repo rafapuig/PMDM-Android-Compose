@@ -47,7 +47,7 @@ kotlin {
 
 dependencies {
     // Libreria de iconos extendida de Material 3 (version del Compose BOM)
-    implementation("androidx.compose.material:material-icons-extended")
+    implementation(libs.androidx.compose.material.icons.extended)
 
     // ViewModel en Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
@@ -55,7 +55,7 @@ dependencies {
     // Navigation 3
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 
 
     implementation(libs.androidx.core.ktx)
