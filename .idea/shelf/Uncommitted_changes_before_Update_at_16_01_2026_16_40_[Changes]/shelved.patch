@@ -1,0 +1,167 @@
+Index: navigation/navigation3/viewmodel_basic/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.android.application)\r\n    alias(libs.plugins.kotlin.android)\r\n    alias(libs.plugins.kotlin.compose)\r\n    // Necesario para Navigation 3 con back stack persistente a cambios de configuración\r\n    alias(libs.plugins.kotlin.serialization)\r\n}\r\n\r\nandroid {\r\n    namespace = \"es.rafapuig.pmdm.navigation.navigation3.basic\"\r\n    compileSdk {\r\n        version = release(36)\r\n    }\r\n\r\n    defaultConfig {\r\n        applicationId = \"es.rafapuig.pmdm.navigation.navigation3.basic\"\r\n        minSdk = 26\r\n        targetSdk = 36\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            isMinifyEnabled = false\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_11\r\n        targetCompatibility = JavaVersion.VERSION_11\r\n    }\r\n\r\n    buildFeatures {\r\n        compose = true\r\n    }\r\n}\r\n\r\nkotlin {\r\n    jvmToolchain(11)\r\n}\r\n\r\ndependencies {\r\n    // Libreria de iconos extendida de Material 3 (version del Compose BOM)\r\n    implementation(\"androidx.compose.material:material-icons-extended\")\r\n\r\n    // ViewModel en Compose\r\n    implementation(libs.androidx.lifecycle.viewmodel.compose)\r\n\r\n    // Navigation 3\r\n    implementation(libs.androidx.navigation3.runtime)\r\n    implementation(libs.androidx.navigation3.ui)\r\n    implementation(\"androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0\")\r\n\r\n\r\n    implementation(libs.androidx.core.ktx)\r\n    implementation(libs.androidx.lifecycle.runtime.ktx)\r\n    implementation(libs.androidx.activity.compose)\r\n    implementation(platform(libs.androidx.compose.bom))\r\n    implementation(libs.androidx.compose.ui)\r\n    implementation(libs.androidx.compose.ui.graphics)\r\n    implementation(libs.androidx.compose.ui.tooling.preview)\r\n    implementation(libs.androidx.compose.material3)\r\n    testImplementation(libs.junit)\r\n    androidTestImplementation(libs.androidx.junit)\r\n    androidTestImplementation(libs.androidx.espresso.core)\r\n    androidTestImplementation(platform(libs.androidx.compose.bom))\r\n    androidTestImplementation(libs.androidx.compose.ui.test.junit4)\r\n    debugImplementation(libs.androidx.compose.ui.tooling)\r\n    debugImplementation(libs.androidx.compose.ui.test.manifest)\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/navigation/navigation3/viewmodel_basic/build.gradle.kts b/navigation/navigation3/viewmodel_basic/build.gradle.kts
+--- a/navigation/navigation3/viewmodel_basic/build.gradle.kts	(revision 5371c711ca7636b2a3362cf1911ad17f8976559f)
++++ b/navigation/navigation3/viewmodel_basic/build.gradle.kts	(date 1768577999020)
+@@ -47,7 +47,7 @@
+ 
+ dependencies {
+     // Libreria de iconos extendida de Material 3 (version del Compose BOM)
+-    implementation("androidx.compose.material:material-icons-extended")
++    implementation(libs.androidx.compose.material.icons.extended)
+ 
+     // ViewModel en Compose
+     implementation(libs.androidx.lifecycle.viewmodel.compose)
+@@ -55,7 +55,7 @@
+     // Navigation 3
+     implementation(libs.androidx.navigation3.runtime)
+     implementation(libs.androidx.navigation3.ui)
+-    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.10.0")
++    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+ 
+ 
+     implementation(libs.androidx.core.ktx)
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\r\nagp = \"8.13.2\"\r\ncoilBom = \"3.3.0\"\r\nconverterKotlinxSerialization = \"3.0.0\"\r\ndatastorePreferences = \"1.2.0\"\r\nhiltAndroid = \"2.57.2\"\r\nhiltNavigationCompose = \"1.3.0\"\r\nkotlin = \"2.2.21\"\r\ncoreKtx = \"1.17.0\"\r\njunit = \"4.13.2\"\r\njunitVersion = \"1.3.0\"\r\nespressoCore = \"3.7.0\"\r\nappcompat = \"1.7.1\"\r\nkotlinxSerializationJson = \"1.10.0-RC\"\r\nmaterial = \"1.13.0\"\r\nlifecycleRuntimeKtx = \"2.10.0\"\r\nactivityCompose = \"1.12.2\"\r\ncomposeBom = \"2025.12.01\"\r\nnavigation3Runtime = \"1.0.0\"\r\nretrofit = \"3.0.0\"\r\nuiGraphics = \"1.10.0\"\r\nui = \"1.10.0\"\r\nmedia3Exoplayer = \"1.9.0\"\r\nmedia3Ui = \"1.9.0\"\r\n# material3 = \"1.5.0-alpha11\" se usa la de compose BOM\r\nnavigationCompose = \"2.9.6\"\r\nksp = \"2.3.4\"\r\nroom = \"2.8.4\"\r\nktorBom = \"3.3.3\"\r\nmaterial3 = \"1.4.0\"\r\nuiToolingPreview = \"1.10.0\"\r\nuiTooling = \"1.10.0\"\r\nkoin-bom = \"4.1.1\"\r\n\r\n[libraries]\r\nandroidx-core-ktx = { group = \"androidx.core\", name = \"core-ktx\", version.ref = \"coreKtx\" }\r\n\r\n\r\n\r\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\r\nandroidx-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"junitVersion\" }\r\nandroidx-espresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espressoCore\" }\r\nandroidx-appcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\r\n\r\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\r\nandroidx-lifecycle-runtime-ktx = { group = \"androidx.lifecycle\", name = \"lifecycle-runtime-ktx\", version.ref = \"lifecycleRuntimeKtx\" }\r\nandroidx-activity-compose = { group = \"androidx.activity\", name = \"activity-compose\", version.ref = \"activityCompose\" }\r\n\r\n# Dependencias de Compose en el Compose BOM\r\nandroidx-compose-bom = { group = \"androidx.compose\", name = \"compose-bom\", version.ref = \"composeBom\" }\r\nandroidx-compose-material-icons-extended = { module = \"androidx.compose.material:material-icons-extended\" }\r\nandroidx-compose-ui = { group = \"androidx.compose.ui\", name = \"ui\" }\r\nandroidx-compose-ui-graphics = { group = \"androidx.compose.ui\", name = \"ui-graphics\" }\r\nandroidx-compose-ui-tooling = { group = \"androidx.compose.ui\", name = \"ui-tooling\" }\r\nandroidx-compose-ui-tooling-preview = { group = \"androidx.compose.ui\", name = \"ui-tooling-preview\" }\r\nandroidx-compose-ui-test-manifest = { group = \"androidx.compose.ui\", name = \"ui-test-manifest\" }\r\nandroidx-compose-ui-test-junit4 = { group = \"androidx.compose.ui\", name = \"ui-test-junit4\" }\r\nandroidx-compose-material3 = { group = \"androidx.compose.material3\", name = \"material3\" }\r\n\r\nandroidx-ui-graphics = { group = \"androidx.compose.ui\", name = \"ui-graphics\", version.ref = \"uiGraphics\" }\r\nandroidx-ui = { group = \"androidx.compose.ui\", name = \"ui\", version.ref = \"ui\" }\r\nandroidx-media3-exoplayer = { group = \"androidx.media3\", name = \"media3-exoplayer\", version.ref = \"media3Exoplayer\" }\r\nandroidx-media3-ui = { group = \"androidx.media3\", name = \"media3-ui\", version.ref = \"media3Ui\" }\r\n#androidx-material3 = { group = \"androidx.compose.material3\", name = \"material3\", version.ref = \"material3\" }\r\n\r\n# Coil (Libreria de carga de imagenes)\r\ncoil-bom = { module = \"io.coil-kt.coil3:coil-bom\", version.ref = \"coilBom\" }\r\ncoil-compose = { module = \"io.coil-kt.coil3:coil-compose\" }\r\ncoil-network-okhttp = { module = \"io.coil-kt.coil3:coil-network-okhttp\" }\r\n\r\n# Navigation 2 Compose (Forma anterior a Navigation 3 de navegacion)\r\nandroidx-navigation-compose = { group = \"androidx.navigation\", name = \"navigation-compose\", version.ref = \"navigationCompose\" }\r\n\r\n# Navigation 3\r\nandroidx-navigation3-runtime = { module = \"androidx.navigation3:navigation3-runtime\", version.ref = \"navigation3Runtime\" }\r\nandroidx-navigation3-ui = { module = \"androidx.navigation3:navigation3-ui\", version.ref = \"navigation3Runtime\" }\r\n\r\n# Dependencias para usar ViewModel en Compose\r\nandroidx-lifecycle-viewmodel-compose = { module = \"androidx.lifecycle:lifecycle-viewmodel-compose\", version.ref = \"lifecycleRuntimeKtx\" }\r\nandroidx-lifecycle-viewmodel-ktx = { module = \"androidx.lifecycle:lifecycle-viewmodel-ktx\", version.ref = \"lifecycleRuntimeKtx\" }\r\n\r\n#DataSore Preferencies\r\nandroidx-datastore-preferences = { module = \"androidx.datastore:datastore-preferences\", version.ref = \"datastorePreferences\" }\r\n\r\n# Dependencias para usar Room\r\nandroidx-room-runtime = { module = \"androidx.room:room-runtime\", version.ref = \"room\" }\r\nandroidx-room-compiler = { module = \"androidx.room:room-compiler\", version.ref = \"room\" }\r\nandroidx-room-ktx = { module = \"androidx.room:room-ktx\", version.ref = \"room\" }\r\nandroidx-material3 = { group = \"androidx.compose.material3\", name = \"material3\", version.ref = \"material3\" }\r\nandroidx-ui-tooling-preview = { group = \"androidx.compose.ui\", name = \"ui-tooling-preview\", version.ref = \"uiToolingPreview\" }\r\nandroidx-ui-tooling = { group = \"androidx.compose.ui\", name = \"ui-tooling\", version.ref = \"uiTooling\" }\r\n\r\n# Serialización JSON de Kotlin\r\nkotlinx-serialization-json = { module = \"org.jetbrains.kotlinx:kotlinx-serialization-json\", version.ref = \"kotlinxSerializationJson\" }\r\n\r\n# Dependencias para usar Retrofit\r\nretrofit = { module = \"com.squareup.retrofit2:retrofit\", version.ref = \"retrofit\" }\r\nconverter-kotlinx-serialization = { module = \"com.squareup.retrofit2:converter-kotlinx-serialization\", version.ref = \"converterKotlinxSerialization\" }\r\n\r\n# Ktor\r\nktor-bom = { module = \"io.ktor:ktor-bom\", version.ref = \"ktorBom\" }\r\nktor-client-core = { module = \"io.ktor:ktor-client-core\" }\r\nktor-client-android = { module = \"io.ktor:ktor-client-android\" }\r\nktor-client-content-negotiation = { module = \"io.ktor:ktor-client-content-negotiation\" }\r\nktor-serialization-kotlinx-json = { module = \"io.ktor:ktor-serialization-kotlinx-json\" }\r\nktor-client-logging = { module = \"io.ktor:ktor-client-logging\" }\r\n\r\n# Dependencias para usar Hilt\r\nhilt-android = { module = \"com.google.dagger:hilt-android\", version.ref = \"hiltAndroid\" }\r\nhilt-android-compiler = { module = \"com.google.dagger:hilt-android-compiler\", version.ref = \"hiltAndroid\" }\r\nandroidx-hilt-navigation-compose = { module = \"androidx.hilt:hilt-navigation-compose\", version.ref = \"hiltNavigationCompose\" }\r\n\r\n# Koin\r\nkoin-bom = { module = \"io.insert-koin:koin-bom\", version.ref = \"koin-bom\" }\r\nkoin-core = { module = \"io.insert-koin:koin-core\" }\r\nkoin-android = { module = \"io.insert-koin:koin-android\" }\r\nkoin-androidx-compose = { module = \"io.insert-koin:koin-androidx-compose\" }\r\nkoin-compose = { module = \"io.insert-koin:koin-compose\" }\r\nkoin-compose-viewmodel = { module = \"io.insert-koin:koin-compose-viewmodel\" }\r\nkoin-ktor = { module = \"io.insert-koin:koin-ktor\" }\r\nkoin-test = { module = \"io.insert-koin:koin-test\" }\r\n\r\n\r\n[plugins]\r\nandroid-application = { id = \"com.android.application\", version.ref = \"agp\" }\r\nandroid-library = { id = \"com.android.library\", version.ref = \"agp\" }\r\nkotlin-android = { id = \"org.jetbrains.kotlin.android\", version.ref = \"kotlin\" }\r\nkotlin-jvm = { id = \"org.jetbrains.kotlin.jvm\", version.ref = \"kotlin\" }\r\nkotlin-compose = { id = \"org.jetbrains.kotlin.plugin.compose\", version.ref = \"kotlin\" }\r\n\r\n# Objectos Parcelable para guardar y restaurar el estado de la UI\r\nkotlin-parcelize = { id = \"org.jetbrains.kotlin.plugin.parcelize\", version.ref = \"kotlin\" }\r\n\r\n# Kotlin Serialization Plugin (Para la navegacion con Navigation 3, Retrofit, Ktor)\r\nkotlin-serialization = { id = \"org.jetbrains.kotlin.plugin.serialization\", version.ref = \"kotlin\" }\r\n\r\n# Plugin KSP Kotlin Symbol Processor para utilizar Room\r\ngoogle-devtools-ksp = { id = \"com.google.devtools.ksp\", version.ref = \"ksp\" }
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	(revision 5371c711ca7636b2a3362cf1911ad17f8976559f)
++++ b/gradle/libs.versions.toml	(date 1768577998997)
+@@ -48,6 +48,7 @@
+ 
+ # Dependencias de Compose en el Compose BOM
+ androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
++# Libreria de iconos extendida de Material 3 (version del Compose BOM)
+ androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+ androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+ androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+@@ -74,6 +75,7 @@
+ # Navigation 3
+ androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "navigation3Runtime" }
+ androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "navigation3Runtime" }
++androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleRuntimeKtx" }
+ 
+ # Dependencias para usar ViewModel en Compose
+ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+Index: navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/list/ItemListViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.rafapuig.pmdm.navigation.navigation3.basic.presentation.list\r\n\r\nimport androidx.compose.runtime.mutableStateListOf\r\nimport androidx.lifecycle.ViewModel\r\nimport es.rafapuig.pmdm.navigation.navigation3.basic.domain.model.Item\r\nimport es.rafapuig.pmdm.navigation.navigation3.basic.domain.sampleItems\r\n\r\nclass ItemListViewModel() : ViewModel() {\r\n\r\n    private val _items = mutableStateListOf(*sampleItems.toTypedArray())\r\n    val items: List<Item> = _items\r\n\r\n    init {\r\n        println(\"ItemListViewModel created\")\r\n    }\r\n\r\n    override fun onCleared() {\r\n        super.onCleared()\r\n        println(\"ItemListViewModel cleared\")\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/list/ItemListViewModel.kt b/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/list/ItemListViewModel.kt
+--- a/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/list/ItemListViewModel.kt	(revision 5371c711ca7636b2a3362cf1911ad17f8976559f)
++++ b/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/list/ItemListViewModel.kt	(date 1768577232319)
+@@ -4,11 +4,17 @@
+ import androidx.lifecycle.ViewModel
+ import es.rafapuig.pmdm.navigation.navigation3.basic.domain.model.Item
+ import es.rafapuig.pmdm.navigation.navigation3.basic.domain.sampleItems
++import kotlinx.coroutines.flow.MutableStateFlow
++import kotlinx.coroutines.flow.asStateFlow
+ 
+ class ItemListViewModel() : ViewModel() {
+ 
+-    private val _items = mutableStateListOf(*sampleItems.toTypedArray())
+-    val items: List<Item> = _items
++    var items = mutableStateListOf(*sampleItems.toTypedArray())
++        private set
++
++    val _itemsFlow = MutableStateFlow(sampleItems)
++    val itemsFlow = _itemsFlow.asStateFlow()
++
+ 
+     init {
+         println("ItemListViewModel created")
+Index: navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/detail/DetailScreenRoot.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.rafapuig.pmdm.navigation.navigation3.basic.presentation.detail\r\n\r\nimport androidx.compose.runtime.Composable\r\nimport androidx.lifecycle.viewmodel.compose.viewModel\r\n\r\n@Composable\r\nfun DetailScreenRoot(\r\n    id: Int,\r\n    onBack: () -> Unit,\r\n    viewModel: DetailViewModel = viewModel(factory = DetailViewModel.Factory(id))\r\n) {\r\n    DetailScreen(\r\n        item = viewModel.item,\r\n        onBack = onBack\r\n    )\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/detail/DetailScreenRoot.kt b/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/detail/DetailScreenRoot.kt
+--- a/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/detail/DetailScreenRoot.kt	(revision 5371c711ca7636b2a3362cf1911ad17f8976559f)
++++ b/navigation/navigation3/viewmodel_basic/src/main/java/es/rafapuig/pmdm/navigation/navigation3/basic/presentation/detail/DetailScreenRoot.kt	(date 1768577232342)
+@@ -7,7 +7,7 @@
+ fun DetailScreenRoot(
+     id: Int,
+     onBack: () -> Unit,
+-    viewModel: DetailViewModel = viewModel(factory = DetailViewModel.Factory(id))
++    viewModel: DetailViewModel = viewModel { DetailViewModel(id) } //viewModel(factory = DetailViewModel.Factory(id))
+ ) {
+     DetailScreen(
+         item = viewModel.item,
+Index: persistence/ktor_client_movies/src/main/java/es/rafapuig/pmdm/persistence/ktor_client_tmdb_movies/feature/search/presentation/SearchMoviesViewModel.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.feature.search.presentation\r\n\r\nimport androidx.lifecycle.ViewModel\r\nimport androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY\r\nimport androidx.lifecycle.viewModelScope\r\nimport androidx.lifecycle.viewmodel.initializer\r\nimport androidx.lifecycle.viewmodel.viewModelFactory\r\nimport es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.MoviesApplication\r\nimport es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.model.Movie\r\nimport es.rafapuig.pmdm.persistence.ktor_client_tmdb_movies.core.domain.repository.MoviesRepository\r\nimport kotlinx.coroutines.FlowPreview\r\nimport kotlinx.coroutines.flow.MutableStateFlow\r\nimport kotlinx.coroutines.flow.asStateFlow\r\nimport kotlinx.coroutines.flow.collectLatest\r\nimport kotlinx.coroutines.flow.debounce\r\nimport kotlinx.coroutines.flow.distinctUntilChanged\r\nimport kotlinx.coroutines.flow.filter\r\nimport kotlinx.coroutines.flow.map\r\nimport kotlinx.coroutines.flow.onEach\r\nimport kotlinx.coroutines.flow.update\r\nimport kotlinx.coroutines.launch\r\nimport kotlin.time.Duration.Companion.seconds\r\n\r\nclass SearchMoviesViewModel(\r\n    private val repository: MoviesRepository\r\n) : ViewModel() {\r\n\r\n    private val _movies =\r\n        MutableStateFlow<List<Movie>>(emptyList())\r\n\r\n    val movies = _movies.asStateFlow()\r\n\r\n    private val _isLoading = MutableStateFlow(false)\r\n    val isLoading = _isLoading.asStateFlow()\r\n\r\n\r\n    private val _query = MutableStateFlow(\"\")\r\n    val searchQuery = _query.asStateFlow()\r\n\r\n\r\n    private var currentPage = 1\r\n\r\n    init {\r\n        //onLoadMoreMovies()\r\n        observeQueryChanges()\r\n    }\r\n\r\n\r\n    /**\r\n     * “Si llamo a una suspend fun, uso collectLatest”\r\n     * Si mi repo devuelve un Flow, uso flatMapLatest”\r\n     */\r\n    @OptIn(FlowPreview::class)\r\n    private fun observeQueryChanges() {\r\n        viewModelScope.launch {\r\n            searchQuery\r\n                //.drop(1)\r\n                .map { it.trim() } // ✂\uFE0F Normaliza el input en el ViewModel, no en la UI\r\n                .onEach { query ->\r\n                    if (query.isBlank()) {\r\n                        _movies.value = emptyList()\r\n                    }\r\n                }\r\n                .debounce(1.seconds)\r\n                .distinctUntilChanged()\r\n                .filter { it.isNotBlank() && it.length > 2 }\r\n                .collectLatest { query ->\r\n                    currentPage = 1\r\n                    _movies.value = emptyList()\r\n                    loadMoreMovies()\r\n                }\r\n        }\r\n    }\r\n\r\n    suspend fun loadMoreMovies() {\r\n        _isLoading.value = true\r\n        try {\r\n            // Pedimos la página actual\r\n            val newMovies = repository.searchMovies(searchQuery.value, currentPage)\r\n            // Añadimos las nuevas películas a la lista existente\r\n            _movies.update { it + newMovies }\r\n            // Incrementamos el número de página para la próxima vez\r\n            currentPage++\r\n        } catch (e: Exception) {\r\n            // Manejar el error (p. ej., mostrar un Toast o un mensaje en la UI)\r\n            println(\"Error al cargar películas: ${e.message}\")\r\n        } finally {\r\n            _isLoading.value = false\r\n        }\r\n    }\r\n\r\n\r\n    // Función principal para cargar películas\r\n    fun onLoadMoreMovies() {\r\n        // Evitar múltiples llamadas si ya se está cargando\r\n        if (isLoading.value) return\r\n\r\n        viewModelScope.launch {\r\n            loadMoreMovies()\r\n        }\r\n    }\r\n\r\n    fun onSearchQueryChanged(query: String) {\r\n        _query.value = query\r\n    }\r\n\r\n\r\n    companion object {\r\n        val Factory = viewModelFactory {\r\n            initializer {\r\n                val app =\r\n                    this[APPLICATION_KEY] as MoviesApplication\r\n                SearchMoviesViewModel(app.moviesRepository)\r\n            }\r\n        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/persistence/ktor_client_movies/src/main/java/es/rafapuig/pmdm/persistence/ktor_client_tmdb_movies/feature/search/presentation/SearchMoviesViewModel.kt b/persistence/ktor_client_movies/src/main/java/es/rafapuig/pmdm/persistence/ktor_client_tmdb_movies/feature/search/presentation/SearchMoviesViewModel.kt
+--- a/persistence/ktor_client_movies/src/main/java/es/rafapuig/pmdm/persistence/ktor_client_tmdb_movies/feature/search/presentation/SearchMoviesViewModel.kt	(revision 5371c711ca7636b2a3362cf1911ad17f8976559f)
++++ b/persistence/ktor_client_movies/src/main/java/es/rafapuig/pmdm/persistence/ktor_client_tmdb_movies/feature/search/presentation/SearchMoviesViewModel.kt	(date 1768573886736)
+@@ -34,11 +34,12 @@
+     val isLoading = _isLoading.asStateFlow()
+ 
+ 
+-    private val _query = MutableStateFlow("")
+-    val searchQuery = _query.asStateFlow()
++    private val _searchQuery = MutableStateFlow("")
++    val searchQuery = _searchQuery.asStateFlow()
+ 
+ 
+     private var currentPage = 1
++    private var currentQuery: String = searchQuery.value
+ 
+     init {
+         //onLoadMoreMovies()
+@@ -58,7 +59,7 @@
+                 .map { it.trim() } // ✂️ Normaliza el input en el ViewModel, no en la UI
+                 .onEach { query ->
+                     if (query.isBlank()) {
+-                        _movies.value = emptyList()
++                        _movies.update { emptyList() }
+                     }
+                 }
+                 .debounce(1.seconds)
+@@ -67,16 +68,19 @@
+                 .collectLatest { query ->
+                     currentPage = 1
+                     _movies.value = emptyList()
++                    currentQuery = query
+                     loadMoreMovies()
+                 }
+         }
+     }
+ 
++
++
+     suspend fun loadMoreMovies() {
+         _isLoading.value = true
+         try {
+             // Pedimos la página actual
+-            val newMovies = repository.searchMovies(searchQuery.value, currentPage)
++            val newMovies = repository.searchMovies(currentQuery, currentPage)
+             // Añadimos las nuevas películas a la lista existente
+             _movies.update { it + newMovies }
+             // Incrementamos el número de página para la próxima vez
+@@ -101,7 +105,7 @@
+     }
+ 
+     fun onSearchQueryChanged(query: String) {
+-        _query.value = query
++        _searchQuery.value = query
+     }
+ 
+ 

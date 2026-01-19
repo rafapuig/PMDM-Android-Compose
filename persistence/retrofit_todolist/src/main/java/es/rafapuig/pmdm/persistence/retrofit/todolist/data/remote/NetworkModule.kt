@@ -18,7 +18,7 @@ object NetworkModule {
     private val contentType = "application/json;charset=UTF-8".toMediaType()
 
 
-    val retrofit: Retrofit = Retrofit.Builder()
+    private val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()

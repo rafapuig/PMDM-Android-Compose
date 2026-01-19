@@ -35,7 +35,7 @@ fun TodosListScreenCompose(
     val isUpdating by repository.isUpdating
         .collectAsStateWithLifecycle(initialValue = false)
 
-    var errorMessage by mutableStateOf<String?>(null)
+    var errorMessage by remember {mutableStateOf<String?>(null)}
 
     val snackbarHostState = remember { SnackbarHostState() }
 
