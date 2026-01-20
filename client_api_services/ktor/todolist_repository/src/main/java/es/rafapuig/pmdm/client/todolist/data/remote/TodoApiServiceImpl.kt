@@ -13,6 +13,7 @@ import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
+import io.ktor.http.appendPathSegments
 import io.ktor.http.contentType
 
 class TodoApiServiceImpl(
@@ -24,36 +25,44 @@ class TodoApiServiceImpl(
             .body()
 
     override suspend fun fetchTodoById(id: Int): TodoDto =
-        client.get(TodoApiService.HttpRoutes.TODO_BY_ID_ENDPOINT) {
-            parameter("id", id)
+        client.get {
+            url {
+                appendPathSegments("todos", id.toString())
+            }
         }.body()
 
 
     override suspend fun addTodo(todo: CreateTodoRequest): TodoDto =
-        client.post(TodoApiService.HttpRoutes.ADD_TODO_ENDPOINT) {
+        client.post("todos") {
             contentType(ContentType.Application.Json)
             setBody(todo)
         }.body()
 
 
     override suspend fun updateTodo(id: Int, todo: TodoDto): TodoDto =
-        client.put(TodoApiService.HttpRoutes.UPDATE_TODO_ENDPOINT) {
-            parameter("id", id)
+        client.put {
+            url {
+                appendPathSegments("todos",id.toString())
+            }
             contentType(ContentType.Application.Json)
             setBody(todo)
         }.body()
 
 
     override suspend fun setTodoDone(id: Int, patch: TodoCompletedPatch): TodoDto =
-        client.patch(TodoApiService.HttpRoutes.SET_TODO_DONE_ENDPOINT) {
-            parameter("id", id)
+        client.patch("todos") {
+            url {
+                appendPathSegments(id.toString())
+            }
             contentType(ContentType.Application.Json)
             setBody(patch)
         }.body()
 
     override suspend fun deleteTodo(id: Int) {
-        client.delete(TodoApiService.HttpRoutes.DELETE_TODO_ENDPOINT) {
-            parameter("id", id)
+        client.delete("todos") {
+            url {
+                appendPathSegments(id.toString())
+            }
         }
     }
 }
