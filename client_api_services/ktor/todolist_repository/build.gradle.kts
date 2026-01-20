@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization.kotlinx.json)
+    implementation("io.ktor:ktor-client-resources:3.3.3")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

@@ -1,6 +1,5 @@
 package es.rafapuig.pmdm.client.todolist.data.remote
 
-import es.rafapuig.pmdm.client.todolist.data.remote.TodoApiService.Companion.API_HOST
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -8,8 +7,8 @@ import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.resources.Resources
 import io.ktor.http.URLProtocol
-import io.ktor.http.encodedPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
@@ -18,6 +17,8 @@ import kotlinx.serialization.json.Json
  * al API de Todos
  */
 object KtorClientFactory {
+
+    const val API_HOST = "ktor-todos.fly.dev"
 
     fun create(): HttpClient = HttpClient(Android) {
 
@@ -48,6 +49,8 @@ object KtorClientFactory {
                 host = API_HOST
             }
         }
+
+        install(Resources)
 
         /**
          * Añadimos el plugin para el logging de las solicitudes
