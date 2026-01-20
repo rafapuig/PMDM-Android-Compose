@@ -11,6 +11,7 @@ import es.rafapuig.pmdm.persistence.room.todolist.domain.repositories.TodosRepos
 class TodoListApplication() : Application() {
 
     lateinit var repository: TodosRepository
+        private set
 
     override fun onCreate() {
         super.onCreate()

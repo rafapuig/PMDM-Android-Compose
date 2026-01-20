@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 abstract class AbstractTodosDatabaseFactory(
     private val shouldLoadData: Boolean = true,
     private val loadData: suspend TodosDatabase.() -> Unit = {
-        this.loadSampleData()
+        loadSampleData()
     }
 ) : TodosDatabaseFactory {
     protected abstract fun createBuilder(context: Context): RoomDatabase.Builder<TodosDatabase>

@@ -47,6 +47,8 @@
             <option value="$PROJECT_DIR$/clean_architecture/subscribers" />
             <option value="$PROJECT_DIR$/clean_architecture/todolist_repository_flows_impl" />
             <option value="$PROJECT_DIR$/client_api_services" />
+            <option value="$PROJECT_DIR$/client_api_services/ktor" />
+            <option value="$PROJECT_DIR$/client_api_services/ktor/todolist_repository" />
             <option value="$PROJECT_DIR$/client_api_services/ktor_the_meal_db" />
             <option value="$PROJECT_DIR$/client_api_services/youtube_public_api_low_level" />
             <option value="$PROJECT_DIR$/compose" />

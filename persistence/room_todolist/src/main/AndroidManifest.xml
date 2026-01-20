@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CustomDatabaseFactoryActivity"
+            android:name=".CustomDatabaseFactoryComposeActivity"
             android:exported="true"
             android:label="@string/title_activity_custom_database_factory"
             android:theme="@style/Theme.PMDMCompose">

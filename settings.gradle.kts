@@ -99,3 +99,4 @@ include(":navigation:navigation3:viewmodel_basic")
 
 include(":DI:koin:users_compose")
 include(":DI:koin:users_compose_annotated")
+include(":client_api_services:ktor:todolist_repository")

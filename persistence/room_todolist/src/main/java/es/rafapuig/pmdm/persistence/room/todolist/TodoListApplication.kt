@@ -9,6 +9,7 @@ import es.rafapuig.pmdm.persistence.room.todolist.data.local.providers.getDataba
 class TodoListApplication() : Application() {
 
     lateinit var todosDatabase: TodosDatabase
+    private set
 
     override fun onCreate() {
         super.onCreate()
