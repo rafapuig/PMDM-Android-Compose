@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/DI/service_locator/counter" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/clean_architecture" />
+            <option value="$PROJECT_DIR$/clean_architecture/authentication" />
             <option value="$PROJECT_DIR$/clean_architecture/books" />
             <option value="$PROJECT_DIR$/clean_architecture/books/app" />
             <option value="$PROJECT_DIR$/clean_architecture/counter" />
