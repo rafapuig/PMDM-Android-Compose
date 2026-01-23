@@ -8,7 +8,8 @@ import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LoginUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LogoutUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.RegisterUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.login.LoginViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import es.rafapuig.pmdm.clean.authentication.auth.presentation.register.RegisterViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val authModule = module {
@@ -36,7 +37,7 @@ val authModule = module {
         LoginViewModel(get())
     }
 
-    /*viewModel {
+    viewModel {
         RegisterViewModel(get())
-    }*/
+    }
 }

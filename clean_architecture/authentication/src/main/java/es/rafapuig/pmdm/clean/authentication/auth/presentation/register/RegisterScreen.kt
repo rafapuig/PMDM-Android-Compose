@@ -11,6 +11,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -24,7 +25,8 @@ import androidx.compose.ui.unit.dp
 fun RegisterScreen(
     state: RegisterUiState,
     onRegisterClick: (String, String) -> Unit,
-    onSuccess: () -> Unit
+    onSuccess: () -> Unit,
+    onBack: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -76,5 +78,8 @@ fun RegisterScreen(
             Spacer(Modifier.height(8.dp))
             Text(text = it, color = MaterialTheme.colorScheme.error)
         }
+
+        Spacer(Modifier.height(8.dp))
+        TextButton(onClick = onBack) { Text("Volver") }
     }
 }

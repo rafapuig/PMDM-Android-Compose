@@ -48,17 +48,17 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
     // Koin core
-    implementation("io.insert-koin:koin-android:3.5.6")
-    // Koin + Compose
-    implementation("io.insert-koin:koin-androidx-compose:3.5.6")
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.android)
+    implementation(libs.koin.androidx.compose)
     // Opcional (para ViewModel DSL)
-    implementation("io.insert-koin:koin-androidx-viewmodel:3.5.6")
+    //implementation("io.insert-koin:koin-androidx-viewmodel:3.5.6")
 
 
     // Retrofit + converter Kotlinx Serialization
     implementation(libs.retrofit)
     implementation(libs.converter.kotlinx.serialization)
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(libs.kotlinx.serialization.json)
 
     // Navigation 3
     implementation(libs.androidx.navigation3.runtime)

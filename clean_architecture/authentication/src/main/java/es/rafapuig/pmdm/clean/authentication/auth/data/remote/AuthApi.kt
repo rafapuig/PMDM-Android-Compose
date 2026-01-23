@@ -1,6 +1,11 @@
 package es.rafapuig.pmdm.clean.authentication.auth.data.remote
 
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.LoginRequest
+import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.LoginResponse
+import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.RegisterRequest
+import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.RegisterResponse
+import retrofit2.http.Body
+import retrofit2.http.POST
 
 interface AuthApi {
 

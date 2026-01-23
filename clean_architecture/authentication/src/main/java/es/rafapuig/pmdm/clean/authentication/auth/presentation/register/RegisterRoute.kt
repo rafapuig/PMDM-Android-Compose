@@ -1,6 +1,7 @@
 package es.rafapuig.pmdm.clean.authentication.auth.presentation.register
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.koin.androidx.compose.koinViewModel
 
@@ -15,6 +16,7 @@ fun RegisterRoute(
     RegisterScreen(
         state = state,
         onRegisterClick = viewModel::register,
-        onSuccess = onRegisterSuccess
+        onSuccess = onRegisterSuccess,
+        onBack = onBack
     )
 }
