@@ -1,10 +1,11 @@
 package es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class LoginRequest(
-    val email: String,
-    val password: String
+    @SerialName("email") val email: String,
+    @SerialName("password") val password: String
 )
 

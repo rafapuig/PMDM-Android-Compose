@@ -1,7 +1,8 @@
 package es.rafapuig.pmdm.clean.authentication.di
 
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
-import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthInterceptor
+import es.rafapuig.pmdm.clean.authentication.auth.data.remote.FakeAuthApi
+import es.rafapuig.pmdm.clean.authentication.core.network.AuthInterceptor
 import es.rafapuig.pmdm.clean.authentication.core.network.json
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -43,3 +44,8 @@ val networkModule = module {
         get<Retrofit>().create(AuthApi::class.java)
     }
 }
+
+val fakeNetworkModule = module {
+    single<AuthApi> { FakeAuthApi() }
+}
+

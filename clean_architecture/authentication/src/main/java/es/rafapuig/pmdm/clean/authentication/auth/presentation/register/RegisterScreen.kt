@@ -25,18 +25,11 @@ import androidx.compose.ui.unit.dp
 fun RegisterScreen(
     state: RegisterUiState,
     onRegisterClick: (String, String) -> Unit,
-    onSuccess: () -> Unit,
     onBack: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-
-    if (!state.isLoading && state.error == null) {
-        LaunchedEffect(Unit) {
-            onSuccess()
-        }
-    }
-
+   
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -80,6 +73,9 @@ fun RegisterScreen(
         }
 
         Spacer(Modifier.height(8.dp))
-        TextButton(onClick = onBack) { Text("Volver") }
+
+        TextButton(onClick = onBack) {
+            Text("Volver")
+        }
     }
 }

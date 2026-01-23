@@ -1,5 +1,6 @@
-package es.rafapuig.pmdm.clean.authentication.auth.data.remote
+package es.rafapuig.pmdm.clean.authentication.core.network
 
+import es.rafapuig.pmdm.clean.authentication.auth.data.datasource.AuthTokenDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSource
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -7,7 +8,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 
 class AuthInterceptor(
-    private val local: AuthLocalDataSource
+    private val local: AuthTokenDataSource
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {

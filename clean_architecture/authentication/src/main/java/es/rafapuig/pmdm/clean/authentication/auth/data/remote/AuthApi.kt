@@ -7,6 +7,9 @@ import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.RegisterRespon
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+/**
+ * API remota de autenticación (Retrofit)
+ */
 interface AuthApi {
 
     @POST("login")

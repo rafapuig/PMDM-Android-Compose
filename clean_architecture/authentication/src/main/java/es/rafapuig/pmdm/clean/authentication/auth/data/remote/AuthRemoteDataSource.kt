@@ -5,6 +5,11 @@ import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.LoginResponse
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.RegisterRequest
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.RegisterResponse
 
+/**
+ * Fuente de datos para la autenticación remota
+ *
+ * Depende de la API remota
+ */
 class AuthRemoteDataSource(
     private val api: AuthApi
 ) {

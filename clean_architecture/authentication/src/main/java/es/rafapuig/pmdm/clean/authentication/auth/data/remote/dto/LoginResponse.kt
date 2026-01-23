@@ -1,5 +1,6 @@
 package es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -8,8 +9,13 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class LoginResponse(
-    val id: String,
-    val email: String,
-    val token: String
+    @SerialName("user_id")
+    val id: String = "",
+
+    @SerialName("user_email")
+    val email: String = "",
+
+    @SerialName("access_token")
+    val token: String = ""
 )
 

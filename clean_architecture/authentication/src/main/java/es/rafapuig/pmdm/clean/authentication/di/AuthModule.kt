@@ -1,8 +1,10 @@
 package es.rafapuig.pmdm.clean.authentication.di
 
+import androidx.compose.ui.text.font.Typeface
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.repository.AuthRepositoryImpl
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
+import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.FakeAuthRepository
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.IsUserLoggedInUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LoginUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LogoutUseCase
@@ -40,4 +42,27 @@ val authModule = module {
     viewModel {
         RegisterViewModel(get())
     }
+}
+
+val fakeAuthModule = module {
+
+    single<AuthRepository> {
+        FakeAuthRepository()
+    }
+
+    // Domain
+    factory { LoginUseCase(get()) }
+    factory { RegisterUseCase(get()) }
+    factory { LogoutUseCase(get()) }
+    factory { IsUserLoggedInUseCase(get()) }
+
+    // Presentation
+    viewModel {
+        LoginViewModel(get())
+    }
+
+    viewModel {
+        RegisterViewModel(get())
+    }
+
 }

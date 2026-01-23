@@ -9,30 +9,24 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun LoginScreen(
     state: LoginUiState,
     onLoginClick: (String, String) -> Unit,
-    onSuccess: () -> Unit
+    onCreateAccountClick: () -> Unit
 ) {
-    var email by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("test@test.com") }
     var password by remember { mutableStateOf("") }
-
-    if (state.error == null && !state.isLoading) {
-        // Login exitoso
-        LaunchedEffect(Unit) {
-            onSuccess()
-        }
-    }
 
     Column(
         modifier = Modifier
@@ -63,5 +57,20 @@ fun LoginScreen(
         state.error?.let {
             Text(text = it, color = MaterialTheme.colorScheme.error)
         }
+
+        TextButton(onClick = onCreateAccountClick) {
+            Text("Crear cuenta")
+        }
+
     }
+}
+
+@Preview
+@Composable
+fun LoginScreenPreview() {
+    LoginScreen(
+        state = LoginUiState(),
+        onLoginClick = { _, _ -> },
+        onCreateAccountClick = {}
+    )
 }

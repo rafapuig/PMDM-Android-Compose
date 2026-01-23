@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RegisterResponse(
-    val id: String,
-    val email: String,
-    val token: String
+    val id: String = "",
+    val email: String = "",
+    val token: String = ""
 )
