@@ -76,6 +76,8 @@
             <option value="$PROJECT_DIR$/persistence/ktor_client_movies" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist" />
             <option value="$PROJECT_DIR$/persistence/retrofit_todolist_repository" />
+            <option value="$PROJECT_DIR$/persistence/room" />
+            <option value="$PROJECT_DIR$/persistence/room/tv_series" />
             <option value="$PROJECT_DIR$/persistence/room_todolist" />
             <option value="$PROJECT_DIR$/persistence/room_todolist_repository" />
             <option value="$PROJECT_DIR$/persistence/states_todolist" />

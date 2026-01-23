@@ -1,0 +1,96 @@
+@token = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+$auth.token(eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM)
+
+### GET request to example server
+GET https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+
+###
+GET https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg
+
+###
+GET https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
+
+###
+GET https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
+
+###
+# curl --request GET
+#     --url https://api.themoviedb.org/3/authentication
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/authentication
+Authorization: Bearer {{token}}
+accept: application/json
+
+###
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/movie/550/images?language=en-US&include_image_language=en,null'
+#     --header 'Authorization: Bearer <<access_token>>'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/movie/550/images?language=en-US&include_image_language=en,null
+Authorization: Bearer {{token}}
+accept: application/json
+
+###
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/movie/550?append_to_response=images&language=en-US&include_image_language=en-US,null'
+#     --header 'Authorization: Bearer <<access_token>>'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/movie/550?append_to_response=images&language=en-US&
+    include_image_language=en-US,null
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+###
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1'
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/tv/top_rated?language=es-ES&page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+### TV Series Detail id = 70785
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/tv/70785?language=es-ES'
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+@id = 70785
+GET https://api.themoviedb.org/3/tv/{{id}}?language=es-ES
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+###
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/tv/70785/season/1?language=es-ES'
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/tv/70785/season/1?language=es-ES
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+###
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/tv/70785/season/1/episode/1?language=es-ES'
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/tv/70785/season/1/episode/1?language=es-ES
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+### Top rated TV Series
+
+# curl --request GET
+#     --url 'https://api.themoviedb.org/3/tv/top_rated?language=es-ES&page=1'
+#     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM'
+#     --header 'accept: application/json'
+GET https://api.themoviedb.org/3/tv/top_rated?language=es-ES&page=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjYwYmIwMWM5M2FlZDZjNjQzYTlmNThkNWVmNTAzMCIsIm5iZiI6MTczNzU1MDc2Ni45NjcsInN1YiI6IjY3OTBlYmFlMmQ2MWMzM2U2M2RmZmI4OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FetknARzdQhKbAQXWyxiKAW4tH33zyzZNUIxUAQzbzM
+accept: application/json
+
+###

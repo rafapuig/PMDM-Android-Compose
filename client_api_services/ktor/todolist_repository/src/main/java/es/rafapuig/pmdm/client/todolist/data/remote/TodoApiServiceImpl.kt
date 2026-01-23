@@ -26,6 +26,9 @@ class TodoApiServiceImpl(
     private val client: HttpClient
 ) : TodoApiService {
 
+    /**
+     * Propiedades NO incluidas en el path ⇒ query params
+     */
     @Resource("/todos")
     private class Todos() {
         @Resource("{id}")
