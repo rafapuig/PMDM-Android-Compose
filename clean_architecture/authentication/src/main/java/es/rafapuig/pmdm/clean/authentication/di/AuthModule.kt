@@ -12,7 +12,7 @@ import es.rafapuig.pmdm.clean.authentication.auth.presentation.register.Register
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
-val authModule = module {
+val authRepositoryModule = module {
 
     // Data
     single {
@@ -25,6 +25,11 @@ val authModule = module {
             local = get()
         )
     }
+
+}
+
+
+val commonAuthModule = module {
 
     // Domain
     factory { LoginUseCase(get()) }

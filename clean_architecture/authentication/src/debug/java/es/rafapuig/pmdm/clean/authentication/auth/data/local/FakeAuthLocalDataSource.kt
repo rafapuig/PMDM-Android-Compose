@@ -1,10 +1,9 @@
-package es.rafapuig.pmdm.clean.authentication.auth.data.fake
+package es.rafapuig.pmdm.clean.authentication.auth.data.local
 
-import es.rafapuig.pmdm.clean.authentication.auth.data.datasource.AuthTokenDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class FakeAuthTokenDataSource() : AuthTokenDataSource {
+class FakeAuthLocalDataSource() : AuthLocalDataSource {
 
     private var token: String? = null
 

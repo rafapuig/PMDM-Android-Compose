@@ -1,8 +1,8 @@
 package es.rafapuig.pmdm.clean.authentication
 
 import android.util.Log
-import es.rafapuig.pmdm.clean.authentication.auth.data.datasource.AuthTokenDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSource
+import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSourceDataStoreImpl
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.repository.AuthRepositoryImpl
@@ -18,8 +18,6 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 import mockwebserver3.MockWebServer
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -31,7 +29,7 @@ class AuthRepositoryTest {
 
     private lateinit var server: MockWebServer
     private lateinit var repository: AuthRepository
-    private lateinit var local: AuthTokenDataSource
+    private lateinit var local: AuthLocalDataSource
 
     private fun mockLog() {
         mockkStatic(Log::class)
@@ -39,7 +37,7 @@ class AuthRepositoryTest {
     }
 
     private fun mockAuthLocalDataSource() {
-        local = mockk<AuthLocalDataSource>()
+        local = mockk<AuthLocalDataSourceDataStoreImpl>()
 
         var savedToken : String? = null
 

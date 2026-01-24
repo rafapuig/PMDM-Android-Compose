@@ -21,7 +21,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    sourceSets {
+        create("staging") {
+            java.srcDirs("src/staging/java","src/debug/java")
+            res.srcDirs("src/staging/res")
+            manifest.srcFile("src/staging/AndroidManifest.xml")
+        }
+    }
+
     buildTypes {
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -29,6 +38,14 @@ android {
                 "proguard-rules.pro"
             )
         }
+
+        create("staging") {
+            initWith(android.buildTypes.getByName("debug"))
+            applicationIdSuffix = ".staging"
+            versionNameSuffix = "-staging"
+            isMinifyEnabled = false
+        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -39,8 +56,22 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
+
+
 }
+/*
+// Build type personalizado para endpoint fake o de pruebas
+android.buildTypes {
+    create("staging") {
+        initWith(android.buildTypes.getByName("debug"))
+        applicationIdSuffix = ".staging"
+        versionNameSuffix = "-staging"
+        isMinifyEnabled = false
+    }
+}*/
+
 
 dependencies {
 

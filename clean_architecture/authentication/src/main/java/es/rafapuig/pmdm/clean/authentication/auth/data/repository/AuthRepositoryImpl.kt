@@ -1,6 +1,5 @@
 package es.rafapuig.pmdm.clean.authentication.auth.data.repository
 
-import es.rafapuig.pmdm.clean.authentication.auth.data.datasource.AuthTokenDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.mapper.toDomain
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
@@ -18,7 +17,7 @@ import kotlinx.coroutines.flow.first
 
 class AuthRepositoryImpl(
     private val remote: AuthRemoteDataSource,
-    private val local: AuthTokenDataSource
+    private val local: AuthLocalDataSource
 ) : AuthRepository {
 
     override suspend fun login(email: String, password: String): User {
