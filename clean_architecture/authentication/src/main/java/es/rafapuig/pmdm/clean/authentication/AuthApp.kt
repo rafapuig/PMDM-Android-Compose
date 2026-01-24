@@ -1,12 +1,8 @@
 package es.rafapuig.pmdm.clean.authentication
 
 import android.app.Application
-import es.rafapuig.pmdm.clean.authentication.di.authRepositoryModule
+import es.rafapuig.pmdm.clean.authentication.di.backendModules
 import es.rafapuig.pmdm.clean.authentication.di.commonAuthModule
-import es.rafapuig.pmdm.clean.authentication.di.dataStoreModule
-import es.rafapuig.pmdm.clean.authentication.di.fakeAuthRepositoryModule
-import es.rafapuig.pmdm.clean.authentication.di.fakeNetworkModule
-import es.rafapuig.pmdm.clean.authentication.di.networkModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -23,7 +19,10 @@ class AuthApp : Application() {
         startKoin {
             androidContext(this@AuthApp)
 
-            when (BuildConfig.BUILD_TYPE) {
+            modules(backendModules)
+            modules(commonAuthModule)
+
+            /*when (BuildConfig.BUILD_TYPE) {
                 "staging" ->
                     modules(
                         dataStoreModule,
@@ -45,7 +44,7 @@ class AuthApp : Application() {
                         authRepositoryModule,
                         commonAuthModule
                     )
-            }
+            }*/
         }
     }
 }
