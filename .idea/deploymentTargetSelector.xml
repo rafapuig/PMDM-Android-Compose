@@ -71,9 +71,6 @@
       <SelectionState runConfigName="persistence.room.tv_series">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity (1)">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="clean_architecture.authentication">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>

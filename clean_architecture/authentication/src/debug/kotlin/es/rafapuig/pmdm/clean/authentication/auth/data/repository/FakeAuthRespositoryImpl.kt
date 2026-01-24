@@ -1,6 +1,7 @@
-package es.rafapuig.pmdm.clean.authentication.auth.domain.repository
+package es.rafapuig.pmdm.clean.authentication.auth.data.repository
 
 import es.rafapuig.pmdm.clean.authentication.auth.domain.model.User
+import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
 import kotlinx.coroutines.delay
 
 /**
@@ -8,7 +9,7 @@ import kotlinx.coroutines.delay
  * ❌ No testea networking
  */
 
-class FakeAuthRepository : AuthRepository {
+class FakeAuthRepositoryImpl : AuthRepository {
 
     private var loggedIn = false
 

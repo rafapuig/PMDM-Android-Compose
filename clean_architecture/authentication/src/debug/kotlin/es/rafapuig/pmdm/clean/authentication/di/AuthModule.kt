@@ -1,8 +1,7 @@
 package es.rafapuig.pmdm.clean.authentication.di
 
-import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
-import es.rafapuig.pmdm.clean.authentication.auth.data.repository.AuthRepositoryImpl
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
+import es.rafapuig.pmdm.clean.authentication.auth.data.repository.FakeAuthRepositoryImpl
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.IsUserLoggedInUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LoginUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LogoutUseCase
@@ -12,18 +11,10 @@ import es.rafapuig.pmdm.clean.authentication.auth.presentation.register.Register
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
-val authModule = module {
-
-    // Data
-    single {
-        AuthRemoteDataSource(get())
-    }
+val fakeAuthModule = module {
 
     single<AuthRepository> {
-        AuthRepositoryImpl(
-            remote = get(),
-            local = get()
-        )
+        FakeAuthRepositoryImpl()
     }
 
     // Domain
@@ -40,4 +31,5 @@ val authModule = module {
     viewModel {
         RegisterViewModel(get())
     }
+
 }

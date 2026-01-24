@@ -19,10 +19,3 @@ val dataStoreModule = module {
         AuthLocalDataSource(get())
     }
 }
-
-val fakeDataStoreModule = module {
-
-    single<AuthTokenDataSource> {
-        FakeAuthTokenDataSource()
-    }
-}

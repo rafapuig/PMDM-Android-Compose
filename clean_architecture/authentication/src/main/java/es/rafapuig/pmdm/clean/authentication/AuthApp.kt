@@ -23,7 +23,7 @@ class AuthApp : Application() {
             modules(
                 dataStoreModule,
                 fakeNetworkModule, //networkModule,
-                fakeAuthModule// authModule
+                authModule, // fakeAuthModule
             )
         }
     }

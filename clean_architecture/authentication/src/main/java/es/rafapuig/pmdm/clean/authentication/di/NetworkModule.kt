@@ -1,7 +1,6 @@
 package es.rafapuig.pmdm.clean.authentication.di
 
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
-import es.rafapuig.pmdm.clean.authentication.auth.data.remote.FakeAuthApi
 import es.rafapuig.pmdm.clean.authentication.core.network.AuthInterceptor
 import es.rafapuig.pmdm.clean.authentication.core.network.json
 import kotlinx.serialization.json.Json
@@ -21,6 +20,7 @@ val networkModule = module {
         AuthInterceptor(get())
     }
 
+    // Para inyectar la dependencia de un OkHttpClient como un singleton
     single {
         OkHttpClient.Builder()
             .addInterceptor(get<AuthInterceptor>())
@@ -31,7 +31,7 @@ val networkModule = module {
     single {
         Retrofit.Builder()
             .baseUrl("https://api.tuapp.com/")
-            .client(get())
+            .client(get()) // Aqui se usa el OkHttpClient inyectado
             .addConverterFactory(
                 get<Json>().asConverterFactory(
                     "application/json".toMediaType()
@@ -44,8 +44,3 @@ val networkModule = module {
         get<Retrofit>().create(AuthApi::class.java)
     }
 }
-
-val fakeNetworkModule = module {
-    single<AuthApi> { FakeAuthApi() }
-}
-
