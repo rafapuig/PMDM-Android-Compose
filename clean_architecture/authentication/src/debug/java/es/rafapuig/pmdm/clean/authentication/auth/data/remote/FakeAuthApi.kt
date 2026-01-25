@@ -21,9 +21,7 @@ class FakeAuthApi : AuthApi {
         }
 
         return LoginResponse(
-            token = "fake-token-${request.email}",
-            id = "TODO()",
-            email = "TODO()"
+            token = "fake-token-${request.email}"
         )
     }
 
@@ -37,9 +35,7 @@ class FakeAuthApi : AuthApi {
         users[request.email] = request.password
 
         return RegisterResponse(
-            token = "fake-token-${request.email}",
-            id = "TODO()",
-            email = "TODO()"
+            token = "fake-token-${request.email}"
         )
     }
 }

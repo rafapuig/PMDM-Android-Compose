@@ -39,7 +39,7 @@ class AuthRepositoryTest {
     private fun mockAuthLocalDataSource() {
         local = mockk<AuthLocalDataSourceDataStoreImpl>()
 
-        var savedToken : String? = null
+        var savedToken: String? = null
 
         every { local.getToken() } returns flowOf(savedToken)
 
@@ -86,7 +86,7 @@ class AuthRepositoryTest {
 
         val retrofit = Retrofit.Builder()
             .baseUrl(server.url("/"))
-           // .client(client)
+            // .client(client)
             .addConverterFactory(
                 json.asConverterFactory("application/json".toMediaType())
             )
@@ -98,7 +98,6 @@ class AuthRepositoryTest {
 
         repository = AuthRepositoryImpl(remote, local)
     }
-
 
 
     @After

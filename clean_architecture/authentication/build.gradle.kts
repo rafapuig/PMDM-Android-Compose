@@ -89,6 +89,11 @@ android {
     }
 
     dependencies {
+        implementation("androidx.core:core-splashscreen:1.2.0")
+
+
+        // Libreria de iconos extendida
+        implementation(libs.androidx.compose.material.icons.extended)
 
         // DataStore
         implementation(libs.androidx.datastore.preferences)
