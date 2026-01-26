@@ -45,6 +45,7 @@
             <option value="$PROJECT_DIR$/clean_architecture/counter/presentation/mvvm" />
             <option value="$PROJECT_DIR$/clean_architecture/dictionary" />
             <option value="$PROJECT_DIR$/clean_architecture/dictionary/app" />
+            <option value="$PROJECT_DIR$/clean_architecture/ktor_client_authenticacion" />
             <option value="$PROJECT_DIR$/clean_architecture/subscribers" />
             <option value="$PROJECT_DIR$/clean_architecture/todolist_repository_flows_impl" />
             <option value="$PROJECT_DIR$/client_api_services" />

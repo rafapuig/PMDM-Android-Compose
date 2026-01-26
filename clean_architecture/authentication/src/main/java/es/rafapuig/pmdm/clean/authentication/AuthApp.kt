@@ -1,6 +1,7 @@
 package es.rafapuig.pmdm.clean.authentication
 
 import android.app.Application
+import es.rafapuig.pmdm.clean.authentication.di.appModule
 import es.rafapuig.pmdm.clean.authentication.di.backendModules
 import es.rafapuig.pmdm.clean.authentication.di.commonAuthModule
 import org.koin.android.ext.koin.androidContext
@@ -21,6 +22,7 @@ class AuthApp : Application() {
 
             modules(backendModules)
             modules(commonAuthModule)
+            modules(appModule)
 
             /*when (BuildConfig.BUILD_TYPE) {
                 "staging" ->

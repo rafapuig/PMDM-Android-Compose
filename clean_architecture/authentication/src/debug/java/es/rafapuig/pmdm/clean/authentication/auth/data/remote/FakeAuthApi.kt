@@ -8,7 +8,10 @@ import kotlinx.coroutines.delay
 
 class FakeAuthApi : AuthApi {
 
-    private val users = mutableMapOf<String, String>() // email -> password
+    private val users = mutableMapOf<String, String>(
+        "test@test.com" to "1234"
+    ) // email -> password
+
 
     override suspend fun login(request: LoginRequest): LoginResponse {
         delay(500)

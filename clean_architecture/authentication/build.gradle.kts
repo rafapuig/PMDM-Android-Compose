@@ -89,6 +89,8 @@ android {
     }
 
     dependencies {
+        // Material3
+        //implementation("androidx.compose.material3:material3:1.2.0")
         implementation("androidx.core:core-splashscreen:1.2.0")
 
 
@@ -127,15 +129,24 @@ android {
         implementation(libs.androidx.compose.material3)
 
         // Test
+        testImplementation(kotlin("test")) // Para test sencillos te da asserts y @Test
+
         testImplementation(libs.junit)
         testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
         implementation("com.squareup.okhttp3:logging-interceptor:5.3.0")
 
+        // MockK
         //testImplementation("io.mockk:mockk-core:1.14.7")
-        //testImplementation("io.mockk:mockk-agent-jvm:1.14.7")
+        testImplementation("io.mockk:mockk-agent:1.14.7")
+        testImplementation("io.mockk:mockk-android:1.14.7")
         //androidTestImplementation("io.mockk:mockk-android:1.14.7")
 
-        testImplementation("io.mockk:mockk:1.14.7")
+
+        // MockK
+        //testImplementation("io.mockk:mockk:1.14.7") // Con este funciona
+        androidTestImplementation("io.mockk:mockk-agent:1.14.7")
+        androidTestImplementation("io.mockk:mockk-android:1.14.7")
+
         androidTestImplementation(libs.androidx.junit)
         androidTestImplementation(libs.androidx.espresso.core)
         androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -143,5 +154,5 @@ android {
 
         debugImplementation(libs.androidx.compose.ui.tooling)
         debugImplementation(libs.androidx.compose.ui.test.manifest)
-        testImplementation(kotlin("test"))
+
     }

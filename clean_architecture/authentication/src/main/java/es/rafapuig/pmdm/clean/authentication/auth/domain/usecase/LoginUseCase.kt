@@ -12,6 +12,10 @@ class LoginUseCase(
     private val authRepository: AuthRepository
 ) {
     suspend operator fun invoke(email: String, password: String): User {
+        // Validacion
+        if (email.isBlank() || password.isBlank()) {
+            throw IllegalArgumentException("Email or password is empty")
+        }
         return authRepository.login(email, password)
     }
 }

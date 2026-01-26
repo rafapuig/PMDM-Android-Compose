@@ -2,4 +2,19 @@
 <resources>
 
     <style name="Theme.PMDMCompose" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.MyApp.Splash" parent="Theme.SplashScreen">
+        <!-- Color de fondo -->
+        <item name="windowSplashScreenBackground">@color/ic_launcher_background</item>
+
+        <!-- Duración animación en ms -->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+
+        <!-- Ícono (preferible monocromo) -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_lock_animated</item>
+
+        <!-- Tema real de la app -->
+        <item name="postSplashScreenTheme">@style/Theme.PMDMCompose</item>
+    </style>
+
 </resources>

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.clean.authentication.auth.navigation
+package es.rafapuig.pmdm.clean.authentication.navigation
 
 import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable

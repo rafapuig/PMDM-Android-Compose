@@ -9,6 +9,7 @@ import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.LogoutUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.RegisterUseCase
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.login.LoginViewModel
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.register.RegisterViewModel
+import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
@@ -34,7 +35,7 @@ val commonAuthModule = module {
     // Domain
     factory { LoginUseCase(get()) }
     factory { RegisterUseCase(get()) }
-    factory { LogoutUseCase(get()) }
+    factoryOf(::LogoutUseCase)
     factory { IsUserLoggedInUseCase(get()) }
 
     // Presentation
