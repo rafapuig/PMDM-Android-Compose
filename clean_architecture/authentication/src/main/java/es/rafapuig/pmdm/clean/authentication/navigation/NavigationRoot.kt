@@ -5,11 +5,11 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import es.rafapuig.pmdm.clean.authentication.auth.navigation.SessionEvent
-import es.rafapuig.pmdm.clean.authentication.auth.navigation.SessionManager
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.login.LoginRoute
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.register.RegisterRoute
 import es.rafapuig.pmdm.clean.authentication.core.presentation.ObserveAsEvents
+import es.rafapuig.pmdm.clean.authentication.core.presentation.SessionEvent
+import es.rafapuig.pmdm.clean.authentication.core.presentation.SessionManager
 import es.rafapuig.pmdm.clean.authentication.main.presentation.home.HomeRoute
 import org.koin.compose.koinInject
 

@@ -1,8 +1,11 @@
 ⚠️ Errores comunes con DataStore
 
 ❌ Exponer Flow directamente al dominio
+
 ❌ Usar DataStore fuera de data
+
 ❌ Llamar runBlocking fuera de interceptors
+
 ❌ Guardar modelos completos (solo primitives)
 
 

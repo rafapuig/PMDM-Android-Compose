@@ -1,18 +1,17 @@
-package es.rafapuig.pmdm.clean.authentication
+package es.rafapuig.pmdm.clean.authentication.auth.data.repository
 
 import android.util.Log
 import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSourceDataStoreImpl
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
-import es.rafapuig.pmdm.clean.authentication.auth.data.repository.AuthRepositoryImpl
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
-import es.rafapuig.pmdm.clean.authentication.fake.FakeAuthDispatcher
+import es.rafapuig.pmdm.clean.authentication.backend.FakeAuthDispatcher
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
-import junit.framework.TestCase.assertNotNull
+import junit.framework.TestCase
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -25,7 +24,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import kotlin.test.assertFailsWith
 
-class AuthRepositoryTest {
+class AuthRepositoryImplTest {
 
     private lateinit var server: MockWebServer
     private lateinit var repository: AuthRepository
@@ -112,7 +111,7 @@ class AuthRepositoryTest {
 
         repository.login("test@test.com", "1234")
 
-        assertNotNull(local.getToken())
+        TestCase.assertNotNull(local.getToken())
     }
 
     @Test
@@ -128,7 +127,7 @@ class AuthRepositoryTest {
     fun `register success saves token`() = runTest {
         repository.register("new@test.com", "1234")
 
-        assertNotNull(local.getToken())
+        TestCase.assertNotNull(local.getToken())
     }
 
     @Test

@@ -6,6 +6,7 @@ import es.rafapuig.pmdm.clean.authentication.core.network.json
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -16,9 +17,7 @@ val networkModule = module {
         json
     }
 
-    single {
-        AuthInterceptor(get())
-    }
+    singleOf(::AuthInterceptor)
 
     // Para inyectar la dependencia de un OkHttpClient como un singleton
     single {

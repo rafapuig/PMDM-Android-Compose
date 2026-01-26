@@ -1,9 +1,9 @@
-package es.rafapuig.pmdm.clean.authentication
+package es.rafapuig.pmdm.clean.authentication.auth.data.mapper
 
-import es.rafapuig.pmdm.clean.authentication.auth.data.mapper.toDomain
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.dto.LoginResponse
-import junit.framework.Assert.assertEquals
+import org.junit.Assert.assertEquals
 import org.junit.Test
+
 
 class AuthMapperTest {
 

@@ -1,7 +1,7 @@
 package es.rafapuig.pmdm.clean.authentication.auth.domain.usecase
 
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
-import es.rafapuig.pmdm.clean.authentication.auth.navigation.SessionManager
+import es.rafapuig.pmdm.clean.authentication.core.presentation.SessionManager
 
 /**
  * No devuelve nada

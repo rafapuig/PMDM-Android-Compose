@@ -69,6 +69,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="875261821">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Pixel_8_Pro_Edited_API_33" value="120" />
+                  <entry key="Tests" value="360" />
+                  <entry key="Xiaomi 23090RA98G" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="909579182">
           <value>
             <AndroidTestResultsTableState>

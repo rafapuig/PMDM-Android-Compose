@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.clean.authentication.auth.navigation
+package es.rafapuig.pmdm.clean.authentication.core.presentation
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
