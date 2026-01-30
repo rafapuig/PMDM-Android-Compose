@@ -1,6 +1,6 @@
 package es.rafapuig.pmdm.clean.authentication.di
 
-import es.rafapuig.pmdm.clean.authentication.AuthApp
+import es.rafapuig.pmdm.clean.authentication.DebugAuthApp
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.FakeAuthApi
 import es.rafapuig.pmdm.clean.authentication.core.network.BaseUrlProvider
@@ -16,7 +16,7 @@ val fakeNetworkModule = module {
 val debugNetworkModule = module {
 
     single<MockWebServer> {
-        (androidContext() as AuthApp).mockWebServer
+        (androidContext() as DebugAuthApp).mockWebServer
     }
 
     single<BaseUrlProvider> {

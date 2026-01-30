@@ -12,14 +12,14 @@ import org.koin.core.context.startKoin
 /**
  * No olvides registrar la Application en el AndroidManifest.xml 👇
  */
-abstract class AuthAppBase : Application() {
+open class AuthApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         /** 🚀 Inicializar Koin */
         startKoin {
-            androidContext(this@AuthAppBase)
+            androidContext(this@AuthApp)
 
             modules(platformNetworkModule())
             modules(backendModules)

@@ -5,7 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import mockwebserver3.MockWebServer
 
-class AuthApp : AuthAppBase() {
+class DebugAuthApp : AuthApp() {
 
     lateinit var mockWebServer: MockWebServer
 
