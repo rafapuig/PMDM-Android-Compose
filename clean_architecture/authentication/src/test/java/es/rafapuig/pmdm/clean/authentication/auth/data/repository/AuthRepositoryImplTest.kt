@@ -6,7 +6,7 @@ import es.rafapuig.pmdm.clean.authentication.auth.data.local.AuthLocalDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthRemoteDataSource
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
-import es.rafapuig.pmdm.clean.authentication.backend.FakeAuthDispatcher
+import es.rafapuig.pmdm.clean.authentication.backend.FakeAuthAPIDispatcher
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -59,7 +59,7 @@ class AuthRepositoryImplTest {
 
     private fun initServer() {
         server = MockWebServer().apply {
-            dispatcher = FakeAuthDispatcher()
+            dispatcher = FakeAuthAPIDispatcher()
             start()
         }
     }

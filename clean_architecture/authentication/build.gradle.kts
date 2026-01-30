@@ -113,6 +113,9 @@ android {
         implementation(libs.converter.kotlinx.serialization)
         implementation(libs.kotlinx.serialization.json)
         testImplementation("com.squareup.okhttp3:mockwebserver3:5.3.0")
+        debugImplementation("com.squareup.okhttp3:mockwebserver3:5.3.0")
+
+
 
         // Navigation 3
         implementation(libs.androidx.navigation3.runtime)

@@ -2,6 +2,7 @@ package es.rafapuig.pmdm.clean.authentication.di
 
 import es.rafapuig.pmdm.clean.authentication.auth.data.remote.AuthApi
 import es.rafapuig.pmdm.clean.authentication.core.network.AuthInterceptor
+import es.rafapuig.pmdm.clean.authentication.core.network.BaseUrlProvider
 import es.rafapuig.pmdm.clean.authentication.core.network.json
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
@@ -29,7 +30,7 @@ val networkModule = module {
 
     single {
         Retrofit.Builder()
-            .baseUrl("https://api.tuapp.com/")
+            .baseUrl(get<BaseUrlProvider>().baseUrl()) //"https://api.themoviedb.org/") //
             .client(get()) // Aqui se usa el OkHttpClient inyectado
             .addConverterFactory(
                 get<Json>().asConverterFactory(
