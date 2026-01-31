@@ -2,9 +2,10 @@ package es.rafapuig.pmdm.di.users.koin.compose.domain.usecase
 
 import es.rafapuig.pmdm.di.users.koin.compose.domain.model.User
 import es.rafapuig.pmdm.di.users.koin.compose.domain.repository.UserRepository
+import org.koin.core.annotation.Factory
 import org.koin.core.annotation.Single
 
-@Single
+@Factory
 class GreetUserUseCase(
     private val repository: UserRepository
 ) {

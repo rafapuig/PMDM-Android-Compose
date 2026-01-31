@@ -17,7 +17,7 @@ val authRepositoryModule = module {
 
     // Data
     single {
-        AuthRemoteDataSource(get())
+        AuthRemoteDataSource(get(), get())
     }
 
     single<AuthRepository> {

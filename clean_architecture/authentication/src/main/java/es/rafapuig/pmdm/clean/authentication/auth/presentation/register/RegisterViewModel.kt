@@ -2,7 +2,11 @@ package es.rafapuig.pmdm.clean.authentication.auth.presentation.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import es.rafapuig.pmdm.clean.authentication.auth.domain.AuthError
+import es.rafapuig.pmdm.clean.authentication.auth.domain.AuthException
 import es.rafapuig.pmdm.clean.authentication.auth.domain.usecase.RegisterUseCase
+import es.rafapuig.pmdm.clean.authentication.auth.presentation.toUiText
+import es.rafapuig.pmdm.clean.authentication.core.presentation.toUiText
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,9 +34,15 @@ class RegisterViewModel(
             }.onSuccess {
                 _uiState.value = RegisterUiState()
                 _eventChannel.send(RegisterUiEvent.RegisterSuccess)
-            }.onFailure {
+            }.onFailure { throwable ->
+
+                val error = (throwable as? AuthException)?.error
+                    ?: AuthError.Unknown
+
+                val message = error.toUiText()
+
                 _uiState.value = RegisterUiState(
-                    error = it.message ?: "Error al registrar"
+                    error = message
                 )
             }
         }

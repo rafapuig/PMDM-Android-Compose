@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
@@ -47,8 +48,7 @@ import es.rafapuig.pmdm.clean.authentication.ui.theme.PMDMComposeTheme
 @Composable
 fun LoginScreen(
     state: LoginUiState,
-    onLoginClick: (String, String) -> Unit,
-    onCreateAccountClick: () -> Unit
+    onAction: (LoginAction) -> Unit = {},
 ) {
     var email by remember { mutableStateOf("test@test.com") }
     var password by remember { mutableStateOf("1234") }
@@ -56,81 +56,91 @@ fun LoginScreen(
 
     Scaffold { innerPadding ->
 
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight(.42f)
-                .padding(innerPadding)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.ic_splash),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth(.4f)
-            )
-        }
-
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                //.fillMaxSize()
                 .padding(innerPadding)
-                .padding(horizontal = 32.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+                .padding(horizontal = 32.dp).padding(top = 64.dp),
+
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
+
         ) {
-            Text("Iniciar sesión", style = MaterialTheme.typography.headlineMedium)
 
-            UserEmailTextField(
-                text = email,
-                onEmailChange = { email = it },
-                label = "Email",
-                placeholder = "Introduce el email de tu cuenta"
-            )
-
-            PasswordTextField(
-                password = password,
-                onPasswordChange = { password = it },
-                initialPasswordVisible = false
-            )
-
-            Button(
-                onClick = { onLoginClick(email, password) },
-                enabled = !state.isLoading,
-                modifier = Modifier.fillMaxWidth()
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    //.fillMaxWidth()
+                    .fillMaxHeight(.2f)
+                //.padding(innerPadding)
             ) {
-                Text("Iniciar sesión")
-            }
-
-            state.error?.let {
-                Text(
-                    text = it,
-                    color = MaterialTheme.colorScheme.error
+                Image(
+                    painter = painterResource(id = R.drawable.ic_splash),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth(.4f)
                 )
             }
 
-            TextButton(onClick = onCreateAccountClick) {
+            Column(
+                verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 Text(
-                    "Crear cuenta",
-                    style = MaterialTheme.typography.bodyLarge
+                    stringResource(R.string.login),
+                    style = MaterialTheme.typography.headlineMedium
                 )
-            }
 
+                UserEmailTextField(
+                    text = email,
+                    onEmailChange = { email = it },
+                    label = "Email",
+                    placeholder = "Introduce el email de tu cuenta"
+                )
+
+                PasswordTextField(
+                    password = password,
+                    onPasswordChange = { password = it },
+                    initialPasswordVisible = false
+                )
+
+                Button(
+                    onClick = { onAction(LoginAction.OnLoginClick(email, password)) },
+                    enabled = !state.isLoading,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.login))
+                }
+
+                TextButton(onClick = { onAction(LoginAction.OnCreateAccountClick) }) {
+                    Text(
+                        stringResource(R.string.signup),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+
+                state.error?.let {
+                    Text(
+                        text = it.asString(),
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
+
+            }
         }
     }
 }
 
 @Preview(
     showSystemUi = true,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    locale = "es"
 )
 @Composable
 fun LoginScreenPreview() {
     PMDMComposeTheme {
         LoginScreen(
-            state = LoginUiState(),
-            onLoginClick = { _, _ -> },
-            onCreateAccountClick = {}
+            state = LoginUiState()
         )
     }
 }

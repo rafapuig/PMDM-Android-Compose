@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Autenticación</string>
+    <string name="invalid_credentials">Credenciales no válidas</string>
+    <string name="invalid_token">Token invalido</string>
+    <string name="network_error">Error de red</string>
+    <string name="unknown_error">Error desconocido</string>
+    <string name="user_already_exists">El usuario ya existe</string>
+    <string name="user_not_found">Usuario no existe</string>
+    <string name="empty_credentials">El email o la constraseña no pueden estar vacios</string>
+    <string name="signup">Registrarse</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="password">Contraseña</string>
+    <string name="show_password">Ver contraseña</string>
+    <string name="create_account">Crear cuenta</string>
+</resources>

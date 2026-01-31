@@ -93,7 +93,7 @@ class AuthRepositoryImplTest {
 
         val api = retrofit.create(AuthApi::class.java)
 
-        val remote = AuthRemoteDataSource(api)
+        val remote = AuthRemoteDataSource(api, Json {ignoreUnknownKeys = true})
 
         repository = AuthRepositoryImpl(remote, local)
     }

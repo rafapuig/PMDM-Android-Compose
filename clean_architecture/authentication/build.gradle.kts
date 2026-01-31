@@ -103,20 +103,19 @@ dependencies {
     // DataStore
     implementation(libs.androidx.datastore.preferences)
 
-    // Koin core
+    // Koin Android + Compose
     implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
-    // Opcional (para ViewModel DSL)
-    //implementation("io.insert-koin:koin-androidx-viewmodel:3.5.6")
 
 
     // Retrofit + converter Kotlinx Serialization
     implementation(libs.retrofit)
     implementation(libs.converter.kotlinx.serialization)
     implementation(libs.kotlinx.serialization.json)
-    testImplementation("com.squareup.okhttp3:mockwebserver3:5.3.0")
-    debugImplementation("com.squareup.okhttp3:mockwebserver3:5.3.0")
+
+    implementation(platform(libs.okhttp.bom))
+    testImplementation(libs.okhttp.mockwebserver)
+    debugImplementation(libs.okhttp.mockwebserver)
 
 
     // Navigation 3
@@ -138,19 +137,19 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.3.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.3.2")
 
     // MockK
     //testImplementation("io.mockk:mockk-core:1.14.7")
-    testImplementation("io.mockk:mockk-agent:1.14.7")
-    testImplementation("io.mockk:mockk-android:1.14.7")
+    testImplementation("io.mockk:mockk-agent:1.14.9")
+    testImplementation("io.mockk:mockk-android:1.14.9")
     //androidTestImplementation("io.mockk:mockk-android:1.14.7")
 
 
     // MockK
     //testImplementation("io.mockk:mockk:1.14.7") // Con este funciona
-    androidTestImplementation("io.mockk:mockk-agent:1.14.7")
-    androidTestImplementation("io.mockk:mockk-android:1.14.7")
+    androidTestImplementation("io.mockk:mockk-agent:1.14.9")
+    androidTestImplementation("io.mockk:mockk-android:1.14.9")
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Authentication</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="invalid_token">Invalid token</string>
+    <string name="network_error">Network Error</string>
+    <string name="unknown_error">Unknown error</string>
+    <string name="user_already_exists">User already exists</string>
+    <string name="user_not_found">User not found</string>
+    <string name="empty_credentials">Email or password cannot be blank</string>
+    <string name="signup">Sign up</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="show_password">Show password</string>
+    <string name="create_account">Create account</string>
 </resources>

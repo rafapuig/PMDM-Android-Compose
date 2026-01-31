@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class GreetingUserViewModel(
-    private val loadUsers: LoadUsersUseCase,
-    private val greetUser: GreetUserUseCase
+    private val loadUsers: LoadUsersUseCase, // Será inyectado por Koin
+    private val greetUser: GreetUserUseCase // Será inyectado por Koin
 ) : ViewModel() {
 
     private val _uiState =

@@ -15,11 +15,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
+import es.rafapuig.pmdm.clean.authentication.R
 
 @Composable
 fun PasswordTextField(
@@ -38,7 +41,7 @@ fun PasswordTextField(
     OutlinedTextField(
         value = password,
         onValueChange = onPasswordChange,
-        label = { Text("Contraseña") },
+        label = { Text(stringResource(R.string.password)) },
         singleLine = true,
         modifier = Modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions(
@@ -53,7 +56,7 @@ fun PasswordTextField(
                         if (passwordVisible)
                             Icons.Filled.Visibility
                         else Icons.Filled.VisibilityOff,
-                    contentDescription = "Ver contraseña"
+                    contentDescription = stringResource(R.string.show_password)
                 )
             }
         },
@@ -61,5 +64,19 @@ fun PasswordTextField(
             if (!passwordVisible)
                 PasswordVisualTransformation()
             else VisualTransformation.None
+    )
+}
+
+@Preview(
+    showBackground = true, locale = "es"
+)
+@Composable
+fun PasswordTextFieldPreview() {
+
+    var password by remember { mutableStateOf("") }
+
+    PasswordTextField(
+        password = password,
+        onPasswordChange = { password = it }
     )
 }

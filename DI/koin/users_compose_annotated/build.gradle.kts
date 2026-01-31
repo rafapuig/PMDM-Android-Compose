@@ -54,7 +54,6 @@ dependencies {
 
     // Koin
     implementation(platform(libs.koin.bom))
-    implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
     // Koin Annotations -> https://insert-koin.io/docs/setup/annotations
     implementation(libs.koin.annotations)

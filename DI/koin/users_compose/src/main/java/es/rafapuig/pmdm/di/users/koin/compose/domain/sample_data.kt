@@ -3,7 +3,7 @@ package es.rafapuig.pmdm.di.users.koin.compose.domain
 import es.rafapuig.pmdm.di.users.koin.compose.domain.model.User
 
 val sampleUsers = listOf(
-    User("Belen Tilla","belen.tilla@example.com"),
+    User("Belen Tilla", "belen.tilla@example.com"),
     User("Juan Perez","juan.perez@example.com"),
     User("Maria Gonzalez","maria.gonzalez@example.com"),
     User("Pedro Martinez","pedro.martinez@example.com"),

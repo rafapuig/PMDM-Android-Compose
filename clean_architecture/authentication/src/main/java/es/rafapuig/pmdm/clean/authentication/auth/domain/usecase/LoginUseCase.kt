@@ -1,5 +1,7 @@
 package es.rafapuig.pmdm.clean.authentication.auth.domain.usecase
 
+import es.rafapuig.pmdm.clean.authentication.auth.domain.AuthError
+import es.rafapuig.pmdm.clean.authentication.auth.domain.AuthException
 import es.rafapuig.pmdm.clean.authentication.auth.domain.model.User
 import es.rafapuig.pmdm.clean.authentication.auth.domain.repository.AuthRepository
 
@@ -14,7 +16,7 @@ class LoginUseCase(
     suspend operator fun invoke(email: String, password: String): User {
         // Validacion
         if (email.isBlank() || password.isBlank()) {
-            throw IllegalArgumentException("Email or password is empty")
+            throw AuthException(AuthError.EmptyCredentials)
         }
         return authRepository.login(email, password)
     }

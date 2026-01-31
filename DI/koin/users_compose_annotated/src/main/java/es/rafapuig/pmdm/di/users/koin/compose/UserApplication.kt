@@ -32,7 +32,7 @@ class UserApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@UserApplication)
-            //modules(appModule) ya no es necesario
+            //modules(appModule) ya no es necesario !!!!
         }
     }
 }

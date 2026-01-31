@@ -11,7 +11,9 @@ import mockwebserver3.RecordedRequest
 
 class FakeAuthAPIDispatcher : Dispatcher() {
 
-    private val users = mutableMapOf<String, String>()
+    private val users = mutableMapOf<String, String>(
+        "test@test.com" to "1234"
+    )
 
     private fun RecordedRequest.requireBody(): String {
         return body?.utf8()
@@ -38,10 +40,10 @@ class FakeAuthAPIDispatcher : Dispatcher() {
         val login = Json.decodeFromString<LoginRequest>(body)
 
         val password = users[login.email]
-            ?: return error("Usuario no existe")
+            ?: return error(404,"Usuario no existe")
 
         if (password != login.password) {
-            return error("Credenciales inválidas")
+            return error(401,"Credenciales inválidas")
         }
 
         return success(login.email)
@@ -54,7 +56,7 @@ class FakeAuthAPIDispatcher : Dispatcher() {
         val register = Json.decodeFromString<RegisterRequest>(body)
 
         if (users.containsKey(register.email)) {
-            return error("Usuario ya existe")
+            return error(409,"Usuario ya existe")
         }
 
         users[register.email] = register.password
@@ -76,10 +78,10 @@ class FakeAuthAPIDispatcher : Dispatcher() {
             body = """{ "message": "Not found" }"""
         )
 
-    private fun error(message: String) =
+    private fun error(code : Int, message: String) =
         MockResponse(
-            code = 400,
-            body = """{ "message": "$message" }"""
+            code = code,
+            body = """{ "code": "$code", "message": "$message" }"""
         )
 
     private fun badRequest(message: String) =

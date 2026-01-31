@@ -12,7 +12,8 @@ fun LoginRoute(
     onNavigateToRegister: () -> Unit,
     viewModel: LoginViewModel = koinViewModel()
 ) {
-    val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val state by viewModel.uiState
+        .collectAsStateWithLifecycle()
 
     viewModel.events.ObserveAsEvents {event ->
         when(event) {
@@ -20,9 +21,15 @@ fun LoginRoute(
         }
     }
 
+    val onAction : (LoginAction) -> Unit = { action ->
+        when(action) {
+            LoginAction.OnCreateAccountClick -> onNavigateToRegister()
+            else -> viewModel.onAction(action)
+        }
+    }
+
     LoginScreen(
         state = state,
-        onLoginClick = viewModel::login,
-        onCreateAccountClick = onNavigateToRegister
+        onAction = onAction
     )
 }

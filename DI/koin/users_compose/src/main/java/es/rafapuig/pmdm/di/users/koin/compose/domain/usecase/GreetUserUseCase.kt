@@ -12,9 +12,9 @@ class GreetUserUseCase(
         return prepareHelloMessage(user)
     }
 
-    suspend fun getUserOrNull(name: String): User? = repository.findUser(name)
+    private suspend fun getUserOrNull(name: String): User? = repository.findUser(name)
 
-    fun prepareHelloMessage(user: User?): String {
+    private fun prepareHelloMessage(user: User?): String {
         return user?.let {
             "Hola ${user.name}, tu email es ${user.email}! 👋"
         } ?: "❌ User not found"

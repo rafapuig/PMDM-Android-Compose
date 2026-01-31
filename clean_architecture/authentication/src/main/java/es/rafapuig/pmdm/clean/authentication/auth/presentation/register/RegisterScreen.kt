@@ -20,8 +20,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import es.rafapuig.pmdm.clean.authentication.R
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.components.PasswordTextField
 import es.rafapuig.pmdm.clean.authentication.auth.presentation.components.UserEmailTextField
 import es.rafapuig.pmdm.clean.authentication.ui.theme.PMDMComposeTheme
@@ -45,7 +47,7 @@ fun RegisterScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Crear cuenta",
+                text = stringResource(R.string.create_account),
                 style = MaterialTheme.typography.headlineMedium
             )
 
@@ -55,7 +57,7 @@ fun RegisterScreen(
                 text = email,
                 onEmailChange = { email = it },
                 label = "Email",
-                placeholder = "Introduce un email para asociar a tu cuenta"
+                placeholder = "Introduce un email para tu cuenta"
             )
 
             PasswordTextField(
@@ -71,12 +73,12 @@ fun RegisterScreen(
                 enabled = !state.isLoading,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("Registrarse")
+                Text(stringResource(R.string.signup))
             }
 
             state.error?.let {
                 Spacer(Modifier.height(8.dp))
-                Text(text = it, color = MaterialTheme.colorScheme.error)
+                Text(text = it.asString(), color = MaterialTheme.colorScheme.error)
             }
 
             //Spacer(Modifier.height(8.dp))

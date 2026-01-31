@@ -9,6 +9,7 @@ import io.ktor.client.plugins.resources.delete
 import io.ktor.client.plugins.resources.get
 import io.ktor.client.plugins.resources.patch
 import io.ktor.client.plugins.resources.post
+import io.ktor.client.plugins.resources.put
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
@@ -40,11 +41,7 @@ class TodoApiServiceImpl(
 
 
     override suspend fun fetchTodoById(id: Int): TodoDto =
-        client.get {
-            url {
-                appendPathSegments("todos", id.toString())
-            }
-        }.body()
+        client.get(Todos.Id(id = id)).body()
 
 
     override suspend fun addTodo(todo: CreateTodoRequest): TodoDto =
@@ -55,10 +52,7 @@ class TodoApiServiceImpl(
 
 
     override suspend fun updateTodo(id: Int, todo: TodoDto): TodoDto =
-        client.put {
-            url {
-                appendPathSegments("todos",id.toString())
-            }
+        client.put(Todos.Id(id = id)) {
             contentType(ContentType.Application.Json)
             setBody(todo)
         }.body()
