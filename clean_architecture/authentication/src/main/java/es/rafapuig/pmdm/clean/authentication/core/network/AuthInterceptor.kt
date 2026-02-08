@@ -10,6 +10,7 @@ import okhttp3.Response
 
 class AuthInterceptor(
     private val local: AuthLocalDataSource,
+    private val sessionManager: SessionManager
     //private val logoutUseCase: LogoutUseCase
 ) : Interceptor {
 
@@ -27,11 +28,13 @@ class AuthInterceptor(
 
         val response = chain.proceed(request)
 
-       /* if(response.code == 401) {
+        if(response.code == 401) {
             runBlocking {
-                logoutUseCase()
+                local.clear()
+                sessionManager.notifyLoggedOut()
+                //logoutUseCase()
             }
-        }*/
+        }
 
         return response
     }

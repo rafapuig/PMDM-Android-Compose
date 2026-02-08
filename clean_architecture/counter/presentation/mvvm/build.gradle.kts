@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose) // Necesario para Compose
 }
 
@@ -46,7 +46,7 @@ dependencies {
     implementation(project(":clean_architecture:counter:presentation:core"))
 
     // ViewModel en Compose
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     //implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
 
     implementation(libs.androidx.core.ktx)

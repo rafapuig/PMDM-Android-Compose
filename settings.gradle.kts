@@ -99,7 +99,10 @@ include(":navigation:navigation3:viewmodel_basic")
 
 include(":DI:koin:users_compose")
 include(":DI:koin:users_compose_annotated")
+include(":DI:koin:list_details_navigation_viewmodel")
+
 include(":client_api_services:ktor:todolist_repository")
 include(":persistence:room:tv_series")
+
 include(":clean_architecture:authentication")
 include(":clean_architecture:ktor_client_authenticacion")

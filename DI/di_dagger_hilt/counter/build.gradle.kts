@@ -1,10 +1,11 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     /** Dagger - Hilt */
     alias(libs.plugins.google.devtools.ksp)
-    id("com.google.dagger.hilt.android") version "2.57.2"
+    alias(libs.plugins.dagger.hilt)
+    //id("com.google.dagger.hilt.android") version "2.59"
 }
 
 android {
@@ -48,9 +49,9 @@ kotlin {
 
 
 dependencies {
-    implementation("com.google.dagger:hilt-android:2.57.2")
-    ksp("com.google.dagger:hilt-android-compiler:2.57.2")
-    implementation("androidx.hilt:hilt-navigation-compose:1.3.0") // hiltViewModel
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose) // hiltViewModel
 
     // ViewModel Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)

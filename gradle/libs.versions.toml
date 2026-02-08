@@ -3,9 +3,9 @@ agp = "9.0.0"
 coilBom = "3.3.0"
 converterKotlinxSerialization = "3.0.0"
 datastorePreferences = "1.2.0"
-hiltAndroid = "2.59"
+hilt = "2.59"
 hiltNavigationCompose = "1.3.0"
-kotlin = "2.3.0"
+kotlin = "2.3.20-Beta2"
 coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
@@ -21,8 +21,8 @@ navigation3Runtime = "1.0.0"
 retrofit = "3.0.0"
 uiGraphics = "1.10.2"
 ui = "1.10.2"
-media3Exoplayer = "1.9.1"
-media3Ui = "1.9.1"
+media3Exoplayer = "1.9.2"
+media3Ui = "1.9.2"
 # material3 = "1.5.0-alpha11" se usa la de compose BOM
 navigationCompose = "2.9.7"
 ksp = "2.3.4"
@@ -32,6 +32,7 @@ material3 = "1.4.0"
 uiToolingPreview = "1.10.2"
 uiTooling = "1.10.2"
 koin-bom = "4.1.1"
+koin-plugin = "0.3.0"
 koin-annotations = "2.3.1"
 startupRuntime = "1.2.0"  # Stable version
 
@@ -89,7 +90,7 @@ androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecy
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
 
-#DataSore Preferencies
+# DataSore Preferencies
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 
 # Dependencias para usar Room
@@ -118,8 +119,8 @@ ktor-client-resources = { module = "io.ktor:ktor-client-resources" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging" }
 
 # Dependencias para usar Hilt
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 
 # Koin
@@ -152,5 +153,8 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref =
 # Kotlin Serialization Plugin (Para la navegacion con Navigation 3, Retrofit, Ktor)
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
-# Plugin KSP Kotlin Symbol Processor para utilizar Room
+# Plugin KSP Kotlin Symbol Processor para utilizar Room, Hilt, etc
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+
+# Plugin para Inyeccion de dependencias con Dagger-Hilt (Android)
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

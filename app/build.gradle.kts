@@ -1,11 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    //alias(libs.plugins.kotlin.android)
 }
 
 android {
     namespace = "es.rafapuig.pmdm.compose"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
         applicationId = "es.rafapuig.pmdm.compose"
@@ -32,9 +34,9 @@ android {
     }
 }
 
-kotlin {
+/*kotlin {
     jvmToolchain(11)
-}
+}*/
 
 dependencies {
     implementation(libs.androidx.core.ktx)

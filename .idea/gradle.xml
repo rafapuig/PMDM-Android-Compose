@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/DI/di_manual_app_container/counter" />
             <option value="$PROJECT_DIR$/DI/di_todolist" />
             <option value="$PROJECT_DIR$/DI/koin" />
+            <option value="$PROJECT_DIR$/DI/koin/list_details_navigation_viewmodel" />
             <option value="$PROJECT_DIR$/DI/koin/users_compose" />
             <option value="$PROJECT_DIR$/DI/koin/users_compose_annotated" />
             <option value="$PROJECT_DIR$/DI/room_todolist_repository_di" />

@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose) // Para compose
     //kotlin("plugin.serialization") version "2.2.21" // Para serialización (Navigation)
     alias(libs.plugins.kotlin.serialization)
