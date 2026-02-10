@@ -24,6 +24,7 @@
             <option value="$PROJECT_DIR$/DI/di_todolist" />
             <option value="$PROJECT_DIR$/DI/koin" />
             <option value="$PROJECT_DIR$/DI/koin/list_details_navigation_viewmodel" />
+            <option value="$PROJECT_DIR$/DI/koin/todolist_room_repository_di" />
             <option value="$PROJECT_DIR$/DI/koin/users_compose" />
             <option value="$PROJECT_DIR$/DI/koin/users_compose_annotated" />
             <option value="$PROJECT_DIR$/DI/room_todolist_repository_di" />
@@ -48,6 +49,8 @@
             <option value="$PROJECT_DIR$/clean_architecture/dictionary/app" />
             <option value="$PROJECT_DIR$/clean_architecture/ktor_client_authenticacion" />
             <option value="$PROJECT_DIR$/clean_architecture/subscribers" />
+            <option value="$PROJECT_DIR$/clean_architecture/todolist" />
+            <option value="$PROJECT_DIR$/clean_architecture/todolist/todolist_room_mvvm_filtering" />
             <option value="$PROJECT_DIR$/clean_architecture/todolist_repository_flows_impl" />
             <option value="$PROJECT_DIR$/client_api_services" />
             <option value="$PROJECT_DIR$/client_api_services/ktor" />

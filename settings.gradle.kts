@@ -105,5 +105,6 @@ include(":DI:koin:todolist_room_repository_di")
 include(":client_api_services:ktor:todolist_repository")
 include(":persistence:room:tv_series")
 
+include(":clean_architecture:todolist:todolist_room_mvvm_filtering")
 include(":clean_architecture:authentication")
 include(":clean_architecture:ktor_client_authenticacion")
