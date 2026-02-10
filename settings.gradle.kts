@@ -100,6 +100,7 @@ include(":navigation:navigation3:viewmodel_basic")
 include(":DI:koin:users_compose")
 include(":DI:koin:users_compose_annotated")
 include(":DI:koin:list_details_navigation_viewmodel")
+include(":DI:koin:todolist_room_repository_di")
 
 include(":client_api_services:ktor:todolist_repository")
 include(":persistence:room:tv_series")

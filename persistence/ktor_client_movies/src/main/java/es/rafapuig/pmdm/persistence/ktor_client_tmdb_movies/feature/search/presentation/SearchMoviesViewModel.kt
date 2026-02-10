@@ -105,7 +105,8 @@ class SearchMoviesViewModel(
     }
 
     fun onSearchQueryChanged(query: String) {
-        _searchQuery.value = query
+        //_searchQuery.value = query
+        _searchQuery.update { query }
     }
 
 

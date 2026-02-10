@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Persistence_Room_ToDoList</string>
+    <string name="title_activity_todo_list">TodoListActivity</string>
+</resources>

@@ -1,3 +1,4 @@
+import kotlin.getOrElse
 import java.util.Properties
 
 plugins {
@@ -44,13 +45,19 @@ android {
                 "String",
                 "API_KEY",
                 //project.properties["TMDB_API_KEY"].toString()
-                localProperties.getProperty("TMDB_API_KEY")
+                runCatching { localProperties.getProperty("TMDB_API_KEY") }.fold(
+                    onSuccess = { it },
+                    onFailure = { "" }
+                )
             )
             buildConfigField(
                 "String",
                 "API_ACCESS_TOKEN",
                 //project.properties["TMDB_API_ACCESS_TOKEN"].toString()
-                localProperties.getProperty("TMDB_API_ACCESS_TOKEN")
+                runCatching { localProperties.getProperty("TMDB_API_ACCESS_TOKEN") }.fold(
+                    onSuccess = { it },
+                    onFailure = { "" }
+                )
             )
         }
         debug {
