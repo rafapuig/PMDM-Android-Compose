@@ -13,6 +13,8 @@ import es.rafapuig.pmdm.di.koin.navigation.viewmodel.list_details.presentation.d
 import es.rafapuig.pmdm.di.koin.navigation.viewmodel.list_details.presentation.home.HomeScreen
 import es.rafapuig.pmdm.di.koin.navigation.viewmodel.list_details.presentation.list.ItemListScreenRoot
 import kotlinx.serialization.Serializable
+import org.koin.androidx.compose.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 /**
  * Rutas de navegación
@@ -105,12 +107,16 @@ fun NavigationRoot() {
 
             entry<List> {
                 ItemListScreenRoot(
-                    viewModel = viewModel(),
+                    /**
+                     * Para inyectar un viewmodel como argumento de llamada a una función
+                     * se utiliza la funcion koinViewModel()
+                     */
+                    viewModel = koinViewModel(),
                     onNavigateToDetail = { id -> backStack.add(Detail(id)) }
                 )
             }
 
-            entry<Detail> {
+            entry<Detail> {key ->
                 /**
                  * Necesitamos un nuevo ViewModel por cada instancia de ruta Detail
                  * (Detail es una data class, por tanto, se crea una instancia
@@ -126,8 +132,14 @@ fun NavigationRoot() {
                  * )
                  */
                 DetailScreenRoot(
-                    id = it.id,
-                    viewModel = viewModel { DetailViewModel(it.id) }, //viewModel(factory = DetailViewModel.Factory(it.id)),
+                    id = key.id,
+                    /**
+                     * Inyectamos el viewModel mediante Koin con el parámetro id
+                     * Para construir un DetailsViewModel, Koin necesita pasar el valor
+                     * del id al constructor de DetailsViewModel
+                     * Por eso, se considera un parámetro dinámico de la inyección
+                     */
+                    viewModel = koinViewModel { parametersOf(key.id) }, //viewModel(factory = DetailViewModel.Factory(it.id)),
                     onBack = { backStack.removeLastOrNull() }
                 )
             }
