@@ -8,7 +8,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
@@ -20,13 +19,29 @@ import androidx.core.graphics.drawable.toBitmapOrNull
 @Composable
 fun ImageFromResource() {
 
-    val painter = painterResource(R.drawable.ratatouille)
+    /**
+     * Para obtener en Compose imágenes desde los recursos se usa
+     * la función painterResource() proporcionando en identificador del recurso
+     * Para obtener el identificador hacemos uso de la clase R
+     */
+    val painter = painterResource(R.drawable.googlelogo_color_272x92dp)
 
+    /**
+     * Desde el contexto también podemos obtener la imagen como un drawable
+     */
     val context = LocalContext.current
-    val drawableFromContext = context.getDrawable(R.drawable.schindler_list)
+    val drawableFromContext = context
+        .getDrawable(R.drawable.googlelogo_color_272x92dp)
 
+    /**
+     * Y desde un resource manager,
+     * pero tendremos que proporcionar además el tema
+     */
     val resources = LocalResources.current
-    val drawableFromResources = resources.getDrawable(R.drawable.schindler_list, context.theme)
+    val drawableFromResources = resources.getDrawable(
+        R.drawable.googlelogo_color_272x92dp,
+        context.theme
+    )
 
     Column(
         modifier = Modifier.verticalScroll(rememberScrollState())
@@ -34,12 +49,13 @@ fun ImageFromResource() {
 
 
         /**
+         * El painter es la forma preferible en Compose
          * Se usa el tamaño intrínseco del painter
          * Como es un JPG se respeta la densidad de píxeles
          */
         Image(
             painter = painter,
-            contentDescription = "Schindler List"
+            contentDescription = "Google"
         )
         Log.i(
             "SIZE", "Painter intrinsic size : " +
@@ -59,7 +75,7 @@ fun ImageFromResource() {
          * El bitmap trabaja con píxeles reales
          * Se pierde la información de densidad de píxeles (se usa la del dispositivo)
          */
-        val bitmapFromContext = drawableFromContext?.toBitmapOrNull(500,750)
+        val bitmapFromContext = drawableFromContext?.toBitmapOrNull(544, 184)
         bitmapFromContext?.let {
             Log.i("SIZE", "Context bitmap size: ${it.width}x${it.height}")
             Log.i("DENSITY", "Context bitmap density: ${it.density}")
@@ -68,17 +84,16 @@ fun ImageFromResource() {
         bitmapFromContext?.asImageBitmap()?.let {
             Image(
                 bitmap = it,
-                contentDescription = "Schindler List",
-                //modifier = Modifier.height((bitmapFromContext.height / bitmapFromContext.density).dp),
-                contentScale = ContentScale.Fit
+                contentDescription = "Google",
+                //modifier = Modifier.height((bitmapFromContext.height / bitmapFromContext.density).dp)
             )
         }
 
         Image(
             bitmap = drawableFromResources
-                .toBitmap(500,750)
+                .toBitmap(544, 184)
                 .asImageBitmap(),
-            contentDescription = "Schindler List"
+            contentDescription = "Google"
         )
     }
 }

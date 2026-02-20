@@ -1,59 +1,53 @@
 [versions]
-agp = "9.0.1"
-coilBom = "3.3.0"
-converterKotlinxSerialization = "3.0.0"
-datastorePreferences = "1.2.0"
-hilt = "2.59"
-hiltNavigationCompose = "1.3.0"
-kotlin = "2.3.20-Beta2"
-coreKtx = "1.17.0"
-junit = "4.13.2"
-junitVersion = "1.3.0"
-espressoCore = "3.7.0"
-appcompat = "1.7.1"
-kotlinxSerializationJson = "1.10.0"
 material = "1.13.0"
+appcompat = "1.7.1"
+agp = "9.0.1"
+kotlin = "2.3.20-RC"
+coreKtx = "1.17.0"
 lifecycleRuntimeKtx = "2.10.0"
-activityCompose = "1.12.3"
-composeBom = "2026.01.01"
-okHttpBom = "5.3.2"
-navigation3Runtime = "1.0.0"
-retrofit = "3.0.0"
-uiGraphics = "1.10.2"
-ui = "1.10.2"
-media3Exoplayer = "1.9.2"
-media3Ui = "1.9.2"
-# material3 = "1.5.0-alpha11" se usa la de compose BOM
+activityCompose = "1.12.4"
+composeBom = "2026.02.00"
+coilBom = "3.3.0"
 navigationCompose = "2.9.7"
-ksp = "2.3.4"
+navigation3Runtime = "1.0.1"
+datastorePreferences = "1.2.0"
 room = "2.8.4"
+ksp = "2.3.5"
+kotlinxSerializationJson = "1.10.0"
+retrofit = "3.0.0"
+converterKotlinxSerialization = "3.0.0"
+okHttpBom = "5.3.2"
 ktorBom = "3.4.0"
-material3 = "1.4.0"
-uiToolingPreview = "1.10.2"
-uiTooling = "1.10.2"
+hilt = "2.59.1"
+hiltNavigationCompose = "1.3.0"
 koin-bom = "4.1.1"
 koin-plugin = "0.3.0"
 koin-annotations = "2.3.1"
 startupRuntime = "1.2.0"  # Stable version
+media3Exoplayer = "1.9.2"
+media3Ui = "1.9.2"
+junit = "4.13.2"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-
-
-
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 
+# Dependencia para test unitarios
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# Dependencias para test instrumentales en Android (Espresso solo sirve con UIs XML views)
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+
+
 # Dependencias de Compose en el Compose BOM
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-# Libreria de iconos extendida de Material 3 (version del Compose BOM)
-androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
@@ -61,14 +55,11 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "uiToolingPreview" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+# Biblioteca de iconos extendida de Material (version del Compose BOM)
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 
 
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+# Dependencias para usar ExoPlayer
 androidx-media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3Exoplayer" }
 androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3Ui" }
 #androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
@@ -156,5 +147,5 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 # Plugin KSP Kotlin Symbol Processor para utilizar Room, Hilt, etc
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
-# Plugin para Inyeccion de dependencias con Dagger-Hilt (Android)
+# Plugin para Inyección de dependencias con Dagger-Hilt (Android)
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }

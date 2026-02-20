@@ -35,7 +35,7 @@ android {
 
 dependencies {
     /**
-     * Dependecias para añadir directamente al source set main
+     * Dependencias para añadir directamente al source set main
      */
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
