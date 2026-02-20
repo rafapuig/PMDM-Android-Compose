@@ -33,15 +33,19 @@ dependencyResolutionManagement {
 rootProject.name = "PMDM-Compose"
 
 /**
- * Sirve para poder acceder a los modulos del proyecto desde el build.gradle.kts
- * sin strings, como las libreias definidas el el catalogo de versiones
+ * enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+ *
+ * Sirve para poder acceder a los módulos del proyecto desde el build.gradle.kts
+ * sin usar strings, al igual que hacemos con las librerias definidas
+ * en el catálogo de versiones (libs.versions.toml)
  */
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+include(":intro")
 
 include(":compose:myfirstcomposeapp")
 include(":compose:intro")
-include(":compose:previewsdemo")
+include(":compose:previews")
 include(":compose:learningcompose")
 include(":exercises:compose_exercises")
 
@@ -56,20 +60,24 @@ include(":viewmodels:ui_state_holder_uiState_class")
 include(":viewmodels:vm_scope_APIs")
 
 include(":clean_architecture:subscribers")
-include(":clean_architecture:todolist_repository_flows_impl")
+include(":clean_architecture:todolist:todolist_repository_flows_impl")
 
 include(":persistence:states_todolist")
 include(":persistence:room_todolist")
 include(":persistence:room_todolist_repository")
 
-include(":persistence:retrofit_todolist")
-include(":persistence:retrofit_todolist_repository")
+
 
 include(":DI:di_todolist")
 include(":DI:room_todolist_repository_di")
 include(":multimedia")
-include(":persistence:ktor_client_movies")
-include(":client_api_services:ktor_the_meal_db")
+
+include(":client_api_services:youtube_public_api_low_level")
+include(":client_api_services:retrofit:retrofit_todolist")
+include(":client_api_services:retrofit:retrofit_todolist_repository")
+include(":client_api_services:ktor:ktor_client_movies")
+include(":client_api_services:ktor:ktor_the_meal_db")
+
 include(":exercises:viewmodel_exercises")
 include(":persistence:datastore_counter")
 
@@ -90,7 +98,7 @@ include(":DI:counter:di_dagger_hilt_no_annotated_viewmodel_counter")
 include(":DI:di_dagger_hilt:counter")
 include(":clean_architecture:dictionary:app")
 include(":clean_architecture:books:app")
-include(":client_api_services:youtube_public_api_low_level")
+
 
 include(":navigation:navigation3:basic")
 include(":navigation:navigation3:basic_saveable")
@@ -106,5 +114,7 @@ include(":client_api_services:ktor:todolist_repository")
 include(":persistence:room:tv_series")
 
 include(":clean_architecture:todolist:todolist_room_mvvm_filtering")
-include(":clean_architecture:authentication")
-include(":clean_architecture:ktor_client_authenticacion")
+include(":clean_architecture:auth:retrofit_authentication")
+include(":clean_architecture:auth:ktor_client_authenticacion")
+include(":compose:resources")
+
