@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextGeometricTransform
 import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.style.TextMotion
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import es.rafapuig.pmdm.compose.learning.R
 
@@ -93,7 +94,7 @@ fun TextStyleDemo() {
     }
 }
 
-//@Preview(showSystemUi = true)
+@Preview(showSystemUi = true)
 @Composable
 fun TextStyleDemoPreview() {
     Scaffold { paddingValues ->

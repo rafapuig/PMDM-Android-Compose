@@ -53,13 +53,13 @@ fun PMDMComposeTheme(
     }
 
     /**
-     * Un tema de Material 3 esta compuesto por 2 subsistemas:
+     * Un tema de Material 3 está compuesto por 2 subsistemas:
      * - El sistema de colores (schemeColor)
      * - El sistema de tipografía (typography)
      * - El sistema de formas (shapes)
      *
      * Cuando personalizamos estos valores los cambios se reflejan
-     * automaticamente en los componentes de Material 3 que usemos
+     * automáticamente en los componentes de Material 3 que usemos
      * en nuestra app.
      */
 

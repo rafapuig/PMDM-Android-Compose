@@ -71,6 +71,7 @@ fun Login(
             supportingText = { Text("Introduce tu nombre de usuario") },
             shape = CircleShape,
             maxLines = 1,
+            singleLine = true,
             modifier = Modifier.fillMaxWidth(.9f)
         )
 
@@ -117,7 +118,7 @@ fun LoginPreview() {
     // 1️⃣ Estado del SnackbarHost
     val snackbarHostState = remember { SnackbarHostState() }
 
-    // 2️⃣ Scope para lanzar corutinas (mostrar snackbar es suspend)
+    // 2️⃣ Scope para lanzar corrutinas (mostrar snackbar es suspend)
     val coroutineScope = rememberCoroutineScope()
 
     PastelTheme {
@@ -151,5 +152,6 @@ fun LoginPreview() {
     }
 }
 
-fun Credentials.check() = username == "Perico" && password == "1234"
+fun Credentials.check() =
+    username == "Perico" && password == "1234"
 
