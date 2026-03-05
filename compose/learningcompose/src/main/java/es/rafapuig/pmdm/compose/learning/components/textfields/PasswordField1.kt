@@ -1,8 +1,13 @@
-package es.rafapuig.pmdm.compose.learning.components.text.textfields.password
+package es.rafapuig.pmdm.compose.learning.components.textfields
 
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
-
 
 @Composable
 fun PasswordField(
@@ -31,7 +35,9 @@ fun PasswordField(
         if (isPasswordVisible) VisualTransformation.None
         else PasswordVisualTransformation()
 
-    OutlinedTextField(
+
+
+    TextField(
         value = password,
         onValueChange = onPasswordChange,
         modifier = modifier,
@@ -43,18 +49,25 @@ fun PasswordField(
         shape = CircleShape,
         singleLine = true,
         trailingIcon = {
-            PasswordToggleVisibilityButtonIcon(
-                isPasswordVisible = isPasswordVisible,
-                onPasswordVisibilityChange = { isPasswordVisible = it }
-            )
+            val trailingIcon =
+                if (isPasswordVisible) Icons.Filled.Visibility
+                else Icons.Filled.VisibilityOff
+
+            val description =
+                if (isPasswordVisible) "Ocultar contraseña"
+                else "Mostrar contraseña"
+
+            IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
+                Icon(
+                    trailingIcon,
+                    contentDescription = description
+                )
+            }
         },
         isError = isError
     )
 }
 
-/**
- * Pruébala con el modo interactivo (Start Interactive Mode)
- */
 @Preview(showBackground = true)
 @Composable
 fun PasswordFieldPreview() {

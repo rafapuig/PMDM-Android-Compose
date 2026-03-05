@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.components.text
+package es.rafapuig.pmdm.compose.learning.components.text.style
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -71,10 +71,10 @@ fun TextStyleDemo() {
         drawStyle = Stroke(5.0f), // o Fill
         textAlign = TextAlign.Center,
         //textDirection = TextDirection.Unspecified,
-        lineHeight = 100.sp, //espaciado entre lineas
+        lineHeight = 100.sp, //espaciado entre líneas
         textIndent = TextIndent(100.sp),
         /**
-         * Este parametro no tiene utilidad
+         * Este parámetro no tiene utilidad
          */
         platformStyle = PlatformTextStyle(
             includeFontPadding = false

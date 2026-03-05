@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.components.text.textfields
+package es.rafapuig.pmdm.compose.learning.components.textfields
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

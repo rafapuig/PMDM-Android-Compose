@@ -34,7 +34,7 @@ fun TextWithColor2(text: String, color: Color) {
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun TextWithColorPreview() {
     PMDMComposeTheme {

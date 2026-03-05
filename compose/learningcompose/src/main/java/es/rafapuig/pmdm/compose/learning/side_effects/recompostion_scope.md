@@ -1,7 +1,8 @@
 # Composables que crean un Recomposition Scope en Jetpack Compose
 
 ## 🧠 Qué es un *recomposition scope*
-Un *recomposition scope* es una unidad independiente dentro del árbol de composición que puede recomponerse sin afectar al resto.  
+Un *recomposition scope* es una unidad independiente dentro del árbol de composición 
+que puede recomponerse sin afectar al resto.  
 Compose crea scopes para optimizar el trabajo y evitar recomponer más de lo necesario.
 
 Regla de oro:

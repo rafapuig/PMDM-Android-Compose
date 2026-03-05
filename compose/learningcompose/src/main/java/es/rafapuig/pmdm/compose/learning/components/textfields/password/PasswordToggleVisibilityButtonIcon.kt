@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.components.text.textfields.password
+package es.rafapuig.pmdm.compose.learning.components.textfields.password
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility

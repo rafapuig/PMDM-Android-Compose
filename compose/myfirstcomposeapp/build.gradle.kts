@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -37,11 +36,11 @@ android {
     }
 }
 
-kotlin {
-    jvmToolchain(11)
-}
-
 dependencies {
+
+    /**
+     * https://developer.android.com/develop/ui/compose/setup#kotlin_1
+     */
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

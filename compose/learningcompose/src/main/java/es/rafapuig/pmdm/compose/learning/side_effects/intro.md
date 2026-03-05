@@ -1,13 +1,13 @@
 # Efectos colaterales
 
 Un efecto colateral (side-effect) es un cambio en el estado de la aplicación
-que ocurre fuera del ambrio de una funcion composable.
+que ocurre fuera del ámbito de una función composable.
 
-Debido a que el ciclo de vida de un compolsable y sus porpiedades tales como
+Debido a que el ciclo de vida de un composable y sus propiedades, tales como
 - recomposiciones de manera impredecible
 - en orden diferente
 - descartables
-las funciones composables deberian de forma ideal estar libres de efectos colaterales
+las funciones composables deberían de forma ideal estar libres de efectos colaterales
 
 Algunas veces son necesarios:
 - iniciar un evento de un solo uso como mostrar una snackbar
@@ -22,7 +22,7 @@ Un **effect** es una función composable que
 - ejecutar funciones suspendidas en el ámbito de una función composable
 
 ## rememberCoroutineScope
-- obtener un scope composition-aware para lanzar una corutina fuera de una función composable
+- obtener un scope composition-aware para lanzar una corrutina fuera de una función composable
 
 
 ## rememberUpdatedState

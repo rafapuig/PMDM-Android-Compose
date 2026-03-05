@@ -1,6 +1,7 @@
 # Salir de la Composición en Jetpack Compose
 
-Este documento explica qué significa que un composable "salga de la composición" y cómo afecta a los estados y efectos en Jetpack Compose.
+Este documento explica qué significa que un composable "salga de la composición" 
+y cómo afecta a los estados y efectos en Jetpack Compose.
 
 ---
 
