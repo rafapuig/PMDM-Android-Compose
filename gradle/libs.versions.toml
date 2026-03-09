@@ -1,7 +1,7 @@
 [versions]
 material = "1.13.0"
 appcompat = "1.7.1"
-agp = "9.0.1"
+agp = "9.1.0"
 kotlin = "2.3.20-RC"
 coreKtx = "1.17.0"
 lifecycleRuntimeKtx = "2.10.0"
