@@ -158,9 +158,6 @@
       <SelectionState runConfigName="clean_architecture.todolist.todolist_room_mvvm_filtering">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity (1)">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="client_api_services.ktor.ktor_client_movies">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -182,19 +179,26 @@
       <SelectionState runConfigName="clean_architecture.auth.ktor_client_authenticacion">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MyUI">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="compose.resources">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="ImageFromResourceLocaleDefaultPreview">
+      <SelectionState runConfigName="MyComposableWithSideEffects">
         <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="ImageFromResourceLocaleESPreview">
+      <SelectionState runConfigName="MyComposableWithRemember">
         <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
+      <SelectionState runConfigName="MyStatefulComposable">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="StatefulColorBox">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="ColorBoxDemo">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>

@@ -16,9 +16,9 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
  *
  * El valor asignado a un State debe ser recordado (remember)
  * Cada vez que se llama a una función con estados (STATEFUL function)
- * esta debe recordar el valor que tenía cada estado la ultima vez que se llamó
+ * esta debe recordar el valor que tenía cada estado la última vez que se llamó
  * a dicha función
- * (Las variables locales no recuedan su valor, puesto que se crean y reinicializan
+ * (Las variables locales no recuerdan su valor, puesto que se crean y reinicializan
  * en cada llamada a la función)
  *
  * Cada cambio es un State tiene consecuencias en toda la jerarquía de
@@ -28,21 +28,26 @@ import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 /**
  * RECOMPOSICIÓN
  *
- * En Compose una UI se construye a base de crear jerarquias de funciones composables.
- * Una funcion composable usa datos para generar una seccion de la UI.
+ * En Compose una UI se construye a base de crear jerarquías de funciones composables.
+ * Una función composable usa datos para generar un "pedazo" de la UI.
  *
- * La funcion puede haber recibido los datos como argumento de llamada desde otra
- * funcion composable que ha declarado un estado para mantener los datos que usa
- * como argumento.
- * Lo que implica que un cambio en el estado de un composable llamador
- * (padre o ancestro en la jerarquia de llamadas)
+ * El papel de una función composable es, por tanto, usar información (datos)
+ * para pintar un pedazo de UI visualmente.
+ *
+ * Una función puede recibir estos datos como argumento de llamada
+ * desde otra función composable llamadora.
+ * Dicha función llamadora puede haber declarado un estado para mantener los datos
+ * que usa como argumento de llamada.
+ *
+ * Esto implica que un cambio en el estado declarado un composable llamador
+ * (padre o ancestro en la jerarquía de llamadas)
  * podría necesitar reflejarse en cualquiera de los composables hijos
  * a los que el valor del estado se pasa como argumento.
  *
- * Para ello, el runtime de compose realiza lo que se denomina una RECOMPOSICION
+ * Para ello, el runtime de compose realiza lo que se denomina una RECOMPOSICIÓN
  *
- * Una recomposicion se lleva a caba cada vez que el valor de un estado
- * cambia dentro de una jerarquia de llamadas de funciones composables.
+ * Una recomposición se lleva a caba cada vez que el valor de un estado
+ * cambia dentro de una jerarquía de llamadas de funciones composables.
  * No es mas que volver a llamar a las funciones afectadas pasándoles como
  * argumento el nuevo valor del estado.
  *
@@ -67,8 +72,12 @@ fun RecompositionDemoScreen(modifier: Modifier = Modifier) {
 @Composable
 fun MyTextField() {
     /**
-     * Un estado mutable se crea a partir de la funcion factoria mutableStateOf()
+     * Un estado mutable se crea a partir de la función factoría mutableStateOf()
      * pasando como argumento el valor inicial del estado
+     *
+     * CUIDADO:
+     * Dentro de una función composable no se debe crear un objeto estado directamente
+     * se debe usar la función efecto "remember"
      */
     val textState = mutableStateOf("")
 

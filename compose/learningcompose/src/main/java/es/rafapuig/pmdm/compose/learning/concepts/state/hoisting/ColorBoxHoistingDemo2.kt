@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 /**
- * En este ejemplo tenenos dos ColorBox
+ * En este ejemplo tenemos dos ColorBox
+ * Ambos composables comparten el mismo estado color
  * Cuando en el primero se hace click se cambia el valor de estado color
  * El segundo se actualiza al valor del color
  */
@@ -46,14 +47,6 @@ fun ColorBoxHoistingDemo2Screen(modifier: Modifier = Modifier) {
 
 }
 
-fun Color.Companion.random() = with(Random.Default) {
-    Color(
-        red = nextFloat(),
-        green = nextFloat(),
-        blue = nextFloat(),
-        1f
-    )
-}
 
 /**
  * El composable ColorBox ahora es stateless
@@ -61,12 +54,29 @@ fun Color.Companion.random() = with(Random.Default) {
  * y un manejador de eventos que se debe llamar cuando cambie el color  *
  */
 @Composable
-fun ColorBox(color: Color = Color.White, onColorChange: ((Color) -> Unit)? = null) {
+fun ColorBox(
+    color: Color = Color.White,
+    onColorChange: ((Color) -> Unit)? = null
+) {
     Box(
         modifier = Modifier
             .background(color)
-            .size(300.dp)
-                then if (onColorChange != null)
-            Modifier.clickable { onColorChange(Color.random()) } else Modifier
+            .size(300.dp) then
+                if (onColorChange != null)
+                    Modifier.clickable {
+                        onColorChange(Color.random())
+                    }
+                else Modifier
     )
 }
+
+
+private fun Color.Companion.random() =
+    with(Random.Default) {
+        Color(
+            red = nextFloat(),
+            green = nextFloat(),
+            blue = nextFloat(),
+            1f
+        )
+    }

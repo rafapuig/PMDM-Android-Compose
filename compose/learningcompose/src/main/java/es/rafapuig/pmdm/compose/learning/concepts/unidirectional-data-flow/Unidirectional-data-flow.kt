@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 /**
  * UNIDIRECTIONAL DATA FLOW
  *
- * Es un metodo para del desarrollo de apps donde
+ * Es un método para del desarrollo de apps donde
  * - el estado almacenado en un composable
  * - NO se debe cambiar directamente en ninguna de las composables hijas
  */

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.concepts.recomposition.intro1
+package es.rafapuig.pmdm.compose.learning.concepts.recomposition.nostate
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -16,15 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import es.rafapuig.pmdm.compose.learning.concepts.recomposition.TAG
 
 /**
- * Al no ser un estado, una modificacion de su valor no provoca una recomposición
+ * Al no ser counter un estado,
+ * una modificación de su valor es observable por Compose
+ * y no provoca una recomposición
  */
 var counter = 0
 
 /**
- * Si cambiar el valor del estado toogle (de verdadero a falso o de falso a verdadero)
- * se provoca una recomposición
+ * Cambiar el valor del estado toogle (de verdadero a falso o de falso a verdadero)
+ * si provoca una recomposición (porque MyComposable observa toggle dado que lo lee)
  * y podremos ver el valor actual de la variable counter
  */
 val toggle = mutableStateOf(false)
@@ -32,7 +35,11 @@ val toggle = mutableStateOf(false)
 @Preview
 @Composable
 fun MyComposable() {
-    Log.i("PMDM", "LLamada MyComposable. Contador = ${counter} ${toggle.value}")
+    /**
+     * Notificar en el LogCat que se ha llamado a MyComposable y valor de counter
+     */
+    Log.i(TAG, "LLamada MyComposable. Contador = ${counter}") // ${toggle.value}")
+
     Scaffold {
         Column(
             modifier = Modifier
@@ -43,12 +50,12 @@ fun MyComposable() {
         ) {
 
             Text(
-                text = "Contador: ${counter}",
+                text = "Contador: $counter",
                 fontSize = 52.sp,
                 modifier = Modifier.clickable {
-                    Log.i("PMDM", "Incrementando el contador con valor = $counter ...")
+                    Log.i(TAG, "Incrementando el contador con valor = $counter ...")
                     counter++
-                    Log.i("PMDM", "Nuevo valor del contador = ${counter}")
+                    Log.i(TAG, "Nuevo valor del contador = $counter")
                 }
             )
             Button(
@@ -72,8 +79,12 @@ fun MyComposable() {
             ) {
                 Text(text = "Alternar")
             }
-            Text(text = "Valor del estado: ${toggle.value}")
+            //Text(text = "Valor del estado: ${toggle.value}")
         }
     }
-    Log.i("PMDM", "Fin de MyComposable. Contador = ${counter}") // ${toggle.value}")
+
+    /**
+     * Notificar en el LogCat que se ha finalizado MyComposable y valor de counter
+     */
+    Log.i(TAG, "Fin de MyComposable. Contador = $counter") // ${toggle.value}")
 }

@@ -50,14 +50,6 @@ fun ColorBoxHoistingDemoScreen(modifier: Modifier = Modifier) {
     ColorBox(color, onColorChange)
 }
 
-fun Color.Companion.random() = with(Random.Default) {
-    Color(
-        red = nextFloat(),
-        green = nextFloat(),
-        blue = nextFloat(),
-        1f
-    )
-}
 
 /**
  * El composable ColorBox ahora es stateless
@@ -75,3 +67,14 @@ fun ColorBox(
             .size(300.dp)
             .clickable { onColorChange(Color.random()) })
 }
+
+
+private fun Color.Companion.random() =
+    with(Random.Default) {
+        Color(
+            red = nextFloat(),
+            green = nextFloat(),
+            blue = nextFloat(),
+            1f
+        )
+    }

@@ -1,12 +1,12 @@
 [versions]
-material = "1.13.0"
+material = "1.14.0"
 appcompat = "1.7.1"
 agp = "9.2.1"
-kotlin = "2.3.20-RC"
-coreKtx = "1.17.0"
-lifecycleRuntimeKtx = "2.10.0"
-activityCompose = "1.12.4"
-composeBom = "2026.02.00"
+kotlin = "2.4.0"
+core = "1.19.0"
+lifecycle = "2.10.0"
+activity = "1.13.0"
+composeBom = "2026.05.01"
 coilBom = "3.3.0"
 navigationCompose = "2.9.7"
 navigation3Runtime = "1.0.1"
@@ -34,9 +34,9 @@ espressoCore = "3.7.0"
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 
 # Dependencia para test unitarios
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -75,11 +75,11 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 # Navigation 3
 androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "navigation3Runtime" }
 androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "navigation3Runtime" }
-androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "lifecycle" }
 
 # Dependencias para usar ViewModel en Compose
-androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
-androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 
 # DataSore Preferencies
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }

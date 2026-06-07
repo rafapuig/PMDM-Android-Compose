@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "es.rafapuig.pmdm.compose.learning"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {

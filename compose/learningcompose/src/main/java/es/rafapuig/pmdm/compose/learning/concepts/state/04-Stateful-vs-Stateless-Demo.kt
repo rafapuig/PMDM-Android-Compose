@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,24 +16,27 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import es.rafapuig.pmdm.compose.learning.ui.theme.PMDMComposeTheme
 
-data class Person(val name: String, val age: Int)
+private data class Person(val name: String, val age: Int)
 
-val persons = listOf(
+private val persons = listOf(
     Person("Belen Tilla", 35),
     Person("Victor Nado", 30),
     Person("Amador Denador", 45)
 )
 
-enum class PersonSortOrder { None, ByName, ByAge }
+private enum class PersonSortOrder { None, ByName, ByAge }
 
 
 /**
- * Función con estado STATEFUL
+ * Función composable con estado (STATEFUL COMPOSABLE)
+ *
  * Una función composable puede almacenar estado
  * para determinar como se debe comportar cuando es llamada
- * Se usa la función remember para mantener el estado
+ * Se usa la función remember para mantener el estado (recordarlo entre recomposiciones)
  * y la función factoría mutableStateOf para crear el estado inicial
  */
 @Preview(showBackground = true)
@@ -61,20 +65,8 @@ fun PersonListScreen() {
                     .clickable { sortOrder = PersonSortOrder.ByAge }
             )
         }
-        HorizontalDivider()
+        HorizontalDivider(thickness = 2.dp)
         PersonList(persons, sortOrder)
-    }
-}
-
-/**
- * Función sin estado STATELESS
- * Su comportamiento únicamente depende del valor de los parámetros
- */
-@Composable
-fun PersonListItem(person: Person, fontSize: Int = 32) {
-    Row(modifier = Modifier.fillMaxWidth()) {
-        Text(text = person.name, fontSize = fontSize.sp, modifier = Modifier.weight(1f))
-        Text(text = person.age.toString(), fontSize = fontSize.sp)
     }
 }
 
@@ -85,7 +77,10 @@ fun PersonListItem(person: Person, fontSize: Int = 32) {
  * por ella misma.
  */
 @Composable
-fun PersonList(persons: List<Person>, sortOrder: PersonSortOrder) {
+private fun PersonList(
+    persons: List<Person>,
+    sortOrder: PersonSortOrder
+) {
     val sortedPersons = when (sortOrder) {
         PersonSortOrder.None -> persons
         PersonSortOrder.ByName -> persons.sortedBy { it.name }
@@ -100,10 +95,32 @@ fun PersonList(persons: List<Person>, sortOrder: PersonSortOrder) {
 }
 
 
+/**
+ * Función sin estado STATELESS
+ * Su comportamiento únicamente depende del valor de los parámetros
+ */
+@Composable
+private fun PersonListItem(
+    person: Person,
+    fontSize: Int = 32
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(text = person.name, fontSize = fontSize.sp, modifier = Modifier.weight(1f))
+        Text(text = person.age.toString(), fontSize = fontSize.sp)
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun PersonListScreenPreview() {
-    PersonListScreen()
+    PMDMComposeTheme(darkTheme = true) {
+        Surface {
+            PersonListScreen()
+        }
+    }
 }
 
 
@@ -123,18 +140,20 @@ fun RowScope.ColumnLabel(
         fontWeight = FontWeight.Bold,
         modifier = Modifier
             .clickable { onClick?.invoke() }
-            //.apply { if (expand) weight(1f) } // No funciona, ¿pq? Inmutabilidad
-            //.let { if (expand) it.weight(1f) else it } // Si funciona pq devuelve resultado lambda
-            then if (expand) Modifier.weight(1f) else Modifier
+                //.apply { if (expand) weight(1f) } // No funciona, ¿pq? Inmutabilidad
+                //.let { if (expand) it.weight(1f) else it } // Si funciona pq devuelve resultado lambda
+                then if (expand) Modifier.weight(1f) else Modifier
 
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun PersonListScreen2() {
+fun PersonListScreenWithColumnLabels() {
 
-    var sortOrder by remember { mutableStateOf(PersonSortOrder.None) }
+    var sortOrder by remember {
+        mutableStateOf(PersonSortOrder.None)
+    }
 
     Column {
         Row {

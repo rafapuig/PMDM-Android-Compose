@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.concepts.state.developer
+package es.rafapuig.pmdm.compose.learning.concepts.state.developer2
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,6 +12,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -40,29 +41,17 @@ data class Person(
 )
 
 val persons = listOf(
-    Person("Perico Palotes", 45),
+    Person("Armando Bronca", 45),
     Person("Pedro Gado", 25, isDeveloper = true),
     Person("Aitor Tilla", 18, isDeveloper = true)
 )
 
-/**
- * Una clase parameter provider de objetos de tipo Person
- * para inyectar un argumento de tipo persona
- * en una función composable con anotación @Preview
- * que declare un parámetro de tipo Person
- */
-class PersonProvider : PreviewParameterProvider<Person> {
-    override val values: Sequence<Person>
-        get() = persons.asSequence()
-}
 
-
-@Preview
 @Composable
 fun PersonItem(
-    @PreviewParameter(PersonProvider::class) person: Person, //Parámetro inyectable en una preview
-    //onIsDeveloperChange: ((Boolean) -> Unit)? = null,
-    onPersonChange: ((Person) -> Unit)? = null
+    person: Person, //Parámetro inyectable en una preview
+    onIsDeveloperChange: ((Boolean) -> Unit)? = null,
+    //onPersonChange: ((Person) -> Unit)? = null
 ) {
     Box(
         Modifier
@@ -87,8 +76,8 @@ fun PersonItem(
         Switch(
             person.isDeveloper,
             onCheckedChange = {
-                //onIsDeveloperChange?.invoke(it)
-                onPersonChange?.invoke(person.copy(isDeveloper = it))
+                onIsDeveloperChange?.invoke(it)
+                //onPersonChange?.invoke(person.copy(isDeveloper = it))
             },
             modifier = Modifier.align(Alignment.CenterEnd)
         )
@@ -107,6 +96,26 @@ fun PersonItemPreview() {
     PersonItem(
         Person("Perico Palotes", 45, isDeveloper = false)
     )
+}
+
+/**
+ * Una clase parameter provider de objetos de tipo Person
+ * para inyectar un argumento de tipo persona
+ * en una función composable con anotación @Preview
+ * que declare un parámetro de tipo Person
+ */
+class PersonProvider : PreviewParameterProvider<Person> {
+    override val values: Sequence<Person>
+        get() = persons.asSequence()
+}
+
+@Preview
+@Composable
+fun PersonItemPreview(
+    @PreviewParameter(PersonProvider::class)
+    person: Person, //Parámetro inyectable en la preview
+) {
+    PersonItem(person)
 }
 
 @Composable
@@ -131,9 +140,8 @@ fun PersonDemo() {
     }
 
     Column {
-        PersonItem(person) {
-            //person = person.copy(isDeveloper = it)
-            person = it
+        PersonItem(person) { isDeveloper ->
+            person = person.copy(isDeveloper = isDeveloper)
         }
 
         IsDeveloperCheckBox(
@@ -149,12 +157,18 @@ fun PersonDemo() {
 
 
 @Composable
-fun PersonList(persons: List<Person>, onPersonChange: (Person) -> Unit) {
+fun PersonList(
+    persons: List<Person>,
+    onPersonListChange: (Person) -> Unit
+) {
     Column {
         persons.forEach { person ->
-            PersonItem(person) { updatedPerson ->
-                onPersonChange(updatedPerson)
-            }
+            PersonItem(
+                person = person,
+                onIsDeveloperChange = {
+                    onPersonListChange(person.copy(isDeveloper = it))
+                }
+            )
         }
     }
 }
@@ -166,13 +180,18 @@ fun PersonListPreview() {
     /**
      * El estado es una lista de personas
      */
-    var personList by remember {
-        mutableStateOf(persons)
+    val personList = remember {
+        mutableStateListOf(*persons.toTypedArray())
     }
 
     PersonList(personList) { updatedPerson ->
-        personList = personList.map {
-            if (it.name == updatedPerson.name) updatedPerson else it
+        // Buscamos la posición de la persona en la lista
+        val index = personList
+            .indexOfFirst { it.name == updatedPerson.name }
+
+        // Si la encontramos la actualizamos
+        if (index != -1) {
+            personList[index] = updatedPerson
         }
     }
 }

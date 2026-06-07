@@ -16,21 +16,27 @@ import androidx.compose.ui.unit.dp
 import kotlin.random.Random
 
 /**
- * Funcion de extension para generar un color aleatorio
- * La función se usa como si fuera un miembro estatico de la clase Color
+ * Función de extensión de la clase Color para generar un color aleatorio
+ * La función se usa como si fuera un miembro estático de la clase Color,
  * ya que estamos usando como receptor el objeto companion de la clase Color
  */
-fun Color.Companion.random() = with(Random.Default) {
-    Color(
-        red = nextFloat(),
-        green = nextFloat(),
-        blue = nextFloat(),
-        1f
-    )
-}
+fun Color.Companion.random() =
+    with(Random.Default) {
+        Color(
+            red = nextFloat(),
+            green = nextFloat(),
+            blue = nextFloat(),
+            1f
+        )
+    }
 
 @Composable
 fun ColorBox() {
+
+    /**
+     * Estado "color" declarado por el composable ColorBox
+     * lo que lo convierte en un stateful composable
+     */
     var color by remember {
         mutableStateOf(Color.Yellow)
     }
@@ -43,8 +49,8 @@ fun ColorBox() {
 }
 
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun ColorBoxDemoScreen(modifier: Modifier = Modifier) {
+fun ColorBoxPreview() {
     ColorBox()
 }
