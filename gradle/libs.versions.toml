@@ -1,6 +1,5 @@
 [versions]
 material = "1.14.0"
-
 appcompat = "1.7.1"
 agp = "9.2.1"
 kotlin = "2.4.0"
