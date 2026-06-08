@@ -146,9 +146,6 @@
       <SelectionState runConfigName="hardware.sensors">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DI.koin.users_compose_compiler">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="DI.koin.list_details_navigation_viewmodel">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -156,6 +153,9 @@
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="clean_architecture.todolist.todolist_room_mvvm_filtering">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="MainActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="client_api_services.ktor.ktor_client_movies">
@@ -175,6 +175,7 @@
       </SelectionState>
       <SelectionState runConfigName="clean_architecture.auth.retrofit_authentication">
         <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="clean_architecture.auth.ktor_client_authenticacion">
         <option name="selectionMode" value="DROPDOWN" />
@@ -182,23 +183,7 @@
       <SelectionState runConfigName="compose.resources">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MyComposableWithSideEffects">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="MyComposableWithRemember">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="MyStatefulComposable">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="StatefulColorBox">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="ColorBoxDemo">
+      <SelectionState runConfigName="MainActivity">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>
