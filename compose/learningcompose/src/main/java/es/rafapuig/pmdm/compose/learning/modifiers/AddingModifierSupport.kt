@@ -16,21 +16,29 @@ import es.rafapuig.pmdm.compose.learning.R
 
 
 /**
- * Cuando desalloramos nuestros propios composables
- * tenemos que considerar si incluimos soporte para modificaciones
- * para que el comportamiento del composable sea mas configurable.
+ * Añadir soporte a la modificación en un composable
  *
- * La primera regla es que el nombre del parametro debe llamarse modifier
- * y debe ser el primer parametro opcional (con valor por defecto)
- * en la lista de parametros.
+ * https://android.googlesource.com/platform/frameworks/support/+/androidx-main/compose/docs/compose-api-guidelines.md#elements-accept-and-respect-a-modifier-parameter
  */
 
 /**
- * La funcion composable declara dos parametros
- * imageResId es un Int para pasar un id de recurso de imagen
- * modifier es un modificador opcional para personalizar el composable
+ * Cuando desarrollamos nuestros propios composables
+ * tenemos que considerar si incluimos soporte para modificaciones
+ * para que el comportamiento final del composable sea más configurable por
+ * el usuario del composable.
+ *
+ * La primera regla a cumplir es que
+ * el nombre del parameter debe llamarse modifier
+ * y debe ser el primer parámetro opcional (con valor por defecto)
+ * en la lista de parámetros.
+ */
+
+/**
+ * Esta función composable declara dos parámetros
+ * - imageResId es un Int para pasar un id de recurso de imagen
+ * - modifier es un modificador opcional para personalizar el composable
  * (al ser opcional se puede llamar a la funcion sin pasar ningún modificador)
- * por eso se especifica el modificador vacio como un modificador por defecto
+ * por eso se especifica el modificador vacío como un modificador por defecto
  * para el valor del parámetro modifier
  */
 @Composable
@@ -42,12 +50,15 @@ fun CustomImage(imageResId: Int, modifier: Modifier = Modifier) {
     )
 }
 
+
 @Preview(showBackground = true)
 @Composable
-fun AddingModifierSupportDemoScreen(modifier: Modifier = Modifier) {
+fun AddingModifierSupportDemo(modifier: Modifier = Modifier) {
+
     val modifier = modifier
         .border(width = 2.dp, color = Color.Black)
         .padding(all = 10.dp)
+
     CustomImage(
         imageResId = R.drawable.vacation,
         modifier = Modifier

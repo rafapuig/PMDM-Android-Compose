@@ -15,11 +15,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * Cuando tenemos dos o mas modificadores y querems aplicarlos todos
- * a un composable tenemos que combinarlos en un solo modificador
- * y aplicar este ultimo al composable
+ * COMBINANDO MODIFICADORES
  *
- * Para combinar modificadores se usa la funcion infija then
+ * Cuando tenemos dos o más modificadores y queremos aplicar los
+ * efectos que producen todos ellos
+ * a un composable tenemos que combinarlos en un solo modificador
+ * y aplicar este último al composable
+ *
+ * Para combinar modificadores se usa la función infija then
  *
  * Sintaxis:
  *
@@ -29,15 +32,15 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun CombiningModifiersDemoScreen() {
+fun CombiningModifiersDemo() {
 
-    val modifier1 = Modifier.border(width = 2.dp, color = Color.Black)
-    val modifier2 = Modifier.padding(10.dp)
-    val modifier3 = Modifier.height(100.dp)
+    val modifier1 = Modifier.border(width = 5.dp, color = Color.Blue)
+    val modifier2 = Modifier.padding(20.dp)
+    val modifier3 = Modifier.height(150.dp)
 
     /**
      * Combinamos los modificadores en uno solo
-     * mediante la funcion infija then
+     * mediante la función infija then
      */
     val modifier = modifier1.then(modifier2).then(modifier3)
 

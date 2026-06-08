@@ -12,19 +12,27 @@ import androidx.compose.ui.Modifier
 import es.rafapuig.pmdm.compose.learning.ui.theme.pastel.PastelTheme
 
 class ModifiersDemoActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
+
         setContent {
             PastelTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
                     Text(
                         text = "Modifiers Demo",
                         modifier = Modifier
                             .padding(innerPadding)
-                            .fillMaxSize())
+                            .fillMaxSize()
+                    )
                 }
             }
         }
     }
+
 }

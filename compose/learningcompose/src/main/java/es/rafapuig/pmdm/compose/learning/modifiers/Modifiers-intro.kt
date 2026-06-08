@@ -2,14 +2,15 @@ package es.rafapuig.pmdm.compose.learning.modifiers
 
 /**
  * Modificadores (Modifier)
+ * https://developer.android.com/develop/ui/compose/modifiers
  *
  * Permiten personalizar la apariencia y el comportamiento de los composables
  *
- * La mayoría de los built-in composables declaran un parametro de tipo Modifier
+ * La mayoría de los built-in composables declaran un parámetro de tipo Modifier
  *
  * Modifier es una interface de Compose
  * La interface declara un companion object que implementa la propía interface
- * y proporciona una gran cantidad de metodos para configurar
- * propiedades tales como bordes, padding, background, size, gestos, clicks, etc.
+ * y proporciona una gran cantidad de métodos para configurar
+ * propiedades tales como bordes, padding, background, size, gestos, clics, etc.
  *
  */

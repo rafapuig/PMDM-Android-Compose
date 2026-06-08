@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
 
     /**
-     * Creamos un modificador vacio por defecto (sin configuraciones)
+     * Creamos un modificador vacío por defecto (sin configuraciones)
      * (en realidad solo asignamos la referencia al companion object
      * de la interface Modifier)
      */
@@ -23,9 +23,9 @@ fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
 
     /**
      * Configuramos el modificador para que añada un padding de 10dp
-     * a todos los lados del comppsable al que se aplique
-     * (en realidad estamos creando un nuevo modificador clon del receiver
-     * con su configuración  más la que aplica la función padding)
+     * a todos los lados del composable al que se aplique
+     * (en realidad estamos creando un nuevo modificador clonado del receiver
+     * usando su configuración más la que aplica la función padding)
      */
     myModifier = myModifier.padding(all = 10.dp)
 
@@ -35,9 +35,9 @@ fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
     myModifier = myModifier.border(width = 2.dp, color = Color.Black)
 
     /**
-     * Es como si estuvieramos usando el patrón decorador
+     * Es como si estuviéramos usando el patrón decorador
      * con cada función de extension estamos creando un nuevo modificador
-     * a partir de crear una copia del modificador receptor decorado segun
+     * a partir de crear una copia del modificador receptor decorado según
      * la función de extensión que se esté llamando
      */
 
@@ -52,8 +52,9 @@ fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
 
 
     /**
-     * En esta función recibimos un modificador en el parámetro modifier
-     * Podemos usarlo para aplicarle configuraciones adicionales
+     * En esta función composable hemos recibido un modificador
+     * en el parámetro modifier
+     * Podemos usarlo como partida para ir aplicándole configuraciones adicionales
      */
 
     val modifierWithExtraConfig = modifier
@@ -62,12 +63,14 @@ fun ModifiersDemoScreen(modifier: Modifier = Modifier) {
 
 
     /**
-     * Una vez tenemos el modifier configurado podemos pasarlo al composable
-     * si este declara un parámetro de tipo Modifier
+     * Una vez tenemos el modifier configurado podemos pasarlo
+     * a una función composable
+     * si esta declara un parámetro de tipo Modifier
      *
-     * Si es así, este parámetro será el primer parámetro con valor por defecto
-     * de la lista de parámetros de la función composable
-     * (lo que permite pasar el argumento por posición o por nombre)
+     * Si es así, este parámetro deberá ser el primer parámetro
+     * que tenga definido un valor por defecto
+     * dentro de la lista de parámetros de dicha función composable
+     * (lo que nos permite pasar el argumento por posición o por nombre)
      */
     Text(
         "Hola Modifiers",
