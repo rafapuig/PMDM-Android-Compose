@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.rowcolumn
+package es.rafapuig.pmdm.compose.learning.layout.layouts.rowcolumn
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,8 +19,6 @@ import androidx.compose.ui.unit.dp
  * El alineamiento en vertical del layout Row
  * se modifica usando el parámetro verticalAlignment.
  */
-
-
 
 @Preview(showBackground = true)
 @Composable

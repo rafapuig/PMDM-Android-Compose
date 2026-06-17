@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.rowcolumn
+package es.rafapuig.pmdm.compose.learning.layout.layouts.rowcolumn
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

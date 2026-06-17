@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.modifiers
+package es.rafapuig.pmdm.compose.learning.layout.modifiers
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.modifiers
+package es.rafapuig.pmdm.compose.learning.layout.modifiers
 
 /**
  * Modificadores (Modifier)

@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.modifiers.drawing
+package es.rafapuig.pmdm.compose.learning.layout.modifiers.drawing
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

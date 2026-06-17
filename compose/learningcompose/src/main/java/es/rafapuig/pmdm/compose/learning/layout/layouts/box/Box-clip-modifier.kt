@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.box
+package es.rafapuig.pmdm.compose.learning.layout.layouts.box
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

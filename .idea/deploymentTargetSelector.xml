@@ -155,9 +155,6 @@
       <SelectionState runConfigName="clean_architecture.todolist.todolist_room_mvvm_filtering">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity (1)">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="client_api_services.ktor.ktor_client_movies">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -183,7 +180,7 @@
       <SelectionState runConfigName="compose.resources">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="MainActivity">
+      <SelectionState runConfigName="ColorBoxDemo">
         <option name="selectionMode" value="DROPDOWN" />
         <DialogSelection />
       </SelectionState>

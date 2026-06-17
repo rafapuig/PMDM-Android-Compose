@@ -1,11 +1,10 @@
-package es.rafapuig.pmdm.compose.learning.layouts.box.scope.modifiers
+package es.rafapuig.pmdm.compose.learning.layout.layouts.box
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,25 +26,52 @@ import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true)
 @Composable
-fun BoxLayoutDemoScreen(modifier: Modifier = Modifier) {
+private fun BoxLayoutDemoScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.size(300.dp)
     ) {
         val cellModifier = Modifier.size(95.dp)
-        TextCell("TopStart", cellModifier.align(Alignment.TopStart))
-        TextCell("TopCenter", cellModifier.align(Alignment.TopCenter))
-        TextCell("TopCenter", cellModifier.align(Alignment.TopEnd))
-        TextCell("CenterStart", cellModifier.align(Alignment.CenterStart))
-        TextCell("Center", cellModifier.align(Alignment.Center))
-        TextCell("CenterEnd", cellModifier.align(Alignment.CenterEnd))
-        TextCell("BottomStart", cellModifier.align(Alignment.BottomStart))
-        TextCell("BottomCenter", cellModifier.align(Alignment.BottomCenter))
-        TextCell("BottomEnd", cellModifier.align(Alignment.BottomEnd))
+        TextCell(
+            "TopStart",
+            cellModifier.align(Alignment.TopStart)
+        )
+        TextCell(
+            "TopCenter",
+            cellModifier.align(Alignment.TopCenter)
+        )
+        TextCell(
+            "TopCenter",
+            cellModifier.align(Alignment.TopEnd)
+        )
+        TextCell(
+            "CenterStart",
+            cellModifier.align(Alignment.CenterStart)
+        )
+        TextCell(
+            "Center",
+            cellModifier.align(Alignment.Center)
+        )
+        TextCell(
+            "CenterEnd",
+            cellModifier.align(Alignment.CenterEnd)
+        )
+        TextCell(
+            "BottomStart",
+            cellModifier.align(Alignment.BottomStart)
+        )
+        TextCell(
+            "BottomCenter",
+            cellModifier.align(Alignment.BottomCenter)
+        )
+        TextCell(
+            "BottomEnd",
+            cellModifier.align(Alignment.BottomEnd)
+        )
     }
 }
 
 @Composable
-fun TextCell(
+private fun TextCell(
     text: String,
     modifier: Modifier = Modifier,
     fontColor: Color = Color.Blue,

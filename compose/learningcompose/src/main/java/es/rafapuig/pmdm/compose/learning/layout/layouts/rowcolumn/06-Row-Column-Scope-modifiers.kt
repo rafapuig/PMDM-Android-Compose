@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.rowcolumn
+package es.rafapuig.pmdm.compose.learning.layout.layouts.rowcolumn
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
  * Row y Column
  *
  * Son funciones de orden superior
- * que declaran un parametro "content" de tipo función con receptor (de extensión)
+ * que declaran un parámetro "content" de tipo función con receptor (de extensión)
  * Cuando se usa una lambda como argumento para el parámetro content
  * la lambda puede acceder mediante this al receptor de la lambda
  * El tipo de función para Row es RowScope.() -> Unit
@@ -50,11 +50,11 @@ fun RowScopeBaseLineModifierDemoScreen(modifier: Modifier = Modifier) {
     Row {
         Text("Grande",
             Modifier.alignByBaseline(),
-            fontSize = 40.sp
+            fontSize = 48.sp
         )
         Text("Pequeño",
             Modifier.alignByBaseline(),
-            fontSize = 32.sp
+            fontSize = 24.sp
         )
     }
   }
@@ -63,8 +63,8 @@ fun RowScopeBaseLineModifierDemoScreen(modifier: Modifier = Modifier) {
 @Composable
 fun RowScopeWeightModifierDemoScreen(modifier: Modifier = Modifier) {
     Row {
-        TextCell("1", Modifier.weight(.25f))
-        TextCell("2", Modifier.weight(.5f))
-        TextCell("3", Modifier.weight(.25f))
+        TextCell("1", Modifier.weight(.25f)) // el 25% del espacio disponible
+        TextCell("2", Modifier.weight(.5f)) // el 50% del espacio disponible
+        TextCell("3", Modifier.weight(.25f)) // el 25% del espacio disponible
     }
 }

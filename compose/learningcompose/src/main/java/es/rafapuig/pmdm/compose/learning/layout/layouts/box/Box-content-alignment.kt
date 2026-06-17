@@ -1,12 +1,12 @@
-package es.rafapuig.pmdm.compose.learning.layouts.box
+package es.rafapuig.pmdm.compose.learning.layout.layouts.box
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -25,19 +25,34 @@ import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true)
 @Composable
-fun BoxLayoutDemoScreen(modifier: Modifier = Modifier) {
-    Box(modifier = modifier) {
+private fun BoxLayoutDemoScreen(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier.size(400.dp),
+        contentAlignment = Alignment.BottomStart // Prueba las distintas opciones de Alignment
+    ) {
         val height = 200.dp
         val width = 200.dp
         val cellModifier = Modifier.size(width = width, height = height)
-        TextCell(text = "1", cellModifier, Color.Red)
-        TextCell(text = "2", cellModifier, Color.Green)
-        TextCell(text = "3", cellModifier, Color.Blue)
+        TextCell(
+            text = "1",
+            cellModifier,
+            Color.Red
+        )
+        TextCell(
+            text = "2",
+            cellModifier,
+            Color.Green
+        )
+        TextCell(
+            text = "3",
+            cellModifier,
+            Color.Blue
+        )
     }
 }
 
 @Composable
-fun TextCell(
+private fun TextCell(
     text: String,
     modifier: Modifier = Modifier,
     fontColor: Color = Color.Black,

@@ -43,7 +43,7 @@
             android:label="@string/title_activity_configuration_changes_demo"
             android:theme="@style/Theme.PMDMCompose" />
         <activity
-            android:name=".modifiers.ModifiersDemoActivity"
+            android:name=".layout.modifiers.ModifiersDemoActivity"
             android:exported="true"
             android:label="@string/title_activity_modifiers_demo"
             android:theme="@style/Theme.PMDMCompose" />

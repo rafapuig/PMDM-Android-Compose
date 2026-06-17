@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.rowcolumn.spacing
+package es.rafapuig.pmdm.compose.learning.layout.layouts.rowcolumn
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,14 +10,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
-import es.rafapuig.pmdm.compose.learning.layouts.rowcolumn.TextCell
 
 
 @Preview(showBackground = true)
 @Composable
 fun RowSpaceArrangementDemoScreen(
     modifier: Modifier = Modifier,
-    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start
+    horizontalArrangement: Arrangement.Horizontal = Arrangement.SpaceAround
 ) {
     Row(
         modifier.size(400.dp, 200.dp),

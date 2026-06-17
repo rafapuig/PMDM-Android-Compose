@@ -1,4 +1,4 @@
-package es.rafapuig.pmdm.compose.learning.layouts.custom
+package es.rafapuig.pmdm.compose.learning.layout.layouts.custom
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -10,14 +10,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import es.rafapuig.pmdm.compose.learning.layout.layouts.custom.exampleLayout
 
 @Preview(showBackground = true)
 @Composable
 fun LayoutModifierDemoScreen(modifier: Modifier = Modifier) {
     Box(modifier = modifier.size(120.dp, 80.dp)) {
-        ColorBox(Modifier
-            .exampleLayout(90,50)
-            .background(Color.Blue)
+        ColorBox(
+            Modifier
+                .exampleLayout(90, 50)
+                .background(Color.Blue)
         )
     }
 }

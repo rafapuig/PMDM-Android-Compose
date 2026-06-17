@@ -149,3 +149,8 @@ google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 
 # Plugin para Inyección de dependencias con Dagger-Hilt (Android)
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+
+[bundles]
+compose = [
+
+]
