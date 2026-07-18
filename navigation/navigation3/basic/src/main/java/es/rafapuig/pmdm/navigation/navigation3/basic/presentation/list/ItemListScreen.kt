@@ -34,14 +34,19 @@ fun ItemListScreen(
         ) {
             items(items) { item ->
                 Text(
-                    item, style = MaterialTheme.typography.headlineLarge,
-                    modifier = Modifier.clickable { onItemClick(item) })
+                    item,
+                    style = MaterialTheme.typography.headlineLarge,
+                    modifier = Modifier.clickable { onItemClick(item) }
+                )
             }
         }
     }
 }
 
-@Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(
+    showSystemUi = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun ItemListScreenPreview() {
     ItemListScreen(

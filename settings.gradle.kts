@@ -118,3 +118,4 @@ include(":clean_architecture:auth:retrofit_authentication")
 include(":clean_architecture:auth:ktor_client_authenticacion")
 include(":compose:resources")
 
+include(":navigation:navigation3:modularization")

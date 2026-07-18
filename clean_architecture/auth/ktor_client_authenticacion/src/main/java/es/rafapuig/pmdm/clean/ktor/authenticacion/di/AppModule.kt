@@ -9,7 +9,7 @@ import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.domain.usecase.L
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.domain.usecase.LogoutUseCase
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.domain.usecase.RefreshTokenUseCase
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.domain.usecase.RegisterUseCase
-import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.presentation.LoginViewModel
+import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.presentation.login.LoginViewModel
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.home.presentation.HomeViewModel
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.profile.data.ProfileRemoteDataSource
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.profile.data.ProfileRemoteDataSourceImpl

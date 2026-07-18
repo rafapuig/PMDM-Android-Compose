@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.milliseconds
 
 class BookListViewModel(
     private val repository: BookRepository
@@ -67,7 +68,7 @@ class BookListViewModel(
         state
             .map { it.searchQuery }
             .distinctUntilChanged()
-            .debounce(500L)
+            .debounce(500.milliseconds)
             .onEach { query ->
                 when {
                     query.isBlank() ->

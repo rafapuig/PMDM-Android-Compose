@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.remember
+import androidx.lifecycle.viewmodel.compose.viewModel
 import es.rafapuig.pmdm.clean.books.core.data.HttpClientFactory
 import es.rafapuig.pmdm.clean.books.feature.book.data.remote.KtorRemoteBookDataSource
 import es.rafapuig.pmdm.clean.books.feature.book.data.repository.OfflineFirstBookRepository
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PMDMComposeTheme {
                 BookListScreenRoot(
-                    viewModel = remember {
+                    viewModel = viewModel {
                         BookListViewModel(
                             repository = OfflineFirstBookRepository(
                                 remoteDataSource = KtorRemoteBookDataSource(

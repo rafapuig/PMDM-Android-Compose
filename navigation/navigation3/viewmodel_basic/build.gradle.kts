@@ -9,7 +9,7 @@ plugins {
 android {
     namespace = "es.rafapuig.pmdm.navigation.navigation3.basic"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
@@ -52,9 +52,10 @@ dependencies {
     // ViewModel en Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
-    // Navigation 3
+    /* Navigation 3 */
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
+    // Esta dependencia es adicional para dar a un viewmodel ambito de una entrada de la back stack de navegación
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 
 

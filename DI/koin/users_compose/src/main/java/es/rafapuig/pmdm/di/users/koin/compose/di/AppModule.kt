@@ -12,7 +12,7 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 /**
- * Definición del modulo de koin appModule
+ * Definición del módulo de koin appModule
  *
  * Cada tipo de dependencia que pueda ser inyectada por koin
  * debe definirse aquí. *
@@ -29,7 +29,7 @@ val appModule = module {
      * En el caso de objetos de casos de uso
      * es preferible crear una nueva instancia allá donde haya
      * que inyectar una dependencia (normalmente en un viewmodel)
-     * Por eso indicamos que "producto" debe fabricar la factoria
+     * Por eso indicamos que "producto" debe fabricar la factoría
      * y como fabricarlo
      */
 

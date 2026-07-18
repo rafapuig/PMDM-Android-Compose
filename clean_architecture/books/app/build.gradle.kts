@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "es.rafapuig.pmdm.clean.books"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {

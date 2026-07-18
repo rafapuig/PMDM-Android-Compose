@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavEntry
 import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.navigation.LoginNavKey
+import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.presentation.login.LoginScreen
+import es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.presentation.login.LoginViewModel
 
 @Composable
 fun AuthNavGraph(

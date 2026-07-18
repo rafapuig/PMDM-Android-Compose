@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import es.rafapuig.pmdm.navigation.navigation3.basic.ui.theme.PMDMComposeTheme
 
 @Composable
 fun HomeScreen(
@@ -41,7 +42,10 @@ fun HomeScreen(
     }
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(
+    showSystemUi = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun HomeScreenPreview() {
     HomeScreen(onNavigateToList = {})

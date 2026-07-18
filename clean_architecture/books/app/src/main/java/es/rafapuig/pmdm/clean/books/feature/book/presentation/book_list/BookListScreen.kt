@@ -72,7 +72,7 @@ private fun BookListScreen(
     val pagerState = rememberPagerState { 2 }
 
     /**
-     * Hacer que se cambie de pagina cuando el usuario pulsa sobre una tab
+     * Hacer que se cambie de página cuando el usuario pulsa sobre una tab
      */
     LaunchedEffect(state.selectedTabIndex) {
         pagerState.animateScrollToPage(state.selectedTabIndex)

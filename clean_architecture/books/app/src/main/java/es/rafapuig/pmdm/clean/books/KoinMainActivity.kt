@@ -15,11 +15,13 @@ class KoinMainActivity : ComponentActivity() {
 
     // https://insert-koin.io/docs/reference/koin-android/viewmodel#injecting-your-viewmodel
 
-    // Aqui todavia no esta adjuntada la actividad a la aplicación (eso ocurre en onCreate)
-    // IllegalStateException: Your activity is not yet attached to the Application instance. You can't request ViewModel before onCreate call
+    // Aquí todavía no está adjuntada la actividad a la aplicación (eso ocurre en onCreate)
+    // IllegalStateException:
+    // - Your activity is not yet attached to the Application instance.
+    // - You can't request ViewModel before onCreate call
     //val viewModel = getViewModel<BookListViewModel>()
 
-    // Utilizamos versión que usa un lazy delagate
+    // Utilizamos versión que usa un lazy delegate
     val bookListViewModel by viewModel<BookListViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

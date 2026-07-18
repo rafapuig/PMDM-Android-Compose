@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
  * las marcamos con @Serializable
  * (Para ello añade el plugin org.jetbrains.kotlin.plugin.serialization
  *
- * Además deben implementar el interface NavKey para poder ser añadidos
+ * Además, deben implementar el interface NavKey para poder ser añadidos
  * a la pila de navegación peristente que se crea mediante la función rememberNavBackStack
  */
 
@@ -45,15 +45,11 @@ data object List : NavKey
 
 /**
  * Ruta a la pantalla Detail de la app y que requiere un parametro id
- * por eso utilizamos un data class y no un data object
+ * por eso utilizamos una data class y no un data object
  */
 @Serializable
 data class Detail(val id: Int) : NavKey
 
-/**
- * Sin embargo si utiliamos rutas de este modo cuando cambia la configuracion del dispositivo
- * se pierde el estado de la navegación y volvemos a la pantalla incial
- */
 
 @Composable
 fun NavigationRoot() {
@@ -61,7 +57,7 @@ fun NavigationRoot() {
     /**
      * Se utiliza una lista mutable para representar la pila (backStack) de navegación
      * La hemos iniciado con la ruta Home (pantalla inicial)
-     * Para que la pila back stack sea persistence se usa la función rememberNavBackStack
+     * Para que la pila back stack sea persistente se usa la función rememberNavBackStack
      * que crea una lista de elementos de tipo NavKey (por eso las rutas deben implementarlo)
      */
     val backStack = rememberNavBackStack(Home)
@@ -84,13 +80,18 @@ fun NavigationRoot() {
              * Cuando se apila en la back stack la ruta asociada con la NavEntry
              * se crea el ViewModel y se destruye se elimina de la back stack
              * la ruta
+             * Si no usamos este decorador, el viewmodel tendrá el ámbito de la actividad
+             * y cuando naveguemos por primera vez a la pantalla de detalle
+             * se creará el viewmodel y ya no se creará cuando vayamos de nuevo a la pantalla
+             * de detalle con otro item diferente
+             * (prueba a comentarlo y compruebalo)
              */
             rememberViewModelStoreNavEntryDecorator()
         ),
 
         /**
          *  El parámetro entryProvider
-         *  Para configurarlo pordemos usar el entryProvider DSL
+         *  Para configurarlo podemos usar el entryProvider DSL
          *  para definir el contenido de cada ruta
          *  La función entry<RouteType> se usa para asociar una ruta con el contenido
          */
@@ -116,13 +117,12 @@ fun NavigationRoot() {
                  * (Detail es una data class, por tanto, se crea una instancia
                  * por cada valor de id que se pase)
                  *
-                 * Para instanciar un ViewModel con parametros en el constructor
-                 * necesitamos una factoria
+                 * Para crear una instancia de un ViewModel con parámetros en el constructor
+                 * necesitamos una factoría de ViewModel
                  * (no necesariamente,
-                 * si usamos el API para ViewModels de Compose
-                 * la funcion viewmodel cuando se le pasa una lambda
-                 * con la instanciación de un ViewModel
-                 * proporcionando los argumentos al constructor
+                 * si usamos el API para ViewModels de Compose: androidx.lifecycle:lifecycle-viewmodel-compose
+                 * a la función viewmodel se le pasa una lambda
+                 * que crea una instancia de ViewModel proporcionando los argumentos al constructor
                  * )
                  */
                 DetailScreenRoot(

@@ -15,7 +15,7 @@ import es.rafapuig.pmdm.navigation.navigation3.basic.presentation.sampleItems
  */
 
 /**
- * Ruta simple (sin parametros) que representa a la pantalla Home
+ * Ruta simple (sin parámetros) que representa a la pantalla Home
  * (Como no necesita parametros se utiliza un data object)
  */
 
@@ -30,12 +30,12 @@ data object List
 
 /**
  * Ruta a la pantalla Detail de la app y que requiere un parametro id
- * por eso utilizamos un data class y no un data object
+ * por eso utilizamos una data class y no un data object
  */
 data class Detail(val id: String)
 
 /**
- * Sin embargo si utiliamos rutas de este modo cuando cambia la configuracion del dispositivo
+ * Sin embargo, si utilizamos rutas de este modo cuando cambia la configuración del dispositivo
  * se pierde el estado de la navegación y volvemos a la pantalla incial
  */
 
@@ -50,8 +50,8 @@ fun NavigationRoot() {
 
     /**
      * El composable NavDisplay se usa para mostrar la pantalla actual
-     * (la que se encuentra en la parte superior de la pila, es decir, el último elemento
-     * de la lista backStack)
+     * (la que se encuentra en la parte superior de la pila de pantallas,
+     * es decir, el último elemento de la lista backStack)
      */
     NavDisplay(
         backStack = backStack,
@@ -60,7 +60,7 @@ fun NavigationRoot() {
         /**
          *  El parámetro entryProvider
          *  es una lambda que recibe una ruta desde la back stack (T) y devuelve un NavEntry<T>.
-         *  (En este ejemplo, t es el tipo Any)
+         *  (En este ejemplo, T es el tipo Any)
          *  Dentro, mediante un when se determina que pantalla mostrar en función de la ruta.
          */
 
@@ -68,14 +68,14 @@ fun NavigationRoot() {
             when (route) {
                 is Home -> NavEntry(route) {
                     HomeScreen(
-                        { backStack.add(List) }
+                        onNavigateToList = { backStack.add(List) }
                     )
                 }
 
                 is List -> NavEntry(route) {
                     ItemListScreen(
-                        sampleItems,
-                        { backStack.add(Detail(it)) }
+                        items = sampleItems,
+                        onItemClick = { backStack.add(Detail(it)) }
                     )
                 }
 
@@ -89,8 +89,6 @@ fun NavigationRoot() {
                 else -> error("Ruta no reconocida: $route")
             }
         }
-
     )
-
 
 }

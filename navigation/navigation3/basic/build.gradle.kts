@@ -1,19 +1,18 @@
 plugins {
     alias(libs.plugins.android.application)
-    //alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "es.rafapuig.pmdm.navigation.navigation3.basic"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {
         applicationId = "es.rafapuig.pmdm.navigation.navigation3.basic"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -39,19 +38,12 @@ android {
     }
 }
 
-kotlin {
-    jvmToolchain(11)
-}
-
 dependencies {
-    // Libreria de iconos extendida de Material 3 (version del Compose BOM)
-    implementation("androidx.compose.material:material-icons-extended")
-
-    // Navigation 3
+    /* Navigation 3 */
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
 
-    implementation(libs.androidx.core.ktx)
+    /* Compose */
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -59,6 +51,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    // Libreria de iconos extendida de Material (version Compose BOM)
+    implementation(libs.androidx.compose.material.icons.extended)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

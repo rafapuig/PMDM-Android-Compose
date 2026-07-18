@@ -19,9 +19,9 @@ import kotlinx.serialization.Serializable
  * Para poder añadir estas rutas en una back stack persistente (saveable)
  * que sobreviva a los cambios de configuración del dispositivo
  * las marcamos con @Serializable
- * (Para ello añade el plugin org.jetbrains.kotlin.plugin.serialization
+ * (Para ello añade el plugin org.jetbrains.kotlin.plugin.serialization)
  *
- * Además deben implementar el interface NavKey para poder ser añadidos
+ * Además, deben implementar el interface NavKey para poder ser añadidos
  * a la pila de navegación peristente que se crea mediante la función rememberNavBackStack
  */
 
@@ -50,8 +50,8 @@ data object List : NavKey
 data class Detail(val id: String) : NavKey
 
 /**
- * Sin embargo si utiliamos rutas de este modo cuando cambia la configuracion del dispositivo
- * se pierde el estado de la navegación y volvemos a la pantalla incial
+ * Sin embargo, si utilizamos rutas de este modo cuando cambia la configuración del dispositivo
+ * ya no se pierde el estado de la navegación y no volvemos a la pantalla incial
  */
 
 @Composable
@@ -60,8 +60,11 @@ fun NavigationRoot() {
     /**
      * Se utiliza una lista mutable para representar la pila (backStack) de navegación
      * La hemos iniciado con la ruta Home (pantalla inicial)
-     * Para que la pila back stack sea persistence se usa la función rememberNavBackStack
-     * que crea una lista de elementos de tipo NavKey (por eso las rutas deben implementarlo)
+     * Para que la pila de back stack sea persistente se usa la función rememberNavBackStack
+     * que crea una lista de elementos de tipo NavKey
+     * (por eso las rutas deben implementar el interface NavKey para ser considerados elementos
+     * apilables en la lista/pila de back stack)
+     * NavBackStack<NavKey> implementa MutableList<NavKey>
      */
     val backStack = rememberNavBackStack(Home)
 
@@ -77,7 +80,7 @@ fun NavigationRoot() {
         /**
          *  El parámetro entryProvider
          *  es una lambda que recibe una ruta desde la back stack (T) y devuelve un NavEntry<T>.
-         *  (En este ejemplo, t es el tipo Any)
+         *  (En este ejemplo, T es el tipo NavKey)
          *  Dentro, mediante un when se determina que pantalla mostrar en función de la ruta.
          */
 
@@ -85,14 +88,14 @@ fun NavigationRoot() {
             when (route) {
                 is Home -> NavEntry(route) {
                     HomeScreen(
-                        { backStack.add(List) }
+                        onNavigateToList = { backStack.add(List) }
                     )
                 }
 
                 is List -> NavEntry(route) {
                     ItemListScreen(
-                        sampleItems,
-                        { backStack.add(Detail(it)) }
+                        items = sampleItems,
+                        onItemClick = { backStack.add(Detail(it)) }
                     )
                 }
 
@@ -106,8 +109,6 @@ fun NavigationRoot() {
                 else -> error("Ruta no reconocida: $route")
             }
         }
-
     )
-
 
 }

@@ -51,9 +51,15 @@ fun DetailScreen(
     }
 }
 
-@Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(
+    showSystemUi = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun DetailScreenPreview() {
-    DetailScreen(id = "12345", onBack = {})
+    DetailScreen(
+        id = "12345",
+        onBack = {}
+    )
 }
 

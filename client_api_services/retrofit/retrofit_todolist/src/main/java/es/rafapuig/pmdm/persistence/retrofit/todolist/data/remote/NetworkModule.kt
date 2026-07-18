@@ -2,6 +2,8 @@ package es.rafapuig.pmdm.persistence.retrofit.todolist.data.remote
 
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttp
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
@@ -16,6 +18,7 @@ object NetworkModule {
     }
 
     private val contentType = "application/json;charset=UTF-8".toMediaType()
+
 
 
     private val retrofit: Retrofit = Retrofit.Builder()

@@ -22,7 +22,7 @@ import kotlinx.serialization.Serializable
  * las marcamos con @Serializable
  * (Para ello añade el plugin org.jetbrains.kotlin.plugin.serialization
  *
- * Además deben implementar el interface NavKey para poder ser añadidos
+ * Además, deben implementar el interface NavKey para poder ser añadidos
  * a la pila de navegación peristente que se crea mediante la función rememberNavBackStack
  */
 
@@ -45,14 +45,14 @@ data object List : NavKey
 
 /**
  * Ruta a la pantalla Detail de la app y que requiere un parametro id
- * por eso utilizamos un data class y no un data object
+ * por eso utilizamos una data class y no un data object
  */
 @Serializable
 data class Detail(val id: String) : NavKey
 
 /**
- * Sin embargo si utiliamos rutas de este modo cuando cambia la configuracion del dispositivo
- * se pierde el estado de la navegación y volvemos a la pantalla incial
+ * Si utilizamos rutas de este modo cuando cambia la configuración del dispositivo
+ * No se pierde el estado de la navegación y NO volvemos a la pantalla incial
  */
 
 @Composable
@@ -61,7 +61,7 @@ fun NavigationRoot() {
     /**
      * Se utiliza una lista mutable para representar la pila (backStack) de navegación
      * La hemos iniciado con la ruta Home (pantalla inicial)
-     * Para que la pila back stack sea persistence se usa la función rememberNavBackStack
+     * Para que la pila back stack sea persistente se usa la función rememberNavBackStack
      * que crea una lista de elementos de tipo NavKey (por eso las rutas deben implementarlo)
      */
     val backStack = rememberNavBackStack(Home)
@@ -77,7 +77,7 @@ fun NavigationRoot() {
 
         /**
          *  El parámetro entryProvider
-         *  Para configurarlo pordemos usar el entryProvider DSL
+         *  Para configurarlo podemos usar el entryProvider DSL
          *  para definir el contenido de cada ruta
          *  La función entry<RouteType> se usa para asociar una ruta con el contenido
          */
@@ -86,14 +86,14 @@ fun NavigationRoot() {
 
             entry<Home> {
                 HomeScreen(
-                    { backStack.add(List) }
+                    onNavigateToList = { backStack.add(List) }
                 )
             }
 
             entry<List> {
                 ItemListScreen(
-                    sampleItems,
-                    { id -> backStack.add(Detail(id)) }
+                    items = sampleItems,
+                    onItemClick = { id -> backStack.add(Detail(id)) }
                 )
             }
 

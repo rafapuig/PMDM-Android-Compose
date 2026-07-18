@@ -9,7 +9,7 @@ plugins {
 android {
     namespace = "es.rafapuig.pmdm.navigation.navigation3.basic"
     compileSdk {
-        version = release(36)
+        version = release(37)
     }
 
     defaultConfig {

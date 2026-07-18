@@ -27,7 +27,7 @@ class UserApplication : Application() {
                 /** Obtenemos el contexto de la aplicación  para inyectarlo */
                 androidContext(this@UserApplication)
 
-                /** Cargamos el modulo appModule con sus definiciones */
+                /** Cargamos el módulo appModule con sus definiciones */
                 modules(appModule)
             }
         }

@@ -3,6 +3,7 @@ package es.rafapuig.pmdm.clean.ktor.authenticacion.features.auth.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import es.rafapuig.pmdm.clean.ktor.authenticacion.features.session.presentation.SessionManager
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
