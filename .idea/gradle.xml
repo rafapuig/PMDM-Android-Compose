@@ -6,6 +6,7 @@
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="jbr-21" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
@@ -29,6 +30,8 @@
             <option value="$PROJECT_DIR$/DI/room_todolist_repository_di" />
             <option value="$PROJECT_DIR$/DI/service_locator" />
             <option value="$PROJECT_DIR$/DI/service_locator/counter" />
+            <option value="$PROJECT_DIR$/android" />
+            <option value="$PROJECT_DIR$/android/no_activity" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/clean_architecture" />
             <option value="$PROJECT_DIR$/clean_architecture/auth" />
@@ -77,6 +80,7 @@
             <option value="$PROJECT_DIR$/intro" />
             <option value="$PROJECT_DIR$/lifecycle" />
             <option value="$PROJECT_DIR$/multimedia" />
+            <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/navigation/navigation3" />
             <option value="$PROJECT_DIR$/navigation/navigation3/basic" />

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "es.rafapuig.pmdm.intro"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "es.rafapuig.pmdm.intro"
@@ -37,9 +37,9 @@ android {
     }
 }
 
-kotlin {
+/*kotlin {
     jvmToolchain(11)
-}
+}*/
 
 dependencies {
 
@@ -56,7 +56,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
+    //androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

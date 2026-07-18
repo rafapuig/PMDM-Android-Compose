@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import es.rafapuig.pmdm.compose.exercises.viewmodels.navigation.exercise2.MenuDestination
 import es.rafapuig.pmdm.compose.exercises.viewmodels.navigation.exercise2.presentation.screens.components.GridMenuCard
-import es.rafapuig.pmdm.compose.exercises.ui.theme.ComposeExercisesTheme
+import es.rafapuig.pmdm.compose.exercises.viewmodels.ui.theme.PMDMComposeTheme
 
 @Composable
 fun MenuScreen(
@@ -70,7 +70,7 @@ fun MenuScreen(
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun MenuScreenPreviewDark() {
-    ComposeExercisesTheme {
+    PMDMComposeTheme {
         Surface {
             MenuScreen()
         }
