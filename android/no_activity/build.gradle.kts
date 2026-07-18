@@ -71,15 +71,15 @@ android {
 
     /* Ese bloque indica con qué versión de Java se compila el código Java de tu proyecto
     y qué versión de bytecode se genera */
-    compileOptions {
+    //compileOptions {
         /* Indica qué sintaxis de Java puedes utilizar al escribir código
         Con VERSION_17 puedes usar las características disponibles hasta Java 17.
         Si intentaras usar una característica de Java 21, el compilador daría un error */
-        sourceCompatibility = JavaVersion.VERSION_17
+      //  sourceCompatibility = JavaVersion.VERSION_17
 
         /* Indica qué versión de bytecode generará el compilador.
         Es decir, las clases (.class) serán compatibles con Java 11 */
-        targetCompatibility = JavaVersion.VERSION_17
+       // targetCompatibility = JavaVersion.VERSION_17
 
         /* ¿Y si solo escribo Kotlin?
 
@@ -89,28 +89,39 @@ android {
         - algunas librerías contienen código Java
         - Gradle puede compilar código Java generado
         - algunos procesadores de anotaciones trabajan con Java. */
-    }
+   // }
 }
 
+/*
 kotlin {
     compilerOptions {
-        jvmToolchain(17)
-        jvmTarget = JvmTarget.JVM_17
+        //jvmToolchain(17)
+        //jvmTarget = JvmTarget.JVM_17
     }
-}
+}*/
 
 /*
 Este bloque indica qué bibliotecas (dependencias) necesita tu proyecto para compilar y ejecutarse
 Cuando sincronizas el proyecto, Gradle las descarga desde Maven Central o Google Maven
  */
 dependencies {
+    /**
+     * Dependencias para añadir directamente al source set main
+     */
     /* las dependencias implementation son para bibliotecas que forman parte de la applicacion */
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
 
+    /**
+     * Dependencias para añadir al source set test
+     */
     testImplementation(libs.junit) // Solo sirve para los tests unitarios
 
+
+    /**
+     * Dependencias para añadir al source set androidTest
+     */
     /* Esta dependencia solo existe para los tests instrumentados.
     Estos tests se ejecutan:
      - en un emulador

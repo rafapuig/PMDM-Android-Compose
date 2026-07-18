@@ -5,13 +5,15 @@ plugins {
 android {
     namespace = "es.rafapuig.pmdm.compose"
     compileSdk {
-        version = release(36)
+        version = release(37) {
+            compileSdkMinor = 1
+        }
     }
 
     defaultConfig {
         applicationId = "es.rafapuig.pmdm.compose"
         minSdk = 26
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -20,11 +22,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            optimization {
+                enable = false
+            }
         }
     }
     compileOptions {
@@ -45,6 +45,7 @@ dependencies {
      * Dependencias para añadir al source set test
      */
     testImplementation(libs.junit)
+
     /**
      * Dependencias para añadir al source set androidTest
      */
