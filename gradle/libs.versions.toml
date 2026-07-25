@@ -3,9 +3,9 @@ material = "1.14.0"
 appcompat = "1.7.1"
 agp = "9.3.0"
 kotlin = "2.4.10"
-core = "1.19.0"
-lifecycle = "2.11.0"
-activity = "1.13.0"
+core = "1.19.0"     #https://developer.android.com/jetpack/androidx/releases/lifecycle
+lifecycle = "2.11.0"    #https://developer.android.com/jetpack/androidx/releases/lifecycle
+activity = "1.13.0" #https://developer.android.com/jetpack/androidx/releases/activity
 composeBom = "2026.06.01"
 coilBom = "3.5.0"
 navigationCompose = "2.9.8"
@@ -31,11 +31,15 @@ junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 
 [libraries]
+# Estas dos dependencias se añaden en platillas de proyectos que no usan Compose
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
+# Jetpack (AndroidX) Core para Kotlin https://developer.android.com/jetpack/androidx/releases/core
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+# Lifecycle  https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+# La funcion de extensión ComponentActivity.setContent {}
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
 
 # Dependencia para test unitarios

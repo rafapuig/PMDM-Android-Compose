@@ -40,8 +40,11 @@ rootProject.name = "PMDM-Compose"
  * en el catálogo de versiones (libs.versions.toml)
  */
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+include(":android:no_activity")
 include(":app")
-include(":intro")
+include(":android:empty_activity")
+include("android:intro")
 
 include(":compose:myfirstcomposeapp")
 include(":compose:intro")
@@ -120,4 +123,4 @@ include(":compose:resources")
 
 include(":navigation:navigation3:modularization")
 include(":myapplication")
-include(":android:no_activity")
+

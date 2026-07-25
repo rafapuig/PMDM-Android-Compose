@@ -31,6 +31,8 @@
             <option value="$PROJECT_DIR$/DI/service_locator" />
             <option value="$PROJECT_DIR$/DI/service_locator/counter" />
             <option value="$PROJECT_DIR$/android" />
+            <option value="$PROJECT_DIR$/android/empty_activity" />
+            <option value="$PROJECT_DIR$/android/intro" />
             <option value="$PROJECT_DIR$/android/no_activity" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/clean_architecture" />
@@ -77,7 +79,6 @@
             <option value="$PROJECT_DIR$/hardware/level" />
             <option value="$PROJECT_DIR$/hardware/sensormotion" />
             <option value="$PROJECT_DIR$/hardware/sensors" />
-            <option value="$PROJECT_DIR$/intro" />
             <option value="$PROJECT_DIR$/lifecycle" />
             <option value="$PROJECT_DIR$/multimedia" />
             <option value="$PROJECT_DIR$/myapplication" />
